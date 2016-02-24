@@ -63,7 +63,6 @@ Template.searchproduct.events({
         e.preventDefault();
         var unlike = '#unlike'+this._id;
         var like = '#like'+this._id;
-        alert("unlike");
         $(like).removeClass('nonelike');
         $(unlike).addClass('nonelike');
          if(Meteor.userId()){
@@ -89,9 +88,6 @@ Template.searchproduct.events({
         e.preventDefault();
         var unlike = '#unlike'+this._id;
         var like = '#like'+this._id;
-        
-        alert("like");
-        
         $(like).addClass('nonelike');
         $(unlike).removeClass('nonelike');
         if(Meteor.userId()){
