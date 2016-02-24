@@ -75,7 +75,7 @@ h3.price a:hover span{
 }
 
 .wrapper div.thumbnail img {
-    border: 8px solid #000;
+   /* border: 8px solid #000;*/
 }
 
 /* refine_menu */
@@ -225,4 +225,10 @@ ul.sub_dropdown{
 
 .price span.red{
     color: #DD2A1B;
+}
+.swiper-container-product{
+   margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }

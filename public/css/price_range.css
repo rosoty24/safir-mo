@@ -11,10 +11,7 @@
   vertical-align: middle;
   position: relative;
 }
-#sl2{
-  width: 200px;
-}
-.slider .slider-horizontal {
+.slider.slider-horizontal {
   width: 210px;
   height: 20px;
 }
