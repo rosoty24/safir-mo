@@ -1,0 +1,103 @@
+<template name="dailyPopup">
+	<div class="bg-daily-popup" >	
+		<section id="produst_listing">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+                       <div style="">
+                <!-- popup -->
+
+	              <div class="modal fade alert" id="squarespaceModal" tabindex="-1" role="dialog" 
+	                    aria-labelledby=" modalLabel" 
+			             aria-hidden="true" style="padding-top: 200px; padding-bottom: 80px; display: none;">
+						  <div class="modal-dialog modal-lg">
+						    <div class="modal-content">	
+				               <div class="modal-body" style="padding:20px;">
+				                <button type="button" class="close" id="x-close" data-dismiss="modal">
+					                <span aria-hidden="true">x</span>
+					                <span class="sr-only">Close</span>
+				                </button>
+					             <div class="wrap-big-popup">    
+		                          <h4 class="title_welcome">{{_"WELCOME TO SAFIR."}}</h4> 
+		                          <h4 class="space-bootom-popup title_welcome">{{_"TRY A PRODUCT SELECTION , FOR YOUR PROFILE"}}</h4>   
+		                          	 
+		                     	     <div class="ui-field-contain">
+		                               <div class="row">
+		                               	{{#each getMyPopup}}
+		                              
+		                                  <div class="wrap-product-pop">
+											  <div class="col-md-3">
+											   <a class="removegrey" href="/details/{{_id}}">
+											   		<img src="{{getImg image}}" class="img-responsive" style="width:120px;height:120px;"></a>
+											   <p class="title_product">{{title}}</p>
+											   <p class="price-pop">{{price}} $</p>
+											  </div>
+	                                        </div>  
+	                                    {{/each}}
+		                                </div>
+		                              </div>
+		                              
+		                             <div class="boder"></div>   
+		                          <h4 class="space-bootom-popup">{{_"PEOPLES MAKEUP RELATED"}}</h4>
+		                             <div class="ui-field-contain">
+		                               <div class="row">
+		                               	{{#each getWebzine}}
+											  <div class="col-md-6">
+												   <div class="col-md-6">
+												   	{{#each image}}
+												    	<img src="{{getImg this}}" class="img-responsive" style="width:120px;height:120px;">{{/each}}
+												   </div>
+												   <div class="col-md-6 txt-sm-girls">
+												     <a class="linkwebzine" href="/webzinedetails/{{_id}}" style="text-decoration:none;color:#000;"><h4 class="title-pro">{{title}}</h4></a>
+												     <!-- <small>{{{content}}}</small> -->
+												     <small class="des_pro">
+												     	<p>{{{trimString content}}} </p></small>
+												   </div>
+											  </div>
+										{{/each}}
+		                               </div>
+		                             <div class="boder"></div>   
+   
+		                          <h4 class="space-bootom-popup">{{_"ARTICLE OF THE DAY"}}</h4> 
+									  <div class="ui-field-contain">
+		                               <div class="row">
+		                               	{{#each getTutocontent}}
+		                                  <div class="wrap-product-pop">
+											  <div class="col-md-3">
+											   {{#each image}}
+										   <!-- <a href="/tutodetails/{{_id}}"> -->
+										   	<img src="{{getImg this}}" class="img-responsive space-img" style="width:120px;height:120px;">
+										   	{{/each}}
+
+											<div class="text-artical space-text text-center">
+											 	<a class="linktuto" href="/tutodetails/{{_id}}"><h2 class="title-pro">{{title}}</h2></a>
+										 	</div> 
+											  </div>
+	                                        </div>  
+	                                    {{/each}}
+		                                </div>
+		                              </div>
+								 
+		                        </div>
+		                      </div>
+					        </div>
+					      </div>
+					   </div>	
+				<!-- end popup-->	   
+
+                       </div>
+					</div>
+				</div>
+				</div>	
+			</div>
+		</section>
+	</div>
+
+
+	<!--end popup-->
+	<script type="text/javascript">
+	    $(document).ready(function(){
+	        $('#squarespaceModal').modal('show');
+	    });
+	</script>
+</template>

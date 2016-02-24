@@ -1,0 +1,16 @@
+.megamenu_dark_bar .megamenu > li .drop-right{
+	color:#fff;
+}
+.dropdown_container_right{
+	background: url("../images/bg_nav_right.png");
+}
+.dropdown_container_left{
+	background: url("../images/bg_nav1.png") ;
+}
+
+.megamenu > li.rtl {
+	float:right;
+}
+.megamenu > li.ltr {
+	float:left;
+}

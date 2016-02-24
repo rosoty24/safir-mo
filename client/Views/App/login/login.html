@@ -1,0 +1,188 @@
+<template name="success">
+<div class="center">
+			<button data-toggle="modal" data-target="#regitersuccessModal" style="display:none;" id="displayWindow" class="btn btn-primary center-block">Safir popup</button>
+		</div>
+
+ <div class="container" dir="{{getDirection}}">
+
+	<div class="modal alert" id="regitersuccessModal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" style="padding:80px;">
+        <div class="modal-dialog modal-lg">
+			<div class="modal-content" style="margin-top: 150px;">
+				<div class="modal-header">
+					<button type="button" style="margin-left:10px;" id="displayresgitersuccess" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only"></span></button>
+					<h3 class="modal-title" id="lineModalLabel">{{_"Thanks for joined us!"}}</h3>
+				</div>
+				  
+
+				<div class="modal-body" dir="{{getDirection}}">
+
+
+					{{_"You have successfully registered"}}. {{_"You can now login"}} <a id="goto-login">{{_"Login"}}</a> . 
+
+				</div>
+			</div>
+        </div>
+    </div>
+  </div>
+</template> 
+
+
+<template name="login">
+
+	<div class="container" dir="{{getDirection}}">
+		<div class="center">
+			<button data-toggle="modal" data-target="#squarespaceModal" style="display:none;" id="displayLogin" class="btn btn-primary center-block">Safir popup</button>
+		</div>
+		<div class="modal alert" id="squarespaceModal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" style="width: 3%;"><img src="/images/system/cancel_login-01.png" style=" width: 80%;"/></button>
+						<h3 class="modal-title" id="lineModalLabel"></h3>
+					</div>
+              
+					<div class="modal-body">
+						<div class="col-xs-12 col-sm-5 col-md-5">
+							<p id="loginError" style="color:red;"></p>
+							<fieldset>
+								<form class="form-horizontal" method="post">
+									<h2 class="text-center title-form">{{_"Login"}}</h2> 
+									<!-- <p dir="rtl">
+										
+									<p>
+										و اگر شما عضو مجموعه سفير هستيد، نام كاربري شما شماره عضويت و رمز عبور شما شماره تلفن همراه تان مي باشد.
+									</p> -->	
+									<div class="hold_input_login">
+										<div class="form-group" style="margin-bottom:20px;">
+											<label>{{_"Username"}}</label>
+											<input class="form-control" name="email">
+										</div>
+										<div class="form-group">
+										  <label>{{_"Password"}}</label>
+											<input class="form-control" name="password" type="password">
+										</div>
+										<div class="form-group">
+										  <button class="btn btn-danger btn_login">{{_"Login"}}</button>
+										  <label class="pull-right">
+										   <a href="/email" style="color:#333;text-decoration: underline #d9534f;">{{_"Forgot your password ?"}}</a>
+										  </label>
+										</div>
+										<div class="form-group">
+											<div class="row">
+												<div class="pull-left" style="padding: 0px 40px"> 
+										
+												<ul class="sociallist list-inline" style="margin-left: -20px;">
+
+													<li><a href="#" id="insta-login" class="fb" target="_blank" title="instagram">
+														<img src="/img/socail_media-01.svg" alt="instagram " height="30" width="30" title="instagram"></a>
+													</li>
+
+													<li><a href="#" id="facebook-login" class="instagram" target="_blank" title="facebook">
+														<img src="/img/socail_media-02.svg" alt="facebook " height="30" width="30" title="facebook "></a>
+													</li>
+
+													<li><a href="#" id="google-login" class="pinterest" target="_blank" title="google">
+														<img src="/img/socail_media-03.svg" alt="google" height="30" width="30" title="google"></a>
+													</li>
+
+													
+
+													<li><a href="#" id="twitter-login" class="google" target="_blank" title="google+">
+														<img src="/img/socail_media-05.svg" alt="tweeter" height="30" width="30" title="tweeter"></a>
+													</li>
+
+													
+												</ul>
+												
+											</div>
+										</div>
+											
+										</div>
+									</div>
+								</form>
+							</fieldset>
+						</div>
+               			<div class="hidden-xs col-sm-1 col-md-1">
+               				<div style="margin-top:20px;height:400px; border-right:2px solid #333;"></div>
+               			</div>
+						<div class="col-xs-12 col-sm-6 col-md-6" dir="rtl">
+							<form role="form" dir="{{getDirection}}">
+								<h2 class="text-center title-form">{{_"Register"}}</h2> 
+								<div class="register_msg" style="margin-top:10px;color:red"></div>
+ 
+								<div class="hold_input_register">
+									<div class="form-group">
+										<label for="username">{{_"Username"}}:</label>
+										<input name="username" id="username" class="form-control input_border reg-username" placeholder="" type="text">
+									</div>
+									<div class="row">
+										<div class="col-xs-6 col-sm-6 col-md-6">
+											<div class="form-group">
+												<label for="first_name">{{_"First name"}}:</label>
+												<input name="first_name" id="first_name" class="form-control input_border reg-firstname" placeholder="" type="text">
+											</div>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6">
+											<div class="form-group">
+												<label for="last_name">{{_"Last name"}}:</label>
+												<input name="last_name" id="last_name" class="form-control input_border reg-lastname" placeholder="" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6 col-sm-6 col-md-6">
+											<div class="form-group">
+												<label for="pays">{{_"Country"}}:</label>
+												<input name="pays" id="pays" class="reg-country form-control input_border" placeholder="" type="text">
+											</div>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6">
+											<div class="form-group">
+												<label for="ville">{{_"City"}}:</label>
+												<input name="ville" id="ville" class="reg-city form-control input_border" placeholder="" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="email">{{_"Email"}}:</label>
+										<input name="email" id="email" class="reg-email form-control input_border" placeholder="" type="email">
+									</div>
+									<h6 style="color:red">{{Duplicate}}</h6>
+
+									<div class="form-group">
+										<label for="password">{{_"Password"}}:</label>
+										<input name="password" id="password" class="reg-password form-control input_border" placeholder="" type="password" style="margin-bottom:20px">
+										<div id="pass-info"></div>
+										<div class="alert alert-warning">
+											<strong>{{_"Your password should be at least 6 characters and contain a capital letter and one lowercase letter"}}</strong>
+										</div>'
+										<!-- {{{getMasage}}}{{{registerErrormsg}}} -->
+									</div>
+									<a href="" id="register" class="btn btn-danger btn-register">{{_"Register"}}</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>  
+	</div>
+	<script type="text/javascript">
+		// $(document).ready(function(){
+		// 	var regPassword=(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/);
+		// 	//var password=$('#password').val();
+		// 	$('#password').keyup(function(){
+		// 		var password = $('[name=password]').val();
+		// 		alert(password);
+		// 	})
+		// })
+	</script>
+	<style type="text/css">
+		.modal-backdrop.in {
+		    /*opacity: .5;*/
+		    display: none;
+		}
+	</style>
+
+</template>
+

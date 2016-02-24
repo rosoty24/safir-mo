@@ -1,0 +1,108 @@
+<template name="commentSubmit">
+ <!--  <form name="comment" class="comment-form form">
+    <div class="form-group {{errorClass 'body'}}">
+        <div class="controls">
+            <label for="body">Comment on this post</label>
+            <textarea name="body" id="body" class="form-control" cols="5" rows="3"></textarea>
+            <span class="help-block">{{errorMessage 'body'}}</span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Comment</button>
+  </form> -->
+  <section class="shadow_bottom">
+        <div class="container">
+            <div class="hold_product_detail">
+                <h1>{{_"REVIEWS & FEEDBACK"}}</h1>
+                <div class="col-md-11 col-md-offset-1">
+                    <div class="hold_feedback">
+                        <div class="hwrite_comments">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="images1/girls.png" class="img-responsive center-block">
+                                    <h4 class="bold text-center">{{getUser}}</h4>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="title" placeholder="Write your review..." >
+                                    <textarea class="form-control" id="body" rows="3" placeholder="Write your review..."></textarea>
+                                    </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-2 pull-left">
+                                    <form role="form">
+                                        <div class="form-group select_grade">
+                                            <select class="form-control" id="rating">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>  
+                                <div class="col-md-5 pull-right">
+                                    <div class="pull-left btn btn_cancel" id="btnCancel">{{_"Cancel"}}</div>
+                                    <div class="pull-right btn btn_send" id="btnSend">{{_"Send"}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- {{#each comments}}
+                        <div class="col-md-12" style="border-bottom:2px solid #333; padding:20px 15px 20px 15px;">
+                            <div class="clearfix"></div>
+                            <div class="col-md-2">
+                                <img src="images1/girls.png" class="img-responsive center-block">
+                                <h4 class="bold text-center">{{author}}</h4>
+                            </div>
+
+                            <div class="col-md-7">
+                                <p class="list-group-item-text">
+                                    {{body}} 
+                                </p>
+                            </div>
+
+                             <div class="col-md-3 " >
+                                <p>{{submittedText}}</p>
+                                <a href="#" style="font-weight:bold; color:#333; margin:15px 0px"><i class="fa fa-heart-o"></i>19</a>
+                            </div>
+                        </div>
+
+                        {{/each}} -->
+
+
+                                         
+                      <div class="col-lg-12 col-sm-12 col-xs-12 col-lg-offset-2">
+                        <h4 id="addComment">{{_"Leave a Comment"}}:</h4>
+                        <br>
+                        {{#if userid}}
+                        <p class="well">{{_"You need to fill all the filed to add a comment!"}}</p>
+                        {{else}}
+                        <p class="well">Please <a href="/login">{{_"sign in"}}</a> {{_"to add comments!"}}</p>
+                        {{/if}}
+                        <hr>
+                        <ul class="media-list comments">
+                          <li class="media">
+                          
+                            <div class="media-body">
+                                {{#each comments}}
+                              <h5 class="media-heading pull-left">{{author}} </h5>
+                              <div class="comment-info pull-left">
+                                <div class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="sent now"><i class="fa fa-user"></i></div>
+                                <div class="btn btn-primary btn-xs"><a class="fa fa-envelope white" href="mailto:khean.chien@gmail.com"></a></div>
+                                <div class="btn btn-default btn-xs"><i class="fa fa-clock-o"></i> {{submitted}}</div>
+                              </div>
+                              <br class="clearfix">
+                              <p class="well">{{body}}</p>
+                              {{/each}}
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                  </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    
+</template>

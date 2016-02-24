@@ -1,0 +1,177 @@
+<template name="listForum">
+ <div class="container">
+    <ul class = "nav nav-pills">
+        <li class = "active dropdown">
+            <a class = "dropdown-toggle" data-toggle = "dropdown" href = "#">
+              CATEGORY<span class = "caret"></span>
+            </a>
+            <ul class = "dropdown-menu">
+               <li><a href = "#">ALL </a></li>
+               <li><a href = "#">CAT1</a></li>
+               <li><a href = "#">CAT2</a></li>
+               <li class = "divider"></li>
+               <li><a href = "#">Separated link</a></li>
+            </ul>
+          
+       </li>
+       <li><a href = "#">TOP</a></li>
+       <li><a href = "#">LATEST</a></li>
+       <li><a href = "#">CATEGORIES</a></li>
+       
+    </ul>
+    <div class="row">
+      <div  class="col-sm-12">
+        <div class="col-xs-2"> <!-- required for floating -->
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs tabs-left">
+            <li class="active"><a href="#home" data-toggle="tab">All</a></li>
+            <li><a href="#profile" data-toggle="tab">Topics</a></li>
+            <li><a href="#messages" data-toggle="tab">My Topics</a></li>
+            <li><a href="#settings" data-toggle="tab">Replies</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-10">
+          <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- all -->
+        <div class="tab-pane active" id="home">
+          {{#each getallForum}}
+          <div class="item">
+            <div class="clearfix">
+              <a href="" class="avatar-link">
+                <div class="topic-pic">
+                  {{#with getprofile this.userId}}
+                     {{#if image}}
+                        <img style="border:8px solid #000" src="{{getImg image}}" class="img-circle center-block" alt="Avatar" width="50" height="50"> 
+                    {{else}}
+                        <img style="border:8px solid #000" src="/images/Safir Logo Black.jpg" class="img-circle center-block" alt="Avatar" width="50" height="50"> 
+                    {{/if}}
+                  {{/with}}
+                </div>
+              </a>
+              <span class="time">
+                {{>timeago date}}
+              </span>
+              <div class="ember-view topic-statuses" id="ember2763"></div>
+              <span class="topic-title">
+                <a href="/forum/detail/{{_id}}">{{topic}}</a>
+              </span>
+            </div>
+            {{description}}
+          </div>
+          {{/each}}
+          
+        </div>
+
+        <!-- Topics -->
+        <div class="tab-pane" id="profile">
+          <table class="table">
+            <thead>
+            <tr class="tr-th">
+               <td>User Profile</td>
+              <td>Topic</td>
+              <td>Category</td>
+              <td>Replies</td>
+              <td>Date</td>
+              <td>Views</td>
+              <td>Activity</td>
+            </tr>
+          </thead>
+             {{#each allForums}}
+            <tbody>
+              <tr>
+                <td>
+                  <a href="/forum/detail/{{_id}}">
+                      {{#with getprofile this.userId}}
+                         {{#if image}}
+                            <img style="border:8px solid #000" src="{{getImg image}}" class="img-circle center-block" alt="Avatar" width="50" height="50"> 
+                        {{else}}
+                            <img style="border:8px solid #000" src="/images/Safir Logo Black.jpg" class="img-circle center-block" alt="Avatar" width="50" height="50"> 
+                        {{/if}}
+                      {{/with}} 
+                      {{#with getprofile this.userId}}{{profile.firstname}} {{profile.lastname}}{{/with}}                   
+                  </a>
+              </td>
+                <td><a href="/forum/detail/{{_id}}">{{topic}}</a></td>
+                <!-- <td>
+                  <div class="category">
+                    <a href="">
+                      <span class="category-bg "></span>
+
+                    </a>
+                    {{displayCategory category}}
+                  </div>
+                </td> -->
+                <td>
+                  <div class="category">
+                    <a href="/category/{{category}}">
+                      <span class="category-bg "></span>
+                       {{displayCategory category}}
+                    </a>
+                  </div>
+                </td>
+                <td>{{getReply this._id}}</td>
+                <td>{{> timeago date}}</td>
+                <td>142</td>
+                <td>2d</td>
+              </tr>
+            </tbody>
+            {{/each}}
+          </table>
+        </div>
+
+        <!-- My Topics -->
+        <div class="tab-pane" id="messages">
+          {{#each listallmyforums}}
+          <div class="item">
+            <div class="clearfix">
+              <a href="" class="avatar-link">
+                <div class="topic-pic">
+                  {{#with getprofile this.userId}}
+                     {{#if image}}
+                        <img style="border:8px solid #000" src="{{getImg image}}" class="img-circle center-block" alt="Avatar" width="50" height="50"> 
+                    {{else}}
+                        <img style="border:8px solid #000" src="/images/Safir Logo Black.jpg" class="img-circle center-block" alt="Avatar" width="50" height="50">
+                    {{/if}}
+                  {{/with}}
+                </div>
+              </a>
+              <span class="time">
+                {{>timeago date}}
+              </span>
+              <div class="ember-view topic-statuses" id="ember2763"></div>
+              <span class="topic-title">
+                <a href="/forum/detail/{{_id}}">{{topic}}</a>
+              </span>
+            </div>
+            {{description}}
+          </div>
+          {{/each}}
+        </div>
+
+        <!-- Replies -->
+        <div class="tab-pane" id="settings">
+          {{#each listallmessagereply}}
+          <div class="item">
+            <div class="clearfix">
+              <a href="" class="avatar-link">
+                <div class="topic-pic"><img class="img-active" src="/img/topic.png"></div>
+              </a>
+              <span class="time">
+              {{>timeago date}}
+              </span>
+              <div class="ember-view topic-statuses" id="ember2763"></div>
+              <span class="topic-title">
+                <p>{{topic}}</p>
+              </span>
+            </div>
+            <p>{{description}}</p>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</template>

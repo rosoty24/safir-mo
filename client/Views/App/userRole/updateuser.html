@@ -1,0 +1,90 @@
+<template  name="updateuser">
+ 	<div id="wrapper">
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                           Manage User Roles
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+							<li class="active">Update User Role</li>
+                                
+                        </ol>
+                    </div>
+					<div class="col-xs-12 col-sm-6 col-lg-5">
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="username">Username <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="text" name="username" id="username" class="form-control input-sm" value="{{username}}"  >
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="email">Email <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+								{{#each emails}}
+									<input type="text" name="email" id="txtemail" class="form-control input-sm" value="{{address}}"  >
+								{{/each}}
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="userrole">Role users <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<select class="form-control" id="mySelect">
+										<option value="{{ getRoles roles}}" style="display:none">{{ getRoles roles}}</option>
+										{{#each allRoles}}
+										<option value="{{name}}">{{name}}</option>
+										{{/each}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-4">
+									<input  value="Update" id="btnupdate" class="btn btn-primary btn-block">
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- <div class="col-xs-12 col-sm-6 col-lg-7">
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover table-striped">
+								<thead>
+									<tr>
+										<th class="text-center" style="width:40%">Emails</th>
+										<th class="text-center" style="width:25%">Role of  user</th>
+										<th class="text-center" style="width:10%" colspan="2">Tools</th>
+									</tr>
+								</thead>
+								<tbody>
+									{{#each getUsers}}
+									<tr>
+										{{#each emails}}
+											<td>{{address}}</td>
+										{{/each}}
+										<td>{{ getRoles roles}}</td>
+										<td><a class="glyphicon glyphicon-trash center-block" href="" id="remove"></a></td>
+										<td><a class="glyphicon glyphicon-edit center-block" href="updateuser/{{_id}}"></a></td>
+									</tr>
+									{{/each}}
+								</tbody>
+							</table>
+						</div>
+					</div> -->
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+</template>

@@ -1,0 +1,10 @@
+<template name="cart">
+<select id="shop">
+	{{#each shopsavailable _id}}
+		<option value="{{_id}}">{{title}}</option>
+	{{/each}}
+</select>
+
+<input type="text" id="qty"/> / <span id="max">{{getQuantity _id shopSelected}}</span>
+<button id='addtocart' >Add to cart</button>
+</template>

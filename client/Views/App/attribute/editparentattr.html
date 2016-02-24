@@ -1,0 +1,26 @@
+<template name="editparentattr">
+	<div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            EDIT ATTRIBUTE
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <form role="form">
+                                <input type="hidden" name="id_edit" value="{{_id}}">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input class="form-control" type="text" value="{{name}}" name="name" id="name" required>
+                                </div>
+                                
+                                
+                                
+                                <button type="submit" id="btn-adduser" class="btn btn-default">UPDATE </button>
+                                <button type="reset" class="btn btn-default">Close</button>
+                            </form>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+    </div>
+</template>

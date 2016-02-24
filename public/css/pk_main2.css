@@ -1,0 +1,229 @@
+/*************************
+*******Typography******
+**************************/
+/*@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Abel); */
+
+body {
+  background:;
+  position: relative;
+  font-weight:400px;
+}
+
+ul li {
+  list-style: none;
+}
+
+a:hover {
+outline: none;
+text-decoration:none;
+}
+
+a:focus {
+  outline:none;
+  outline-offset: 0;
+}
+a:visited {
+  outline:none;
+  outline-offset: 0;
+  background:none;
+}
+
+a {
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+}
+
+.btn:hover, 
+.btn:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggle {
+  background-color: #000;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: none;
+}
+
+/*************************
+*******Header CSS******
+**************************/
+#header{
+	margin-bottom:15px;
+}
+.header_top {
+  background: none repeat scroll 0 0 #000;
+}
+.header_top_left ul li:first-child{
+    margin-left: -15px;
+}
+.header_top_left ul li a{
+  font-size: 14px;
+  color: #fff;
+}
+.header_top_left ul li a:hover{
+	background:inherit;
+}
+
+
+.header_top_right ul li a{
+  font-size: 14px;
+  color: #fff;
+}
+.header_top_right ul li a:hover{
+	background:inherit;
+}
+.header_top_right ul li a i{
+	background:inherit;
+	color:#e4332a;
+}
+
+.header_middle .container .row {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding:0px;
+}
+.search{
+	margin:30px 0px;
+	position: relative;
+	overflow:hidden;
+}
+.search .input-group{
+	padding-top:20px;
+}
+.search .input-group-btn:last-child > .btn {
+    margin-left: -1px;
+    margin-left: 5px;
+	background:#000;
+	color:#fff;s
+}
+.search input[type="text"] {
+    padding: 10px;
+    outline: medium none;
+    color: #B6B2AE;
+    background: #000 none repeat scroll 0% 0%;
+    border: 1px solid #000;
+	margin-right:5px;
+	width:100%;
+}
+.search button[type="submit"] {
+    background: #000 url("../images/system/search.png") no-repeat scroll 30px 5px;
+    padding: 10px;
+    border: medium none;
+    cursor: pointer;
+    position: absolute;
+	border: 1px solid #000;
+    outline: medium none;
+	border-radius:0px;
+	margin-top: 5px;
+	width:100%;
+}
+/*************************
+******* Refine Menu******
+**************************/
+.main_refine_menu{
+	box-shadow: 0px 0px 5px 3px #DDD;
+	margin-bottom:15px;
+}
+.refine_menu ul li a{
+  font-size: 14px;
+  color: #000;
+}
+.refine_menu .nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #fff;
+}
+/*************************
+******* Home ******
+**************************/
+#slider {
+	padding-bottom:45px;
+}
+.hbg{
+	background-size:1360px 1000px;
+	background: transparent url('../images/system/bg_content.png') no-repeat scroll center bottom;
+}
+#trendy_product, #best_selling_product{
+	margin-bottom:25px;
+}
+#season_product{
+	margin-bottom:100px;
+}
+h1{
+	font-size:36px;
+	font-weight:700;
+	margin-bottom:40px;
+	padding:0px;
+}
+/*************************
+******* Products Listing  ******
+**************************/
+.top_product{
+	padding:0px 15px;
+	margin-bottom:15px;
+	overflow:hidden;
+}
+.top_product p.blue{
+	color: #1CABE2;
+	font-weight: bold;
+}
+.top_product p.black{
+	color: #333;
+	font-weight: bold;
+}
+.hproduct{
+	margin-bottom:50px;
+}
+.hproduct .thumbnail{
+	border:0px solid #fff;
+	background:none;
+}
+.hproduct .thumbnail img{
+	border:8px solid #000;
+	background:none;
+}
+.hproduct .title{
+	color: #000;
+	font-size: 1em;
+}
+.hproduct .price{
+	color: #000;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	font-weight: 700;
+	text-decoration: none;
+}
+.hold-title{
+	width: 100%; 
+	margin-bottom:10px;
+	overflow: hidden
+}
+.hold-price{
+	width: 100%; height: 30px; overflow: hidden;
+	margin-top:15px;
+}
+.hproduct span.red{
+	color:#e4332a;
+}
+.hproduct span:hover{
+	color:#e4332a;
+}
+
+
+#footer{
+	background:#000;
+	color:#fff;
+	text-align:right;
+}
+.refine_menu ul li a{
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+    padding-left: 54px;
+}

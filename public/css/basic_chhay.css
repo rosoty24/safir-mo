@@ -1,0 +1,28 @@
+html, body{
+	/*font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;*/
+	font-size: 100%;
+	background:#fff;
+}
+#hold_component{
+	padding:25px;
+}
+h1, h2, h3, h4, h5, h6, p{
+	/*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
+	font-stretch:normal;
+}
+h1{font-size:1.5em;text-transform:uppercase; margin-bottom:0px;}
+h1.bold{font-size:1.5em;text-transform:uppercase; font-weight:bold;}
+h1.bold_big{font-size:1.8em;text-transform:uppercase; font-weight:bold;margin-bottom: -10px;margin-top: 25px;}
+h2{font-size:1.25em;}
+h2.bold{font-size:1.25em;font-weight:bold}
+h3{font-size:1em;}
+h3.bold{font-size:1em; font-weight:bold}
+h4{font-size:0.8em;}
+h4.bold{font-size:0.8em; font-weight:900}
+p{
+	font-size:11px;
+    margin: 0;
+}
+
+}
+p.bold{font-size:12px;font-weight:bold }

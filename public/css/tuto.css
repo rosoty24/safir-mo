@@ -1,0 +1,343 @@
+
+/* page tuto */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.space_man{
+ padding-top: 15px;
+}
+.space_cont_top{
+	margin-top:60px;
+	padding-bottom: 60px;
+}
+.space_cont_top1{
+	margin-top:20px;
+	padding-bottom: 60px;
+}
+#space_cont_top{
+	padding-bottom: 60px;
+}
+.space_cont_row{
+   margin-top:30px;
+}
+.space_cont_top_second{
+	margin-top:60px;
+	padding:0 50px 0 50px;
+}
+h1.txt-color{
+	font-weight:bold;
+	color:black;
+	padding-bottom: 10px;
+
+}
+/* page tuto1 */
+.share-control{
+	margin-top: 20px;
+}
+.share-control1{
+    margin-top: 10px;
+}
+h4.h4-title{
+   margin-bottom:20px;
+}
+h4.h4-bold-tuto{
+	font-weight: 700;
+}
+h4.h4-bold-tuto-1{
+	font-weight: 700;
+	margin-top: 20px;
+}
+p.p-font-sm{
+	font-size: 13px;
+	font-weight: 400;
+	color: #000;
+}
+p.p-font-sm-1{
+	font-size: 13px;
+	font-weight: 400;
+	color: #000;
+	margin-bottom: 20px;
+}
+p.txt-tuto-sm{
+	font-size: 12px;
+	margin-left: 20px;
+}
+p.txt-tuto-sm1{
+	font-size: 12px;
+	margin-left: 20px;
+	cursor:pointer;
+}
+p.txt-tuto-sm2{
+	font-size: 12px;
+	margin-left: 20px;
+}
+p.txt-tuto-sm3{
+	font-size: 12px;
+	cursor:pointer;
+	padding-left:3px;
+}
+.space-row-tuto{
+	margin-top: 20px;
+}
+.shadow_bottom{
+	box-shadow: 0px 6px 4px 0px #BDB8C5;
+}
+.div_hover { 
+	background-color: #FFFFFF;
+}
+
+.div_hover:hover { 
+	background-color: #ddd;
+    cursor:pointer;
+}
+.fa-heart-o {
+	color: #E52637;
+}
+.fa-heart-o:hover {	
+	color:#000;
+}
+/* page tuto2 */
+.breadcrumb-main{
+	background:#fff ;
+	-moz-box-shadow: 0 0 5px 5px #BDB8C5;
+	-webkit-box-shadow: 0 0 5px 5px#BDB8C5;
+	box-shadow: 0px 3px 6px 2px #BDB8C5;
+}
+.breadcam{
+	padding: 15px 15px;
+	margin-left: 55px;
+}
+.breadcam :hover li{
+	color: #000;
+}
+.list-inline > li {
+	color: #8c7b78;
+	margin-right:50px;
+	font-size:13px; 
+	font-weight: 900;
+}
+.list-inline > li > span{
+	margin-left:25px;
+}
+.modal-footer .btn-default{
+	padding-left:40px;
+	padding-right:40px;
+	margin-bottom:2em;
+}
+
+@media only screen and (min-width : 320px) {
+	.black_silver_gold{
+		overflow:hidden;
+		background:#F9F9F9; 
+		padding:20px; 
+		margin-top:5px;
+		opacity:0.8;
+}
+	.des_reply_mes{
+	overflow:hidden;
+	background:#F9F9F9; 
+	padding:30px; 
+	margin-top:5px;
+	opacity:0.8;
+  }
+}
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+	.black_silver_gold{
+		overflow:hidden;
+		background:#F9F9F9; 
+		padding:20px; 
+		margin-top:5px;
+		opacity:0.8;
+	}
+	.des_reply_mes{
+	overflow:hidden;
+	background:#F9F9F9; 
+	padding:30px; 
+	margin-top:5px;
+	opacity:0.8;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+}
+  .black_silver_gold{
+	overflow:hidden;
+	background:#F9F9F9; 
+	padding:20px; 
+	margin-top:5px;
+	opacity:0.8;
+}
+  .des_reply_mes{
+	overflow:hidden;
+	background:#F9F9F9; 
+	padding:30px; 
+	margin-top:5px;
+	opacity:0.8;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+}
+  .des_reply_mes{
+	overflow:hidden;
+	background:#F9F9F9; 
+	padding:30px; 
+	margin-top:5px;
+	opacity:0.8;
+ }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1000px;
+  }
+  .black_silver_gold{
+	overflow:hidden;
+	background:#F9F9F9; 
+	padding:50px; 
+	margin-top:5px;
+	opacity:0.8;
+  }
+  .des_reply_mes{
+	overflow:hidden;
+	background:#F9F9F9; 
+	padding:30px; 
+	margin-top:5px;
+	opacity:0.8;
+  }
+}
+/* page product detail */
+
+	.hold_feedback{
+		margin:35px;
+		overflow:hidden;
+		border-bottom:2px solid #333;
+	}
+	.space-img{
+		margin-top: 15px;
+	}
+	.space-text{
+		margin-top: 15px;
+	}
+	.h2-bold{
+		font-weight: 400;
+	}
+	.space-arctical{
+		margin-top: 30px;
+	}
+	#artical_about_lip .hold_product_detail .well{
+		background:#E2E4DD;
+	}
+	#artical_about_lip .hold_product_detail{
+		margin-top: 50px;
+	}
+	#artical_about_lip .hold_product_detail p{
+		font-size: 13px;
+	}
+	#forum_question .wrapper_forum{
+		padding: 0 50px 0 50px;
+	}
+	#forum_question .row{
+	    margin-top: 30px;
+	}
+	.space_weekly{
+		padding-top: 15px;
+	}
+	.btn-black {
+	    background-color: #000000;
+	    border-color: #000000;
+	    color: #fff;
+	}
+	.btn {
+	    -moz-user-select: none;
+	    background-image: none;
+	    border: 1px solid transparent;
+	    border-radius: 0px;
+	    cursor: pointer;
+	    display: inline-block;
+	    font-size: 20px;
+	    font-weight: 400;
+	    line-height: 1.42857;
+	    margin-bottom: 0;
+	    padding: 6px 12px;
+	    text-align: center;
+	    vertical-align: middle;
+	    white-space: nowrap;
+	}
+	.space_btn{
+		padding-bottom:30px;
+	}
+
+	#show-text {
+	    display: none;
+	}
+	#show-text, #show {
+	    cursor: pointer;
+	}
+	.bd_like{
+	    border-left: 3px solid #1cabe2;
+	}
+/** Kisphly **/
+h3.red-light {
+    color: #dd241b;
+    margin-right: -25px;
+}
+.mode-news h3 {
+    font-weight: bold;
+}
+.text-right {
+    text-align: right;
+}
+h3 {
+    font-size: 1em;
+}
+.webzine h3, .webzine h2{
+	text-transform:uppercase;
+}
+h2.bold {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.text-center {
+    text-align: center;
+   
+
+.text-center txt-color{
+	color:black;
+}
+.webzine-title1 a{
+	color:#000;
+}
+.webzine-title{
+	padding:10px;
+	opacity:0.5;
+	position:absolute;
+	bottom:0;
+	background:#000;
+	color:#fff;
+	width:100%;
+}
+.webzine-center{
+	position:relative;
+	overflow:hidden;
+}
+.rel-title{
+    font-stretch: normal;
+	font-size:14px;
+	padding:5px;
+}
+.webzine-comment .group-grade{
+	text-align:left;
+}
+.webzine-comment .grade{
+	display:inline-block;
+}
+.webzine-comment .comment-row{
+	padding:10px;
+}

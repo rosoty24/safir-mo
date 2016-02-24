@@ -1,0 +1,62 @@
+<template name="listTranslate">
+
+        <div class="container">
+            <div class="row">
+				<div class="col-xs-12 col-sm-12 col-lg-12">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover table-striped">
+							<thead>
+								<tr>
+									<th class="text-center">Collection Name</th>	
+									<th class="text-center">Title</th>
+									<th class="text-center">Description</th>
+									<th class="text-center">Code</th>
+									<th class="text-center">Brand</th>
+									<th class="text-center">MetaTitle</th>
+									<th class="text-center">MetaKey</th>
+									<th class="text-center">Language</th>
+									<th class="text-center">Action</th>
+
+								</tr>
+							</thead>
+							<tbody>
+
+								{{#each getListTranslate}}
+								
+									<tr>
+										
+									{{#with i18n.en}}
+										<td>{{../collectionName}}</td> 
+										<td>{{title}}</td>
+										<td>{{description}}</td>
+										<td>{{code}}</td>
+										<td>{{brand}}</td>
+										<td>{{metaTitle}}</td>
+										<td>English</td>
+										<td>{{metaKey}}</td>
+										
+									{{/with}}
+										
+									{{#with i18n.fa}}
+										<td>{{../collectionName}}</td> 
+										<td>{{title}}</td>
+										<td>{{description}}</td>
+										<td>{{code}}</td>
+										<td>{{brand}}</td>
+										<td>{{metaTitle}}</td>
+										<td>Farsi</td>
+										<td>{{metaKey}}</td>
+										
+									{{/with}}
+										<td><a class="glyphicon glyphicon-new-window center-block" href="#" id="btnAdd"></a></td>
+									</tr>
+									
+								{{/each}}
+							</tbody>
+						</table>
+					</div>
+				</div>
+            </div>
+        </div>
+
+</template>

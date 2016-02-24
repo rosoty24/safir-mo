@@ -1,0 +1,90 @@
+<template name="webzinedetails">
+	<section class="webzine" dir="{{getDirection}}">
+		<div class="container">
+			<div class="mode-news" style="margin-top: 50px; padding-bottom: 30px;">
+				<a href="/webzinelisting"><h2 class="text-center bold content-pad">{{title}}</h2></a>
+				<div class="mode-img">
+					{{#with getFirstImgContent _id}}
+					<img src="{{getImg this}}" class="center-block img-responsive" width="200" height="200" alt="{{title}}">
+					{{/with}}
+				</div>
+				<div class="mode-description content-pad">
+					<p class="cetner-block p-pad">{{{content}}}</p>
+				</div>
+				<hr class="under-p-pad">
+				
+			</div>
+			<!-- <div class="col-md-12">
+				<div class="hold_btn_filter_view">
+					<div class="pull-right">
+						<a href="" id="closeFilter" style="display:none;">Close</a>
+						<button class="btn btn-filter-view" type="button" id="input">
+							<i class="fa fa-search"></i> {{_ "FILTER REVIEWS"}}</button>  
+					</div>
+				</div>
+			</div> -->
+				<div class="col-md-12">
+					{{#if currentUser}}
+					{{>addreview}}
+					{{/if}}
+					<!--{{#each getReviews review filterReview removeFilter}}-->
+					{{#each getReviewBySort review}}
+					{{>review}}
+					{{else}}
+					<i>هیچ بررسی</i>
+					{{/each}}
+					<div class="pull-right">
+						<h3 id="show1" class="morereview" >{{_ "MORE REVIEWS"}} &nbsp; <i class="fa fa-angle-down morereview" id="btnMore"></i></h3>   
+					</div>
+				</div>
+				<div class="wrapper_forum">
+					<div class="filter_sdet">
+					</div>
+				</div>
+
+				
+
+				<div class="clearfix"></div>
+				<div class="mode-lips" style="background-color: #ebebea; overflow:hidden;">
+					<div class="lips-box">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="row h1-pad" style="margin-left:15px;">
+								<h1>{{_ "ARTICLE ABOUT"}}</h1>
+							</div>
+							<br>
+							
+						</div>
+					</div>
+				</div>	
+				<div class="clearfix"></div>
+				<br>
+				
+				<div class="clearfix"></div>
+				<div class="forum-lips" style="background-color: #ebebea; overflow:hidden;">
+					<div class="lips-box">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="row h1-pad" style="margin-left:15px;">
+								<h1>{{_"RELATED PRODUCTS"}}</h1>
+							</div>
+
+							<br>
+							<div class="on-lips">
+								<div class="row"> 
+
+									{{#each related_product category}}
+									<div class="col-md-3">
+										<a href="/details/{{slug title}}"><img style="border:8px solid #000" src="{{getImg image}}" class="img-circle center-block" alt="Cinque Terre" width="150" height="150"></a>
+										<p class="rel-title relatedp"><a href="{{pathFor 'details' id=_id}}" style="color:black;" >{{title}}</a></p>
+										<h3 class="text-center" style="font-weight:bold;font-size:1em;">{{price}}</h3>
+									</div>
+									{{/each}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</template>

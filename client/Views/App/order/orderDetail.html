@@ -1,0 +1,95 @@
+<template name="orderDetail">
+	<div class="container">
+		<div class="col-lg-12">
+			<div class="row">
+				<a href="" id="back"><button style="backgroud-color:black;">{{_"Back"}}</button></a>
+			</div>
+		</div>
+	</div>
+	<div class="container hold-checkout">
+        <div class="row">
+			{{#each items}}
+        	<div class="col-lg-12">
+        			<input type="text" id="pro" class="pro_{{id_product}}" name="pro" value="{{id_product}}" data-pro="{{id_product}}">
+					<div class="well">
+						<div class="row">
+						<div class="col-sm-2">
+							<img src="{{getImgForProduct id_product}}" class="img-responsive img-circle img-circle-border-cart">
+						</div>
+						<div class="col-sm-8">
+						{{#with getProductInfo id_product}}
+							<h3 class="title-cart">{{title}}</h3>
+						{{/with}}
+							<div class="col-sm-6">
+								<div class="hold-add-cart">
+								{{#with getProductInfo id_product}}
+									<div class="row">
+										<span class="pull-left">{{_"Price"}}</span>
+										<span class="pull-right">{{price}}</span>
+									</div>
+								{{/with}}
+									<div class="row">
+										<span class="pull-left">{{_"Quantity"}}</span>
+										<span class="pull-right">{{qty}}</span>
+									</div>
+								
+									<div class="row">
+										<span class="pull-left"><b>{{_"Total"}}:</b></span>
+										<span class="pull-right"><strong>{{../total}}</strong></span>
+									</div>
+									<div class="row">
+										<span class="pull-left"><b>{{_"Delivery"}}:</b></span>
+										<span class="pull-right"><strong>{{../delivery}}</strong></span>
+									</div>
+								</div>
+								<button class="btn btn-primary btn-sm toggle-trigger" id="clickReview">{{_"Review"}}</button>
+								
+							</div>
+							
+						</div>
+						</div>
+
+		
+					</div>
+				</div>
+				<div class="toggle-wrap">
+					<div class="style-single">
+				        <div class="col-lg-12 reviewUser" id="reviewUser">
+							<div class="form-group">
+									
+									<input type="text"  name="title" class="title_{{id_product}} col-lg-12" placeholder="{{_"Title"}}">
+							</div>
+							<div class="form-group">
+									
+									<textarea class="form-control review_{{id_product}}" rows="3" id="review" placeholder="{{_"Review"}}"></textarea>
+							</div>
+								<div class="col-md-12">
+							   		<div class="h1 space-top-star" id="star">
+							            <i id="star1" value="1" class="fa fa-star-o fa-3x circle-color color-yellow"></i> 
+							            <i id="star2" value="2" class="fa fa-star-o fa-3x circle-color color-yellow"></i> 
+							            <i id="star3" value="3" class="fa fa-star-o fa-3x circle-color color-yellow"></i> 
+							            <i id="star4" value="4" class="fa fa-star-o fa-3x circle-color color-yellow"></i>
+							            <i id="star5" value="5" class="fa fa-star-o fa-3x circle-color color-yellow"></i>  
+							         </div>
+								</div>
+							<button type="button" class="btn btn-primary btn-sm" id="addreview">{{_"Review"}}</button>
+
+						</div>
+				    </div>
+				</div>
+				{{/each}}
+				<input type="hidden" id="orderid" value="{{_id}}">
+		</div>
+
+	</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".toggle-wrap").hide();
+	$(".toggle-trigger").click(function() {
+		$(this).parent().parent().parent().parent().parent().nextAll('.toggle-wrap').first().toggle('');
+	});
+});
+</script>
+
+</template>

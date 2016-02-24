@@ -1,0 +1,21 @@
+{
+	"Username": "نام کاربری",
+	"Password": "رمز ورود",
+	"Forgot your password ?": "رمز خود را فراموش کرده اید؟",
+	"Login": "ورود",
+	"Register": "ثبت نام",
+	"First name": "نام ",
+	"Last name": "نام خانوادگی",
+	"Country": "کشور",
+	"City": "شهرستان",
+	"Ville":"شهر",
+	"Thanks for joined us!":"با تشکر برای ما پیوست!",
+	"Email": "پست الکترونیکی",
+	"your password must be have symbals lowercase , uppercase and number!":"رمز عبور شما می بایست دارای حروف بزرگ، حروف کوچک و عدد باشد.",
+	"error in your login":"نام و یا رمز عبور شما اشتباه است!",
+	// "You have successfully registered. You can now login":"ثبت نام شما با موفقیت انجام گردید . حال می توانید وارد سایت شوید",
+	"Thanks for joined us!":"از اینکه به ما پیوستید، متشکریم",
+	"You have successfully registered":"ثبت نام شما با موفقیت انجام گردید",
+	"You can now login":"حال می توانید وارد سایت شوید",
+	"Your password should be at least 6 characters and contain a capital letter and one lowercase letter":"رمز عبور شما مي بايست حداقل ٦ كاراكتر و شامل يك حرف بزرگ و يك حرف كوچك باشد"
+}

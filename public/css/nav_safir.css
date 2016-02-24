@@ -1,0 +1,163 @@
+ul.megamenu li a.megamenu_drop1:hover{
+  background-image: url("../images/over_bg.png");
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+  background-position: center center; 
+  min-width:110px;
+}
+.selected_item{
+  background-image: url("../images/over_bg.png");
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+  background-position: center center; 
+  min-width:110px;
+}
+ul.megamenu li a.megamenu_drop2:hover{
+  background-image: url("../images/over_menu1.png");
+  color: #ffffff;
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+}
+ul.megamenu li a.megamenu_drop3:hover{
+  background-image: url("../images/over_menu2.png");
+  color: #ffffff;
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+}
+ul.megamenu li a.megamenu_drop4:hover{
+  background-image: url("../images/over_menu2.png");
+  color: #ffffff;
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+}
+ul.megamenu li a.megamenu_drop5:hover{
+  background-image: url("../images/over_menu.png");
+  color: #ffffff;
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+}
+ul.megamenu li a.megamenu_drop6:hover{
+  background-image: url("../images/over_menu.png");
+  color: #ffffff;
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+}
+ul.megamenu li a.megamenu_drop7:hover{
+  background-image: url("../images/over_menu2.png");
+  color: #ffffff;
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+}
+ul.megamenu li a.megamenu_drop8:hover{
+  background-image: url("../images/over_menu.png");
+  color: #ffffff;
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+}
+ul.megamenu li a.megamenu_drop9:hover{
+  background-color: red;
+  color: #ffffff;
+  background-repeat-y: no-repeat;
+  background-repeat-x: no-repeat; 
+}
+.megamenu:hover{
+  color: #fff;
+}
+
+.commu_sub {
+  padding: 10px 0px;
+}
+
+.megamenu>li>.megapanel {
+  position: absolute;
+  display: none;
+  text-align: left;
+  background: url("../images/bg_nav.png")no-repeat;
+  background-size: 100% 100%;
+  background-position: center left;
+  box-shadow: 3px 5px 4px #777;
+  width: 100%;
+  top: 35px;
+  left: 0px;
+  z-index: 99;
+  padding: 20px 30px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+.col1_commu ul li a{
+  width: 20%;
+  margin: 0px 0px;
+  background: #333;
+  border: 1px solid #ddd;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.col1_commu ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 37px;
+
+}
+.col1_commu ul li a:hover{
+	color: #fff;
+	text-decoration: none;
+  padding: 2px 37px;
+  background-color: #FC0303;
+  padding: 0px 85px 0px 85px;/*add this line to change padding when hover*/
+  margin-left: -17px;/*add this line to change padding when hover*/
+}
+.commu_sub .col1_commu ul:hover{
+  background-color: #de271b;
+  color: #fff;
+}
+
+#navbar .megamenu > li > a:hover {
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: 0px none;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    letter-spacing: 0px;
+}
+#navbar .megamenu > li > a#community{
+	background-color: #000;
+	color: #fff;
+  font-weight:bold;
+}
+#navbar .megamenu > li > a#community:hover{
+	background-color:red;
+	color: #fff;
+}
+
+.bord-left {
+    border-left: 3px solid #0da5e0;
+}
+
+div.col_3 ul.num2 li a:hover{
+	color: #0da5e0;
+}
+div.col_3 ul.list li a:hover{
+	color: #0da5e0;
+}
+
+
+.megamenu li ul.num li:hover, .megamenu li ol li {
+    font-size: 12px;
+    line-height: 21px;
+    position: relative;
+    padding: 7px 15px 15px 15px;
+    margin: 0px;
+    float: none;
+    min-width:103px;
+    text-align: left;
+    background: url("../images/h_caret-01.png") no-repeat;
+    background-size: 200px 30px;
+}

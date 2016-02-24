@@ -1,0 +1,68 @@
+<template name ="webzinelisting1"> 
+	<section class="webzine" style="padding-bottom: 50px;">
+		{{#with webzine1}}
+		<div class="container">
+			<div class="mode-news webzine-title1">
+				<div class="mode-news1">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+						<h3 class="text-right">
+							<a href="/category/{{category}}">{{getCatergoryName category}}</a>
+						</h3>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+						<h3 class="red-light">Webzine </h3>
+					</div>
+					
+				</div> <!-- 1 -->
+				<h2 class="text-center bold content-pad" style="color:black;"><a href="{{pathFor 'webzinedetails' id=_id}}">{{title}}</a></h2>
+				<div class="mode-img">
+					<a href="{{pathFor 'webzinedetails' id=_id}}">
+					{{#with getFirstImgContent _id}}
+					<img src="{{getImg this}}"  width="500" height="500" class="center-block img-responsive" alt={{title}}>
+					{{/with}}
+				</a>
+				</div>
+				<div class="mode-description content-pad">
+					<p class="center-block">{{{smaller content 10}}}</p>
+				</div>	
+			</div>
+		</div>
+		<section id="not-line-straight">
+			<img src="/images/line1.jpg" class="img-responsive">
+		</section>
+		{{/with}}
+
+		{{#each webzineall}}
+		<div class="container">
+			<div class="mode-news webzine-title1">
+				<div class="mode-news1">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+						<h3 class="text-right">
+							<a href="/category/{{category}}">{{getCatergoryName category}}</a>
+						</h3>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+						<h3 class="red-light">Webzine </h3>
+					</div>
+					
+				</div> <!-- 1 -->
+				<h2 class="text-center bold content-pad" style="color:black;"><a href="{{pathFor 'webzinedetails' id=_id}}">{{title}}</a></h2>
+				<div class="mode-img">
+					<a href="{{pathFor 'webzinedetails' id=_id}}">
+					{{#with getFirstImgContent _id}}
+					<img src="{{getImg this}}"  width="500" height="500" class="center-block img-responsive" alt={{title}}>
+					{{/with}}
+				</a>
+				</div>
+				<div class="mode-description content-pad">
+					<p class="center-block">{{{smaller content 10}}}</p>
+				</div>	
+			</div>
+		</div>
+		<section id="line-straight">
+			<img src="images/line2.png" class="img-responsive">
+		</section>
+		{{/each}}
+		
+	</section>
+</template>

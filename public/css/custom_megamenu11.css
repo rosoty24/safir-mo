@@ -1,0 +1,30 @@
+.megamenu_dark_bar .megamenu > li .drop-right{
+	color:#fff;
+}
+.dropdown_container_right{
+	background: url("../images/bg_nav_right.png");
+}
+.dropdown_container_left{
+	background: url("../images/bg_nav1.png") ;
+}
+
+.megamenu > li.rtl {
+	float:right;
+}
+.megamenu > li.ltr {
+	float:left;
+}
+/*Componencs*/
+h1.h1{
+    font-weight: 700;
+    margin: 1em 0px;
+}
+/* background svg */
+.bg_home{
+	background:url("../images/bg_home.svg") no-repeat;
+	height:1300px;
+}
+.img-circle-border{
+	border:8px solid #000;
+}
+/*end componense*/

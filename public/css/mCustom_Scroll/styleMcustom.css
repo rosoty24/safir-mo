@@ -1,0 +1,35 @@
+
+	/*clearfix*/
+	.clearfix:after{
+		visibility:hidden;
+		display:block;content:" ";
+		clear:both;height:0;
+		line-height:0;
+		}
+	.clearfix{zoom:1;}
+
+	.madegame{
+		width:100%;overflow:hidden;
+		}
+	#ho{
+		position:relative !important;
+		}
+	#ho li{
+		float:left;position:relative;
+		margin:0px 35px;
+		}
+	#ho1{
+		position:relative !important;
+		}
+	#ho1 li{
+		float:left;position:relative;
+		margin:0px 35px;
+		}	
+	#ho2{
+		position:relative !important;
+		}
+	#ho2 li{
+		float:left;position:relative;
+		margin:0px 35px;
+		}
+		

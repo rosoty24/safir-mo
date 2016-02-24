@@ -1,0 +1,69 @@
+<template name="managecontent">
+ 	<div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            {{_"Manage Content"}}
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> {{_"Dashboard"}}
+                            </li>
+                        </ol>
+                    </div>
+					<div class="col-xs-12 col-sm-6 col-md-12">
+						<a href="/addContent"><button class="btn btn-primary">{{_"Add New"}}</button></a>
+						<br>
+						<br>
+
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover table-striped">
+								<thead>
+									<tr>
+										<th class="text-center" style="width:35%">{{_"Title"}}</th>
+										<th class="text-center" style="width:10%">{{_"Video URL"}}</th>
+										<th class="text-center" style="width:15%">{{_"Type"}}</th>
+										<th class="text-center" style="width:15%">{{_"Category"}}</th>
+										<th class="text-center" style="width:15%">{{_"Image"}}</th>
+										<th class="text-center" style="width:15%" colspan="4">{{_"Tools"}}</th>
+									</tr>
+								</thead>
+								<tbody>
+								
+									{{#each managecontent}}
+									<tr>
+										<td>{{title}}</td>
+										<td>{{url}}</td>
+										<td>{{getTypename}}</td>
+										<td>{{getCatname}}</td>
+										<td>
+											{{#each getAllImg _id}}
+											<img style="width:50px; height:50px" src="{{getImg this}}">
+											{{/each}}
+										</td>
+
+										<!-- {{#if checkStatus status}}
+										<td><a class="glyphicon glyphicon-ok center-block" href="" id="publish"></a></td>
+										{{else}}
+										<td><a class="glyphicon glyphicon-remove center-block" href="" id="unpublish"></a></td>
+										{{/if}} -->
+
+										<td><a class="glyphicon glyphicon-eye-open center-block" href="" id="view"></a></td>
+										<td><a class="glyphicon glyphicon-trash center-block" href="" id="remove"></a></td>
+										<td><a class="glyphicon glyphicon-edit center-block" href="updateContent/{{_id}}"></a></td>
+									</tr>
+									{{/each}}
+								</tbody>
+							</table>
+						</div>
+					</div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+</template>

@@ -1,0 +1,211 @@
+<template name="header1">
+	<header id="header" class="header" name="header">
+		<div class="header_top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="header_top_left">
+							<ul class="nav nav-pills">
+								{{#if currentUser}}
+									<li><a href="/profile" style="background: none !important;">{{_ "My Profile"}}</a></li>
+									
+								{{/if}}
+
+								{{#if currentUser}}
+									<li><a href="#" id="logout" style="background: none !important;">{{_ "Log Out"}}</a></li>
+								{{else}}
+										<li><a href="{{pathFor 'login'}}" style="background: none !important;">{{_ "Login/Register"}}</a></li>
+								{{/if}}
+								
+								{{#if currentUser}}
+										<li><a href="/reward" style="background: none !important;">{{_ "Rewards and points"}}</a></li>
+								{{/if}}
+								
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="header_top_right pull-right">
+							<ul class="nav nav-pills">
+								<li><a href="" id="en" style="background: none !important;">{{changeLanguage}}</a></li>
+								<li><a href="/webzinelisting" style="background: none !important;">{{_ "WEBZINE"}}</a></li>
+								<li><a href="/" style="background: none !important;">{{_ "Home"}}</a></li>
+								<li class="dropdown">
+									<a class="dropdown-toggle" style="margin:0px;padding:0px;background: none !important;" href="#" data-toggle="dropdown" title="check out">
+										<img src="/images/shop-icon-01.svg" style="margin:3px;padding:0px;width:30px;" alt="check-in check-out"  /> <strong class="caret"></strong></a>
+									<ul class="dropdown-menu cart-dropdown">
+										{{#each getCart}}
+										<li class="item-cart col-lg-12">
+										{{#with getProductInfo _id}}
+											<div class="col-sm-4 col-md-4 col-lg-4">
+												<div class="img-cart">
+													<img style="border:5px solid #000" src="{{getFirstImgProduct product._id}}" class="img-circle center-block" height="50" width="50">
+												</div>
+												<a href="" id="remove" style="color:blue;width:50%;height:50%;margin-right:1px;">Remove</a>
+											</div>
+											<div class="col-sm-8 col-md-8 col-lg-8">
+												
+												<p class="bold">{{product.title}}<br>x {{qty}}</p>
+												<p class="bold">{{product.price}}</p>
+												<p class="bold">{{shop}}</p>
+											</div>
+										
+										{{/with}}
+										</li>
+										{{/each}}
+										<div class="clearfix" style="margin-bottom: 30px;"></div>
+										<li class="hr-item-cart">
+											<div class="hr1">
+												<div class="col-sm-6 col-md-6 col-lg-6">
+													<p class="bolder">{{_ "Sub"}} {{_ "Total"}}:</p>
+												</div>
+												<div class="col-sm-6 col-md-6 col-lg-6">
+													<p class="bolder text-right">{{total}}</p>
+												</div>
+											</div>
+										</li>
+										<div class="clearfix"></div>	
+										<li class="hr-item-cart1">
+											<div class="hr2">
+												<div class="col-sm-6 col-md-6 col-lg-6">
+													<p class="bolder">{{_ "Total"}}:</p>
+												</div>
+												<div class="col-sm-6 col-md-6 col-lg-6">
+													<p class="bolder text-right">{{total}}</p>
+												</div>
+											</div>
+										</li>
+										<div class="clearfix"></div>
+										<li class="hr-item-cart2">
+											<div class="hr3">
+												<div class="a-checkout">
+													<a href="/checkout"><p>{{_ "CHECKOUT"}}</p></a>
+												</div>
+											</div>
+										</li>							
+									</ul>
+								</li>
+								<li><a href="/favorite" title="like" style="background: none !important;"><i class="fa fa-heart fa-1x"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--end header top-->
+		 <div class="header_middle">
+			<div class="header-logo clearfix">
+				<div class="container">
+					<div class="logo">
+						<a href="/"><img height="100" src="/images/system/logo.svg"></a>
+					</div>
+					<div class="search">
+						<form action="/searchproduct" method="POST">
+							<div class="input-group">
+							  <span class="input-group-addon search-push-left">
+								<ul class="list-inline">
+									<li><a href="#" class="searchselection" data-group="1">{{_"Products"}}</a></li>
+									<li><a href="/webzinelisting" class="searchselection" data-group="4">{{_"WEBZINE"}}</a></li>
+									<li><a href="/tuto" class="searchselection" data-group="5">{{_"Tutorial"}}</a></li>
+									<li><a href="#" class="searchselection" data-group="0">{{_"ALL"}}</a></li>
+								</ul>
+							  </span>
+
+							  <span class="input-group-addon all-btn slide-toggle" id="btn-all"><i class="fa fa-bars"></i></span>
+
+							  <input class="form-control input-search " placeholder='{{_ "Search for..."}}' type="text" id="textToSearch">
+
+							  <span class="input-group-addon search-btn kesearch"><i class="fa fa-search search-font"></i></span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div><!--/header-logo-->
+		</div><!--end header middle-->
+			
+		<div class="header_bottom">
+			<div class="header-menu">
+				<div class="container">
+			<div class="main-megamenu">
+						<div class="megamenu_container megamenu_dark_bar megamenu_light"><!-- Begin Menu Container -->
+							<ul class="megamenu"><!-- Begin Mega Menu -->
+								ljalsdfjlalfjaljfl
+								{{#each getParent}}
+								<li class="active"><a href="{{pathFor 'listing' id=_id}}" class="megamenu_drop">{{title}}</a>
+<div class="dropdown_fullwidth dropdown_container_left {{getMenuClass index}}" 
+style="width:90%;">
+
+										{{#each getChildren _id}}
+										<div class="col_3 responsive_halfs">
+											<h3><a href="{{pathFor 'listing' id=_id}}">{{title}}</a></h3>
+											<ul class="list_unstyled" >
+												{{#each getChildren _id}}
+													<li><a href="{{pathFor 'listing' id=_id}}" >{{title}}</a></li>
+												{{/each}}
+											</ul> 
+
+										</div>
+										{{/each}}
+									</div>
+								</li>
+								{{/each}}
+
+								<li class="megamenu_right" style="background:#000; color:#fff;"><a style="color:#fff;" href="/tuto" class="megamenu_drop">{{_ "Community"}}</a><!-- Begin Right Item -->
+					
+									<div class="dropdown_12columns dropdown_right dropdown_container droplast_right" style="background:url(/images/bg_nav_right.png)"><!-- Begin Right Item Container -->
+								
+										<div class="col_12">
+											<div class="col_3 responsive_halfs">
+												<h3><a href="/tuto">{{_ "TUTO"}}</a></h3>	  
+											</div> 
+											<div class="col_3 responsive_halfs">
+												<h3><a href="/webzinelisting">{{_ "WEBZINE"}}</a></h3>	  
+											</div> 
+										</div>
+									
+									</div><!-- End Right Item Container -->		  
+								</li><!-- End Right Item -->
+							
+							</ul><!-- End Mega Menu -->
+
+
+						</div><!-- End Menu Container -->
+					</div><!--/main-megamenu-->
+				</div>
+			</div>
+		</div><!--end header bottom-->
+		<script> 
+		$(document).ready(function(){
+		 	$(".search-push-left").hide();
+		 		var isOn = true;
+		 		$(function(){
+		 		   $("#btn-all").click(function(){
+		 			  console.log(isOn);
+		 			  if ( isOn ){
+		 				  isOn = false;
+		 				  $('.search').css("width", '70%');
+		 				  $(".search-push-left").show();
+		 			  } else {
+		 				  isOn = true;
+		 				  $('.search').css("width", '44%');
+		 				  $(".search-push-left").hide();
+		 			  }
+		 			  return false;
+		 		  });
+		 		});
+		 	});
+		 </script>
+		 	<script>
+		$(document).ready(function($){
+			$('.megamenu').megaMenuCompleteSet({
+				menu_speed_show : 300, // Time (in milliseconds) to show a drop down
+				menu_speed_hide : 200, // Time (in milliseconds) to hide a drop down
+				menu_speed_delay : 200, // Time (in milliseconds) before showing a drop down
+				menu_effect : 'hover_fade', // Drop down effect, choose between 'hover_fade', 'hover_slide', etc.
+				menu_click_outside : 1, // Clicks outside the drop down close it (1 = true, 0 = false)
+				menu_show_onload : 0, // Drop down to show on page load (type the number of the drop down, 0 for none)
+				menu_responsive:1 // 1 = Responsive, 0 = Not responsive
+			});
+		});
+	</script>
+	</header><!--end header-->
+</template>

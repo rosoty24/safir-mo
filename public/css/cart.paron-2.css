@@ -1,0 +1,33 @@
+/*Start cart paron */
+.header_top_right ul.nav-pills > li.dropdown > ul.cart-dropdown{
+  background-color: #eeeeee;
+  margin: 0px auto;
+  width: 100%;
+}
+p.item-description{
+  font-size: 9px;
+}
+li.item-cart i.fa-times{
+  color: red;
+  margin: 15px 0px;
+}
+p.total-description{
+
+}
+li.item-cart .total{
+  padding: 15px;
+  
+  border-radius: 2px;
+}
+.checkout{
+  padding: 10px;
+  font-size: 12px !important;
+}
+#addtocart{
+  cursor: pointer;
+}
+
+.detailscart{
+    margin-right:5px;
+}
+/*End cart paron */

@@ -1,0 +1,125 @@
+<template name="member">
+	<section id="profile_black_men">
+		<div class="container">
+			<div class="row">
+				<!-- <div class="col-md-12"> -->
+				
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+						<h3 class="my1h3"><a href="/profile">{{_ "MY SAFIR PROFILE"}}</a></h3>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+						<h3 class="my1h3 backre"><a href="/member">{{_ "MEMBER PROFILE"}}</a></h3>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+						<h3 class="my1h3"><a href="/reward">{{_ "REWARDS & POINTS"}}</a></h3>
+					</div>
+				</div>
+				
+				<div class="pull-right">
+					
+					{{#if isBronze}}
+					<h1 class="pull-right title_black_silver_gold">{{_ "BLACK MEMBER"}}</h1>
+					{{/if}}
+					{{#if isSilver}}
+					<h1 class="pull-right title_black_silver_gold">{{_ "SILVER MEMBER"}}</h1>
+					{{/if}}
+					{{#if isGold}}
+					<h1 class="pull-right title_black_silver_gold">{{_ "GOLD MEMBER"}}</h1>
+					{{/if}}
+					<div class="clearfix"></div>
+					<img class="img-responsive" src="/images/system/hrblack.png">
+					<p class="text-right point">{{_ "You require"}} <b>{{pointLeft}}</b> {{_ "additional points to reach"}} {{nextRank}}</p>
+				</div>
+				<div class="clearfix"></div>
+				<div id="bg_profile_black">
+					<div class="hold_progress text-center">
+						<div class="col-md-4 col-sm-4 col-xs-4">
+							<h3 class="title text-center title_black_silver_gold">{{_ "BLACK"}}</h3>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4">
+							<h3 class="title text-center title_black_silver_gold">{{_ "SILVER"}}</h3>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4">
+							<h3 class="title text-center title_black_silver_gold">{{_ "GOLD"}}</h3>
+						</div>
+						<div class="col-md-12">
+							{{#if isBronze}}
+							<div class="col-md-4 col-sm-4 col-xs-4 border_black1">
+								<div class="progress">
+									<div class="progress-bar progress-black" role="progressbar" aria-valuenow="{{getpoint}}" aria-valuemin="0" aria-valuemax="1000" style="width:{{getPourcentage}}%"></div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-4 border_black2">
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-4 border_black3">
+							</div>
+							{{/if}}
+
+							{{#if isSilver}}
+							<div class="col-md-4 border_black1">
+								<div class="progress">
+									<div class="progress-bar progress-black" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:80%"></div>
+								</div>
+							</div>
+							<div class="col-md-4 border_black2">
+							</div>
+							<div class="col-md-4 border_black3">
+							</div>
+							{{/if}}
+
+							{{#if isGold}}
+							<div class="col-md-4 border_black1">
+								<div class="progress">
+									<div class="progress-bar progress-black" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:80%"></div>
+								</div>
+							</div>
+							<div class="col-md-4 border_black2">
+							</div>
+							<div class="col-md-4 border_black3">
+							</div>
+							{{/if}}
+						</div>
+					</div>
+					<div class="hold_gift">
+						<div class="col-md-12 center-block">
+							<div class="col-xs-12 col-sm-6 col-lg-7"><img class="img-responsive pull-right" src="/images/gift.png" width="200"></div>
+							<br><br>
+						<!-- 	<div class="col-xs-12 col-sm-6 col-lg-5">
+								{{_ "Write the information that is gained when one is silver or gold"}}
+							</div>
+
+							<p style="font-size:16px" class="text-right">{{_ "You require"}} <b>{{pointLeft}}</b> {{_ "additional points to reach Silver"}}</p> -->
+
+						</div>
+						
+					</div>
+					<div class="hold_number">
+						<div class="col-md-7 col-md-offset-3">
+							<div class="col-md-4 text-center">
+								<div class="number-border">
+									<div class="num-black">{{nb_comments}}</div>
+									<div class=""><b>{{_ "COMMENTS"}}</b></div>
+								</div>
+							</div>
+							<div class="col-md-4 text-center">
+								<div class="number-border">
+									<div class="num-black">{{nb_likes}}</div>
+									<div class=""><b>{{_ "LIKES"}}</b></div>
+								</div>
+							</div>
+							<div class="col-md-4 text-center">
+								<div class="number-border">
+									<div class="num-black">0</div>
+									<div class=""><b>{{_ "ARTICLES VIEWED"}}</b></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- </div> -->
+			</div>
+		</div>
+	</section><!--end section page black men-->
+
+</template>

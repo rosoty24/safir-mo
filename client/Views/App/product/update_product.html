@@ -1,0 +1,136 @@
+
+<template name="updateproduct">
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+					
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Update product
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>
+                    </div>
+					
+					<div class="col-xs-12 col-sm-6 col-md-7">
+						<form role="form" class="form-horizontal">	
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="title">Title <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="hidden" value="{{_id}}" id="idRecord">
+									<input type="title" name="title" id="title" value="{{title}}" class="form-control input-sm" placeholder="Title"  >
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="description">Description<span style="color:red"> *</span></label>
+								<div class="col-sm-9">
+									<textarea rows="5" name="description" id="editor1" value="{{description}}" class="form-control input-sm" placeholder="Description"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="price">Price <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="text" name="price" id="price" value="{{price}}" class="form-control input-sm" placeholder="Price">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="price">Point <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="text" name="point" id="point" value="{{point}}" class="form-control input-sm" placeholder="Point">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="category"> Categories <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<select class="form-control" id="category">
+										<option value="{{title}}">{{catName category}}</option>
+										{{#each catAll}}
+										<option value="{{_id}}">{{title}}</option>
+										{{/each}}
+									 </select>
+								</div>
+							</div>
+							<!-- <div class="form-group">
+								<label class="control-label col-sm-3" for="image">Image <span style="color:red">*</span></label>
+								<img src="/upload/{{getImg getImage}}" width="200" height="200" />
+								<div class="col-sm-9">
+									<input type="file" name="image" id="image" class="your-upload-class form-control input-sm" placeholder="image">
+								</div>
+							</div>	 -->
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="image">Image <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="file" name="image" id="image" class="" placeholder="image">
+									<div class="col-lg-12 col-sm-12" style="padding:15px;border:1px solid #ccc;margin-top:15px;">
+
+										{{#each getIdImage image}}
+										<!-- {{each image.}} -->
+										<div class="col-lg-3 col-sm-3">
+											<img class="img-thumbnail" style="width:100px; height:100px;" src="{{getImg imageName}}">
+											<input type="checkbox" name="checkImg" id="check" value="{{imageId}}" checked>
+										</div>
+
+										{{/each}}
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="row">
+									<label class="control-label col-sm-3" for="tag">Shop </label><br>
+									<div class="col-sm-3">
+										<select class="form-control" name="myshop" id="myshop">
+											<option value="">Select Shop</option>
+											{{#each getShop}}
+												<option value="{{_id}}">{{name}}</option>
+											{{/each}}
+										</select>
+									</div>
+									<div class="col-sm-3">
+										<input type="text" name="instock" id="instock" value="" class="form-control input-sm" placeholder="0">
+									</div>
+									<div class="col-sm-3">
+										<input type="button" value="Add" id="addshop" class="btn btn-primary">
+									</div>
+								</div>
+								<div id="shophtml">
+									{{#each shop}}
+									<div class="row" style="margin-bottom:5px;">
+									<label class="control-label col-sm-3" for="tag"></label>
+									<div class="col-sm-3">
+										<input class="form-control shopname" type="text" name="shopname" dataid="{{shopid}}" value="{{getShopname shopid}}">
+									</div>
+									<div class="col-sm-3"><input type="text" name="instock" class="form-control instock" value="{{instock}}"></div>
+									<div class="col-sm-3"><a class="remove glyphicon glyphicon-remove-circle"></a></div>
+									</div>
+									{{/each}}
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-2">
+									<input  value="Update" id="btnUpdate" class="btn btn-primary btn-block">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-5">
+						
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+
+    <script type="text/javascript">
+	CKEDITOR.replace( 'editor1' );
+	</script>
+
+</template>

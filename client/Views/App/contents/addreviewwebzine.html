@@ -1,0 +1,39 @@
+<template name="addreviewwebzine">
+	<div class="space_btn">
+                <button class="btn btn-black" type="button" id="bt_review">{{_ "Write a review"}}</button>
+             </div>
+	
+<div id="add_review" style="display: none;">
+<div class="hwrite_comments">
+							<div class="row">
+								<div class="col-md-2">
+									<img src="{{getImgUrl currentUser._id}}" class="img-responsive center-block">
+									<h4 class="bold text-center">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</h4>
+								</div>
+								<div class="col-md-10">
+									<input id="title" type="text" class="form-control" placeholder="Write your review..." />
+									<textarea class="form-control" rows="3" id="comment" placeholder="Write your review..."></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 col-md-offset-2 pull-left">
+									<form role="form">
+										<div class="form-group select_grade">
+											<select class="form-control" id="sel1">
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+											</select>
+										</div>
+									</form>
+								</div>	
+								<div class="col-md-5 pull-right">
+									
+									<div class="pull-right btn btn_send" id="addreview">{{_ "SEND"}}</div>
+								</div>
+							</div>
+						</div>
+
+</div>
+</template>

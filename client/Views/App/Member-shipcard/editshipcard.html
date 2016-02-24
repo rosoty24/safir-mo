@@ -1,0 +1,54 @@
+<template name="edit">
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Edit Ship Card</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+                
+            </div>
+            <!-- /.row -->
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel-body">
+                            <form role="form">
+                                <input type="hidden" name="id_ship" value="{{_id}}">
+                                <div class="form-group">
+                                     <label>Type Membership card</label>
+                                    <select name="slect_type"  class="form-control">
+                                        <option value="{{name}}" selected>{{name}}</option>
+                                        <option value="bronze">BRONZE</option>
+                                        <option value="silver">SILVER</option>
+                                        <option value="gold">GOLD</option> 
+                                        
+                                    </select>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Minval</label>
+                                    <input class="form-control" type="text" name="minval" value="{{minval}}" id="firstname">
+                                </div>
+                                <div class="form-group">
+                                    <label>Maxval</label>
+                                    <input type="text" class="form-control" name="maxval" value="{{maxval}}">
+                                </div> 
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <input  name="image" type="file" id="email">
+                                </div> 
+                                
+                                
+                                <button type="submit" id="editshipcard" class="btn btn-default">Add </button>
+                                <button type="reset" class="btn btn-default">Close</button>
+                            </form>
+                            
+                        </div>
+                                             
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+    </div>       
+        
+</template>
+

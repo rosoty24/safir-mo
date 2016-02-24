@@ -1,0 +1,109 @@
+<template name="editprofile">
+	<div class="container">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+				<h3 class="my1h3 backre"><a href="/profile">{{_ "MY SAFIR PROFILE"}}</a></h3>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+				<h3 class="my1h3"><a href="/member">{{_ "MEMBER PROFILE"}}</a></h3>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+				<h3 class="my1h3"><a href="/reward">{{_ "REWARDS & POINTS"}}</a></h3>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<br>
+		<br>
+		<br>
+
+		<div class="container-box">
+			<div class="col-xs-12 col-sm-6 col-lg-3">
+				{{#each getprofile}}
+				<img style="border:8px solid #000" src="{{getImg image}}" class="img-circle center-block" alt="Avatar" width="200" height="200">
+				{{/each}}
+			</div>
+			<div class="col-xs-12 col-sm-6 col-lg-9">
+				<h1 style="font-weight:bold">{{#with getprofile}}{{profile.firstname}} {{profile.lastname}}{{/with}}</h1>
+				<small>{{profile.name}}</small>
+				<br><br><br><br>
+				<hr style="border:10px solid #000;">
+			</div>
+			<div class="clearfix"></div>
+			<br>
+			<br>
+
+			<div class="col-lg-12 panel panel-default center-block ">
+				<div class="">
+					<div class="panel-heading">
+						{{_ "EDIT"}}
+					</div>
+					{{#if error_message}}
+					<div class="alert alert-danger" role="alert">
+						<span style="display:inline-block" class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+						<span style="display:inline-block" class="sr-only">Error:</span>
+						{{error_message}}
+					</div>
+					{{/if}}
+					<div class="col-md-6">
+						<form role="form">
+							<label>{{_ "Profile Image"}}</label>
+							<div class="form-group">
+								<input type="file" id="upload">
+							</div>
+							{{#each getprofile}}
+							<div class="form-group">
+								<label>{{_ "First name"}}</label>
+								<div class="input-group">
+									<input type="text" class="set-due-date form-control" value="{{profile.firstname}}" id="firstname" >
+								</div>
+							</div>
+							<div class="form-group">
+								<label>{{_ "Last name"}}</label>
+								<div class="input-group ">
+									<input type="text" class="set-due-date form-control" value="{{profile.lastname}}" id="lastname">
+								</div>
+							</div>
+							<div class="form-group">
+								<label>{{_ "BIRTH DATE"}}</label>
+								<div class="input-group ">
+									<span class="input-group-addon "><i class="glyphicon glyphicon-calendar"></i></span>
+									<input id ="birth" dateformat="d M y" type="date" class="set-due-date form-control" value="{{profile.birth}}"/>
+									<span class="datepicker_label" style="pointer-events: none;"></span>
+								</div>
+
+							</div>
+							{{/each}}
+						</form>
+
+					</div>
+					<div class="col-md-6">
+						<form role="form">
+							{{#each getprofile}}
+							<div class="form-group">
+								<label>{{_ "SEX"}}</label>
+								<select class="form-control" id="gender">
+									<option value="{{profile.sex}}">{{profile.sex}}</option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-12">
+								<label>{{_ "ADDRESS"}}</label>
+								<textarea name="address" id="address" rows="8" cols="42" style="width: 104%;">{{profile.address}}</textarea>
+
+							</div>
+							{{/each}}
+						</form>
+						<button class="btn btn-primary btn-sm" id="updateProfile" style="margin-bottom:1px;">{{_ "EDIT"}}</button>
+						<a href="/profile"><button type="submit" class="btn-sm"  id="close">{{_ "BACK"}}</button></a>
+					</div>
+				</div>
+
+				<!-- /.panel -->
+			</div>
+			<div class="clearfix"></div>
+			<hr style="border:10px solid #000;">
+			<p style="font-size:12px" class="text-center">{{_"Complete these questions"}}</p>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,146 @@
+
+/*============ custom navegation bar top ========*/
+#navbar .megamenu > li > a {
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: 0px none;
+    text-decoration: none;
+    display: block;
+    color: #000;
+    letter-spacing: 0px;
+    min-width:103px;
+    /*font-family: "Roboto",sans-serif;*/
+}
+
+#navbar .megamenu > li:first-child a{
+	padding-left:0px;
+}
+#navbar .megamenu li .dropdown_container, .megamenu li .dropdown_fullwidth, .megamenu li .dropdown_multilevel {
+    position: absolute;
+    margin: 0px;
+    padding-top: 24px;
+    padding-bottom: 10px;
+    left: -9999em;
+    top: -9999em;
+    display: block;
+    z-index: 9998;
+    float: left;
+    border-radius: 0px 0px 4px 4px;
+    background: #fff none repeat scroll 0% 0%;
+}
+
+#menu-mobile{
+	border:1px solid #ccc;
+}
+/* Mobile Table*/
+
+/* 1. Common Media Queries */
+
+/* Desktop Large Screen */
+@media only screen and (max-width: 1600px) {
+	.megamenu > li{
+		display:inline-block;
+	}
+	.megamenu > li > .megamenu_drop{
+		text-align:center;
+	}
+	#menu-mobile .navbar-brand{
+		display:none;
+	}
+	#navbar .megamenu > li{
+		float:left;
+	}
+}
+
+/* 2. Horizontal Mega Menu Media Queries */
+/* Desktop Medium Screen */
+@media only screen and (min-width: 768px) and (max-width: 984px) {
+	.megamenu > li{
+		display:inline-block;
+	}
+	.megamenu > li > .megamenu_drop{
+		text-align:center;
+	}
+	#menu-mobile .navbar-brand{
+		display:none;
+	}
+	.megamenu > li {
+		margin: 0px;
+		text-align: left;
+		border: medium none;
+		transition: #000 0.5s ease 0s;
+	}
+	#navbar .megamenu > li{
+		float:none !important;
+	}
+}
+/* Table Medium Screen */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.megamenu > li{
+		display:block;
+	}
+	.megamenu > li > .megamenu_drop{
+		text-align:left;
+	}
+	#menu-mobile .navbar-brand{
+		display:block;
+	}
+	.megamenu > li {
+		margin: 0px;
+		text-align: left;
+		border: medium none;
+		transition: #000 0.5s ease 0s;
+	}
+	#navbar .megamenu > li{
+		float:none !important;
+	}
+}
+/* Mobile Medium Screen */
+@media only screen and (max-width:767px) {
+	.megamenu > li{
+		display:block;
+	}
+	.megamenu > li > .megamenu_drop{
+		text-align:left;
+	}
+	#menu-mobile .navbar-brand{
+		display:block;
+	}
+	#sidebar .nav>li>a{
+		position: relative;
+		display: block;
+		float: left;
+	}
+	.megamenu > li {
+		margin: 0px;
+		text-align: left;
+		border: medium none;
+		transition: #000 0.5s ease 0s;
+	}
+	#navbar .megamenu > li{
+		float:none !important;
+	}
+	
+}
+@media only screen and (max-width: 479px) {
+	.megamenu > li{
+		display:block;
+	}
+	.megamenu > li > .megamenu_drop{
+		text-align:left;
+	}
+	#menu-mobile .navbar-brand{
+		display:block;
+	}
+	.megamenu > li {
+		margin: 0px;
+		text-align: left;
+		border: medium none;
+		transition: #000 0.5s ease 0s;
+	}
+	#navbar .megamenu > li{
+		float:none !important;
+	}
+}
+
+

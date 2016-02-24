@@ -1,0 +1,80 @@
+<template name="forumDetail">
+  <div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{topic}}</td>
+          <td>{{description}}</td>
+          <td>{{date}}</td>
+        <td><a href="#" id="reply"><em>Reply</em></a></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<!-- test -->
+<div class="container bootstrap snippet">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="blog-comment">
+        <h2>Reply</h2>
+                <hr/>
+        <ul class="comments">
+        <li class="clearfix">
+         <!--  <img src="http://bootdey.com/img/Content/user_1.jpg" class="avatar" alt=""> -->
+          <div class="post-comments">
+            {{#each listReply}}
+              <p class="meta"><span style="color:#aaaaaa;">{{date}}</span> 
+                {{#each getName}}
+                <b>{{profile.lastname}} {{profile.name}}</b> says :
+                {{/each}} <!-- <i class="pull-right"><a href="#"><small>Reply</small></a></i> --></p>
+              <p>
+                  {{description}}
+              </p>
+            {{/each}}
+          </div>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of test 1 -->
+<!-- start of test 2 -->
+<br>
+     <div class="container" id="form" style="visibility:hidden;">
+      <form class="form-horizontal" id="addReply" role="form" method="post">
+    <div class="form-group">
+        <label for="message" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-6">
+            <textarea class="form-control" required rows="4" name="description" id="description"></textarea>
+        </div>
+    </div>
+        <div class="form-group">
+        <label for="message" class="col-sm-2 control-label">Select image:</label>
+        <div class="col-sm-6">
+            <input type="file" name="image" id="image" class="your-upload-class">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6 col-sm-offset-2">
+            <input name="submit" type="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6 col-sm-offset-2">
+            <!-- Will be used to display an alert to the user -->
+        </div>
+    </div>
+</form>
+   </div>
+<!-- end of test 2 -->
+
+</template>

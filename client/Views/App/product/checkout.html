@@ -1,0 +1,76 @@
+	<template name="checkout">
+		<style type="text/css">
+			.modal-backdrop.in{
+				display: none;
+			}
+		</style>
+	<section class="hold-checkout">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9">
+					{{#each getCart}}
+					<div class="well">
+						<div class="row">
+						{{#with getProductInfo id_product}}
+						<div class="col-sm-2">
+							<img src="{{getFirstImgProduct _id}}" class="img-responsive img-circle img-circle-border-cart">
+						</div>
+						{{/with}}
+						<div class="col-sm-5">
+							{{#with getProductInfo id_product}}
+							<h3 class="title-cart">{{title}}</h3>
+							{{/with}}
+							<div class="col-sm-6">
+								<div class="hold-add-cart">
+									<div class="row">
+										<span class="pull-left">{{_ "Subtotal"}}:</span>
+										<span class="pull-right"> {{subtotal}}  تومان</span>
+									</div>
+									<div class="row">
+										<span class="pull-left">{{_ "Quantity"}}:</span>
+										<input type="text" value="{{quantity}}" id="quantity" class="pull-right">
+										<!-- <span class="pull-right" style="border-bottom:1px solid #ccc;">{{quantity}}</span> -->
+									</div>
+									<div class="row">
+										<span class="pull-left"><b>{{_ "Shop"}}:</b></span>
+										<span class="pull-right"><strong>{{shop}}</strong></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="hold-apply">
+								<button type="button" class="btn btn-default btn-block btn-delete" id="removecheckout">{{_ "Remove"}}</button>
+							</div>
+						</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					{{/each}}
+				</div>
+				<div class="col-sm-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								{{_ "Get deliver in all Iran!"}}
+							</h3>
+						</div>
+						<div class="panel-body">
+							<span>{{_ "Total"}}: <a class="price" href="#">{{getTotal}} ﷼</a></span>
+							<div class="checkbox">
+							  <label>{{_ "This order contains"}} {{getCart.count}} {{_ "items"}} </label>
+							</div>
+							<button type="button" class="btn-checkoutred btn_checkout btn-block" id="btnAdd"> {{_ "Proceed to checkout"}} </button>
+						</div>
+						<div class="panel-footer">
+							<a href="">
+								<span>{{_"2 type of transportation available"}}</span>
+							</a>
+						</div>
+					</div>			
+				</div>
+			</div>
+		</div>
+	</section>
+
+</template>

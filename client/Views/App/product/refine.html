@@ -1,0 +1,177 @@
+<template name="myrefine">
+	<style type="text/css">
+		.slider.slider-horizontal{
+			with:100% !important;
+		}
+		/*star makara*/
+		.ulrefinetag li a{
+			display: block;
+			float: left;
+			margin-left:15px !important;
+			padding: 7px;
+		}
+		.ulrefinetag li a:hover{
+			background:black;
+			color:white;
+		}
+		.listalltag{
+			padding-top:5px;
+			border-top: dashed 2px #21ace2 ;
+		}
+		.listalltag li a{
+			display: block;
+			float: left;
+			margin-left:15px !important;
+			padding: 7px;
+		}
+		.listalltag li a:hover{
+			background:black;
+			color:white;
+		}
+		/*end makara*/
+	</style>
+	<section class="main_refine_menu">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="refine_menu">
+						<ul class="nav nav-pills" id="refineitem">
+
+							{{#each categories}}
+								<li><a href="{{pathFor 'listing' id=_id}}">{{title}} <span><img src="/images/system/caret-down.svg"  width="17" height="26" style="image-orientation: 90deg;"></span></a></li>
+							{{/each}}
+
+							<li><a href="" id="refine_price_range" class="border_left">{{_"Refine"}} <span><img src="/images/system/caret-down.svg" width="17" height="26"></span></a></li>
+							{{#each getAllFilter}}
+								<li><a href="" class="border-dashed">{{this}} <span class="fa fa-times removeRefineItemBrand" ></span></a></li>
+			
+							{{/each}}
+							{{#each getAllTag}}
+								<li><a href="" class="border-dashed">{{this}} <span class="fa fa-times removeRefineItemTag" ></span></a></li>
+			
+							{{/each}}
+							{{#with getPriceFilter}}
+								<li><a href="" class="border-dashed">{{min}} - {{max}} <span class="fa fa-times removeRefineItemPrice" ></span></a></li>
+							{{/with}}
+							
+							
+
+							
+						</ul>
+						
+						<div id="panel_price"><!--refine price range-->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="col-md-3">
+										<div class="price_range_menu">
+											<ul class="nav nav-pills nav-stacked">
+												<li id="refinePrix"><a href="" >{{_ "Price Range"}}</a></li>
+												<!--<li id="refineRating"><a href="" >Rating</a></li>-->
+												<li id="refineBrand"><a href="">{{_ "Brands"}}</a></li>
+												<li id="refinetag"><a href="">{{_ "Tag"}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-9">
+										<div id="brands" class="refine-item tohide"><!--brands-->
+											<ul class="list-inline">
+												
+												<li><a href="" class="alphabet">A</a></li>
+												
+
+
+												<li><a href="" class="alphabet">B</a></li>
+												<li><a href="" class="alphabet">C</a></li>
+												<li><a href="" class="alphabet">D</a></li>
+												<li><a href="" class="alphabet">F</a></li>
+												<li><a href="" class="alphabet">G</a></li>
+												<li><a href="" class="alphabet">H</a></li>
+												<li><a href="" class="alphabet">I</a></li>
+												<li><a href="" class="alphabet">J</a></li>
+												<li><a href="" class="alphabet">K</a></li>
+												<li><a href="" class="alphabet">L</a></li>
+												<li><a href="" class="alphabet">M</a></li>
+												<li><a href="" class="alphabet">N</a></li>
+												<li><a href="" class="alphabet">O</a></li>
+												<li><a href="" class="alphabet">P</a></li>
+												<li><a href="" class="alphabet">Q</a></li>
+												<li><a href="" class="alphabet">R</a></li>
+												<li><a href="" class="alphabet">S</a></li>
+												<li><a href="" class="alphabet">T</a></li>
+												<li><a href="" class="alphabet">U</a></li>
+												<li><a href="" class="alphabet">V</a></li>
+												<li><a href="" class="alphabet">W</a></li>
+												<li><a href="" class="alphabet">x</a></li>
+												<li><a href="" class="alphabet">Y</a></li>
+												<li><a href="" class="alphabet">Z</a></li>
+											</ul>
+											<div class="col-md-10 col-md-offset-2">
+												<div class="hold_item_brands">
+													<ul class="nav nav-pills" id="allBrands">
+														
+													</ul>
+												</div>
+											</div>
+										</div><!--/price-brands-->
+
+										<div id="rating" class="refine-item tohide"><!--price-range-->
+											<div class="col-md-7 text-center">
+												<p><b>{{_ "Only products with comments"}}</b></p>
+												<img src="/images/system/comment_big_hover.png" class="center-block" />
+											</div>
+											<div class="col-md-5 text-center">
+												<p><b>{{_ "Only products I like"}}</b></p>
+												<img src="/images/system/like_big.png" class="center-block" />
+											</div>
+										</div>
+
+										 <div  class="price-range refine-item tohide"><!--price-range-->
+											
+											<div class="well col-md-12" >
+												<!-- <div>
+												<p class="pull-right"><b> 100000000</b></p>
+												<p><b> 0</b></p>
+												</div> -->
+												<div class="col-md-12" style="padding:15px 15px;">
+													<!-- <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100000000" data-slider-step="5" data-slider-value="[0,100000000]" id="sl2">  -->
+													<input id="makara" type="text" data-slider-ticks="[0, 100,000, 300,000, 500,000, 100000000]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$100,000", "$300,000", "$500,000", "$100000000"]'/>
+												</div>
+											</div>
+										</div><!--/price-range-->
+										<!-- start makara -->
+										<div id="parentTag" class="refine-item tohide">
+											
+											<ul class="ulrefinetag col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												{{#each getParentTag}}
+												<li><a id="parentTags"  href="">{{title}}</a></li>
+												{{/each}}
+											</ul>
+											{{#if getNoParenttag}}
+											<h3 style="text-align:center">No parent tag</h3>
+											{{/if}}
+											{{#if getListTag}}
+											<ul class="listalltag col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+												{{#each getListTag}}
+												<li><a class="targetTag" href="">{{title}}</a></li>
+												{{/each}}
+											</ul>
+											{{/if}}
+										</div>
+										<!-- end makara -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!--end section refine menu-->
+	<script type="text/javascript">
+		var slider = new Slider("#makara", {
+		    ticks: [0, 500000, 700000,1000000,2000000,3000000,4000000],
+     ticks_labels: ['0' , '', '700K','1M','2M','3M','4M'],
+		    ticks_snap_bounds: 30
+		});
+	</script>
+</template>

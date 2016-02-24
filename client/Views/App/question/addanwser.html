@@ -1,0 +1,93 @@
+<template name = "addanwser">
+<div id="wrapper">
+
+        <!-- <div id="page-wrapper"> -->
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            {{_"Answer"}}
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> {{_"Answer Add"}}
+                            </li>
+                        </ol>
+						<div class="col-lg-12">
+							<form role="form" class="form-horizontal">
+								
+								<div class="form-group">
+								<label class="control-label col-sm-3" for="location">Quesion<span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<select class="form-control" id="question" required>
+										<option>question</option>
+										{{#each getanswer}}
+											<option value="{{_id}}">{{name}}</option>
+										{{/each}}
+									 </select>
+								</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-3" for="Answer">Answer<span style="color:red"> *</span></label>
+									<div class="col-sm-9">
+										<textarea rows="5" name="description" id="answer" value="" class="form-control input-sm" placeholder="Anwser"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+								<label class="control-label col-sm-3" for="image">{{_"Image"}} <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="file" name="image" id="image" class="" placeholder="image">
+									<!-- <div class="col-lg-12 col-sm-12" style="padding:15px;border:1px solid #ccc;margin-top:15px;">
+										{{#if image}}
+										{{#each getIdImageUpdate image}}
+										<div class="col-lg-3 col-sm-3">
+											<img class="img-thumbnail" style="width:100px; height:100px;" src="{{getImg image}}"><br/>
+											<input type="checkbox" name="checkImg" id="check" value="{{image}}" checked>
+										</div>
+										{{/each}}
+										{{else}}
+										{{#each getIdImageAdd}}
+
+										<div class="col-lg-3 col-sm-3">
+											<img class="img-thumbnail" style="width:100px; height:100px;" src="{{getImg image}}"><br/>
+											<input type="checkbox" name="checkImg" id="check" value="{{image}}" checked>
+										</div>
+
+										{{/each}}
+										{{/if}}
+									</div> -->
+								</div>
+
+								</div>	
+
+								<!-- <div class="form-group">
+									<label class="control-label col-sm-3" for="tag"> {{_"Tag"}} <span style="color:red">*</span></label>
+									<div class="col-sm-9">
+										<select class="form-control" id="tag" required>
+											<option value="" >{{_"Select Tag"}}</option>
+											{{#each tag}}
+												<option value="{{_id}}">{{tag}}</option>
+											{{/each}}
+										 </select>
+									</div>
+								</div>	 -->
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-2">
+										<input type="submit" style="border-radius:5px;padding:0px; margin:0px;" value="{{_"ADD"}}" id="btnAdd" class="btn btn-info btn-block">
+									</div>
+								</div>
+							</form>
+							<br>
+						</div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        <!-- </div> -->
+        <!-- /#page-wrapper -->
+    </div>
+</template>

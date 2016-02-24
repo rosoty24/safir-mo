@@ -1,0 +1,58 @@
+<template name="managesurvey">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- <div class="col-md-6"> -->
+					<form class="form-inline" role="form">
+						<div class="form-group">
+						    <label for="email">Survey Title:</label>
+						    <input type="text" class="form-control" id="txtsurvey">
+						</div>
+						<div class="form-group">
+						    <label for="email">Category:</label>
+						    <select id="selectCat" class="form-control">
+						    	<option>Select Category</option>
+
+						    </select>
+						</div>
+						<hr>
+					</form>
+					<div>
+						<label>Add Question For Survey</label>
+					</div>
+					<div class="form-group">
+					    <label for="email">Question:</label>
+					    <input type="email" class="form-control" id="txtquestion">
+					</div>
+					<div class="form-group">
+					    <label for="email">Answer Type:</label>
+					    <select id="answertype" class="form-control">
+					    	<option value="1">Single answer</option>
+					    	<option value="2">Multiple Answer</option>
+					    	<option value="3">No Answer</option>
+
+					    </select>
+					    <form class="form-inline">
+					    	{{{getAnswerType}}}
+					    </form>
+					    <div class="answer">
+					    	{{{getAddRow}}}
+					    	<button id="btnpreview" class="btn-default pull-right">Add Preview</button>
+					    </div>
+					    
+					    
+					    
+					</div>
+					<div class="form-group" id="allsurvey"></div>
+					<div class="form-group">
+					<button class="btn btn-info" id="submit_survey" name="submit_survey">Submit Survey</button>
+					</div>
+
+
+
+				<!-- </div> -->
+				 
+			</div>
+		</div>
+	</div>
+</template>

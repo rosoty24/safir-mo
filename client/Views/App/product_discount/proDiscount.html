@@ -1,0 +1,75 @@
+<template name="proDiscount">
+    <div class="container">
+        <form role="form" class="form-horizontal">
+           <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Add Product Discount</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p id="qiuzzInfo" style="color:red"></p>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            FORM Product Discount
+                            <a href="/manageDiscount" class="pull-right btn-primary btn-sm">Back</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="title">{{_"Name:"}} <span style="color:red">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="title" name="name" id="name" class="form-control input-sm" placeholder="{{_"Title"}}">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="Brand">{{_"Product Name:"}} <span style="color:red">*</span></label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="product_name">
+                                            <option>-- Choose Product Name --</option>
+                                            {{#each getProducts}}
+                                            <option value="{{_id}}">{{title}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <label class="control-label col-sm-3"  for="tag"></label>
+                                        <div class="col-sm-9">
+                                            <input type="file" id="image">
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="title">{{_"Discount:"}} <span style="color:red">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="title" name="pro_discount" id="pro_discount" class="form-control input-sm" placeholder="{{_"Title"}}" value="{{title}}"  >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="title">{{_"Start Date:"}} <span style="color:red">*</span></label>
+                                    <div class="input-group datetimepicker">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                        <input class="set-due-date form-control" type="text" id="startDate" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="title">{{_"End Date:"}} <span style="color:red">*</span></label>
+                                    <div class="input-group datetimepicker">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                        <input class="set-due-date form-control" type="text" id="endDate" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-12">
+                    <input type="button" id="btn-save" value="Submit" class="pull-right">
+            </div>
+        </form>
+    </div>
+</template>

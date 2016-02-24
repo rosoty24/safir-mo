@@ -1,0 +1,24 @@
+<template name="imedation">
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">{{_ "Invite your friends"}}</div>
+			<div class="panel-body">
+				<form role="form" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="email">{{_"Email"}} <span style="color:red">*</span></label>
+						<div class="col-sm-9">
+							<input type="email" name="email" id="email" class="form-control input-sm" required placeholder="Your friend email"  >
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-4">
+							<input type="submit" value="{{_"Add"}}" id="btnAdd" class="btn btn-primary btn-block">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</template>

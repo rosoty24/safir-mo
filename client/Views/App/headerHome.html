@@ -1,0 +1,156 @@
+<template name="headerHome">
+	<header id="header">
+		<div class="header_top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="header_top_left">
+							<ul class="nav nav-pills">
+								<li><a href="#">My profile</a></li>
+								<li><a href="#">Sign in / Register</a></li>
+								<li class="hidden-sm hidden-xs"><a href="#">Rewards & Points</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="header_top_right pull-right">
+							<ul class="nav nav-pills">
+								<li><a href="#">Feedback</a></li>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">0</a></li>
+								<li><a href="#"><i class="fa fa-heart fa-1x"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--end header top-->
+		<div class="header_middle">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="logo">
+							<a href=""><img src="/images/system/logo.png"/></a>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="search">
+							<!--<form role="search">
+								<div class="form-group col-sm-9">
+									<input type="text" placeholder="Search">
+								</div>
+								<div class="form-group col-sm-3">
+									<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+								</div>
+							</form>-->
+							<div class="input-group">
+								<input class="form-control" placeholder="{{_ 'Search for...'}}" type="text">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--end header middle-->
+		<div class="header_bottom">
+			
+			<!-- Static navbar -->
+			<nav class="navbar" id="nav-fixed">
+				<div class="container">
+					<div class="navbar-header" id="menu-mobile">
+						<!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>-->
+						<span class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><img src="/images/system/icon.png"/></span>
+					
+					<a class="navbar-brand" href="#">MENU</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="megamenu">
+							<li><a href="#" class="megamenu_drop megamenu_drop1">makeup</a><!-- Begin Item -->
+								<div class="dropdown_fullwidth" id="back"><!-- Begin Item Container -->  
+									<div class="container">
+										<div class="col_3 responsive_halfs">
+											<ul class="num">
+												<li><a href="#_">All Makeup</a></li>
+												<li><a href="#_">Palettes & Value</a></li>
+												<li><a href="#_">Lips</a></li>
+												<li><a href="#_">Face makeup</a></li>
+												<li><a href="#_">Nails</a></li>
+											</ul>   
+										</div>
+										<div class="col_3 responsive_halfs bord-left">
+											<ul class="num2">
+												<li><a href="#_">NetTuts</a></li>
+												<li><a href="#_">VectorTuts</a></li>
+												<li><a href="#_">PsdTuts</a></li>
+												<li><a href="#_">PhotoTuts</a></li>
+												<li><a href="#_">ActiveTuts</a></li>
+											</ul>    
+										</div>
+										<div class="col_3 responsive_halfs">
+											<ul class="list">
+												<li><a href="#_">FreelanceSwitch</a></li>
+												<li><a href="#_">Creattica</a></li>
+												<li><a href="#_">WorkAwesome</a></li>
+												<li><a href="#_">Mac Apps</a></li>
+												<li><a href="#_">Web Apps</a></li>
+											</ul>   
+										</div>
+										<div class="col_3 responsive_halfs">
+											<ul class="list">
+												<li><a href="#_">Design</a></li>
+												<li><a href="#_">Logo</a></li>
+												<li><a href="#_">Flash</a></li>
+												<li><a href="#_">Illustration</a></li>
+												<li><a href="#_">More...</a></li>
+											</ul>    
+										</div>
+									</div>
+								</div><!-- End Item container -->
+							</li><!-- End Item -->
+							<li><a href="#" class="megamenu_drop megamenu_drop2">skine care</a></li>
+							<li><a href="#" class="megamenu_drop megamenu_drop3">Fragrance</a></li>
+							<li><a href="#" class="megamenu_drop megamenu_drop4">Bath & Body</a></li>
+							<li><a href="#" class="megamenu_drop megamenu_drop5">Nails</a></li>
+							
+							<li><a href="#" class="megamenu_drop megamenu_drop7">Link Selling</a></li>
+							<li><a href="#" class="megamenu_drop megamenu_drop8">gift</a></li>
+							<li><a href="#" class="megamenu_drop megamenu_drop9" id="community">Community</a>
+								<div class="dropdown_fullwidth"><!-- Begin Item Container -->
+
+									<div class="container">
+										<label  class=" col1_commu ">
+											<ul>
+												<li><a href="men.html">WEBZINE</a></li>
+											</ul>  
+										</label >
+										<label class=" col1_commu">
+											<ul>
+												<li><a href="men.html">REFINE</a></li>
+											</ul>   
+										</label >
+										<label  class=" col1_commu">
+											<ul>
+												<li><a href="men.html">LOOKS</a></li>
+											</ul> 
+										</label >
+										<label class=" col1_commu">
+											<ul>
+												<li><a href="men.html">FORUM</a></li>
+											</ul>
+										</label >
+									</div>
+								</div><!-- End Item container -->
+							</li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</nav>
+		</div><!--end header bottom-->
+	</header><!--end header-->
+</template>

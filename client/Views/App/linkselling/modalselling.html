@@ -1,0 +1,117 @@
+<template name="popupselling">
+	
+   <div class="modal fade" id="link" style="padding-top: 80px; padding-bottom: 80px; display: none;">
+{{#with getAnswer answerSelected}}
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">	
+			    <div class="modal-header">
+			    		<button type="button" class="close" data-dismiss="modal">
+	                <span aria-hidden="true">x</span>
+	                <span class="sr-only">Close</span>
+	                </button>
+			    </div>	        
+                <div class="modal-body">
+	                
+				       
+	                       <p class="text-center"> {{title}}</p>
+
+                       
+                         	 <div class="ui-field-contain">
+
+                                  <div class="row">
+
+                                   <div class="col-md-4">
+                                      <a href="" ><img  src="/images/img-pop.png" class="img-responsiv center-block"></a>                     
+								  </div>
+                                      <div class="col-md-4"> 
+                                          <p> {{description}}
+										  </p>
+                                      
+                                       </div>
+                                       <div class="col-md-4 leftc" align="center">
+						              		<h3>${{sum products}}</h3>
+						                    <span>QTY</span>
+						                     <select class="select1">
+						                    	<option value="1">1</option>
+						                        <option value="2">2</option>
+						                        <option value="3">3</option>
+						                        <option value="4">4</option>
+						                        <option value="5">5</option>
+						                     </select><br>
+						                     <select class="selectletf">
+						                    	<option>SELECT CITY</option>
+						                        <option>Phnom Penh</option>
+						                        <option>Kampong Chnang</option>
+						                        <option>Kandal</option>
+						                     </select><br>
+						                     <a href="#">ADD TO CART</a>
+						              </div>
+
+                                  </div>
+                            </div>
+
+                         <div class="boder"> </div>
+                            
+                             <span style="font-size:15px;font-weight:bold;padding-left:30px"> 
+                             SELECT YOUR OWN PRODUCTS <span class="caret"></span>
+                             </span>
+
+
+                      <div class="ui-field-contain">                           	 
+                               <div class="row" style="padding:30px">
+                              <div class="col-md-9 col-xs-12">
+                                <div class="ScrollStyle">
+                                	{{#each products}}
+                                	{{#with getProduct this}}
+                                    <div class="row">
+
+                                      <div class="col-md-4">
+                                         <a href="" ><img width="80" height="80" src="/upload/{{getImg image}}" class="img-responsiv center-block"></a>                     
+								      </div>
+
+                                       <div class="col-md-4"> 
+                                          <p class="text-left" style="padding-top:50px"> {{title}}</p>
+                                          <p>{{description}}</p>
+                                      
+                                       </div>
+
+                                       <div class="col-md-4"> 
+                                          <p class="text-ceter" style="padding-top:50px">${{price}}</p>
+                                      
+                                       </div>
+                                    </div>
+                                    {{/with}}
+                                    {{/each}}
+                                    
+
+                               </div>
+                               </div>
+                              
+                                     <div class="col-md-3 col-xs-12 leftc" align="center">
+						              		<h3>14$</h3>
+						                    <span>QTY</span>
+						                     <select class="select1">
+						                    	<option>1</option>
+						                        <option>2</option>
+						                        <option>3</option>
+						                        <option>4</option>
+						                     </select><br>
+						                     <select class="selectletf">
+						                    	<option>SELECT CITY</option>
+						                        <option>Phnom Penh</option>
+						                        <option>Kampong Chnang</option>
+						                        <option>Kandal</option>
+						                     </select><br>
+						                     <a href="#">ADD TO CART</a>
+						              </div>
+						       </div>
+
+                              </div>
+                   </div>
+
+			    </div>
+			  </div>
+			{{/with}}</div>
+
+			  
+</template>

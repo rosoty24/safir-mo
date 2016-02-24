@@ -1,0 +1,91 @@
+<template name="looks">
+	<div style="padding:20px"></div>
+	<div class="breadcrumb-main">
+		<div class="container">
+			<div class="container-box">
+					<div class="col-xs-3 col-sm-3 col-lg-3"><img class="img-responsive" src="images/webzine.png"></div>
+					<div class="col-xs-3 col-sm-3 col-lg-3"><img class="img-responsive" src="images/tuto.png"></div>
+					<div class="col-xs-3 col-sm-3 col-lg-3"><img class="img-responsive" src="images/looks.png"></div>
+					<div class="col-xs-3 col-sm-3 col-lg-3"><img class="img-responsive" src="images/forum.png"></div>
+					<div class="clearfix"></div>
+					<ul class="list-inline breadcam">
+						<li>MEMBER<span><img src="images/caret.png"></span></li>
+						<li>QUESTION<span><img src="images/caret.png"></span></li>
+						<li>REFINE<span><img src="images/caret.png"></span></li>
+				   </ul>
+		  </div>
+   		</div>
+	</div>
+
+   <!-- start contain -->
+   
+<div style="padding:20px"></div>
+
+<div class="container">
+		<div class="col-md-12">
+			{{#each getallContent}}
+
+				<div class="col-md-3">
+					<a href="lookdetail/{{_id}}" >
+						
+						<img src="upload/{{getImage image}}" class="img-responsive ">
+						
+					</a>
+					<p>{{title}}</p>
+				</div>
+
+			{{/each}}
+			<div class="col-md-3">
+				<h1 class="text-center">CELEBRITY</h1>
+				<hr id="hrlook">
+				<img src="images/girl-img-1.png" class="img-responsive ">
+			</div>
+		</div>
+	
+	<!-- <div class="col-md-12">
+	        <div class="col-md-3">
+				<img src="images/girl-img1.png" class="img-responsive ">
+				<p>Léa023</p>
+			</div>
+
+			<div class="col-md-3">
+				<img src="images/girl-img2.png" class="img-responsive ">
+				<p>Léa023</p>
+			</div>
+
+			<div class="col-md-3">
+				<img src="images/girl-img3.png" class="img-responsive ">
+				<p>Léa023</p>
+			</div>
+			
+			
+			<div class="col-md-3">
+				<img src="images/girl-img-2.png" class="img-responsive ">
+				<img src="images/girl-img-3.png" class="img-responsive ">
+			</div>
+     </div>
+
+     <div class="col-md-12">
+	        <div class="col-md-3">
+				<img src="images/girl-img1.png" class="img-responsive ">
+				<p>Léa023</p>
+			</div>
+
+			<div class="col-md-3">
+				<img src="images/girl-img2.png" class="img-responsive ">
+				<p>Léa023</p>
+			</div>
+
+			<div class="col-md-3">
+				<img src="images/girl-img3.png" class="img-responsive ">
+				<p>Léa023</p>
+			</div>
+			
+			
+			<div class="col-md-3">
+				<img src="images/girl-img-1.png" class="img-responsive ">
+				<img src="images/girl-img-3.png" class="img-responsive ">
+			</div>
+	  </div> -->
+</div>
+</template>

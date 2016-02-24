@@ -1,0 +1,95 @@
+<template name="stock">
+    <div class="container">
+        
+        <div class="row">
+               <div class="col-lg-4">
+                <div class="input-group">
+                  <select class="selectpicker selectShop">
+                   {{#if resturnSessionShop}}
+                   <option value="{{resturnName}}">{{resturnName}}</option>
+                   {{else}}
+                   <option style="display:none;">Select Shop Name</option>
+                   {{/if}}
+                   <option value="سفیر">سفیر</option>
+                   <option value="فروشگاه سفیر الماس ایران">فروشگاه سفیر الماس ایران</option>
+                   <option value="فروشگاه سفیر آپادانا">فروشگاه سفیر آپادانا</option>
+                   <option value="فروشگاه سفیر گلستان">فروشگاه سفیر گلستان</option>
+                   <option value="فروشگاه سفیر رشت">فروشگاه سفیر رشت</option>
+                   <option value="فروشگاه سفیر شیراز">فروشگاه سفیر شیراز</option>
+                   <option value="فروشگاه سفیر لواسان">فروشگاه سفیر لواسان</option>
+                   <option value="فروشگاه سفیر تبریز">فروشگاه سفیر تبریز</option>
+                   <option value="فروشگاه سفیر مشهد">فروشگاه سفیر مشهد</option>
+                   <option value="انبار مرکزی">انبار مرکزی</option>
+                   <option value="فروشگاه سفیر کرج">فروشگاه سفیر کرج</option>
+                   <option value="فروشگاه سفیر پانوراما">فروشگاه سفیر پانوراما</option>
+                   <option value="فروشگاه سفیر اصفهان">فروشگاه سفیر اصفهان</option>
+                   <option value="فروشگاه سفیر هایپر استار">فروشگاه سفیر هایپر استار</option>
+                   <option value="فروشگاه پالاس">فروشگاه پالاس</option>
+                   <option value="فروشگاه سفیر فرشته">فروشگاه سفیر فرشته</option>
+                   <option value="فروشگاه سفیرا">فروشگاه سفیرا</option>
+                   <option value="فروشگاه سفیر پاسداران">فروشگاه سفیر پاسداران</option>
+                   <option value="فروشگاه اروند عطر خرمشهر">فروشگاه اروند عطر خرمشهر</option>
+                   <option value="فروشگاه سفیر ارگ تجاری">فروشگاه سفیر ارگ تجاری</option>
+                </select>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search barcode" id="searchstock">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="input-group">
+                  <input type="text" class="form-control " id="searchstockbyname" placeholder="Search Name">
+                </div>
+              </div>
+         </div>
+         <br>
+        <div class="listAllstore">
+            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        
+                        <th>RetailStoreName</th>
+                        <th>Barcode<i class="glyphicon glyphicon-arrow-down bacodeascending" style="font-size: 13px;opacity: 0.5;cursor: pointer;"></i><i class="glyphicon glyphicon-arrow-up bacodedescending" style="font-size: 13px;opacity: 0.5;cursor: pointer;"></i></th>
+                        <th>QTY<i class="glyphicon glyphicon-arrow-down qtyascending" style="font-size: 13px;opacity: 0.5;cursor: pointer;"></i><i class="glyphicon glyphicon-arrow-up qtydescending" style="font-size: 13px;opacity: 0.5;cursor: pointer;"></i></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {{#each listsStock}}  
+                    <tr>
+                        <td class="hidden-phone">{{RetailStoreName}}</td>
+                        <td>{{Barcode}}</td>
+                        
+                        <td><input type="text" value="{{QTY}}" class="qty"/></td>
+                                            
+                       <!--  <td><a class="btn mini blue-stripe editstock" href=""><i class="glyphicon glyphicon-pencil"></i></a></td> -->
+
+                        <td><a href="#" class="deletestock"><i class="glyphicon glyphicon-trash"></i></a></td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+
+            </table>
+        </div>
+        <div>
+              <select class="selectpicker pagestock" data-style="btn-primary">
+                  <option>--Select by page--</option>
+                  {{#each pageOfStock}}
+                    <option value="{{this}}">{{this}}</option>
+                  {{/each}}
+              </select>
+              <span>{{shownumberpage}}</span>
+        </div>
+
+        <div>
+           <nav>
+          <ul class="pager">
+            <li><a href="#" class="prev">Previous</a></li>
+            <li><a href="#" class="next">Next</a></li>
+          </ul>
+        </nav>
+        </div>
+    </div>
+</template>

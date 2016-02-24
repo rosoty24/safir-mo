@@ -1,0 +1,42 @@
+<template name="userOrderList">
+	<div class="container">
+			<!-- Orderlist table Starts here -->
+		<section class="row">
+			<div class="col-sm-12 col-md-12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<h2><i class="glyphicon glyphicon-tasks"></i>{{_"Order List"}}</h2>
+					</div>
+					<div class="widget-container table-responsive">
+						<table class="table table-hover table-striped order-table table-green">
+						<thead>
+							<tr>
+								<th>{{_"Time"}}</th>
+								<th>{{_"Status"}}</th>
+								<th>{{_"Address"}}</th>
+								<th>{{_"Action"}}</th>
+							</tr>
+						</thead>
+
+						<tbody>
+						{{#each getOrder}}
+							{{#each items}}
+							<tr>
+								<td>{{getTime ../time}}</td>
+								<td>{{../status}}</td>
+								<td>{{../address}}</td>
+								<td>
+								  <a href="/orderDetail/{{../_id}}" id="view"><button type="button" class="btn-view btn-sm btn-list"><i class="glyphicon glyphicon-eye-open"></i>{{_"View"}}</button></a>
+								</td>
+							</tr>
+							{{/each}}
+						{{/each}}
+						</tbody>
+					</table>	
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Order Table ends here -->
+	</div>
+</template>

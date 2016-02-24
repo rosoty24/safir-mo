@@ -1,0 +1,27 @@
+
+.thumbnail {
+    position:relative;
+    overflow:hidden;
+    border: none;
+}
+ 
+.caption {
+    position:absolute;
+    top:0;
+    right:31px;
+    /*background:rgba(66, 139, 202, 0.75);*/
+    /*width:74%;*/
+    height:0%;
+    width: 71%;
+    padding:2%;
+    display: none;
+    text-align:center;
+    color:#fff !important;
+    z-index:2;
+}
+.thumbnail .caption {
+    padding: 9px;
+    color: #333;
+    margin: 80px -5px 33px 0px !important;
+}
+.caption p{line-height: 8.5em;}

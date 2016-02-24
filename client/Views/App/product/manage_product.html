@@ -1,0 +1,119 @@
+
+<template name="manageproduct">
+	<div id="wrapper">
+		<div id="page-wrapper">
+			<div class="container-fluid">
+				<!-- Page Heading -->
+				<div class="row">
+
+					<div class="col-lg-12">
+						<h1 class="page-header">
+							{{_"Manage Products"}}
+						</h1>
+						<ol class="breadcrumb">
+							<li class="active">
+								<i class="fa fa-dashboard"></i> {{_"Dashboard"}}
+							</li>
+						</ol>
+					</div>
+					<div class="col-sm-6 pull-right">
+						<label class="control-label" for="Brand">SORT BY TAG</label>
+
+						<div class="panel panel-default">
+
+							<div class="panel-body">
+
+								<select class="form-control" id="sortcate" placeholder="Select Category">
+									<option value="">Select Category</option>
+									{{#each getCatSort}}
+									<option value="{{_id}}">{{title}}</option>
+									{{/each}}
+								</select>
+								<select class="form-control" id="sorttag" style="margin-top:15px;">
+									<option value="">Select Tag</option>
+									{{#each getParentTagSort}}
+									<option value="{{_id}}">{{title}}</option>
+									{{/each}}
+								</select>
+							</div>
+						</div>
+					</div>
+					<!-- Manage product sort brand -->
+
+					<div class="col-sm-4 pull-right">
+						<label class="control-label" for="Brand">SORT BY BRAND</label>
+						<select class="form-control" id="brandname">
+							<option value="">Select Brand</option>
+							{{#each getBrandSort}}
+							<option value="{{this}}">{{this}}</option>
+							{{/each}}
+						</select>
+					</div>
+
+
+					<div class="col-xs-12 col-sm-6 col-md-12">
+						<a href="/addproduct"><button class="btn btn-primary">{{_"Add New"}}</button></a>
+
+						<br>
+						<br>
+						<div class="table-responsive">
+
+							<table class="table table-bordered table-hover table-striped">
+								<thead>
+									<tr>
+										<th style="width:3%">{{_"No"}}</th>
+										<th class="text-center" style="width:35%">{{_"Title"}}</th>
+										<th class="text-center" style="width:10%">{{_"Price"}}</th>
+										<th class="text-center" style="width:10%">{{_"Point"}}</th>
+										<th class="text-center" style="width:10%">{{_"Attribute image"}}</th>
+										<th class="text-center" style="width:15%">{{_"Image"}}</th>
+										<th class="text-center" style="width:15%">{{_"Category"}}</th>
+										<th class="text-center" style="width:15%" colspan="5">{{_"Tools"}}</th>
+
+									</tr>
+								</thead>
+								<tbody>
+
+									{{#each managePro}}
+									<tr>
+										<td>{{number}}</td>
+										<td>{{title}}</td>
+										<td>{{price}}</td>
+										<td>{{point}}</td>
+										<td>
+											{{#each getImgeAttribute oldId}}
+											<img style="width:50px; height:50px" src="{{getImg productImage}}">
+											{{/each}}
+										</td>
+										<td>
+											{{#each getListImg _id}}
+											<img style="width:50px; height:50px" src="{{getImg this}}">
+											{{/each}}
+										</td>
+										<td>{{catName category}}</td>
+										{{#if checkStatus status}}
+										<td><a class="glyphicon glyphicon-ok center-block" href="" id="publish"></a></td>
+										{{else}}
+										<td><a class="glyphicon glyphicon-remove center-block" href="" id="unpublish"></a></td>
+										{{/if}}
+										<td><a class="glyphicon glyphicon-eye-open center-block" href="" id="view"></a></td>
+										<td><a class="glyphicon glyphicon-trash center-block" href="" id="remove"></a></td>
+										<td><a class="glyphicon glyphicon-edit center-block" href="updateproduct/{{_id}}"></a></td>
+										<td><a class="glyphicon glyphicon-text-background center-block" href="translateproduct/{{_id}}"></a></td>
+									</tr>
+									{{/each}}
+								</tbody>
+							</table>
+							<br />
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<!-- /#page-wrapper -->
+	</div>
+	<!-- /#wrapper --> 
+</template>

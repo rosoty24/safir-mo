@@ -1,0 +1,31 @@
+<template name="sellings">
+{{#each questions}}
+
+<div class="col-md-12">
+
+				<h2>{{question}}</h2>
+				<div style="padding:20px"></div>
+
+		{{#each answers}}
+			<div class="col-md-4">
+		   <p class="text-center">{{text}}</p>
+			<a id="hamly" href=""><img style="border:8px solid #000" src="/images/trendy_1.jpg" class="img-circle center-block" alt="pack" width="150" height="150"></a>
+			<h3 class="text-center" style="font-weight:bold">${{sum products}}
+				<span style="color:rgb(221, 42, 27)" class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+			</h3>
+		</div>
+		{{/each}}
+		
+
+		
+
+
+   <!-- popup -->
+
+   
+</div>
+
+{{/each}}
+
+{{>popupselling}}
+</template>

@@ -1,0 +1,310 @@
+
+<template name="addproduct">
+	<div style="padding:0px -225px !important;">
+		<div class="container">
+			<form role="form" class="form-horizontal">
+				<input type="hidden" id="tags" value="{{myTags}}"/>	
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="title">{{_"Title"}} <span style="color:red">*</span></label>
+					<div class="col-sm-9">
+						<input type="title" name="title" id="title" class="form-control input-sm" placeholder="{{_"Title"}}" value="{{title}}"  >
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="description">{{_"Description"}}<span style="color:red"> *</span></label>
+					<div class="col-sm-9">
+
+						<textarea rows="5" name="description" id="editor1" value="{{description}}" class="form-control input-sm" placeholder="{{_"Description"}}"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="price">{{_"Priority"}} <span style="color:red">*</span></label>
+					<div class="col-sm-9">
+						<input type="text" name="priority" id="priority" class="form-control input-sm" placeholder="{{_"Priority"}}" value="{{priority}}">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="Brand">{{_"Brand"}} <span style="color:red">*</span></label>
+					<div class="col-sm-9">
+						<select class="form-control" id="brand">
+							<option value="{{Brand}}">{{Brand}}</option>
+							{{#each getBrand}}
+							<option value="{{this}}">{{this}}</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="category"> {{_"Categories"}} <span style="color:red">*</span></label>
+					<div class="col-sm-9">
+						<select class="form-control" id="category">
+							<option value="{{category}}">{{catName category}}</option>
+							{{#each getCat}}
+							<option value="{{_id}}">{{title}}</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="image">{{_"Image"}} <span style="color:red">*</span></label>
+					<div class="col-sm-9">
+						<input type="file" name="image" id="image" class="" placeholder="image">
+						<div class="col-lg-12 col-sm-12" style="padding:15px;border:1px solid #ccc;margin-top:15px;">
+							{{#if image}}
+							{{#each getIdImageUpdate image}}
+
+							<div class="col-lg-3 col-sm-3">
+								<img class="img-thumbnail" style="width:100px; height:100px;" src="{{getImg image}}"><br/>
+								<input type="checkbox" name="checkImg" id="check" value="{{image}}" checked>
+							</div>
+
+							{{/each}}
+							{{else}}
+							{{#each getIdImageAdd}}
+
+							<div class="col-lg-3 col-sm-3">
+								<img class="img-thumbnail" style="width:100px; height:100px;" src="{{getImg image}}"><br/>
+								<input type="checkbox" name="checkImg" id="check" value="{{image}}" checked>
+							</div>
+
+							{{/each}}
+							{{/if}}
+						</div>
+					</div>
+
+				</div>	
+
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="category"> {{_"Attribute"}} <span style="color:red">*</span></label>
+					<div class="col-sm-2">
+						<select class="form-control" id="parent_attr">
+							<option value="0">{{_"Select Attribute"}}</option>
+							{{#each getParentAttr}}
+							<option value="{{_id}}">{{name}}</option>
+							{{/each}}
+						</select>
+					</div>
+
+					<div class="col-sm-2">
+						<select class="form-control" id="attribute">
+
+							{{#each getAttr parentAttr}}
+							<option value="{{value}}">{{value}}</option>
+							{{/each}}
+						</select>
+					</div>
+
+					<div class="col-sm-5">
+						<input type="file" name="attr_image" id="attr_image" class="" placeholder="image">
+					</div>		
+
+					<div class="col-sm-1 col-sm-offset-3">
+						<input type="text" name="price_attr" id="price_attr" class="form-control input-sm" placeholder="{{_"Price"}}">
+					</div>
+					
+					<div class="col-sm-1">
+						<input type="text" name="point_attr" id="point_attr" class="form-control input-sm" placeholder="{{_"Point"}}">
+					</div>
+					<div class="col-sm-1">
+						<input type="text" name="barcode" id="barcode" class="form-control input-sm" placeholder="{{_"Barcode"}}">
+					</div>
+
+
+					<div class="col-sm-2">
+						<input  value="{{_"Add"}}" id="add_attr" class="btn btn-primary btn-block">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="article"> {{_"Article"}} <span style="color:red">*</span></label>
+						<div class="col-sm-2">
+							<select class="form-control" id="article">
+								<option value="0">{{_"Select Article"}}</option>
+								{{#each getArticle}}
+								<option value="{{_id}}">{{title}}</option>
+								{{/each}}
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<input type="button" value="{{_"Add"}}" id="addarticle" class="btn btn-primary">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="tuto"> {{_"Tuto"}} <span style="color:red">*</span></label>
+						<div class="col-sm-2">
+							<select class="form-control" id="tuto">
+								<option value="0">{{_"Select Tuto"}}</option>
+								{{#each getTutoes}}
+								<option value="{{_id}}">{{title}}</option>
+								{{/each}}
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<input type="button" value="{{_"Add"}}" id="btn_tuto" class="btn btn-primary">
+						</div>
+					</div>
+				</div>
+
+				<!-- end -->
+
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="tag">{{_"Tag"}} </label><br>
+					<div class="col-sm-9">
+						{{#each parentTag}}
+						<div class="col-sm-2">
+							{{catName category_id}} : {{title}}:
+							<select class="form-control" id="tag_{{_id}}">
+
+								{{#each getTag _id}}
+								<option value="{{_id}}" id="{{../_id}}">{{title}}</option>
+								{{/each}}
+							</select><br>
+							<input  value="{{_"Add"}}" id="tagAdd" class="btn btn-primary btn-block">
+						</div>
+						{{/each}}
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<label class="control-label col-sm-3" for="shop">{{_"Shop"}} </label><br>
+						<div class="col-sm-3">
+							<select class="form-control" name="myshop" id="myshop">
+								<option value="">{{_"Select Shop"}}</option>
+								{{#each getShop}}
+								<option value="{{_id}}">{{name}}</option>
+								{{/each}}
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<input type="text" name="instock" id="instock" value="" class="form-control input-sm" placeholder="0">
+						</div>
+						<div class="col-sm-3">
+							<input type="button" value="{{_"Add"}}" id="addshop" class="btn btn-primary">
+						</div>
+					</div>
+					<div id="shophtml"></div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2">
+						<input  value="{{_"Create"}}" id="btnAdd" class="btn btn-primary btn-block">
+					</div>
+				</div>
+			</form>
+
+			<div id="recap-attribute">
+				<table>
+					<tr>
+						<th>{{_"Category"}}</th>
+						<th>{{_"Attribute"}}</th>
+						<th>{{_"Price"}}</th>
+						<th>{{_"Point"}}</th>
+						<th>{{_"Barcode"}}</th>
+						<th>{{_"Image"}}</th>
+						<th>{{_"Action"}}</th>
+					</tr>
+
+
+
+					{{#each listAttr}}
+					<tr>
+						<td>{{getParentName parent}}</td>
+						<td>{{attribute}}</td>
+						<td>
+							<div class="col-sm-5">
+								<input type="text" name="price" id="price" class="form-control input-sm" placeholder="price" value="{{price}}"  >
+							</div>
+						</td>
+						<td>
+							<div class="col-sm-5">
+								<input type="text" name="point" id="point" class="form-control input-sm" placeholder="point" value="{{point}}"  >
+							</div>
+						</td>
+						<td>
+							<div class="col-sm-5">
+								<input type="text" name="point" id="barcode" class="form-control input-sm" placeholder="point" value="{{barcode}}"  >
+							</div>
+
+						</td>
+						<td><img src="{{getImg productImage}}"  width="20" height="20"/></td>
+						<td>
+							<a href="" id="deleteAttr" style="color:blue;">{{_"Delete"}}</a>
+							<!-- <a href="" id="updateImgAttr" style="color:blue;">{{_"Update"}}</a> -->
+							<input id="updateAttrImg" type="file" name="updateAttrImg">
+
+						</td>
+					</tr>
+					{{/each}}
+				</table>
+			</div>
+			<div id="recap-attribute">
+				<table>
+					<tr>
+						<th>{{_"Parent Tag"}}</th>
+						<th>{{_"Tag"}}</th>
+						<th>{{_"Action"}}</th>
+					</tr>
+					{{#each listTag}}
+					<tr>
+						<td>{{getParentNameTag parent}}</td>
+						<td>{{value}}</td>
+						<td><a href="" class="deleteTag" style="color:blue;">{{_"DELETE"}}</a></td>
+					</tr>
+					{{/each}}
+
+				</table><br /><br />
+
+
+				<br /><br />
+			</div>
+
+			<div id="recap-attribute">
+				<table>
+					<tr>
+						<th>{{_"Article"}}</th>
+						<th>{{_"Action"}}</th>
+					</tr>
+					{{#each getContentArt}}
+					<tr>
+						<td>{{getTitle this}}</td>
+						<td><a href="" class="deleteArticle" style="color:blue;">{{_"Delete"}}</a></td>
+					</tr>
+					{{/each}}
+
+				</table><br /><br />
+
+
+				<br /><br />
+			</div>
+			<div id="recap-attribute">
+				<table>
+					<tr>
+						<th>{{_"Tuto"}}</th>
+						<th>{{_"Action"}}</th>
+					</tr>
+					{{#each getContentTutoes}}
+					<tr>
+						<td>{{getTitle this}}</td>
+						<td><a href="" class="deleteTutoes" style="color:blue;">{{_"Delete"}}</a></td>
+					</tr>
+					{{/each}}
+
+				</table><br /><br />
+
+
+				<br /><br />
+			</div>
+			<!-- end -->
+		</div>
+	</div>
+	<script type="text/javascript">
+		CKEDITOR.replace( 'editor1' );
+	</script>				
+
+</template>

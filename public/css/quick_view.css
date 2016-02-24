@@ -1,0 +1,77 @@
+/******* KA for popup ********/
+div.modal{
+	z-index: 1450;
+}
+/******* KA ********/
+.quick_view .modal{
+	z-index:999999;
+}
+.pop_detail{
+	padding-top:35px;
+}
+.quick_view .modal-content{
+	border-radius:0px;			
+}
+.quick_view  .modal-header{
+	border-bottom:0px;
+}
+.customers_view{
+	margin-left:10px; 
+	color:gray
+}
+.pop_brand{
+	color:#ccc;
+}
+.pop_title{
+	display: block;
+    color: #111;
+    font-size: 24px;
+    line-height: 1.33;
+    margin-bottom: 0px;
+    overflow: hidden;
+    max-height: 4em;
+}
+.rating{
+	margin-bottom:20px;
+}
+.pop_price{
+	font-size: 24px;
+	margin-bottom:15px;
+}
+.pop_button{
+	margin-bottom:30px;
+	background-image: linear-gradient(rgb(255, 5, 5) 0%, rgb(143, 2, 34) 99%);
+}
+.pop_more_bought{
+	color:#888;
+}
+.quick_view .modal-footer{
+	text-align:center;
+}
+
+
+/* quizz */
+.model-footer-button{
+	text-align:right;
+}
+.model-footer-button button{
+	padding-left:40px;
+	padding-right:40px;
+}
+.model-footer-button > .btn{
+	border-radius:0px;
+}
+.btn-black{
+	background:#333;
+	color:#fff;
+	border:1px solid #333;
+}
+.checkbox {
+    position: relative;
+    color: #000;
+}
+.checkbox {
+    margin-bottom: 4px;
+    padding-left: 27px;
+    cursor: pointer;
+}

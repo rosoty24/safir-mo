@@ -1,0 +1,22 @@
+<template name="lookdetail">
+	<div class="container">
+		<div class="col-md-12">
+			<div class="col-md-9">
+				<b>title:</b><p>{{title}}</p>
+				<b>contents:</b><p>{{content}}</p>
+				<b>comments:</b><p>{{comment}}</p>
+				<b>Author:</b>
+				{{#with getAuthor author}}
+					<p>Username: {{profile.firstname}}</p>
+					<p>Username: {{profile.lastname}}</p>
+					{{#each emails}}
+						<p>Emails: {{address}}</p>
+					{{/each}}
+				{{/with}}
+			</div>
+			<div class="col-md-3">
+				<img src="/images/{{getImage image}}" width="200px"/>
+			</div>
+		</div>
+	</div>
+</template>

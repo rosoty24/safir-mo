@@ -1,0 +1,99 @@
+/* Large desktops and laptops */
+@media (min-device-width: 1200px) {
+	.container{max-width:980px;}
+	.hold_cart{
+		padding-top:60px;
+		margin-bottom:-10px;
+		background:url("../images/bg_card-01.svg") no-repeat;
+		background-size: 290px;
+		overflow: hidden;
+		padding-bottom: 20px;
+	}
+	#squarespaceModal .modal-content .modal-body .hold_input_login {
+	    padding: 25px 15px;
+	}
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-device-width: 992px) and (max-device-width: 1199px) {
+	#squarespaceModal .modal-content .modal-body .hold_input_login {
+	    padding: 25px 15px;
+	}
+}
+
+/* Portrait tablets and small desktops */
+@media (min-device-width: 768px) and (max-device-width: 991px) {
+	.hold_cart{
+		padding:140px 15px 25px 15px;
+		margin-bottom:-10px;
+		background:url("../images/bg_card-01.svg");
+		background-size: cover;
+		overflow: hidden;		
+	}
+	#squarespaceModal .modal-lg {
+	    width: 700px;
+	}
+	#squarespaceModal .modal-content .modal-body .hold_input_login{
+		padding: 25px 0px;
+	}
+	#squarespaceModal .modal-content .modal-body .hold_input_login {
+	    padding: 25px 15px;
+	}
+}
+
+/* Landscape phones and portrait tablets */
+@media (min-device-width: 480px) and (max-device-width: 767px) {
+	.hold_cart{
+		padding:140px 15px 25px 15px;
+		margin-bottom:-10px;
+		background:url("../images/bg_card-01.svg");
+		background-size: cover;
+		overflow: hidden;		
+	}
+	#squarespaceModal .modal-lg {
+	    width: 95%;
+	    margin-top: 80px;
+	}
+	#squarespaceModal .modal-content .modal-body .hold_input_login {
+	    padding: 25px 0px;
+	}
+	#squarespaceModal .modal-content .modal-body .hold_input_register {
+	    padding-left: 0px;
+	    padding-top: 25px;
+	}
+	#squarespaceModal .modal-content .modal-body {
+	    position: relative;
+	    padding: 25px;
+	    overflow: hidden;
+	}
+	
+}
+
+
+@media (min-device-width: 100px) and (max-device-width: 480px){
+	.hold_cart{
+		padding:140px 15px 25px 15px;
+		margin-bottom:-10px;
+		background:url("../images/bg_card-01.svg");
+		background-size: cover;
+		overflow: hidden;		
+	}
+	#squarespaceModal .modal-lg {
+	    width: 95%;
+	    margin-top: 80px;
+	}
+
+	#squarespaceModal .modal-content .modal-body .hold_input_login {
+	    padding: 25px 0px;
+	}
+	#squarespaceModal .modal-content .modal-body .hold_input_register {
+	    padding-left: 0px;
+	    padding-top: 25px;
+	}
+	#squarespaceModal .modal-content .modal-body {
+	    position: relative;
+	    padding: 25px;
+	    overflow: hidden;
+	}
+}
+

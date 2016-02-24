@@ -1,0 +1,7 @@
+@font-face {font-family: "B Nazanin";
+    src: url("bnazannin.eot");
+    src: url("bnazannin.eot?#iefix") format("embedded-opentype"),
+    url("bnazannin.woff") format("woff"),
+    url("bnazannin.ttf") format("truetype"),
+    url("fonts/bnazannin.svg#B Nazanin") format("svg");
+}

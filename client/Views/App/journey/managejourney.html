@@ -1,0 +1,42 @@
+<template name="journey">
+<table>
+	<tr>
+		<td>Category</td>
+		<td><select class="form-control" id="category">
+										<option value="0">Select Categories</option>
+										{{#each getCat}}
+											<option value="{{_id}}">{{title}}</option>
+										{{/each}}
+									 </select>
+		</td>
+	</tr>
+	<tr>
+		<td>Question:</td>
+		<td><input type="text" id="question" /></td>
+	</tr>
+	<tr>
+		<td>Answer parent:</td>
+		<td>
+			<select id="questionparent"><option value="0">none</option>
+				{{#each getQuestion}}<option value="{{_id}}">{{question}}</option>
+				{{/each}}
+			</select>
+
+			<select id="answerparent"><option value="0">none</option>
+				{{#with getAnswers selectedQuestion}}
+					{{#each answers}}<option value="{{id}}">{{text}}</option>{{/each}}
+				{{/with}}
+				
+			</select></td>
+	</tr>
+	<tr>
+		<td>Answer options:</td>
+		<td>Text: <input type="text" id="answer" /><br /> Tag: <input type="text" id="tag" /><a href="#" id="addanswer" class="btn btn-primary pull-right" style="margin-right:30px;">Add Answer</a></td>
+	</tr>
+	<tr>
+		<td>Submit:</td>
+		<td><a href="#" id="addquestion" class="btn btn-primary pull-right" style="margin-right:30px;">Submit</a></td>
+	</tr>
+
+</table>
+</template>

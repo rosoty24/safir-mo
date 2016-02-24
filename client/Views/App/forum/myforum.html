@@ -1,0 +1,25 @@
+<template name="myforum">
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    {{#each listallmyforums}}
+    <tbody>
+          <tr>
+            <td><a href="/forum/detail/{{_id}}">{{topic}}</a></td>
+            <td><a href="/forum/detail/{{_id}}">{{description}}</a></td>
+            <td><a href="/forum/detail/{{_id}}">{{date}}</a></td>
+            <td><button id="delete">Delete</button> | <a href="/forum/updateforum/{{_id}}"><button>Update</button></a></td>
+          </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+
+ </template>

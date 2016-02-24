@@ -1,0 +1,23 @@
+
+{
+
+	"Category": "گروه",
+	"Brands": "برند ",
+	"Quantity": "تعداد",
+	"ADD TO CART": "افزودن به سبد خرید",
+	"REVIEWS & FEEDBACKS": "نظرات و بازخوردها",
+	"FILTER REVIEWS": "فیلترینگ نظرات",
+	"MORE REVIEWS": "نظرات بیشتر",
+	"RELATED PRODUCTS" : "محصولات مرتبط",
+	"POST":"ارسال",
+	"Shop": "فروشگاه",
+	"None":"هیچ",
+	"Enter your translation here":"ترجمه خود را اینجا وارد کنید",
+	"No articles about":"هیچ مقاله ای درباره",
+	"No tutorial about":" بدون آموزش درباره",
+	"No reviews":"هیچ بررسی",
+	"Send a translation of the description to earn points":"برای دریافت امتیاز متن روبرو را ترجمه کنید  ",
+	"Tutorial about": "آموزش",
+	"Write a review" : "نظر خود را بنویسید",
+	"Post":"ارسال"
+}

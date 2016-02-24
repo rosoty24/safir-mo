@@ -1,0 +1,28 @@
+<template name="listpro">
+
+<div class="container">
+	<div class="row">
+	
+		<div class="hold_product">
+			<div class="row">
+				{{#each favoriteList}}
+				
+				<div class="col-md-3">
+					<div class="product_item">
+						<a href="{{pathFor 'details' id=_id}}"><img src="/upload/{{getImg image}}" class="img-responsive img-circle center-block" width="200" height="200" /></a>
+						<a href="{{pathFor 'details' id=_id}}" class="title">{{title}}</a>
+						<div class="hold_price">
+							<a href="" class="price">{{price}} </a>
+							<a href="#" id="remove" ><span class="glyphicon glyphicon-remove"></span></a>
+						</div>
+					</div>		
+				</div>
+				{{/each}}
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</template>

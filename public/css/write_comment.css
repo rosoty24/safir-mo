@@ -1,0 +1,39 @@
+.hwrite_comments{
+	margin-bottom:25px;
+	overflow:hidden;
+}
+.btn_write_comment{
+	background:#000;
+	color:#fff;
+	font-weight:bold;
+}
+.hwrite_comments .btn_cancel{
+	background:#ccc;
+	margin:15px 15px 15px 15px;
+	padding:5px 30px;
+	color:#fff;
+}
+.hwrite_comments .btn_send{
+	background:#29abe2;
+	margin:15px 0px 15px 15px;
+	padding:5px 30px;
+	color:#fff;
+}
+.hwrite_comments  input{
+	border:none;
+	background:#ccc;
+	border-radius:0px;
+	margin-bottom:15px;
+}
+.hwrite_comments  textarea{
+	border:none;
+	background:#ccc;
+	border-radius:0px;
+}
+.hwrite_comments .select_grade{
+	margin: 15px;
+	background:#ccc;
+}
+.hwrite_comments  #sel1{
+	background:#ccc;
+}

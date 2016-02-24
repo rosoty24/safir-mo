@@ -1,0 +1,40 @@
+<template name="contentdetails">
+		<br>	
+		<div class="breadcrumb-main">
+			<div class="container">
+				<div class="container-box">
+					<div class="col-xs-3 col-sm-3 col-lg-3" style="margin-top:15px"><img class="img-responsive" src="images/webzine.png"></div>
+					<div class="col-xs-3 col-sm-3 col-lg-3" style="margin-top:15px"><img class="img-responsive" src="images/tuto_hover.png"></div>
+					<div class="col-xs-3 col-sm-3 col-lg-3" style="margin-top:15px"><img class="img-responsive" src="images/looks_none.png"></div>
+					<div class="col-xs-3 col-sm-3 col-lg-3" style="margin-top:15px"><img class="img-responsive" src="images/forum.png"></div>
+					<div class="clearfix"></div>
+					<ul class="list-inline breadcam">
+						<li>MAKEUP<span><img src="images/caret.png"></span></li>
+						<li>LIPS<span><img src="images/caret.png"></span></li>
+						<li>LIPSTICK<span><img src="images/caret.png"></span></li>
+						<li>REFINE<span><img src="images/caret.png"></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			
+			<div class="clearfix"></div>
+			<br>
+			<br>
+			
+			<br>
+			<div class="row" style="margin-bottom:15px">
+				<div class="col-lg-4 col-sm-4">
+					<h2 class="text-center" style="font-weight:bold">{{title}}</h2>
+					<p>{{content}}</p>
+					<div>
+					<img src="{{getImage image}}" width="300">
+					<div style="border:1px solid; padding:5px 5px 5px 5px; margin-top:15px"> 
+						<p>{{comment}}</p>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</template>

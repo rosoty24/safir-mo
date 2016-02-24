@@ -1,0 +1,46 @@
+<template name="updatelistproduct">
+<div class="container">
+		<form role="form" class="form-horizontal">
+<div class="form-group">
+		<label class="control-label col-sm-3" for="title">Title <span style="color:red">*</span></label>
+		<div class="col-sm-6">
+			<input type="title" name="title" id="title" class="form-control input-sm" placeholder="Title" value="{{title}}"  >
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="code">Code <span style="color:red">*</span></label>
+		<div class="col-sm-6">
+			<input type="code" name="cdoe" id="code" class="form-control input-sm" placeholder="Code" value="{{code}}">
+		</div>
+	</div>
+		<div class="form-group">
+				<div class="col-sm-12">
+							<table class="table table-bordered table-hover table-striped">
+								<thead>
+									<tr>
+										<th class="text-center" style="width:35%">Products</th>
+										<th class="text-center" style="width:15%" colspan="4">Tools</th>
+									</tr>
+								</thead>
+								<tbody>
+									{{#each getlistPro}}
+									<tr>
+										<td>{{products}}</td>
+										<td><a class="glyphicon glyphicon-trash center-block" href="" id="remove"></a></td>
+										<td><a class="glyphicon glyphicon-edit center-block" href="updatelistproduct/{{_id}}"></a></td>
+									</tr>
+									{{/each}}
+								</tbody>
+							</table>
+				
+			</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<input  value="Update" id="btnUpdate" class="btn btn-primary btn-block">
+		</div>
+	</div>
+	</form>
+</div>
+</template>

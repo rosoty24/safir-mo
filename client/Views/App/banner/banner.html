@@ -1,0 +1,134 @@
+<template name="banner">
+    
+        <div id="page-wrapper">
+
+            <div class="container">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                           Manage Banner
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+							<li class="active">Banner</li>
+                                
+                        </ol>
+                    </div>
+					<div class="col-xs-12 col-sm-12 col-lg-12">
+						
+						
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-5">
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="title">Type banner <span style="color:red">*</span></label>
+								<div class="col-sm-8">
+									<select name="typebanner" required class="form-control">
+										{{#if _id}}
+										<option value="{{typebanner}}">{{typebanner}}</option>
+										<option value="home">Home</option>
+										<option value="webzine">Webzine</option>
+										{{else}}
+										<option value="">Please Select Banner</option>
+										<option value="home">Home</option>
+										<option value="webzine">Webzine</option>
+										{{/if}}
+										
+										
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="title">URL <span style="color:red">*</span></label>
+								<div class="col-sm-8">
+									<input type="text" required name="url" id="url" value="{{url}}" class="form-control input-sm" placeholder="URL"  >
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="title">Image<span style="color:red">*</span></label>
+								<div class="col-sm-8">
+									<input type="file"  name="file" id="file" value="" class="form-control input-sm" placeholder="banner"  >
+									<div class="col-md-12">
+										<span>Height:<strong>1300px </strong></span>
+										<span>Width:<strong>620px</strong></span>
+									</div>
+									{{#if imageId}}
+										<img src="{{getImg imageId}}" alt="banner" width="90" height="90" style="margin-top:15px;">
+									{{else}}
+										<img src="{{getImg getImgBrous}}" alt="banner" width="90" height="90" style="margin-top:15px;">
+									{{/if}}
+								</div>
+							</div>
+							
+							
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-4">
+									{{#if _id}}
+									<input type="submit" style="border-radius:3px;"  value="Edit" id="btnAdd" class="btn btn-primary btn-block">
+									{{else}}
+									<input type="submit" style="border-radius:3px;"  value="Add" id="btnAdd" class="btn btn-primary btn-block">
+									{{/if}}
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-7">
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover table-striped">
+								<thead>
+									<tr>
+										<th class="text-center" style="width:40%">Images</th>
+										<th class="text-center" style="width:40%">URL</th>
+										
+										<th class="text-center" style="width:10%" colspan="2">Tools</th>
+									</tr>
+								</thead>
+								<tbody>
+									{{#each getbanner}}
+									<tr>
+										<td>
+											
+											<img style="border:8px solid #000" src="{{getImg imageId}}" class="img-circle center-block" alt="Avatar" width="100" height="100">
+											
+										</td>
+										<td>{{url}}</td>
+										
+										<td>
+											<a href="/updatebanner/{{_id}}" id="btnEdit" style="color:black">Edit</a>
+										</td>
+										<td>
+											<a href="#" id="delete" style="color:black">delete</a>
+										</td>
+										
+
+										
+									</tr>
+									{{/each}}
+									<!-- {{#each listShop}}
+									<tr>
+										<td>{{Image}}</td>
+										<td>{{URL}}</td>
+										
+										<td><a class="glyphicon glyphicon-trash center-block" href="" id="remove"></a></td>
+										<td><a class="glyphicon glyphicon-edit center-block" href="updateshop/{{_id}}"></a></td>
+										<td><a class="glyphicon glyphicon-text-background center-block" href="transleshops/{{_id}}"></a></td>
+									</tr>
+									{{/each}} -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    
+    <!-- /#wrapper -->
+</template>

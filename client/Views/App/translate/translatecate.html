@@ -1,0 +1,22 @@
+<template name="translate_category">
+	<div class="container">
+		<div class="panel panel-default">
+                        <div class="panel-heading">
+                            	<h1>Update Categories</h1>
+                        </div>
+	
+			<form>
+					<input type="hidden" class="form-control" name="idcate" id="idcate" value="{{_id}}">
+					<label>Language</label><br>
+					<select id="lang">
+					  <option value="en">English</option>
+					  <option value="fa">Farsi</option>
+					</select><br>
+					<label>Title : {{title}}</label>
+					<input type="text" class="form-control" name="title" id="title" value="{{i18n.fa.title}}" required>
+					<br>
+					<button type="submit" class="btn-sm btn-primary" id="btnAdd">Update</button>
+			</form>
+	</div>
+</div>
+</template>

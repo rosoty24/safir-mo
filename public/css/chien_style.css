@@ -1,0 +1,126 @@
+p {
+margin-bottom:20px;
+}
+
+.clearout {
+height:20px;
+clear:both;
+}
+
+#flexiselDemo2, #flexiselDemo4, #flexiselDemo5 {
+display:none;
+}
+
+.nbs-flexisel-container {
+    position:relative;
+    max-width:100%;
+}
+.nbs-flexisel-ul {
+    position:relative;
+    width:99999px;
+    margin:0px;
+    padding:0px;
+    list-style-type:none;   
+    text-align:center;  
+}
+
+.nbs-flexisel-inner {
+    overflow:hidden;
+    float:left;
+    width:100%;
+    /*background: #fcfcfc -moz-linear-gradient(top, #fcfcfc 0%, #eee 100%);*/ /* FF3.6+ */
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px; 
+    padding-top:30px; 
+}
+
+.nbs-flexisel-item {
+    float:left;
+    height:270px;
+    margin:0px;
+    padding:0px;
+    cursor:pointer;
+    position:relative;
+   /* line-height:0px;*/
+}
+.nbs-flexisel-item img {
+    /*width: 100%;*/
+    cursor: pointer;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 228px;
+    max-height: 245px;
+    /*border-radius: 50%;
+    border: 8px solid black;	*/
+}
+
+/*** Navigation ***/
+
+.nbs-flexisel-nav-left,
+.nbs-flexisel-nav-right {
+    width: 22px;
+    height: 60px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0.5;
+}
+
+.nbs-flexisel-nav-left {
+    left: -50px;
+    background: url(../images/button-previous.png) no-repeat;
+}
+
+.nbs-flexisel-nav-right {
+    right: -50px;
+    background: url(../images/button-next.png) no-repeat;
+}
+.buttons{ 
+	margin-bottom: 140px;
+}
+
+.IGF .ig-background {
+    font-size: 10px !important;
+    white-space: nowrap !important;
+    display: none !important;
+}
+
+/*Confirm order*/
+.banner_chien{
+height: 10px;
+margin-bottom: -18px;
+background: transparent -moz-linear-gradient(center top , #DDD, #F7F7F7 3px, #FFF) repeat scroll 0% 0%;
+filter: none;
+z-index: 0;
+}
+/*End*/
+
+/*Style in menu_fullWidth */
+
+.newClass{
+    width: 90% !important;
+}
+
+/*Add style by chien 22/02/2016*/
+
+.slider-tick {
+    position: absolute;
+    width: 0px !important;
+    height: 20px !important;
+    background-image: linear-gradient(to bottom, #F9F9F9 0px, #F5F5F5 100%) !important;
+    background-repeat: repeat-x;
+    box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.15) inset !important;
+    box-sizing: border-box;
+    filter: none;
+    opacity: 0.8 !important;
+    border: 0px solid transparent !important;
+}
+
+/*Add style by chien 23/02/2016*/
+
+.gp_products_carousel_control_icons:hover{
+    background: #ccc;
+    width:30px;
+    transition:1s;
+}

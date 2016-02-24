@@ -1,0 +1,33 @@
+ <template name="home1">
+			
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+        	{{#with list1}}
+			<h1 class="text-center" style="font-weight:bold">{{title}}</h1>
+			<div class="clearout"></div> 
+
+        	{{#each products}}
+			{{#with getProduct this}}
+            <div class="swiper-slide"><a href="{{pathFor 'details' id=_id}}" title="{{title}}"><img class="img-responsive img-circle center-block" src="{{getImg image}}" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;" alt="{{title}}"/></a></div>
+            	{{/with}}
+								{{/each}}
+			{{/with}}
+        </div>
+        <!-- Add Pagination -->
+       <div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+    </div>
+		<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
+        centeredSlides: true,
+        paginationClickable: true,
+        spaceBetween: 10,
+        autoplay: 5000
+    });
+    </script>
+	</template>

@@ -1,0 +1,121 @@
+
+<template name="mouseTracking">
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+					<h1>My test here!!! to display mousetracking data pppppp</h1>
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                           {{_"Manage Products"}}
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> {{_"Dashboard"}}
+                            </li>
+                        </ol>
+                    </div>
+					<div class="col-lg-12">
+						<div class="col-lg-5">
+							<label class="control-label" for="Brand">Select By Name</label>
+							<select class="form-control" id="nameDiv">
+								<option style="display:none">--select--</option>
+								{{#each getName}}
+									<option value="{{this}}">{{this}}</option>
+								{{/each}}
+							 </select>
+						</div>
+						<div class="col-lg-5">
+							<label class="control-label" for="Brand">Select By Location</label>
+							<select class="form-control" id="nameLocation">
+							<option style="display:none">--select--</option>
+								{{#each getLocation}}
+								<option value="{{this}}">{{this}}</option>
+								{{/each}}
+							 </select>
+						</div>
+						
+						<div class="col-lg-2">
+							<input type="button" id="seeall" class="btn-Defaultprimary btn-sm" value="See All">
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="col-lg-6">
+							<label class="control-label" for="Brand">Select By Ip</label>
+							<select class="form-control" id="nameIp">
+							<option style="display:none">--select--</option>
+								{{#each getIp}}
+								<option value="{{this}}">{{this}}</option>
+								{{/each}}
+							 </select>
+						</div>
+						<div class="col-lg-6">
+							<label class="control-label" for="Brand">Select By username</label>
+							<select class="form-control" id="nameIp">
+							<option style="display:none">--select--</option>
+								{{#each getUserName}}
+								<option value="{{_id}}">{{profile.firstname}}</option>
+								{{/each}}
+							 </select>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-12">
+						<a href="/addproduct"><button class="btn btn-primary">{{_"Add New"}}</button></a>
+						
+						<br>
+						<br>
+						<div class="table-responsive">
+						
+							<table class="table table-bordered table-hover table-striped">
+								<thead>
+									<tr>
+										<th style="width:3%">{{_"No"}}</th>
+										<th class="text-center" style="width:10%">{{_"Username"}}</th>
+										<th class="text-center" style="width:35%">{{_"Location"}}</th>
+										<th class="text-center" style="width:10%">{{_"CarrentUrl"}}</th>
+										<th class="text-center" style="width:10%">{{_"Ip"}}</th>
+										<th class="text-center" style="width:10%">{{_"Time"}}</th>
+										<th class="text-center" style="width:10%">{{_"Action"}}</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+								
+									{{#each getmouseTracking}}
+									<tr>
+										<td>001</td>
+										<td></td>
+										<td>{{location}}</td>
+										<td>{{currenturl}}</td>
+										<td>{{ip}}</td>
+										<td>{{gettimeUserTracking time}}</td>
+										<td><button type="button" class="btn-sm btn-danger" id="del">Delete</button></td>
+									</tr>
+									{{/each}}
+								</tbody>
+								<tbody>
+								
+									{{#each getmoreTracking}}
+									<tr>
+										<td>001</td>
+										<td>{{location}}</td>
+										<td>{{currenturl}}</td>
+										<td>{{ip}}</td>
+										<td>{{gettimeUserTracking time}}</td>
+										<td><button type="button" class="btn-sm btn-danger" id="del">Delete</button></td>
+									</tr>
+									{{/each}}
+								</tbody>
+							</table>
+							<br />
+						</div>
+					</div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper --> 
+</template>

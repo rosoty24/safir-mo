@@ -1,0 +1,110 @@
+<template name="translateparentTag">
+	<div class="container">       
+        <div class="panel-body">
+        	<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1>Update Parent Tag</h1>
+                        </div>
+			<form role="form">
+					<input type="hidden" class="form-control" name="idparenttags" id="idparenttags" value="{{_id}}">
+					<label>Language</label><br>
+					<select id="lang">
+					  <option value="en">English</option>
+					  <option value="fa">Farsi</option>
+					</select><br>
+					<label>Title: {{title}}</label>
+					<input type="text" class="form-control" name="title" id="title" value="{{i18n.fa.title}}" required>
+					<br>
+					<button type="submit" class="btn-sm btn-primary" id="btnAdd">Update</button>
+			</form>
+			</div>
+		</div>
+	</div>
+</template>
+<template name="translatTags">
+	<div class="container">
+			<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1>Update Tag</h1>
+                        </div>
+			<form role="form">
+					<input type="hidden" class="form-control" name="idtags" id="idtags" value="{{_id}}">
+					<label>Language</label><br>
+					<select id="lang">
+					  <option value="en">English</option>
+					  <option value="fa">Farsi</option>
+					</select><br>
+					<label>Title :{{title}}</label>
+					<input type="text" class="form-control" name="title" value="{{i18n.fa.title}}" id="title" required>
+					<br>
+					<button type="submit" class="btn-sm btn-primary" id="btnAdd">Update</button>
+			</form>
+	</div>
+</div>
+</template>
+<template name="translatParent_attr">
+	<div class="container">
+		
+			<div class="panel panel-default">
+                        <div class="panel-heading">
+                           <h1>Update ParentAtrribute</h1>
+                        </div>
+			<form>
+					<input type="hidden" class="form-control" name="idtags" id="idParentattr" value="{{_id}}">
+					<label>Language</label><br>
+					<select id="lang">
+					  <option value="en">English</option>
+					  <option value="fa">Farsi</option>
+					</select><br>
+					<label>Title : {{name}}</label>
+					<input type="text" class="form-control" name="title" value="{{i18n.fa.title}}" id="title" required>
+					<br>
+					<button type="submit" class="btn-sm btn-primary" id="btnAdd">Update</button>
+			</form>
+		</div>
+	</div>
+</template>
+<template name="transleattribute_value">
+	<div class="container">
+		
+			<div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h1>Update Attribute</h1>
+                        </div>
+			<form>
+					<input type="hidden" class="form-control" name="idattr" id="idattr" value="{{_id}}">
+					<label>Language</label><br>
+					<select id="lang">
+					  <option value="en">English</option>
+					  <option value="fa">Farsi</option>
+					</select><br>
+					<label>Title : {{title}}</label>
+					<input type="text" class="form-control" name="title" value="{{i18n.fa.title}}"  id="title" required>
+					<br>
+					<button type="submit" class="btn-sm btn-primary" id="btnAdd">Update</button>
+			</form>
+		</div>
+	</div>
+</template>
+<template name="transleshops">
+	<div class="container">
+		
+		<div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h1>Update Shop</h1>
+                        </div>
+			<form>
+					<input type="hidden" class="form-control" name="idshops" id="idshops" value="{{_id}}">
+					<label>Language</label><br>
+					<select id="lang">
+					  <option value="en">English</option>
+					  <option value="fa">Farsi</option>
+					</select><br>
+					<label>Title : {{name}}</label>
+					<input type="text" class="form-control" name="title" value="{{i18n.fa.title}}" id="title" required>
+					<br>
+					<button type="submit" class="btn-sm btn-primary" id="btnAdd">Update</button>
+			</form>
+		</div>
+	</div>
+</template>

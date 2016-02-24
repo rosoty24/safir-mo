@@ -1,0 +1,127 @@
+<template name="registerSuccess2">
+ <div class="container">
+   <div class="modal" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" style="padding:80px">
+        <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+                  <h3 class="modal-title" id="lineModalLabel">Thanks for joined us!</h3>
+        </div>
+              
+        <div class="modal-body">
+                     You have successfully registered. <a  id="goto-login">Login</a> to order any products. 
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</template> 
+<template name="login2">
+ <div class="container">
+  <div class="center">
+    <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Safir popup</button>
+  </div>
+    <div class="modal fade alert" id="squarespaceModal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" style="padding:80px">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content" style="width:130%;margin-left:-50px;">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+                  <h3 class="modal-title" id="lineModalLabel">Login & Register</h3>
+              </div>
+              
+          <div class="modal-body">
+            <div class="container">
+              <div class="col-md-10 col-lg-10">
+                <div class="col-xs-7 col-md-8 col-lg-4">
+                  <p id="loginError" style="color:red;"></p>
+                  <fieldset style="margin-top:90px;">
+                    <form class="form-horizontal pull-right" method="post">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                          <h3 class="text-center">Login</h3>
+                        </div>
+                        <div class="col-xs-12 col-md-8 col-lg-12 form-group">
+                          <label>Username</label>
+                            <input class="form-control" id="style_login" name="email">
+                        </div>
+                        <div class="col-xs-12 col-md-8 col-lg-12 form-group">
+                          <label>Password</label>
+                            <input class="form-control" id="style_  login" name="password" type="password">
+                        </div>
+                        <div class="col-xs-12 col-md-8 col-lg-12 form-group">
+                          <button class="btn_login">LOGIN</button>
+                          <label class="pull-right">
+                           <!-- <a href="#">Forgot your password ?</a>-->
+                          </label>
+                        </div>
+                    </form>
+                  
+                  </fieldset>
+                </div>
+                <div class="col-lg-2">
+                  <div class="hidden-xs hidden-md hidden-sm col-lg-1 border_login">
+                    
+                  </div>
+                </div>
+                <div class="col-xs-9 col-md-12 col-lg-5">
+               
+                  <fieldset>
+                    <form role="form">
+                      <div class="col-xs-12 col-md-12 col-lg-12">
+                          <h3 class="text-center">Register</h3>
+                      </div>
+                      <div class="form-group">
+                        <label>Username</label>
+                        <input class="form-controls reg-username" id="style_login">
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group">
+                            <label>First name</label>
+                            <input  class="form-control input-sm reg-firstname" id="style_login">
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <label>Last name</label>
+                          <div class="form-group">
+                            <input  class="form-control input-sm reg-lastname" id="style_login">
+                          </div>
+                        </div>
+                  
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group">
+                            <label>Country</label>
+                            <input  class="form-control input-sm reg-country" id="style_login">
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <label>City</label>
+                          <div class="form-group">
+                            <input  class="form-control input-sm reg-city" id="style_login">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-controls reg-email" id="style_login">
+                      </div>
+              
+                      <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-controls reg-password" id="style_login">
+                      </div>
+                      <button class="btn_register">REGISTER</button>
+                    </form>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End of Login popup-->
+   
+ </div>
+
+</template>

@@ -1,0 +1,37 @@
+<template name="editattr">
+	<div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            EDIT ATTRIBUTE
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <form role="form">
+                                <input type="hidden" name="id_edit" value="{{attr._id}}">
+                                <div class="form-group">
+                                    
+                                    <select name="selectParent" class="form-control" required >
+                                        <option value='{{parent._id}}' selected>{{parent.name}}</option>
+                                        {{#each getparentToEdit}}
+                                        <h1>{{_id}}:id</h1>
+                                        <option value="{{_id}}">{{name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Value</label>
+                                    <input type="text" class="form-control" value="{{attr.value}}" name="value" id="value" required>
+                                </div> 
+                               
+                               
+                                
+                                
+                                <button type="submit" id="btn-adduser" class="btn btn-default">Add </button>
+                                <button type="reset" class="btn btn-default">Close</button>
+                            </form>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+    </div>
+</template>

@@ -1,0 +1,75 @@
+
+.header_top_right ul.nav-pills > li.dropdown > ul.cart-dropdown{
+ /* background-color: #eeeeee;
+  margin: 0px auto;
+  margin: 5px 50px;
+*/
+overflow-y:scroll;
+min-height:100px;
+max-height:400px;
+}
+ul.cart-dropdown li.item-cart{
+	/*padding: 5px 15px;*/
+  padding: 10px 5px;
+}
+p.item-description{
+  font-size: 9px;
+}
+li.item-cart i.fa-times{
+  color: red;
+  margin: 15px 0px;
+}
+p.total-description{
+
+}
+li.item-cart .total{
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+
+/*last update*/
+ul.dropdown-box{
+  background-clip: padding-box;
+  background-color: #fff;
+  border-radius: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+  float: left;
+  font-size: 14px;
+  left: 0px;
+  list-style: outside none none;
+  margin: 2px 0px 0px;
+  min-width: 160px;
+  padding: 5px 0px;
+  top: 100%;
+  z-index: 1000;
+}
+.open > .dropdown-box{
+  display: block;
+}
+ul.cart-dropdown{
+  border: 5px solid #000;
+  border-radius: 0;
+  float: left;
+  left: 0px;
+}
+p.bold{
+  font-weight: bold;
+}
+p.bolder{
+  font-weight: bold;
+  margin-top: 10px;
+}
+.img-cart{
+  padding-right: 120px;
+}
+.hr1{border:1px solid #000000;}
+.hr2{border-bottom:2px solid #000000;}
+.hr3{border-top:2px solid #000000;}
+.a-checkout{
+  background-color: #cc1417;
+  color: #fff;
+  font-weight: bold;
+  margin: 10px 18px;
+  text-align: center;}

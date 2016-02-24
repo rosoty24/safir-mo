@@ -1,0 +1,49 @@
+<template name="managequizz">
+	<div class="container">
+		<div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Manage All Quizz
+                        <a href="/addquizz" class="pull-right btn-primary btn-sm">Add Quizz</a>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Quizz_Name</th>
+                                        <th>Quizz_Type</th>
+                                        <th>question</th>
+                                        <th width="15%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	{{#each getquizz}}
+	                                    <tr>
+	                                        <td>{{name}}</td>
+	                                        <td>{{type}}</td>
+	                                        <td>
+		                                        {{#each question}}
+		                                        	{{question}}<span> / </span>
+		                                       	{{/each}}
+	                                       	</td>
+	                                       	<tr>
+	                                       		<td><a href="#" class="btn-sm btn-denger remove">Delete | </a></td>
+	                                       		<td><a href="/updatequizz/{{_id}}" class="btn-sm btn-default"> Edit</a></td>
+	                                       	</tr>
+	                                    </tr>
+	                                {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+        </div>
+	</div>
+</template>

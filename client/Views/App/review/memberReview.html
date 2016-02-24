@@ -1,0 +1,122 @@
+<template name="memberReview">
+{{#if currentUser}}
+<div id="wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+			<h1 class="page-header" style="text-transform: capitalize;font-size: 26px;">
+				Customer Reviews
+				{{#each getReview}}
+					{{#each review}}
+						<b style="color:red">{{getRank rank}}</b>
+					{{/each}}
+				{{/each}}
+			</h1>
+			<!-- <div class="cont">
+			  <div class="stars">
+			    <form action="">
+			      <input class="star star-5" id="star-5-2" type="radio" name="star"/>
+			      <label class="star star-5" for="star-5-2"></label>
+			      <input class="star star-4" id="star-4-2" type="radio" name="star"/>
+			      <label class="star star-4" for="star-4-2"></label>
+			      <input class="star star-3" id="star-3-2" type="radio" name="star"/>
+			      <label class="star star-3" for="star-3-2"></label>
+			      <input class="star star-2" id="star-2-2" type="radio" name="star"/>
+			      <label class="star star-2" for="star-2-2"></label>
+			      <input class="star star-1" id="star-1-2" type="radio" name="star"/>
+			      <label class="star star-1" for="star-1-2"></label>
+			    </form>
+			  </div>
+			  <p class="help-block"><a href="#">4.0 out of 5 stars</a></p><span class="glyphicon-class"></span>
+			</div> -->
+			<!-- http://www.jquery2dotnet.com/ -->
+			
+		{{#each getReview}}
+		<div class="col-lg-12">
+			<p class="help-block"><a href="#">4.0 out of 5 stars</a></p><span class="glyphicon-class"></span>
+			<h1 class="page-header" style="text-transform: capitalize;font-size: 26px;">{{title}}</h1>
+			  <div class="stars col-md-6" style="margin-left: -274px;">
+			    <form action="">
+			      <input class="star star-5" id="star-5" type="radio" name="star"/>
+			      <label class="star star-5" for="star-5"></label>
+			      <input class="star star-4" id="star-4" type="radio" name="star"/>
+			      <label class="star star-4" for="star-4"></label>
+			      <input class="star star-3" id="star-3" type="radio" name="star"/>
+			      <label class="star star-3" for="star-3"></label>
+			      <input class="star star-2" id="star-2" type="radio" name="star"/>
+			      <label class="star star-2" for="star-2"></label>
+			      <input class="star star-1" id="star-1" type="radio" name="star"/>
+			      <label class="star star-1" for="star-1"></label>
+			    </form>
+			  </div>
+			  {{#each review}}
+			  <div class="col-md-6">
+			  	<!-- Awesomeness -->
+			  </div><br><br>
+			  <p class="help-block">
+			  	{{getTime date}}
+			  </p>
+			  <h5 class="help-block">
+			  	{{title}}
+			  </h5>
+			  <p>{{comment}}</p><br><br>
+			  {{/each}}
+			</div>
+			{{/each}}
+		   </div>
+		</div>
+		
+	    </div>
+	</div>
+
+	<!-- <div class="container">
+		<div class="container hold-checkout">
+        <div class="row">
+        	<div class="col-lg-12">
+					<div class="well">
+					{{#each getReview}}
+						<div class="row">
+						<div class="col-sm-2">
+							<img src="t6.jpg" class="img-responsive img-circle img-circle-border-cart">
+						</div>
+						
+						<div class="col-sm-8">
+							<a href="/details/{{_id}}"><h3 class="title-cart">{{title}}</h3></a>
+							{{#each review}}
+							<div class="col-sm-6">
+								<div class="hold-add-cart">
+									<div class="row">
+										<span class="pull-left">{{getTime date}}</span>
+										<span class="pull-right">{{title}}</span>
+									</div>
+								</div><br/>
+								<div class="hold-add-cart">
+									<div class="row">
+										<span class="pull-left">{{comment}}</span>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+						
+						</div>
+						{{/each}}
+					</div>
+				</div>
+		</div>
+	</div>
+	</div> -->
+{{else}}
+	<div id="wrapper">
+        <div class="container-fluid">
+                <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                	<h1>Page not found</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}
+</template>

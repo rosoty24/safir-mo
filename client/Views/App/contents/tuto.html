@@ -1,0 +1,38 @@
+<template name="tuto">
+		<br>	
+		<div class="breadcrumb-main">
+			<div class="container">
+				<div class="container-box">
+					<div class="col-xs-3 col-sm-3 col-lg-3" style="margin-top:15px"><img class="img-responsive" src="images/webzine.png"></div>
+					<div class="col-xs-3 col-sm-3 col-lg-3" style="margin-top:15px"><img class="img-responsive" src="images/tuto_hover.png"></div>
+					<div class="col-xs-3 col-sm-3 col-lg-3" style="margin-top:15px"><img class="img-responsive" src="images/looks_none.png"></div>
+					<div class="col-xs-3 col-sm-3 col-lg-3" style="margin-top:15px"><img class="img-responsive" src="images/forum.png"></div>
+					<div class="clearfix"></div>
+					<ul class="list-inline breadcam">
+						<li>MAKEUP<span><img src="images/caret.png" alt=""></span></li>
+						<li>LIPS<span><img src="images/caret.png" alt=""></span></li>
+						<li>LIPSTICK<span><img src="images/caret.png" alt=""></span></li>
+						<li>REFINE<span><img src="images/caret.png" alt=""></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			
+			<div class="clearfix"></div>
+			<br>
+			<br>
+			
+			<br>
+			<div class="row" style="margin-bottom:15px">
+				{{#each getcatname}}
+						<div class="col-lg-4 col-sm-4">
+							<h2 class="text-center" style="font-weight:bold">{{title}}</h2>
+							<a href="/tutodetails/{{_id}}">
+							<img src="{{getImage image}}" class="img-circle center-block" alt="Cinque Terre" width="250" height="250">
+							</a>
+						</div>
+				{{/each}}
+			</div>
+		</div>
+</template>

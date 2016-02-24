@@ -1,0 +1,57 @@
+<template name="discount">
+	<div class="container">
+		<div class="col-md-12">
+		<div class="hold_result">
+				<!-- <p dir="{{getDirection}}">{{nbproducts}}/{{totalProducts}} {{_ "products result"}}</p> -->
+			</div>
+			<div class="hold_bradcame">
+				<a href="#" class="pull-left green" id="bestSelling">{{_ "Best selling"}} <span class="fa fa-caret-right"></span></a>
+				<a href="#" class="pull-left green" id="sort_name">&nbsp; {{_ "Sort Name"}} <span class="fa fa-caret-right"></span></a>
+				<a href="#" class="pull-left green" id="sort_price">&nbsp; {{_ "Sort Price"}} <span class="fa fa-caret-right"></span></a>
+				<p class="pull-right black">{{_ "View by page"}}</p>
+			</div>
+		<!-- / content -->
+			<div class="hold_product">
+				{{#each discountlist}}
+				<div class="col-xs-6 col-md-3 product_item">
+					<div class="thumbnail text-left">
+						<div class="caption" style="padding:0px;margin:0px;text-align:center;">
+							<div class="btn#e4332a">
+								<a href="" style="" class="label label-danger" id="quickbtn" rel="tooltip" data-toggle="modal" data-target="#quickView">{{_ "Quickview"}}</a>
+							</div>
+						</div>
+
+						<div class="clearfix" style="width: 100%; margin-bottom:2px; height:150px; text-align:center; position: relative;">
+							<a href="/details/{{_id}}" title="{{name}}">
+								<img src="{{getImgForProduct _id}}" style="width:150px; height:150px;" class="img-responsive img-circle" alt="{{title}}">
+							</a>
+
+							<!-- discount -->
+							<div class="pro-discount">
+								<div class="text-discount">
+									{{percentage}}%
+								</div>
+							</div>
+							<!-- end discount -->
+						</div>
+						<div class="clearfix" style="width: 100%;overflow:hidden;text-align: center;">
+							<a href="{{pathFor 'details' id=_id}}" class="title">{{title}}</a>
+						</div>
+						<div class="price-through text-center" >
+							<a href="#" class="text-through">${{price}}</a>
+						</div>
+						
+						<div class="clearfix text-center" style="width: 100%; height: 30px; overflow: hidden;">
+                            
+							<a href="{{pathFor 'details' id=_id}}" class="price">{{getPriceDiscount price percentage}}</a>
+
+							<a href="#" id="unlike"><span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span></a>
+							<a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right"></span></a>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</template>

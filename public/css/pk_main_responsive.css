@@ -1,0 +1,69 @@
+/* lg */ 
+@media (min-width: 1200px) {
+	.container{
+		width: 1000px;
+	}
+	.megamenu_dark_bar {
+		background:#fff ;
+		
+	}
+}
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* sm */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* xs */
+@media (max-width: 767px) {
+	/* refine menu */
+	#sl2 {
+		width: 500px;
+	}
+}
+
+/* XS Portrait */
+@media (max-width: 480px) {
+	.header_top_left{ text-align:center}
+	.header_top_left ul li a {
+		padding-right: 15px;
+		padding-left: 0;
+	}
+	.btn-group.pull-right, 
+	.footer-bottom .pull-left, 
+	.footer-bottom .pull-right, 
+	.mainmenu.pull-left,
+	.media.commnets .pull-left,
+	.media-list .pull-left{
+		float: none !important;
+	}
+
+	.header_top .col-sm-6:first-child{
+		display: block;
+		float: none;
+	}
+
+	.header_top .col-sm-6:last-child{
+		display: block;
+		float: none;
+	}
+
+	.header_top_left .nav.nav-pills, .header_top_right .nav.navbar-nav{
+		display: inline-block;
+	}
+	
+	
+	.header_top_right.pull-right{
+		float: none !important;
+		text-align: center;
+	}
+	
+	/* refine menu */
+	#sl2 {
+		width: 300px;
+	}
+}

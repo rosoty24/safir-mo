@@ -1,0 +1,10 @@
+<template name="logintwitter">
+	
+	{{#if currentUser}}
+		{{currentUser.profile.name}} 
+		<button id="logout">Logout</button>
+	{{else}}
+		<input type = "button" id="twitter-login" style="display:none;" class = "btn btn-primary text-besides-image sign-in-text-twitter"  value = "Login with Twitter "/>
+	{{/if}}
+		
+</template>

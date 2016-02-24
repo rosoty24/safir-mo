@@ -1,0 +1,156 @@
+<template name="header">
+	<header id="header" class="header" name="header" lang="{{getCurrentLanguage}}">
+		<div class="header_top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="header_top_left">
+							<ul class="nav nav-pills" lang="fon-fa">
+								{{#if currentUser}}
+									<li><a href="/profile" style="background: none !important;">{{_ "My Profile"}}</a></li>
+									
+								{{/if}}
+
+								{{#if currentUser}}
+									<li><a href="#" id="logout" style="background: none !important;">{{_ "Log Out"}}</a></li>
+								{{else}}
+										<li><a href="{{pathFor 'login'}}" style="background: none !important;">{{_ "Login/Register"}}</a></li>
+								{{/if}}
+								
+								{{#if currentUser}}
+										<li><a href="/reward" style="background: none !important;">{{_ "Rewards and points"}}</a></li>
+								{{/if}}
+								
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="header_top_right pull-right">
+							<ul class="nav nav-pills">
+								<li><a href="" id="en" style="background: none !important;">{{changeLanguage}}</a></li>
+								<li><a href="/webzinelisting" style="background: none !important;">{{_ "WEBZINE"}}</a></li>
+								<li><a href="/" style="background: none !important;">{{_ "Home"}}</a></li>
+								<li>
+									<a style="margin:0px;padding:7px;background: none !important;" href="/checkout" title="check out">
+									<img src="/images/shop-icon-01.svg" class="img-shopcart" alt="check-in check-out"  /> <i class="number-item fa fa-1x"><strong>{{getCart}}</strong></i></a>
+								</li>
+								<li><a href="/favorite" title="like" style="background: none !important;"><i class="fa fa-heart fa-1x"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--end header top-->
+		 <div class="header_middle">
+			<div class="header-logo clearfix">
+				<div class="container">
+					<div class="logo">
+						<a href="/"><img height="100" src="/images/system/logo.svg"></a>
+					</div>
+						<div class="search pull-right">
+							<form>
+								<div class="input-group">
+								  <span class="input-group-addon search-push-left">
+									<ul class="list-inline" lang="fon-fa">
+										<li><a href="#" class="searchselection" data-group="1">{{_"Products"}}</a></li>
+										<li><a href="/webzinelisting" class="searchselection" data-group="4">{{_"WEBZINE"}}</a></li>
+										<li><a href="/tuto" class="searchselection" data-group="5">{{_"Tutorial"}}</a></li>
+										<li><a href="#" class="searchselection" data-group="0">{{_"ALL"}}</a></li>
+									</ul>
+								  </span>
+
+								  <span class="input-group-addon all-btn slide-toggle" id="btn-all"><i class="fa fa-bars"></i></span>
+
+								  <input class="form-control input-search " placeholder='{{_ "Search for..."}}' type="text" id="textToSearch">
+
+								  <span class="input-group-addon search-btn kesearch"><i class="fa fa-search search-font"></i></span>
+								</div>
+							</form>
+						</div>
+					
+				</div>
+			</div><!--/header-logo-->
+		</div><!--end header middle-->
+			
+		<div class="header_bottom">
+			<!-- Static navbar -->
+			<div class="header-menu">
+				<div class="container">
+			<div class="main-megamenu">
+				<div class="megamenu_container megamenu_dark_bar megamenu_light"><!-- Begin Menu Container -->
+				<!-- End Mega Menu -->
+							<ul class="megamenu"><!-- Begin Mega Menu -->
+								{{#each getParent}}
+								<li class="{{classItem}}"><a href="{{pathFor 'listing' id=(slug title)}}" class="megamenu_drop" name="{{title}}">{{capitalWord title}}</a>
+category
+									<div class="{{getMenuClass index}}">
+										{{#each getChildren _id}}
+										<div class="col_3 responsive_halfs">
+											<h3><a href="/category/{{slug title}}">{{capitalWord title}}</a></h3>
+											<ul class="list_unstyled" >
+												{{#each getChildren _id}}
+													<li><a href="/category/{{slug title}}" >{{capitalWord title}}</a></li>
+												{{/each}}
+											</ul> 
+
+										</div>
+										{{/each}}
+									</div>
+								</li>
+								{{/each}}
+
+								<li class="{{classCom}}" ><a  href="/tuto"  style="background:#000; color:white;" class="megamenu_drop right-color">{{_ "Community"}}</a><!-- Begin Right Item -->
+					
+									<div class="dropdown_12columns dropdown_right dropdown_container droplast_right" style="{{backCom}}"><!-- Begin Right Item Container -->
+								
+										<div class="col_12">
+											<div class="col_3 responsive_halfs">
+												<h3><a href="/tuto">{{_ "TUTO"}}</a></h3>	  
+											</div> 
+											<div class="col_3 responsive_halfs">
+												<h3><a href="/webzinelisting">{{_ "WEBZINE"}}</a></h3>	  
+											</div> 
+										</div>
+									
+									</div><!-- End Right Item Container -->		  
+								</li><!-- End Right Item -->
+							
+							</ul><!-- End Mega Menu adding by chien khean!!!-->
+
+						</div><!-- End Menu Container -->
+					</div><!--/main-megamenu-->
+				</div>
+			</div>
+		</div><!--end header bottom-->
+		<script> 
+		$(document).ready(function(){
+
+
+		 	$(".search-push-left").hide();
+		 		var isOn = true;
+		 		$(function(){
+		 		   $("#btn-all").click(function(){
+		 			  console.log(isOn);
+		 			  if ( isOn ){
+		 				  isOn = false;
+		 				  $('.search').css("width", '70%');
+		 				  $(".search-push-left").show();
+		 			  } else {
+		 				  isOn = true;
+		 				  $('.search').css("width", '44%');
+		 				  $(".search-push-left").hide();
+		 			  }
+		 			  return false;
+		 		  });
+		 		});
+
+
+
+		 	});
+		 </script>
+
+		 <script>
+			
+	</script>
+	</header><!--end header-->
+</template>

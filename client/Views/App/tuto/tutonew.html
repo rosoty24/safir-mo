@@ -1,0 +1,21 @@
+<template name="tutonew">
+	<!-- Start contain -->
+            <div class="container">	
+		  <div class="clearfix"></div>
+           <div class="space_cont_top">
+           	 <div class="row">
+           	  {{#each getTutoCategory }}
+				<div class="col-lg-4 col-sm-4"><a href="/tutolisting/{{slug title}}" id="linkTotulisting">
+					<h1 class="text-center txt-color bold">{{title}}</h1></a><a href="/tutolisting/{{slug title}}" id="linkTotulisting">
+					{{#with getCategoryImg _id}}
+					<img src="{{getImg this}}" class="img-thumbnail center-block content-pad" alt="{{title}}" width="250" height="250" style="margin-bottom:15px; margin-top:15px;">
+					{{/with}}</a>
+				</div>
+			 {{/each}}
+			</div>
+		  </div>
+	</div>
+	
+ <!-- end contain -->
+
+</template>
