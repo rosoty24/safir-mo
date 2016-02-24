@@ -1,4 +1,4 @@
-<template name="header">
+<template name="header12">
 	<header id="header" class="header" name="header" lang="{{getCurrentLanguage}}">
 		<div class="header_top">
 			<div class="container">
@@ -82,7 +82,7 @@
 							<ul class="megamenu"><!-- Begin Mega Menu -->
 								{{#each getParent}}
 								<li class="{{classItem}}"><a href="{{pathFor 'listing' id=(slug title)}}" class="megamenu_drop" name="{{title}}">{{capitalWord title}}</a>
-category
+										category
 									<div class="{{getMenuClass index}}">
 										{{#each getChildren _id}}
 										<div class="col_3 responsive_halfs">
@@ -153,4 +153,225 @@ category
 			
 	</script>
 	</header><!--end header-->
+</template>
+<template name="headermenu">
+	<section id="menu-wrapper">
+
+        <div id="menu-search">
+        	<input id="menu-search-input-text" type="text" placeholder="Search..." />
+			<input id="menu-search-input-submit" type="submit" value="" />
+        </div>
+
+        <ul id="menu-lateral" class="menu">
+
+            <li class="icon home">
+                <a href="index.html">
+                    <span class="menu-li-title">Market</span>
+                    <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                </a>
+            </li>
+
+            <li class="icon box">
+                <a href="portfolio.html">
+                    <span class="menu-li-title">Link selling</span>
+                    <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                </a>
+            </li>
+
+            <li id="a-submenu-1" class="icon plus">
+
+                <a href="#">
+                    <span class="menu-li-title">Sign in / Register</span>
+                    <img class="menu-li-arrow-submenu" src="img/icons/submenu.png" alt="" />
+                </a>
+
+                <ul class="sub-menu">
+                    <li id="a-submenu-1">
+                        <a href="#">
+                            <span class="menu-li-title">My safir profil</span>
+                            <img class="menu-li-arrow" src="img/icons/submenu.png" alt="" />
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="">
+									<span class="menu-li-title">item 1</span>
+									<img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span class="menu-li-title">item 1</span>
+									<img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span class="menu-li-title">item 1</span>
+									<img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span class="menu-li-title">item 1</span>
+									<img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span class="menu-li-title">item 1</span>
+									<img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+								</a>
+							</li>
+						</ul>
+                    </li>
+
+                    <li>
+                        <a href="index.html">
+                            <span class="menu-li-title">Member profil</span>
+                            <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html">
+                            <span class="menu-li-title">Rewards & points</span>
+                            <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html">
+                            <span class="menu-li-title">Like</span>
+                            <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li> <!-- #submenu-1 -->
+
+            <!--<li class="icon blog">
+                <a href="blog.html">
+                    <span class="menu-li-title">FeedBack</span>
+                    <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                </a>
+            </li>
+
+            <li class="icon book">
+                <a href="typography.html">
+                    <span class="menu-li-title">Pokoet</span>
+                    <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                </a>
+            </li>
+
+            <li class="icon mail">
+                <a href="contact.php">
+                    <span class="menu-li-title">Contact</span>
+                    <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                </a>
+            </li>
+
+            <li class="icon star">
+                <a href="#">
+                    <span class="menu-li-title">Like</span>
+                    <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                </a>
+            </li>-->
+
+            <li class="icon info">
+                <a href="aboutus.html">
+                    <span class="menu-li-title">Gift</span>
+                    <img class="menu-li-arrow" src="img/icons/arrow-forward.png" alt="" />
+                </a>
+            </li>
+
+        </ul> <!-- .menu -->
+    </section> <!-- #menu-wrapper -->
+
+    <section id="sidebar-wrapper">
+
+    	
+        <div class="widget">
+        
+            <ul>
+                <li class="item"><a href="#" id="price_range">Price Range</a></li>
+              
+                <div class="panel_price_range">
+                    <div class="row">
+                        <span class="pull-left">0 $</span><span class="pull-right">+1000 $</span>
+                    </div>
+                    <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="1000" data-slider-step="5" data-slider-value="[0,1000]" id="sl2">
+                </div>
+                <li class="item"><a href="#" id="brands">Brands</a></li>
+                <!-- panel brands -->
+                <div class="panel_brands">
+                    <div class="row">
+                        <div class="col-xs-4"><h1>A</h1></div>
+                        <div class="col-xs-4">
+                            <h4>Brand</h4>
+                            <h4>Brand</h4>
+                        </div>
+                        <div class="col-xs-4">
+                            <h4>Brand</h4>
+                            <h4>Brand</h4>
+                            <h4>Brand</h4>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-xs-4"><h1>B</h1></div>
+                        <div class="col-xs-4">
+                            <h4>Brand</h4>
+                            <h4>Brand</h4>
+                        </div>
+                        <div class="col-xs-4">
+                            <h4>Brand</h4>
+                            <h4>Brand</h4>
+                            <h4>Brand</h4>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-xs-4"><h1>C</h1></div>
+                        <div class="col-xs-4">
+                            <h4>Brand</h4>
+                            <h4>Brand</h4>
+                        </div>
+                        <div class="col-xs-4">
+                            <h4>Brand</h4>
+                            <h4>Brand</h4>
+                            <h4>Brand</h4>
+                        </div>
+                    </div>
+                </div>
+                <li class="item"><a href="#" id="advanced">Advanced</a></li>
+                <!--panel advanced-->
+                <div class="panel_advanced">
+                    <ul>
+                        <li><a href="">Ingredient Preference</a></li>
+                        <li><a href="">Concern</a></li>
+                        <li><a href="#" id="skin_type">Skin Type</a></li>
+                        <div class="panel_skin_type">
+                            <div class="col-xs-6">
+                                <p>Brand</p>
+                                <p>Brand</p>
+                                <p>Brand</p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p>Brand</p>
+                                <p>Brand</p>
+                                <p>Brand</p>
+                            </div>
+                        </div>
+                        <li><a href="#" id="skin_type">Season</a></li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </section> <!-- #sidebar-wrapper -->
+    <script type="text/javascript">
+    	$(function(){
+		    $('#sl2').slider();     
+		});
+    </script>
 </template>
