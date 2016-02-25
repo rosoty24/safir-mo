@@ -1,0 +1,109 @@
+<template name="listproducts123">
+	{{> myrefine}}
+	<h1>Pisey old code listproducts..................................!!!!</h1>
+	<div class="container">
+		<div class="col-md-12">
+		<div class="hold_result">
+				<p dir="{{getDirection}}">{{nbproducts}}/{{totalProducts}} {{_ "products result"}}</p>
+			</div>
+			<div class="hold_bradcame">
+				<a href="#" class="pull-left green" id="bestSelling">{{_ "Best selling"}} <span class="fa fa-caret-right"></span></a>
+				<a href="#" class="pull-left green" id="name">&nbsp; {{_ "Sort Name"}} <span class="fa fa-caret-right"></span></a>
+				<a href="#" class="pull-left green" id="price">&nbsp; {{_ "Sort Price"}} <span class="fa fa-caret-right"></span></a>
+				<p class="pull-right black">{{_ "View by page"}}</p>
+			</div>
+		<!-- / content -->
+			<div class="hold_product">
+
+				{{#each products}}
+				
+				<div class="col-xs-6 col-md-3 product_item">
+					<div class="thumbnail text-left">
+						<div class="caption" style="padding:0px;margin:0px;text-align:center;">
+
+							<div class="btn#e4332a">
+								<a href="" style="" class="label label-danger" id="quickbtn" rel="tooltip" data-toggle="modal" data-target="#quickView">{{_ "Quickview"}}</a>
+							</div>
+							
+						</div>
+						<div class="clearfix" style="width: 100%; margin-bottom:2px; height:150px; text-align:center">
+							<!-- <a href="{{pathFor 'details' id=_id}}" title="{{title}}">
+								<img src="{{getImgForProduct _id}}" style="width:150px; height:150px;" class="img-responsive img-circle" alt="{{title}}">
+							</a> -->
+							<a href="/details/{{slug title}}" title="{{title}}">
+        					<img src="{{getImgForProduct _id}}" style="width:150px; height:150px;" class="img-responsive img-circle" alt="{{title}}">
+       						</a>
+						</div>
+
+
+						<div class="clearfix" style="width: 100%;overflow:hidden;text-align: center; height:70px;">
+							<a href="{{pathFor 'details' id=_id}}" class="title">{{smaller title 8}}</a>
+						</div>
+						<div class="clearfix text-center" style="width: 100%; height: 30px; overflow: hidden;">
+
+							<a href="/details/{{slug title}}" class="price" style="padding-bottom:20px;">{{price}}</a>
+
+							<a href="#" id="unlike"><span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span></a>
+							<a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right"></span></a>
+						</div>
+
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="quickView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		{{#each getSelectedProduct}}
+		{{#with this}}
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" style="width: 150%; margin: 0px 0px 0px -150px !important;">
+				  <!-- Modal content-->
+					  <div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>
+						  
+						</div>
+						
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-8">
+									<img  src="{{getImgForProduct _id}}" width="200px" height="200px" class="center-block">
+								</div>
+								<div class="col-md-4">
+									<div class="pop_detail">
+										<small class="pop_brand">{{smaller title 8}}</small>
+										<h4 class="pop_title">{{{description}}}</h4>
+										<!-- <div class="rating" id="rate1"></div><span class="customers_view text-right">189</span> -->
+										<div class="pop_price">﷼ {{price}}</div>
+										<a id="closeModal" href="/details/{{slug title}}"><button type="button" class="btn_checkout btn-block pop_button"> {{_ "Details"}} </button></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer center-block">
+							<h4 class="text-center pop_more_bought">{{_ "Customers also bought"}}</h4>
+							<div class="row">
+								<ul class="list-inline">
+									<li width="100"><a href="">
+											<div class="hold_product_detail">
+											<div class="row"></div> 
+											{{>recommendation}}
+
+										</div>
+									</a></li>
+								</ul>
+							</div>
+						</div>
+					  </div>
+						
+						</div>
+					</div>
+					{{/with}}
+					{{/each}}
+					<script>
+$('.modal-backdrop').remove();
+					</script>
+				</div>
+
+</template>
