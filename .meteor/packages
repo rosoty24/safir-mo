@@ -3,7 +3,6 @@
 #
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
-
 meteor-base             # Packages every Meteor app needs to have
 mobile-experience       # Packages for a great mobile UX
 mongo                   # The database Meteor supports right now
@@ -21,8 +20,6 @@ iron:router
 accounts-password
 accounts-ui
 alanning:roles
-cfs:filesystem
-cfs:standard-packages
 easy:search
 fortawesome:fontawesome
 random
@@ -52,10 +49,12 @@ service-configuration
 accounts-twitter
 
 tsega:bootstrap3-datetimepicker
-cfs:s3
 accounts-facebook
 accounts-google
 bozhao:accounts-instagram
 meteorhacks:subs-manager
 themeteorchef:jquery-validation
 wollardj:timeago
+cfs:standard-packages
+cfs:s3
+cfs:filesystem
