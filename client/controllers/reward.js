@@ -139,6 +139,10 @@ Template.reward.helpers({
 			return result;
 		
 	},
+	getproductreward:function(getpoint){
+		result = products.find({point:getpoint},{limit:6});
+			return result;
+	}
 	
 });
 
@@ -198,10 +202,4 @@ Template.rewardgold.helpers({
 			}
 	}
 
-});
-Template.reward.helpers({
-	getproductreward:function(getpoint){
-		result = products.find({point:getpoint});
-			return result;
-	}
 });
