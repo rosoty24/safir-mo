@@ -157,9 +157,6 @@ Template.login.events({
 
 });
 
-
-
-
 Template.ForgotPassword.events({
   'submit form': function(e) {
     var arr=[];

@@ -74,7 +74,7 @@ documentReady(function() {
 
 	}
 
-	/*jQuery("body").swipe({
+	jQuery("body").swipe({
 	        swipeLeft: function (event, direction, distance, duration, fingerCount) {
 			evthandlerswipe('right','left');
 	        },
@@ -82,7 +82,7 @@ documentReady(function() {
 			evthandlerswipe('left','right');
 	        },
 	        excludedElements: jQuery.fn.swipe.defaults.excludedElements + ", .slides, .toggle"
-	    });*/
+	    });
 
 	});
 

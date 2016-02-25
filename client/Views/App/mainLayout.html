@@ -1,68 +1,30 @@
 <template name="mainLayoutMobile">
     <section id="page-wrapper">
-
-        {{> headermenu}}
-
+        {{> headerMo}}
         <section id="content-wrapper">
             <section id="header">
-
-                    <div id="header-left">
-                        <a href="#" id="a-menu"><img src="img/icons/menu.png" alt="menu" /></a>
-                        <a href="#" id="a-shoping"><img src="img/icons/shoping-01.png" alt="menu" /></a>
-                    </div>
-
-                    <div id="header-title">
-                        <h1><img src="img/icons/logo-01.png" /></h1>
-                    </div>
-
-                    <div id="header-right">
-                        <a href="#" id="a-sidebar">REFINE<!--<img src="img/icons/menu.png" alt="Sidebar" />--></a>
-                    </div>
+                <div id="header-left">
+                    <a href="#" id="a-menu"><img src="/img/icons/menu.png" alt="menu" /></a>
+                    <a href="#" id="a-shoping"><img src="/img/icons/shoping-01.png" alt="menu" /></a>
+                </div>
+                <div id="header-title">
+                    <h1><img src="/img/icons/logo-01.png" /></h1>
+                </div>
+                <div id="header-right">
+                    <a href="#" id="a-sidebar">REFINE</a>
+                </div>
             </section> <!-- #header -->
-            
             <section id="refine_menu">
                 <div class="col-xs-12">
-                    <div class="hold_refine">
-                        <div class="row">
-                            <div class="col-xs-4"><a href="#" id="makeup" class="active">Makeup<span></span></a></div>
-                            <div class="col-xs-4"><a href="">All Makeup<span></span></a></div>
-                            <div class="col-xs-4"><a href="">Mascara ...</a></div>
-                        </div>
-                        <div id="panel_makeup">
-                            <div class="row">
-                                <ul>
-                                    <li><a href="">Nails</a>
-                                    </li>
-                                    <li><a href="">Frangrance</a></li>
-                                    <li><a href="">Skin care</a></li>
-                                    <li><a href="#">Makeup</a>
-                                        <div class="hold_sub_dropdown">
-                                            <ul class="sub_dropdown">
-                                                <li><a href="">All Eye makeup</a></li>
-                                                <li><a href="">Eyeshadow Palettes & Eye Sets</a></li>
-                                                <li><a href="">Mascara</a></li>
-                                                <li><a href="">Eyeliner</a></li>
-                                                <li><a href="">Eyeshadow</a></li>
-                                                <li><a href="">Eyeshadow Primer & Base</a></li>
-                                                <li><a href="">Under Eye Concealer</a></li>
-                                                <li><a href="">Eyebrows</a></li>
-                                                <li><a href="">Eyeliner</a></li>
-                                                <li><a href="">Eyelash Enhancers & Primers</a></li>
-                                                <li><a href="">Eyelash Curlers</a></li>
-                                                <li><a href="">False Eyelashes</a></li>
-                                                <li><a href="">Eye Makeup Remover</a></li>
-                                                <li><a href="">Eye Brushes</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="">Bath & Body</a></li>
-                                    <li><a href="">Hair</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="refine_menu list-inline">
+                        <li class="active">
+                            <a href="#" id="makeup">Makeup <i class="fa fa-caret-down"></i></a>
+                        </li>
+                        <li class="active">
+                            <a href="#" id="makeup"></a>
+                        </li>
+                    </ul>
                 </div>
-                
             </section>  
             {{> yield }}
             {{> footer}}

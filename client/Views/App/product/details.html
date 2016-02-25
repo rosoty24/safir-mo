@@ -1,180 +1,85 @@
 <template name="details">
-	<!-- start makara -->
-	<style>
-	.zoom {
-		display:inline-block;
-		position: relative;
-	}
-	/* magnifying glass icon */
-	.zoom img {
-		display: block;
-	}
-	.zoom img::selection { background-color: transparent; }
-	#ex2 img:hover { cursor: url(grab.cur), default; }
-	#ex2 img:active { cursor: url(grabbed.cur), default; }
-	</style>
-	<!-- End makara -->
-	{{> myrefine}}
-	<section class="shadow_bottom" id="produst_listing" dir="{{getDirection}}">
-		<div class="container" >
+	<article>
+          <section class="shadow_bottom" id="produst_listing" dir="{{getDirection}}">
+            <div class="wrapper">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h1>page detail </h1>
+                    <h3 class="pull-right">{{title}}</h3>
+                  </div>
+                  <div class="test_color">
+                    <div class="choose_color">COLOR</div>
+                    <div>SIZE</div>
+                  </div>
+                  <!--<div class="pull-left space-top-detail">
+                      <img src="img/detail-sm.png" class="img-responsive">
+                      <img src="img/detail-sm1.png" class="img-responsive space-img-detail">
+                  </div>-->
+                  <div class="space-top-detail1">
+                      <!-- <img src="img/cream.png" class="img-responsive"> -->
+                      <img id="hoverZoom" class="img-responsive" src="{{getImgForProduct _id}}" alt="{{title}}"/>	
+                  </div>
+                  <div class="col-sm-12">
+                    <button class="btn_addtocard pull-left" id="addtocart">{{_ "ADD TO CART"}}</button>
+                    <h2 class="pull-right">{{selected_price}}</h2>
+                  </div>
+                </div>
 
-			<div class="row">
-				<div class="col-md-3">
-					<div class="col-md-12">
-						<span class='zoom' id='ex1'>
-							<img id="hoverZoom" width="210" height="210" class="img_principle" src="{{getImgForProduct _id}}" alt="{{title}}"/>		
-						</span>	
-					</div>			
-					<div class="col-md-12" style="padding-top:50px;">
-						<div class="swiper-container">
-							<div class="swiper-wrapper">
-								{{#each getListImg _id}}
-								<div class="swiper-slide">
-									<a href=""><img  src="{{getImg this}}" width="50" height="50" class="miniature" alt="type"/></a>
-								</div>
-								{{/each}}
+                <div class="row">
+                 <div class="col-sm-12">
+                   <div class="well-deatail">
+                        <p class="text-center text-detail">{{description}}</p>
+                    </div>
+                 </div>
+                </div>
+            </div>
+           </section>
 
-							</div>
-							<div class="swiper-button-next"></div>
-							<div class="swiper-button-prev"></div>
-						</div>
-					</div>
-					
+           <section class="shadow_bottom">
+            <div class="wrapper">
 
-					<script>
-					/* slide swiper */
-					var swiper = new Swiper('.swiper-container', {
-						pagination: '.swiper-pagination',
-						nextButton: '.swiper-button-next',
-						prevButton: '.swiper-button-prev',
-						paginationClickable: true,
-						spaceBetween: 30,
-						centeredSlides: true,
-						autoplay: 5000,
-						autoplayDisableOnInteraction: false
-					});
-					</script>
-				</div>
+                <div class="row">
+                   <div class="pull-right">
+                       <img src="/img/filter-img.png" class="img-responsive space-top-img1">
+                   </div>
+                   <div class="col-sm-12">
+                      <div class="col-md-6 pull-left space-top-detail2">
+                       <img src="/img/sm-girl.png" class="img-responsive">
+                      </div>
+                       <div class="col-md-6 pull-left space-top-detail2">
+                         <h4>Sarah</h4>
+                         <p class="no-margin">07-20-2015</p>
+                         <p class="no-margin">11:16</p>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="space-comment">
+                     <textarea class="form-control" id="status" name="styled-textarea" rows="7" placeholder="Write what you want ..."></textarea>
+                   </div>
+                   <button class="btn_register pull-right" id="posting" value="{{_"SEND"}}"></button>
+                </div>
 
-				<div class="col-md-6">
-					<div class="hold_description">
-						<h3 class="bold">{{title}}</h3>
-						<p class="detail-txt" >{{{description}}}</p><br>
-						<!-- <p>{{_ "Category"}} : {{getCategoryName category}}<br> -->
-						<!-- {{_ "Brands"}} :<span>{{Brand}}</span></p> -->
-						<p>{{_ "Category"}} : <a href="/category/{{category}}"><span style="color:#000;">{{getCategoryName category}}</span></a><br>
-							{{_ "Brands"}} :  <a href="/category/{{category}}" id="brand"><span style="color:#000;">{{Brand}}</span></a></p>
-							<p><i id="current_attr"> </i></p>
-							<p>{{#each getParentAttr oldId}}
-								{{#with getParentDetails parent}}
-								{{name}} :
+                <div class="clear-fix"></div>
 
-								<div id="gallerycontainer">
-									<div id="gallery" >
-										{{#each getAllAttributes ../product _id}}
-										<p style="margin:17px;"><a href=""><img src="{{getImg productImage}}" id="img_attr"
-											class="img-responsive pull-left" width="50px" height="50px" alt="{{title}}"></a></p>
-											{{else}}
-											<p><i>{{_ "None"}}</i></p>
-
-											{{/each}}
-										</div>
-									</div>
-
-									{{/with}}
-									{{/each}}
-								</p>
-								<br /><br />
-								<p dir="{{getDirection}}">
-
-									<!-- {{#with slic tags}}
-									<div class="col-lg-6 col-md-6">
-										{{#each parents}}
-										<li>
-											{{this}}: 
-										</li>
-										{{/each}}
-									</div>
-									<div class="col-lg-6 col-md-6">
-										{{#each values}}
-										
-										<i>{{this}}</i><br>
-										
-										{{/each}}
-									</div>
-									
-									{{/with}} -->
-
-									<!-- {{#each tags}}
-									<li style="list-style:none">
-									{{getParentTagName parent}}: <i>{{value}}</i>;</li>
-
-									{{/each}} -->
-								</p>
-
-								<!-- <a class="glyphicon glyphicon-text-background center-block" href="/translateproduct/{{_id}}">Translate</a> -->
-								<ul>
-									{{{getTagList _id}}}
-								</ul>
-							</div>
-						</div>
-						
-						<div class="col-md-3">
-							
-							<div class="btns" style="margin-bottom: 24px;"></div>
-							<h5>{{_ "Send a translation of the description to earn points"}}</h5>		
-							<section class="box">
-
-								<textarea id="status" name="styled-textarea" onfocus="this.value=''; setbg('#ccc');" onblur="setbg('white')">{{_"Enter your translation here..."}}</textarea>
-								<span id="text_counter"></span><br>
-								<input class="btn btn-large btn-primary" type="submit" id="posting" value="{{_"Post"}}" style="margin-left: 154px; border-radius: 0px; background: #ccc; border: 0px; padding-top: 3px; margin-top: 5px;" />
-							</section>
-
-							<div class="hold_cart">
-								<div class="col-md-12">
-									<h1 class="bold_big " style="margin-bottom: 5px;">{{selected_price}} تومان</h1><br />
-									<!--<h3 class="bold_big pull-right"><i>{{selected_point}} points</i></h3>-->
-								</div>
-								<div class="col-md-12">
-									<div class="pull-right">
-										<label class="control-label pull-left" id="lbl_add_cart">{{_ "Quantity"}} <span id="available_qty"></span></label>
-										<div class="form-group pull-left" >
-											<select id="qty" style="-webkit-appearance:menulist;">
-												<option>1</option>
-												<option>2</option>
-												<option>3</option>
-												<option>4</option>
-												<option>5</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-md-12">
-									<div class="btn_add_cart col-xs-8 pull-right" id="addtocart">{{_ "ADD TO CART"}}</div>
-								</div>
-								<div class="addtocart_msg" style="margin-top:10px;color:red"></div>
-							</div>
-							<div class="social_share">
-								<div class="text-center">
-									<a style="color: rgb(138, 138, 138);" class="fa fa-facebook social-icon" href="https://www.facebook.com/safirperfumery" target="_blank"></a>
-									<a class="fa fa-instagram social-icon" href="http://www.instagram.com/safirstores" target="_blank"></a>
-									<a style="padding-left:2px;color: rgb(138, 138, 138);" class="fa fa-twitter social-icon" href="https://twitter.com/safirperfumery" target="_blank"></a>
-									<a class="fa fa-google-plus social-icon" href="https://plus.google.com/u/0/b/109953347025842075900/+Safirperfumeryofficial/posts" target="_blank"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section id="produst_listing" class="article" dir="{{getDirection}}">
-				<div class="container">
-					<div class="row" id="article">
-						<div class="hold_product_detail">
-							<!-- makara -->
-							
-							<div class="col-md-12">
-								{{#if currentUser}}
+                <div class="row">
+                   <div class="col-sm-12">
+                      <div class="col-sm-5 pull-left space-top-detail2">
+                       <img src="/img/sm-girl.png" class="img-responsive">
+                      </div>
+                       <div class="col-sm-5 pull-left space-top-detail2">
+                         <h4>Sarah</h4>
+                         <p class="no-margin">07-20-2015</p>
+                         <p class="no-margin">11:16</p>
+                      </div>
+                      <div class="col-sm-2 pull-right space-top-detail2">
+                       <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
+                      </div>
+                      <div class="col-sm-12">
+                        <!--  <p class="pull-left space-top-detail3">
+                         	Take me your advice blah blajdklazld ldjalk dlkazn zjd bazkj bdjbza daz ndakzndkajbdkjab djkzabd bazdbaznbdabd,abdaz Take me your advice blah blajdklazld ldjalk dlkazn zjd
+                         </p> -->
+                         {{#if currentUser}}
 								{{>addreview}}
 								{{/if}}
 								<!--{{#each getReviews review filterReview removeFilter}}-->
@@ -184,91 +89,54 @@
 								{{else}}
 								<i>هیچ بررسی</i>
 								{{/each}}
-								<div class="pull-right">
-									<h3 id="show1" class="morereview" >{{_ "MORE REVIEWS"}} &nbsp; <i class="fa fa-angle-down morereview" id="morereview"></i></h3>   
-								</div>
-							</div>
-							<div class="wrapper_forum">
-								<div class="filter_set">
-								</div>
-							</div>
+                         <div class="pull-left border-detail">   
+                         </div>
+                      </div>
+                   </div>  
+                </div>
 
-							<!-- end makara -->
-							<div class="col-md-12 well" >
-								<div class="col-md-12">
-									<h1>{{_ "ARTICLE ABOUT"}}</h1>
-								</div>
+               <!--  <div class="row">
+                   <div class="col-sm-12">
+                      <div class="col-sm-5 pull-left space-top-detail2">
+                       <img src="/img/sm-girl.png" class="img-responsive">
+                      </div>
+                       <div class="col-sm-5 pull-left space-top-detail2">
+                         <h4>Sarah</h4>
+                         <p class="no-margin">07-20-2015</p>
+                         <p class="no-margin">11:16</p>
+                      </div>
+                      <div class="col-sm-2 pull-right space-top-detail2">
+                       <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
+                      </div>
+                      <div class="col-sm-12">
+                         <p class="pull-left space-top-detail3">Take me your advice blah blajdklazld ldjalk dlkazn zjd bazkj bdjbza daz ndakzndkajbdkjab djkzabd bazdbaznbdabd,abdaz Take me your advice blah blajdklazld ldjalk dlkazn zjd</p>
+                         <div class="pull-left border-detail">   
+                         </div>
+                      </div>
+                   </div>  
+                </div>
 
-								{{#each articles}}
-								{{#with getArticle this}}
-								{{>article}}
-								{{/with}}
-								{{else}}
-								<i>{{_ "No articles about"}} {{title}}</i>
-								{{/each}}
-
-							</div>
-
-							<div class="col-md-12 well" >
-								<div class="col-md-12">
-									<h1>{{_ "Tutorial about"}}</h1>
-								</div>
-
-								{{#each tutoes}}
-								{{#with getTutoes this}}
-								{{>tutoes}}
-								{{/with}}
-								{{else}}
-								<i>{{_ "No tutorial about"}}{{title}}</i> 
-								{{/each}}
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</section>
-
-			<section id="forum_question" dir="{{getDirection}}">
-				<div class="container">
-					<div class="hold_product_detail">
-						<div class="col-md-12">
-							<h1>{{_ "RELATED PRODUCTS"}}</h1>
-						</div>
-						<div class="row"></div> 
-						{{>recommendation}}
-					</div>
-				</div>
-				<br /> <br /> <br />
-			</section>
-			<script>
-			$(document).ready(function(){
-				$('#ex1').zoom('{{getFirstImgProduct _id}}');
-				$('#ex2').zoom({ on:'grab' });
-				$('#ex3').zoom({ on:'click' });			 
-				$('#ex4').zoom({ on:'toggle' });
-			});
-			</script>
-			<script>
-			var galleryTop = new Swiper('.gallery-top', {
-				nextButton: '.swiper-button-next',
-				prevButton: '.swiper-button-prev',
-				spaceBetween: 10,
-			});
-			var galleryThumbs = new Swiper('.gallery-thumbs', {
-				spaceBetween: 10,
-				centeredSlides: true,
-				slidesPerView: 'auto',
-				touchRatio: 0.2,
-				slideToClickedSlide: true
-			});
-			galleryTop.params.control = galleryThumbs;
-			galleryThumbs.params.control = galleryTop;
-
-			function setbg(color)
-			{
-				document.getElementById("status").style.background=color
-			}
-			</script>
-
-		</template>
+                <div class="row">
+                   <div class="col-sm-12">
+                      <div class="col-md-5 pull-left space-top-detail2">
+                       <img src="/img/sm-girl.png" class="img-responsive">
+                      </div>
+                       <div class="col-sm-5 pull-left space-top-detail2">
+                         <h4>Sarah</h4>
+                         <p class="no-margin">07-20-2015</p>
+                         <p class="no-margin">11:16</p>
+                      </div>
+                      <div class="col-sm-2 pull-right space-top-detail2">
+                       <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
+                      </div>
+                      <div class="col-sm-12">
+                         <p class="pull-left space-top-detail3">Take me your advice blah blajdklazld ldjalk dlkazn zjd bazkj bdjbza daz ndakzndkajbdkjab djkzabd bazdbaznbdabd,abdaz Take me your advice blah blajdklazld ldjalk dlkazn zjd</p>
+                         <div class="pull-left border-detail">   
+                         </div>
+                      </div>
+                   </div>  
+                </div> -->
+             </div>
+           </section>
+        </article>
+</template>
