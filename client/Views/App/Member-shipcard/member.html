@@ -22,19 +22,19 @@
 									<div class="div-circle">
 										<p>{{nb_comments}}</p>
 									</div>
-									<h5 class="title_img img_menber text-center">DISSCUSSIONS</h5>
+									<h5 class="title_img img_menber text-center">NUMBER OF COMMENTS</h5>
 								</div>
 								<div class="img_profile1">
 									<div class="div-circle">
 										<p>{{nb_likes}}</p>
 									</div>
-									<h5 class="title_img img_menber text-center">REPLY</h5>
+									<h5 class="title_img img_menber text-center">NUMBER OF LIKES</h5>
 								</div>
 								<div class="img_profile1">
 									<div class="div-circle">
 										<p>{{getpoint}}</p>
 									</div>
-									<h5 class="title_img img_menber text-center">MESSAGE THIS WEEK</h5>
+									<h5 class="title_img img_menber text-center">POINTS</h5>
 								</div>
 							</div>
 						</div>
@@ -46,7 +46,8 @@
 									</div>
 									<div class="progress vertical border_gold">
 										{{#if isGold}}
-										<div class="progress-bar progress-bar-gold" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:60%"></div>
+
+										<div class="progress-bar progress-bar-gold" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPourcentage}}%"></div>
 										{{/if}}
 									</div>
 								</div>
@@ -56,7 +57,6 @@
 										<p class="title_silver">SILVER</p>
 									</div>
 									<div class="progress vertical border_silver">
-
 										{{#if isSilver}}
 										<div class="progress-bar progress-bar-silver" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPourcentage}}%"></div>
 										{{/if}}
@@ -72,7 +72,7 @@
 										<div class="progress-bar progress-black" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPourcentage}}%"></div>
 										{{/if}}
 									</div> 
-								</div>60
+								</div>
 							</div>
 						</div>
 					<div class="col-xs-12">

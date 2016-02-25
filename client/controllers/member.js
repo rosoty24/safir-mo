@@ -21,17 +21,18 @@ Template.member.helpers({
 	},
 	getPourcentage: function(){
 		var me=Meteor.user();
-		if(me==null)
-			console.log("ME null");
+		if(me==null){
+			console.log('Me null');
 			return;
+		}
 		if(me.profile.shipcard!='undefined'){
 			var pt=Number(me.profile.shipcard.point);
-			var result = pt/10;
-			console.log("ME PROFILE="+result);
+			var result = pt/100000;
+			console.log('ME PROFILE='+result);
 			return result;
 		}
 		else
-			console.log("ME 0");
+			console.log('ME 0');
 			return 0;
 	},
 	nextRank: function(){
@@ -64,9 +65,8 @@ Template.member.helpers({
 		
 	},
 	pointLeft: function(){
-		
-			var me=Meteor.user();
-			console.log('Getting user'+JSON.stringify(me));
+		var me=Meteor.user();
+		console.log('Getting user'+JSON.stringify(me));
 		if(typeof me.profile.shipcard != "undefined")
 			var point=Number(me.profile.shipcard.point);
 		else
