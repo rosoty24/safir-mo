@@ -558,30 +558,106 @@ Template.tutodetails.helpers({
 		$("#mainVideo").load();
 		return contents.findOne({_id:id});
 	},
-	getRelated: function(){
-		var ret=[];
-       	var currentTuto=contents.findOne({"_id":this._id});
-       	var currentCategory=currentTuto.category;
-		var currenttypeid=currentTuto.typeid;
-		var result= contents.find({typeid:currenttypeid,category:currentCategory}).fetch();
-		console.log('ALL RELATED:'+result.length);
-		if(result.length<4)
-			var max=result.length;
-		else
-			var max=4;
-		var historique=[];
-		for(var i=0;i<max;i++){
-			var index=Math.floor((Math.random() * max) );
-			while(historique.indexOf(index)!=-1)
-				index=Math.floor((Math.random() * max) );
-			historique.push(index);
-			ret.push(result[index]);
+	getTime:function(time){
+
+		  var d = new Date(time * 1000), // Convert the passed timestamp to milliseconds
+		  yyyy = d.getFullYear(),
+		  mm = ('0' + (d.getMonth() + 1)).slice(-2), // Months are zero based. Add leading 0.
+		  dd = ('0' + d.getDate()).slice(-2),   // Add leading 0.
+		  hh = d.getHours(),
+		  h = hh,
+		  min = ('0' + d.getMinutes()).slice(-2),  // Add leading 0.
+		  ampm = 'AM',
+		  time;
+	   
+		 if (hh > 12) {
+		  	ampm = 'AM';
+		 } else if (hh === 12) {
+	  	 h = 12;
+		  	 ampm = 'PM';
+		 } else if (hh == 0) {
+		  	h = 12;
+		 }
+	 // ie: 2013-02-18, 8:35 AM 
+	 	time = hh + ':' + min +' '+ ampm;
+	
+		return time;
+     },
+	getImageUser:function(userId){
+		//alert(userId);
+		
+		Meteor.call('getUserReview',userId,function(err,value){
+			if(err){
+				alert(err);
+			}else{
+				
+				$('.'+value._id).text(value.profile.firstname);
+				
+			}
+		});
+	},
+	getImages:function(userId){
+		
+		Meteor.call('getUserReview',userId,function(err,value){
+			if(err){
+				alert(err);
+			}else{
+				//makara
+				var id=value.image;
+				if(id=='' || typeof id == "undefined")
+            	$('.image'+value._id).attr('src', '/img/unknown.png');
+
+		        else if(id.indexOf("uploads")>-1){
+		            id=id.replace(/ /g, "%20");
+		            console.log('repaclement===='+id);
+		            path = id.replace('/uploads/images/','');
+	
+		            $('.image'+value._id).attr('src','http://d1ak0tqynavn2m.cloudfront.net/'+path);
+		            //return id;
+		        }
+		        else if(id.indexOf("http://")>-1 || id.indexOf("https://")>-1 ){
+		            $('.image'+value._id).attr('src', id);
+
+		        }else{
+		            var img = images.findOne({_id:id});
+		            if(img){
+		                var id= img.copies.images.key;
+		                console.log("id img---" + id);
+		                path=id.replace('UserUploads/','');
+		                console.log("path "+path);
+		                $('.image'+value._id).attr('src', 'http://d2l5w8pvs4gpu2.cloudfront.net/'+path);
+		            }
+		        }
+				//end makara
+				
+				
+			}
+		});
+	},
+	// getRelated: function(){
+	// 	var ret=[];
+ //       	var currentTuto=contents.findOne({"_id":this._id});
+ //       	var currentCategory=currentTuto.category;
+	// 	var currenttypeid=currentTuto.typeid;
+	// 	var result= contents.find({typeid:currenttypeid,category:currentCategory}).fetch();
+	// 	console.log('ALL RELATED:'+result.length);
+	// 	if(result.length<4)
+	// 		var max=result.length;
+	// 	else
+	// 		var max=4;
+	// 	var historique=[];
+	// 	for(var i=0;i<max;i++){
+	// 		var index=Math.floor((Math.random() * max) );
+	// 		while(historique.indexOf(index)!=-1)
+	// 			index=Math.floor((Math.random() * max) );
+	// 		historique.push(index);
+	// 		ret.push(result[index]);
 			
 
-		}
-		console.log(ret.length);
-		return ret;
-	},
+	// 	}
+	// 	console.log(ret.length);
+	// 	return ret;
+	// },
 	tuto : function(){
 		return contents.find({});
 	},
@@ -782,10 +858,10 @@ Template.webzinedetails.events({
 Template.tutodetails.events({
 	'click #addreview': function(e,tpl){
 		e.preventDefault();
-		var title=tpl.$("#title").val();
 		var comment=tpl.$("#comment").val();
-		var grade=tpl.$("#sel1").val();
-		Meteor.call('addReviewTuto',title,comment,grade,Meteor.userId(),this._id);
+		alert(comment);
+		//var grade=tpl.$("#sel1").val();
+		Meteor.call('addReviewTuto',comment,Meteor.userId(),this._id);
 		
 
 	},

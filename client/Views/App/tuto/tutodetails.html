@@ -19,41 +19,17 @@
 									<span>132 personnent aiment</span>
 								</label>
 								<label>
-									<img class="imgs" src="img/partager.png">
+									<img class="imgs" src="/img/partager.png">
 									<span>Partager</span>
 								</label>
 							</div>
 							<div>
-								<p>Synonymes de haute qualité, les créations Armani se reconnaissent par un style authentique et unique des plus élégants et un design reconnaissable et discret qui séduit les hommes et les femmes du monde entier.</p>
+								<p>{{{content}}}</p>
 							</div>
 						</div> <!-- hold-tuto -->
 					</div> <!-- col-xs-12 -->
 				{{/with}}
-					<div class="col-xs-12">
-						<div class="hold-tuto-send">
-							<div class="col-xs-6">
-								<div class="row">
-									<div class="col-xs-7">
-										<img src="img/big-face.png" class="img-responsive">
-									</div>
-									<div class="col-xs-5">
-										<div class="control-name-detail">
-											<p class="name-tuto-send">Sarah</p>
-											<p class="date-tuto-send">07-20-2015</p>
-											<p class="time-tuto-send">11:16</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-6">
-								<div class="pull-right hold-filter-review">
-									<a href="">
-										<img src="img/filter-img.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-						</div> <!-- hold-tuto -->
-					</div> <!-- col-xs-12 -->
+				{{#if currentUser}}
 					<div class="col-xs-12">
 						<form role="form">
 							<div class="form-group">
@@ -61,22 +37,27 @@
 							</div>
 						</form>
 						<a href="" class="pull-right">
-							<span class="span-send">SEND</span>
+							<span class="span-send" id="addreview">SEND</span>
 						</a>
+						<div class="pull-right">
+								<h3 id="show1" class="morereview" >{{_ "MORE REVIEWS"}} &nbsp; <i class="fa fa-angle-down morereview" id="btnMore"></i></h3>   
+							</div>
 					</div> <!-- col-xs-12 -->
+				{{/if}}
 					<div class="clearfix"></div>
+				{{#each getReviewBySort review}}
 					<div class="col-xs-12">
 						<div class="hold-tuto-send">
 							<div class="col-xs-8">
 								<div class="row">
 									<div class="col-xs-7">
-										<img src="img/big-face.png" class="img-responsive">
+										<img src="{{getImg currentUser.image}}" class="img-responsive">
 									</div>
 									<div class="col-xs-5">
 										<div class="control-name-detail">
-											<p class="name-tuto-send">Sarah</p>
-											<p class="date-tuto-send">07-20-2015</p>
-											<p class="time-tuto-send">11:16</p>
+											<p class="name-tuto-send">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</p>
+											<p class="date-tuto-send">{{getDate date}}</p>
+											<p class="time-tuto-send">{{getTime date}}</p>
 										</div>
 									</div>
 								</div>
@@ -91,78 +72,13 @@
 							</div>
 						</div> <!-- hold-tuto -->
 					</div> <!-- col-xs-12 -->
+				
 					<div class="col-xs-12">
-						<p class="description-tuto-comment">Take me your advice blah blajdklazld ldjalk dlkazn zjd
-							bazkj bdjbza daz ndakzndkajbdkjab djkzabd bazdbaznbdabd,abdaz
-						</p>
+						<p class="description-tuto-comment">{{comment}}</p>
 						<hr class="tuto-hr-comment">
 					</div> <!-- col-xs-12 -->
+				{{/each}}
 					<div class="clearfix"></div>
-					<div class="col-xs-12">
-						<div class="hold-tuto-send">
-							<div class="col-xs-8">
-								<div class="row">
-									<div class="col-xs-7">
-										<img src="img/big-face.png" class="img-responsive">
-									</div>
-									<div class="col-xs-5">
-										<div class="control-name-detail">
-											<p class="name-tuto-send">Sarah</p>
-											<p class="date-tuto-send">07-20-2015</p>
-											<p class="time-tuto-send">11:16</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-4">
-								<div class="pull-right">
-									<label class="black-heart-like">
-										<img src="img/heart-black.png">
-										<span class="number-of-like">19</span>
-									</label>
-								</div>
-							</div>
-						</div> <!-- hold-tuto -->
-					</div> <!-- col-xs-12 -->
-					<div class="col-xs-12">
-						<p class="description-tuto-comment">Take me your advice blah blajdklazld ldjalk dlkazn zjd
-							bazkj bdjbza daz ndakzndkajbdkjab djkzabd bazdbaznbdabd,abdaz
-						</p>
-						<hr class="tuto-hr-comment">
-					</div> <!-- col-xs-12 -->
-					<div class="clearfix"></div>
-					<div class="col-xs-12">
-						<div class="hold-tuto-send">
-							<div class="col-xs-8">
-								<div class="row">
-									<div class="col-xs-7">
-										<img src="img/big-face.png" class="img-responsive">
-									</div>
-									<div class="col-xs-5">
-										<div class="control-name-detail">
-											<p class="name-tuto-send">Sarah</p>
-											<p class="date-tuto-send">07-20-2015</p>
-											<p class="time-tuto-send">11:16</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-4">
-								<div class="pull-right">
-									<label class="black-heart-like">
-										<img src="img/heart-black.png">
-										<span class="number-of-like">19</span>
-									</label>
-								</div>
-							</div>
-						</div> <!-- hold-tuto -->
-					</div> <!-- col-xs-12 -->
-					<div class="col-xs-12">
-						<p class="description-tuto-comment">Take me your advice blah blajdklazld ldjalk dlkazn zjd
-							bazkj bdjbza daz ndakzndkajbdkjab djkzabd bazdbaznbdabd,abdaz
-						</p>
-						<hr class="tuto-hr-comment">
-					</div> <!-- col-xs-12 -->
 				</div> <!-- row -->
             </div>
         </section>

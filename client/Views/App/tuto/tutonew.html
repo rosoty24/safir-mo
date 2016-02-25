@@ -6,7 +6,7 @@
 	             {{#each getTutoCategory }}
 					<div class="col-xs-12">
 						<div class="hold-tuto">
-							<h6 class="tuto-title">{{title}}</h6>
+							<a href="/tutolisting/{{slug title}}" id="linkTotulisting"><h6 class="tuto-title">{{title}}</h6></a>
 							<a href="/tutolisting/{{slug title}}" id="linkTotulisting">
 							{{#with getCategoryImg _id}}
 							<div class="hold-tuto-videos">
