@@ -498,6 +498,10 @@ Template.tutonew.helpers({
 			return p.image[0];
 		else
 			return p.image;
+	},
+	getContentTuto:function(tutoId){
+		var result = contents.findOne({typeid:tutoId});
+		return result.content;
 	}
 });
 Template.tutolisting.events({
@@ -531,6 +535,7 @@ Template.tutolisting.helpers({
 		var string=type._id+':'+id;
 		Session.set('Tuto',string);
 		return contents.find({category:id},{typeid:type._id});
+		//return contents.find({typeid:type._id});
 	},
 	getTutoImg: function(id){
 		var p=contents.findOne({_id:id});
