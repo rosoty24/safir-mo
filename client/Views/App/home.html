@@ -1,407 +1,85 @@
-<template name="home123">
-  <!-- start makara -->
-  <style>     
-    .jssorb05 {
-        position: absolute;
-    }
-    .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
-        position: absolute;
-        /* size of bullet elment */
-
-        width: 30px;
-        height: 35px;
-
-        background: url('/img/b05.png') no-repeat;
-        overflow: hidden;
-        cursor: pointer;
-    }
-
-    .jssorb05 div { background-position: -5px -5px; }
-    .jssorb05 div:hover, .jssorb05 .av:hover { background-position: -75px -5px; }
-    .jssorb05 .av { background-position: -75px -5px; }
-    .jssorb05 .dn, .jssorb05 .dn:hover { background-position: -5px -5px; }
-
-
-    .jssora22l, .jssora22r {
-        display: block;
-        position: absolute;
-        /* size of arrow element */
-        width: 40px;
-        height: 58px;
-        cursor: pointer;
-        background: url('img/a22.png') center center no-repeat;
-        overflow: hidden;
-    }
-    .jssora22l { background-position: -10px -31px; }
-    .jssora22r { background-position: -70px -31px; }
-    .jssora22l:hover { background-position: -130px -31px; }
-    .jssora22r:hover { background-position: -190px -31px; }
-    .jssora22l.jssora22ldn { background-position: -250px -31px; }
-    .jssora22r.jssora22rdn { background-position: -310px -31px; }
-  </style>
-  <!-- end makara -->
-
-<div class="hbg"> 
-  <div class="container">
-    <section id="slider">
-      <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden; visibility: hidden;">
-    <!-- Loading Screen -->
-
-    <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
-      {{#each getbanner}}
-      <div data-p="225.00" style="display: none;">
-        <a href="{{url}}">
-          <img data-u="image" src="{{getImg imageId}}" alt="slide"/>
-        </a> 
-        <!-- <img data-u="image" src="/img/purple.jpg" /> -->
-      </div>
-      {{/each}}
-    </div>
-    <!-- Bullet Navigator -->
-      <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
-
-        <div data-u="prototype" style="width:30px;height:35px;"></div>
-      </div>
-      <!-- Arrow Navigator -->
-      <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
-      <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
-      </div>
-    </section><!--end section slider-->
-  
-
-
-    <section id="trendy_product">
-      <div class="row">
-          <div class="col-md-12">
-            <div class="swiper-container1">
-              {{#with list1}}
-                <h1 class="text-center" style="font-weight:bold;">{{title}}</h1>
-
-                <div class="swiper-wrapper ">
-                  <div class="clearout"></div> 
-                  {{#each products}}
-                  {{#with getProduct this}}
-                    <div class="swiper-slide">
-                      <div class="text-left" style="width: 100%; margin-bottom:15px; height:255px; text-align:center">
-                        <a href="/details/{{slug title}}" title="{{title}}">
-                          <img src="{{getImgForProduct _id}}" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;" class="img-responsive img-circle center-block" alt="{{title}}">
-                        </a>
-                        <div class="clearfix" style="width: 100%;overflow:hidden;text-align: center;">
-                          <a href="/details/{{slug title}}" style="color:black;" class="title">{{smaller title 4}}</a>
-                        </div>
-                        <a href="/details/{{slug title}}" style="color:black;" class="price"> {{price}} </a>
-
-                        <!-- <a href="#" id="unlike"><span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span></a>
-                        <a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right"></span></a> -->
-
-
-                      </div>
-                    </div> 
-                  {{/with}}
-                  {{/each}}
-
-                </div>
-              {{/with}}
-            </div>
-            <!-- <div class="swiper-button-next" id="swiper2-next" style="margin-right: -45px; margin-top: 0px;"></div>
-            <div class="swiper-button-prev" id="swiper2-prev" style="margin-left: -45px; margin-top: 0px;"></div> -->
-
-
-           <!--======= Navigation Buttons =========-->
-
-                <!--======= Left Button =========-->
-                <a class="left carousel-control gp_products_carousel_control_left" href="#adv_gp_products_6_columns_carousel" role="button" data-slide="prev" id="swiper2-prev" style=" margin: 159px 0px 0px -91px !important; background:none; color:black;">
-                  <span class="fa fa-angle-left gp_products_carousel_control_icons" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-
-                <!--======= Right Button =========-->
-                <a class="right carousel-control gp_products_carousel_control_right" href="#adv_gp_products_6_columns_carousel" role="button" data-slide="next" id="swiper2-next" style=" margin: 168px -30px 0px 0px !important; width:30px;background:none; color:black;">
-                  <span class="fa fa-angle-right gp_products_carousel_control_icons" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-
-              <!-- </div>  -->
-        <!--*-*-*-*-*-*-*-*-*-*- END BOOTSTRAP CAROUSEL *-*-*-*-*-*-*-*-*-*-->
-            </div>
-          </div>
-       </section><!-- end trendy product -->
-       <script>
-       var swiper = new Swiper('.swiper-container1', {
-        nextButton: '#swiper2-next',
-        prevButton: '#swiper2-prev',
-        slidesPerView:5,
-        loop:true,
-        centeredSlides: true,
-        paginationClickable: false,
-        spaceBetween: 5
-        //autoplay: 4500
-        });
-       </script>
-
-        <section id="best_selling_product">
-          <div class="row">
-            <div class="col-md-12">
-                 <div class="swiper-container2">
-                    {{#with list2}}
-                    <h1 class="text-center" style="font-weight:bold;">{{title}}</h1>
-
-                    <div class="swiper-wrapper">
-                       <div class="clearout"></div> 
-                       {{#each products}}
-                       {{#with getProduct this}}
-                       <div class="swiper-slide">
-                        <div class="text-left" style="width: 100%; margin-bottom:15px; height:255px; text-align:center">
-                          <a href="/details/{{slug title}}" title="{{title}}">
-                            <img src="{{getImgForProduct _id}}" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;" class="img-responsive img-circle center-block" alt="{{title}}">
-                          </a>
-                          <div class="clearfix" style="width: 100%;overflow:hidden;text-align: center;">
-                            <a href="/details/{{slug title}}" style="color:black;" class="title">{{smaller title 4}}</a>
-                          </div>
-                          <a href="/details/{{slug title}}" style="color:black;" class="price"> {{price}} </a>
-                        </div>
-                      </div> 
-                       {{/with}}
-                       {{/each}}
-
-                   </div>
-                   {{/with}}
-                   <!-- Add Pagination -->
-                 <!--   <div class="swiper-button-next" id="swiper3-next" style="margin-right: -45px; margin-top: 0px;"></div>
-                   <div class="swiper-button-prev" id="swiper3-prev" style="margin-left: -45px; margin-top: -0px;"></div> -->
-                   <!--======= Left Button =========-->
-                <a class="left carousel-control gp_products_carousel_control_left" href="#adv_gp_products_6_columns_carousel" role="button" data-slide="prev" id="swiper3-prev" style=" margin: 159px 0px 0px -91px !important; background:none; color:black;">
-                  <span class="fa fa-angle-left gp_products_carousel_control_icons" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-
-                <!--======= Right Button =========-->
-                <a class="right carousel-control gp_products_carousel_control_right" href="#adv_gp_products_6_columns_carousel" role="button" data-slide="next" id="swiper3-next" style=" margin: 168px -30px 0px 0px !important; width:30px;background:none; color:black;">
-                  <span class="fa fa-angle-right gp_products_carousel_control_icons" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section><!-- end BEST SELLER PRODUCTS -->
-        <script>
-        var swiper = new Swiper('.swiper-container2', {
-            nextButton: '#swiper3-next',
-            prevButton: '#swiper3-prev',
-            slidesPerView:5,
-            loop:true,
-            centeredSlides: true,
-            paginationClickable: false,
-            spaceBetween: 5
-            //autoplay: 4500
-        });
-        </script>
-        <section id="season_product">
-          <div class="row">
-            <div class="col-md-12">
-             <div class="swiper-container3">
-                {{#with list3}}
-                <h1 class="text-center" style="font-weight:bold;">{{title}}</h1>
-
-                <div class="swiper-wrapper">
-                   <div class="clearout"></div> 
-                   {{#each products}}
-                   {{#with getProduct this}}
-                   <!-- <div class="swiper-slide"><a href="{{pathFor 'details' id=_id}}" title="{{title}}"><img class="img-responsive img-circle center-block" src="{{getImg image}}" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;" alt="{{title}}"/></a></div> -->
-                   <div class="swiper-slide">
-
-                   <div class="text-left" style="width: 100%; margin-bottom:15px; height:255px; text-align:center">
-                      <a href="/details/{{slug title}}" title="{{title}}">
-                        <img src="{{getImgForProduct _id}}" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;" class="img-responsive img-circle center-block" alt="{{title}}">
-                      </a>
-                      <div class="clearfix" style="width: 100%;overflow:hidden;text-align: center;">
-                        <a href="/details/{{slug title}}" style="color:black;" class="title">{{smaller title 4}}</a>
-                      </div>
-                      <a href="/details/{{slug title}}" style="color:black;" class="price"> {{price}} </a>
-                    </div>
-                  </div> 
-                   {{/with}}
-                   {{/each}}
-
-                   </div>
-                   {{/with}}
-                   <!-- Add Pagination -->
-         <!--           <div class="swiper-button-next" id="swiper4-next" style="margin-right: -45px; margin-top: 0px;"></div>
-                   <div class="swiper-button-prev" id="swiper4-prev" style="margin-left: -45px; margin-top: 0px;"></div> -->
-                      <!--======= Left Button =========-->
-                <a class="left carousel-control gp_products_carousel_control_left" href="#adv_gp_products_6_columns_carousel" role="button" data-slide="prev" id="swiper4-prev" style=" margin: 159px 0px 0px -91px !important; background:none; color:black;">
-                  <span class="fa fa-angle-left gp_products_carousel_control_icons" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-
-                <!--======= Right Button =========-->
-                <a class="right carousel-control gp_products_carousel_control_right" href="#adv_gp_products_6_columns_carousel" role="button" data-slide="next" id="swiper4-next" style=" margin: 168px -30px 0px 0px !important; width:30px;background:none; color:black;">
-                  <span class="fa fa-angle-right gp_products_carousel_control_icons" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-               </div>
-            </div>
-          </div>
-        </section><!-- end SEASON PRODUCTS -->
-        <script>
-        var swiper = new Swiper('.swiper-container3', {
-            nextButton: '#swiper4-next',
-            prevButton: '#swiper4-prev',
-            slidesPerView:5,
-            loop:true,
-            centeredSlides: true,
-            paginationClickable: false,
-            spaceBetween: 5
-            //autoplay: 5000
-        });
-        </script>
-<!--new slider-->
-<script>
-        jQuery(document).ready(function ($) {
-            
-            var jssor_1_SlideoTransitions = [
-              [{b:5500,d:3000,o:-1,r:240,e:{r:2}}],
-              [{b:-1,d:1,o:-1,c:{x:51.0,t:-51.0}},{b:0,d:1000,o:1,c:{x:-51.0,t:51.0},e:{o:7,c:{x:7,t:7}}}],
-              [{b:-1,d:1,o:-1,sX:9,sY:9},{b:1000,d:1000,o:1,sX:-9,sY:-9,e:{sX:2,sY:2}}],
-              [{b:-1,d:1,o:-1,r:-180,sX:9,sY:9},{b:2000,d:1000,o:1,r:180,sX:-9,sY:-9,e:{r:2,sX:2,sY:2}}],
-              [{b:-1,d:1,o:-1},{b:3000,d:2000,y:180,o:1,e:{y:16}}],
-              [{b:-1,d:1,o:-1,r:-150},{b:7500,d:1600,o:1,r:150,e:{r:3}}],
-              [{b:10000,d:2000,x:-379,e:{x:7}}],
-              [{b:10000,d:2000,x:-379,e:{x:7}}],
-              [{b:-1,d:1,o:-1,r:288,sX:9,sY:9},{b:9100,d:900,x:-1400,y:-660,o:1,r:-288,sX:-9,sY:-9,e:{r:6}},{b:10000,d:1600,x:-200,o:-1,e:{x:16}}]
-            ];
-            
-            var jssor_1_options = {
-              $AutoPlay: true,
-              $SlideDuration: 800,
-              $SlideEasing: $Jease$.$OutQuint,
-              $CaptionSliderOptions: {
-                $Class: $JssorCaptionSlideo$,
-                $Transitions: jssor_1_SlideoTransitions
-              },
-              $ArrowNavigatorOptions: {
-                $Class: $JssorArrowNavigator$
-              },
-              $BulletNavigatorOptions: {
-                $Class: $JssorBulletNavigator$
-              }
-            };
-            
-            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-            
-            //responsive code begin
-            //you can remove responsive code if you don't want the slider scales while window resizing
-            function ScaleSlider() {
-                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-                if (refSize) {
-                    refSize = Math.min(refSize, 1920);
-                    jssor_1_slider.$ScaleWidth(refSize);
-                }
-                else {
-                    window.setTimeout(ScaleSlider, 30);
-                }
-            }
-            ScaleSlider();
-            $(window).bind("load", ScaleSlider);
-            $(window).bind("resize", ScaleSlider);
-            $(window).bind("orientationchange", ScaleSlider);
-            //responsive code end
-        });
-    </script>   
-  </div><!-- end container -->
-</div><!-- end hbg -->
-</template>
-<template name="homeMenu">
-   <div class="swiper-container">
+<template name="home">
+    <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" data-hash="slide1"><img src="/img/slider_600x400.jpg"></div>
-            <div class="swiper-slide" data-hash="slide2"><img src="/img/slider_600x400.jpg"></div>
-            <div class="swiper-slide" data-hash="slide3"><img src="/img/slider_600x400.jpg"></div>
-            <div class="swiper-slide" data-hash="slide4"><img src="/img/slider_600x400.jpg"></div>
+         {{#each getbanner}}
+            <div class="swiper-slide" data-hash="slide1"><img src="{{getImg imageId}}"></div>
+        {{/each}}
         </div>
-     
-        <div class="swiper-pagination"></div>
-         
+      <!--<div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-    <!-- <section id="slider">
-        <ul class="slides">
-            <li><img src="img/slider_600x400.jpg" alt="" /></li>
-            <li><img src="img/slider_600x400.jpg" alt="" /></li>
-            <li><img src="img/slider_600x400.jpg" alt="" /></li>
-        </ul>
-    </section> --> <!-- #slider -->
-    <article>
+        <div class="swiper-button-prev"></div> -->
+    </div> <!-- #slider -->
 
-      <div class="wrapper">
-            <h3 class="h3">TRENDY PRODUCTS</h3>
-            <section style="opacity: 1;" id="trendy">               
-                
-            <div style="overflow: hidden; position: relative;" class="flex-viewport"><ul style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-576px, 0px, 0px);" class="slides"><li style="width: 288px; float: left; display: block;" class="clone">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li>
-                    <li style="width: 288px; float: left; display: block;" class="">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li>
-                    <li class="flex-active-slide" style="width: 288px; float: left; display: block;">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li>
-                    <li class="" style="width: 288px; float: left; display: block;">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li>
-                <li style="width: 288px; float: left; display: block;" class="clone">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li></ul></div><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul></section> <!-- #slider -->  
-            
-            <h3 class="h3">BEST SELLING PRODUCTS</h3>
-            <section style="opacity: 1;" id="best_selling">             
-                
-            <div style="overflow: hidden; position: relative;" class="flex-viewport"><ul style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-576px, 0px, 0px);" class="slides"><li style="width: 288px; float: left; display: block;" class="clone">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li>
-                    <li style="width: 288px; float: left; display: block;" class="">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li>
-                    <li class="flex-active-slide" style="width: 288px; float: left; display: block;">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li>
-                    <li class="" style="width: 288px; float: left; display: block;">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li>
-                <li style="width: 288px; float: left; display: block;" class="clone">
-                        <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                    </li></ul></div><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul></section> <!-- #slider -->
-            
-            <h3 class="h3">SEASON PRODUCTS</h3>
-            <section style="opacity: 1;" id="season">               
-                
-                <div style="overflow: hidden; position: relative;" class="flex-viewport">
-                    <ul style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-576px, 0px, 0px);" class="slides">
-                        <li style="width: 288px; float: left; display: block;" class="clone">
-                            <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                        </li>
-                        <li style="width: 288px; float: left; display: block;" class="">
-                            <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                        </li>
-                        <li class="flex-active-slide" style="width: 288px; float: left; display: block;">
-                            <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                        </li>
-                        <li class="" style="width: 288px; float: left; display: block;">
-                            <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                        </li>
-                        <li style="width: 288px; float: left; display: block;" class="clone">
-                            <a href="#"><img src="img/photo.jpg" class="img-circle" width="50"></a> 
-                        </li>
-                    </ul>
+    <article>
+      <div class="wrapper" >
+          <span class="post-date">27 JUNE 2013, 14:13</span>
+          <h3 class="home_products text-center">TRENDY PRODUCTS</h3>
+          <div class="row">
+            <!-- product slide -->
+            <div class="swiper-container-product">
+                <div class="swiper-wrapper">
+                     {{#with list1}}
+                        {{#each products}}
+                            {{#with getProduct this}}
+                                <div class="swiper-slide">
+                                    <div class="thumbnail">
+                                    <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                    <div class="caption"> 
+                                        <p class="text-center">{{title}}</p> 
+                                        <h3 class="text-center price">{{price}}</h3>
+                                    </div>
+                                    </div>
+                                </div>
+                            {{/with}}
+                        {{/each}}
+                    {{/with}}
                 </div>
-                <ul class="flex-direction-nav">
-                    <li>
-                        <a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a>
-                    </li>
-                </ul>
-            </section> <!-- #slider -->
+            </div>
         </div>
-        
-    </article> <!-- #post -->
+        <h3 class="text-center">BEST SELLING PRODUCT</h3>
+        <div class="row">
+            <div class="swiper-container-product">
+                <div class="swiper-wrapper">
+                    {{#with list2}} 
+                        {{#each products}}
+                           {{#with getProduct this}}
+                                <div class="swiper-slide">
+                                    <div class="thumbnail">
+                                        <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                        <div class="caption"> 
+                                            <p class="text-center">{{title}}</p> 
+                                            <h3 class="text-center price">{{price}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/with}}
+                        {{/each}}
+                    {{/with}}
+                </div>
+            </div>
+        </div>
+        <h3 class="home_products text-center">SEASON</h3>
+        <div class="row">
+            <div class="swiper-container-product">
+                <div class="swiper-wrapper">
+                    {{#with list3}}
+                        {{#each products}}
+                            {{#with getProduct this}}
+                                <div class="swiper-slide">
+                                    <div class="thumbnail">
+                                        <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                        <div class="caption">
+                                            <p class="text-center">{{title}}</p> 
+                                            <h3 class="text-center price">{{price}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/with}}
+                        {{/each}}
+                    {{/with}}
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
 </template>
