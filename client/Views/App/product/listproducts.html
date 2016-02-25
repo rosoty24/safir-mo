@@ -1,26 +1,25 @@
-
-<template name="listproducts"> 
-	           <article>
-                    <h1>Wrlcome To SafairMobile</h1>
-                    <div class="wrapper">
-                        <p class="text-selling-top">{{nbproducts}}/{{totalProducts}} {{_ "products result"}} products result</p>
-                        <p class="text-selling-second">Best selling <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p>
-                        {{#each products}}
-                        <div class="row">
-                           
-                            <div class="col-xs-6">
-                                <div class="thumbnail">
-                                    <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
-                                    <div class="caption"> 
-                                        <p class="text-center text-selling-detail">ESTÉE LAUDER Pur Color Vernis à ongles</p> 
-                                        <h3 class="text-center price-selling price">{{price}}€ <a href="/details/{{slug title}}"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                          
-                        </div>
-                          {{/each}}
-                    </div>
-                </article>
-
+<template name="listproducts">
+	<article>
+    	<div class="wrapper">
+            <p class="text-selling-top">{{nbproducts}}/{{totalProducts}} {{_ "products result"}}</p>
+            <p class="text-selling-second">Best selling <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p>
+                <div class="row">
+                    {{#each products}}
+					<div class="col-xs-6">
+						<div class="">
+							<a href="/details/{{slug title}}" title="{{title}}">
+        					<img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50">
+       						</a>
+							<div class="caption">
+								<p class="text-center text-selling-detail"><a href="{{pathFor 'details' id=_id}}">{{smaller title 8}}</a> </p>
+								<h3 class="text-center price-selling"><a href="/details/{{slug title}}">{{price}}</a>
+								<a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right" aria-hidden="true"></span></a> </h3>
+							</div>
+						</div>
+					</div>	
+				{{/each}}
+            </div>
+        </div>
+    </article>
 </template>
+
