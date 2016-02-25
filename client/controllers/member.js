@@ -22,12 +22,16 @@ Template.member.helpers({
 	getPourcentage: function(){
 		var me=Meteor.user();
 		if(me==null)
+			console.log("ME null");
 			return;
 		if(me.profile.shipcard!='undefined'){
 			var pt=Number(me.profile.shipcard.point);
-			return pt/10;
+			var result = pt/10;
+			console.log("ME PROFILE="+result);
+			return result;
 		}
 		else
+			console.log("ME 0");
 			return 0;
 	},
 	nextRank: function(){
@@ -155,7 +159,6 @@ Template.member.helpers({
 			Session.set('rank','SILVER');
 			//$('#ranking').addClass("backptsilver");
 		}
-  			
   		else{
   			//$('#ranking').addClass("backptgold");
   			Session.set('rank','GOLD');
