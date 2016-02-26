@@ -1,26 +1,29 @@
 <template name="listproducts">
-	<article>
-    	<div class="wrapper">
+    <article>
+        <div class="wrapper">
             <p class="text-selling-top">{{nbproducts}}/{{totalProducts}} {{_ "products result"}}</p>
             <p class="text-selling-second">Best selling <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p>
             <div class="row">
                     {{#each products}}
-					<div class="col-xs-6">
-						<div class="">
-							<a href="/details/{{slug title}}" title="{{title}}">
-        					<img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50">
-       						</a>
-							<div class="caption">
-								<p class="text-center text-selling-detail"><a href="{{pathFor 'details' id=_id}}">{{smaller title 8}}</a> </p>
-								<h3 class="text-center price-selling"><a href="/details/{{slug title}}">{{price}}</a>
-								<a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right" aria-hidden="true"></span></a>  </h3>
-							</div>
-						</div>
-					</div>	
-				{{/each}}
+                    <div class="col-xs-6">
+                        <div class="">
+                            <a href="/details/{{slug title}}" title="{{title}}">
+                            <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50">
+                            </a>
+                            <div class="caption">
+                                <div class="caption"> 
+                                    <p class="text-center text-selling-detail">{{smaller title 8}}</p> 
+                                    <h3 class="text-center price-selling">{{price}}<a href="" style="color:#e4332a;" id="unlike">
+                                    <span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span>
+                                    </a>
+                                    <a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right"></span></a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                {{/each}}
             </div>
         </div>
     </article>
-
 </template>
 
