@@ -238,11 +238,11 @@ ul.sub_dropdown{
     overflow: hidden;
     z-index: 1;
 }
-.panel_brands h1 a{
+.panel_brands a.alphabet{
     color: #fff;
     text-decoration: none;
 }
-.panel_brands h1 a:hover{
+.panel_brands  a.alphabet:hover{
     color: #fff;
     text-decoration: none;
 }
