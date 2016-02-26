@@ -12,7 +12,7 @@ $(window).scroll(function() {
         processScroll = true;
     }
 });
-Template.search.events({
+Template.headermenu.events({
     'click .tag': function(e){
         var id=this._id+";";
         var position=Session.get('search').indexOf(id);
@@ -60,7 +60,7 @@ Template.search.events({
     });
 
 
-Template.search.helpers({
+Template.headermenu.helpers({
     parentTag: function(category){
         return parent_tags.find({"category_id":category});
     },

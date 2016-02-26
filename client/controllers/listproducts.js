@@ -69,6 +69,7 @@ Template.listproducts.events({
 	'click #favorite':function(e,tpl){
 		e.preventDefault();
 		var id=this._id;
+		alert("my id:"+id);
 		console.log('Want to add this into favorite:'+Session.get('userId'));
 
 		var css=$(e.currentTarget).attr("class");

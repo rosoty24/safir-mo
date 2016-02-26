@@ -9,6 +9,7 @@ Template.register.events({
     	var lastname =$('#lname').val();
     	var email = $('#email').val();
     	var password =$('#password').val();
+        var con_password=$('#con_password').val();
     	var country=$('#pays').val();
     	var city=$('#ville').val();
     	var shipcard = '';
@@ -27,25 +28,33 @@ Template.register.events({
     	var msg = "";
     	//var regPassword=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 		//console.log('register in progress 2...')
-		if(firstname == "" ||  lastname == "" ||email == "" ||password == ""){
-			if( firstname == "")
-				Bert.alert( 'Please input your firstname', 'danger', 'growl-top-right', 'fa-bolt' );
-			if( lastname == "")
-				Bert.alert( 'Please input your lastname', 'danger', 'growl-top-right', 'fa-bolt' );
-			if(email == "")
-				Bert.alert( 'Please input your email', 'danger', 'growl-top-right', 'fa-bolt' );
-			if(password == "")
-				Bert.alert( 'Please input your password', 'danger', 'growl-top-right', 'fa-bolt' );
+	    if(username == "" || firstname == "" ||  lastname == "" ||country == "" ||city == "" ||email == "" ||password == "" ||con_password == ""){
+              if( username == "")
+                  $('.error_username').text("Please input your username !");
+              if( firstname == "")
+                  $('.error_firstname').text("Please input your firstname !");
+              if( lastname == "")
+                  $(".error_lastname").text("Please input your lastname !");
+              if( country == "")
+                  $('.error_pays').text("Please input your country !");
+              if( city == "")
+                  $('.error_ville').text("Please input your city !");
+              if(email == "")
+                  $(".error_email").text("Please input your email !");
+              if( con_password == "")
+                  $('.error_conpassword').text("Please input your confirm password !");
+              if(password == "")
+                $(".error_password").text("Please input your password !");  
 
-			$(".register_msg").html(msg);
-			Session.set("registerError", msg );
-			console.log('error1');
-
-		}else{
+    		}else if(con_password != password){
+                // alert("passwords not match");
+                $(".error_conpassword").text("Your Password not match!");
+            }
+        else{
 			//alert(firstname+lastname+email+password);
 			if(password.length>=6){
 				console.log('controls passed with success!');
-				Meteor.call('regUser',firstname, lastname, email, password, shipcard, point, rerole,country,city,username,function(err){
+				Meteor.call('regUser',firstname, lastname, email, password,con_password, shipcard, point, rerole,country,city,username,function(err){
 					if(err){
 						console.log(err.reason);
 						Session.set("registerError",err.reason);
@@ -110,8 +119,60 @@ Template.login.helpers({
 		return Session.get("Duplicate");
 	}
 });
+Template.register.events({
+  'click .close':function(e){
+    e.preventDefault();
+    Router.go('/profile');
+  },
+  'keyup .reg-password':function(e){
+    e.preventDefault();
+    $(".alert-warning").addClass("hid_div");
+        var password = $('.reg-password').val();
+        // alert("my pass:"+password);
+        var passwordsInfo   = $('#pass-info');
+            //Must contain 5 characters or more
+        var WeakPass = /(?=.{6,}).*/;
+        //Must contain lower case letters and at least one digit.
+        var MediumPass = /^(?=\S*?[a-z])(?=\S*?[0-9])\S{6,}$/;
+        //Must contain at least one upper case letter, one lower case letter and one digit.
+        var StrongPass = /^(?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9])\S{6,}$/;
+        //Must contain at least one upper case letter, one lower case letter and one digit.
+        var VryStrongPass = /^(?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9])(?=\S*?[^\w\*])\S{6,}$/;
+       
+        if(password){
+            if(VryStrongPass.test(password))
+            {
+                passwordsInfo.removeClass().addClass('vrystrongpass').html("Very Strong! (Awesome, please don't forget your pass now!)");
+            }  
+            else if(StrongPass.test(password))
+            {
+                passwordsInfo.removeClass().addClass('strongpass').html("Strong! (Enter special chars to make even stronger");
+            }  
+            else if(MediumPass.test(password))
+            {
+                passwordsInfo.removeClass().addClass('goodpass').html("Good! (Enter uppercase letter to make strong)");
+            }
+            else if(WeakPass.test(password))
+            {
+                passwordsInfo.removeClass().addClass('stillweakpass').html("Still Weak! (Enter digits to make good password)");
+            }
+            else
+            {
+                passwordsInfo.removeClass().addClass('weakpass').html("Very Weak! (Must be 6 or more chars)");
+            }
+        };
+    
+  },
+  'click #poplogin': function(event){
+      //alert("jjss");
+      $("#squarespaceModal").modal({                    
+        "backdrop"  : "static",
+        "keyboard"  : true,
+      "show"      : true   // show the modal immediately                  
+    });
+    }
+  });
 Template.login.events({
-
 	'click #btn_login': function(event,tpl){
 		event.preventDefault();
 		//alert("login");
@@ -215,9 +276,7 @@ Template.ResetPassword.events({
             
             //alert(data);
         });
-        
-
-        
-    
   }
 });
+
+
