@@ -235,3 +235,240 @@ Template.home.onRendered(function(){
       $(unlike).addClass('nonelike');
     });
 });
+
+//================= favorite in tutonew ==============================//
+Template.tutonew.events({
+    'click #unlike':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).removeClass('nonelike');
+        $(unlike).addClass('nonelike');
+         if(Meteor.userId()){
+                var userId=Meteor.userId();
+             }else{
+                var userId=Session.get('userId');
+                if(!userId){
+                    var newId=Random.id();
+                    Session.setPersistent('userId',newId);
+                }
+                
+             }
+             
+            var obj={
+                proId:this._id,
+                userId:userId
+            }
+
+            Meteor.call('insertFavoritee',obj);
+    },
+    'click #like':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).addClass('nonelike');
+        $(unlike).removeClass('nonelike');
+        if(Meteor.userId()){
+                var userId=Meteor.userId();
+        }else{
+            var userId=Session.get('userId');
+              
+        }
+        
+        var obj=favorite.findOne({userId:userId},{proId:this._id});
+        //alert(obj._id);
+       
+        favorite.remove(obj._id);
+    }
+});
+
+Template.tutonew.onRendered(function(){
+  var userId=Session.get('userId');
+  if(Meteor.userId()){
+    var userId=Meteor.userId();
+  }
+  var favoritelist=favorite.find({userId:userId});
+  favoritelist.forEach(function(value){
+    var like="#like"+value.proId;
+    var unlike="#unlike"+value.proId;
+    $(like).removeClass('nonelike');
+    $(unlike).addClass('nonelike');
+  });
+});
+//================= favorite in tutolisting==============================//
+Template.tutolisting.events({
+    'click #unlike':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).removeClass('nonelike');
+        $(unlike).addClass('nonelike');
+         if(Meteor.userId()){
+                var userId=Meteor.userId();
+             }else{
+                var userId=Session.get('userId');
+                if(!userId){
+                    var newId=Random.id();
+                    Session.setPersistent('userId',newId);
+                }
+                
+             }
+             
+            var obj={
+                proId:this._id,
+                userId:userId
+            }
+
+            Meteor.call('insertFavoritee',obj);
+    },
+    'click #like':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).addClass('nonelike');
+        $(unlike).removeClass('nonelike');
+        if(Meteor.userId()){
+                var userId=Meteor.userId();
+        }else{
+            var userId=Session.get('userId');
+              
+        }
+        
+        var obj=favorite.findOne({userId:userId},{proId:this._id});
+        //alert(obj._id);
+       
+        favorite.remove(obj._id);
+    }
+});
+
+Template.tutolisting.onRendered(function(){
+  var userId=Session.get('userId');
+  if(Meteor.userId()){
+    var userId=Meteor.userId();
+  }
+  var favoritelist=favorite.find({userId:userId});
+  favoritelist.forEach(function(value){
+    var like="#like"+value.proId;
+    var unlike="#unlike"+value.proId;
+    $(like).removeClass('nonelike');
+    $(unlike).addClass('nonelike');
+  });
+});
+//================= favorite in tutonew ==============================//
+Template.tutonew.events({
+    'click #unlike':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).removeClass('nonelike');
+        $(unlike).addClass('nonelike');
+         if(Meteor.userId()){
+                var userId=Meteor.userId();
+             }else{
+                var userId=Session.get('userId');
+                if(!userId){
+                    var newId=Random.id();
+                    Session.setPersistent('userId',newId);
+                }
+                
+             }
+             
+            var obj={
+                proId:this._id,
+                userId:userId
+            }
+
+            Meteor.call('insertFavoritee',obj);
+    },
+    'click #like':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).addClass('nonelike');
+        $(unlike).removeClass('nonelike');
+        if(Meteor.userId()){
+                var userId=Meteor.userId();
+        }else{
+            var userId=Session.get('userId');
+              
+        }
+        
+        var obj=favorite.findOne({userId:userId},{proId:this._id});
+        //alert(obj._id);
+       
+        favorite.remove(obj._id);
+    }
+});
+
+Template.tutonew.onRendered(function(){
+  var userId=Session.get('userId');
+  if(Meteor.userId()){
+    var userId=Meteor.userId();
+  }
+  var favoritelist=favorite.find({userId:userId});
+  favoritelist.forEach(function(value){
+    var like="#like"+value.proId;
+    var unlike="#unlike"+value.proId;
+    $(like).removeClass('nonelike');
+    $(unlike).addClass('nonelike');
+  });
+});
+//================= favorite in tutodetails==============================//
+Template.tutodetails.events({
+    'click #unlike':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).removeClass('nonelike');
+        $(unlike).addClass('nonelike');
+         if(Meteor.userId()){
+                var userId=Meteor.userId();
+             }else{
+                var userId=Session.get('userId');
+                if(!userId){
+                    var newId=Random.id();
+                    Session.setPersistent('userId',newId);
+                }
+                
+             }
+             
+            var obj={
+                proId:this._id,
+                userId:userId
+            }
+
+            Meteor.call('insertFavoritee',obj);
+    },
+    'click #like':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).addClass('nonelike');
+        $(unlike).removeClass('nonelike');
+        if(Meteor.userId()){
+                var userId=Meteor.userId();
+        }else{
+            var userId=Session.get('userId');
+              
+        }
+        
+        var obj=favorite.findOne({userId:userId},{proId:this._id});
+        //alert(obj._id);
+       
+        favorite.remove(obj._id);
+    }
+});
+
+Template.tutodetails.onRendered(function(){
+  var userId=Session.get('userId');
+  if(Meteor.userId()){
+    var userId=Meteor.userId();
+  }
+  var favoritelist=favorite.find({userId:userId});
+  favoritelist.forEach(function(value){
+    var like="#like"+value.proId;
+    var unlike="#unlike"+value.proId;
+    $(like).removeClass('nonelike');
+    $(unlike).addClass('nonelike');
+  });
+});

@@ -30,6 +30,12 @@ div.text-center label span{
 	font-size: 12px;
 	font-weight: 400
 }
+/*like tuto*/
+div.text-center label span.fonfa{
+	color: red;
+	font-size: 12px;
+	font-weight: 400
+}
 p.name-tuto-send{
 	font-size: 26px;
     font-weight: bold;

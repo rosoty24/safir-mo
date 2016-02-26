@@ -18,11 +18,17 @@
 							{{/with}}</a>
 							<div class="text-center">
 								<label class="pull-right">
-									<img src="img/heart-image.png">
+									<a href="#" id="unlike">
+										<img src="/img/heart-image.png"  id="unlike{{_id}}">
+									</a>
+									<a href="#" id="like">
+										<img src="/img/full-heart.png" id="like{{_id}}" class="nonelike">
+									</a>
+									<!-- <img src="/img/heart-image.png"> -->
 									<span>{{{smaller content 20}}}</span>
 								</label>
 								<label class="">
-									<img class="imgs" src="img/partager.png">
+									<img class="imgs" src="/img/partager.png">
 									<span>Partager</span>
 								</label>
 							</div>
