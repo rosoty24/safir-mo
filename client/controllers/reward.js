@@ -1,5 +1,28 @@
 Session.set('compteur',0);
 Session.set('rank','');
+Template.reward.rendered=function(){
+	var swiper = new Swiper('.swiper-container', {
+		autoplay: 5000,
+        pagination: '.swiper-pagination',
+        paginationClickable: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        hashnav: true,
+        autoplayDisableOnInteraction: true
+    });
+
+    var swiper = new Swiper('.swiper-container-product', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 2,
+        paginationClickable: true,
+        spaceBetween: 30
+    });
+	$('#ca-container').contentcarousel();
+	$('#ca-container1').contentcarousel();
+	$('#ca-container2').contentcarousel();
+									
+};
 Template.reward.helpers({
 	
 	short: function(count){
