@@ -15,19 +15,25 @@
 				</div>
 			</div>
 			
+			
 			<div class="row">
 				<div class="row_img">
 					{{#each getproductreward point}}
-					<div class="col-xs-4">
-						<a href="#"><img src="{{getImg image}}" class="center-block img-responsive img-circle"></a>
-						<div class="text-center">
-							<p class="text_img">{{title}}</p>
-							<h4 class="title_reward">{{getpoint}} pt</h4>
+						<div class="col-xs-4">
+							<div style="height:80px;overflow: hidden;">
+								<a href="#"><img src="{{getImg image}}" class="center-block img-responsive img-circle"></a>
+							</div>
+							<div class="text-center">
+								<div style="height:70px;overflow: hidden;">
+									<p class="text_img">{{title}}</p>
+								</div>
+								<h4 class="title_reward">{{getpoint}} pt</h4>
+							</div>
 						</div>
-					</div>
 					{{/each}}
 				</div>
 			</div>
+			
 			
 			<div class="row">
 				<div class="bg_title">
@@ -35,7 +41,7 @@
 				</div>
 			</div>
 			
-			<div class="row">
+			<!-- <div class="row">
 				<div class="row_img">
 					<div class="col-xs-6">
 						<a href="#"><img src="img/img_reward4.png" class="center-block img-responsive img-circle"></a>
@@ -44,6 +50,12 @@
 						<a href="#"><img src="img/img_reward3.png" class="center-block img-responsive img-circle"></a>
 					</div>
 				</div>
+			</div> -->
+			<div class="swiper-container">
+			    <div class="swiper-wrapper text-center">
+			        <div class="swiper-slide" data-hash="slide1"><img src="img/img_reward4.png"></div>
+			        <div class="swiper-slide" data-hash="slide2"><img src="img/img_reward3.png"></div>
+			    </div>
 			</div>
 			
 		</section>
