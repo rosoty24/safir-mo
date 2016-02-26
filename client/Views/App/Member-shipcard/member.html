@@ -1,0 +1,98 @@
+<template name="member">
+	<article>
+		<section class="shadow_bottom">
+			<div class="wrapper">
+				<div class="row">
+					<div class="col-xs-12">
+						<h2 class="text-right">BLACK MEMBER</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="bg_border"></div>
+					<div class="row_img">
+						<div class="col-xs-9 pull-right">
+							<p class="text_profile text-right">{{getpoint}}</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">							
+						<div class="col-xs-7">
+							<div class="hold-member-content">
+								<div class="img_profile1">
+									<div class="div-circle">
+										<p>{{nb_comments}}</p>
+									</div>
+									<h5 class="title_img img_menber text-center">NUMBER OF COMMENTS</h5>
+								</div>
+								<div class="img_profile1">
+									<div class="div-circle">
+										<p>{{nb_likes}}</p>
+									</div>
+									<h5 class="title_img img_menber text-center">NUMBER OF LIKES</h5>
+								</div>
+								<div class="img_profile1">
+									<div class="div-circle">
+										<p>{{getpoint}}</p>
+									</div>
+									<h5 class="title_img img_menber text-center">POINTS</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-5">
+							<div class="hold-member-content">
+								<div class="img_profile2">
+									<div class="title_progressor">
+										<p class="title_gold1">GOLD</p>
+									</div>
+									<div class="progress vertical border_gold">
+										{{#if isGold}}
+
+										<div class="progress-bar progress-bar-gold" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPourcentage}}%"></div>
+										{{/if}}
+									</div>
+								</div>
+
+								<div class="img_profile4">
+									<div class="title_progressor">
+										<p class="title_silver">SILVER</p>
+									</div>
+									<div class="progress vertical border_silver">
+										{{#if isSilver}}
+										<div class="progress-bar progress-bar-silver" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPourcentage}}%"></div>
+										{{/if}}
+									</div>
+								</div>
+								
+								<div class="img_profile6">
+									<div class="title_progressor">
+										<p class="title_black">BLACK</p>
+									</div>
+									<div class="progress vertical border_black1">
+										{{#if isBronze}}
+										<div class="progress-bar progress-black" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPourcentage}}%"></div>
+										{{/if}}
+									</div> 
+								</div>
+							</div>
+						</div>
+					<div class="col-xs-12">
+						<div class="row_img">
+							<div class="col-xs-5">
+								<img src="/img/gif.png" class="center-block img-responsive">
+							</div>
+							<div class="col-xs-7">
+								<p class="text_profile text-right">Write the information that is gainedwhen one is silver or gold</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12">
+						<div class="row_img">
+							<p class="text_profile text-center">Be more active on the forum to earn points and gift</p>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</section>
+    </article>
+</template>

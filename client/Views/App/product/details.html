@@ -8,13 +8,27 @@
                     <h3 class="pull-right">{{title}}</h3>
                   </div>
                   <div class="test_color">
-                    <div class="choose_color">COLOR</div>
-                    <div>SIZE</div>
+                    <div class="choose_color">
+                         <p>{{#each getParentAttr oldId}}
+                      {{#with getParentDetails parent}}
+                      {{name}} :
+
+                      <div id="gallerycontainer">
+                        <div id="gallery" >
+                          {{#each getAllAttributes ../product _id}}
+                          <p style="margin:17px;"><a href=""><img src="{{getImg productImage}}" id="img_attr"
+                            class="img-responsive pull-left" width="50px" height="50px" alt="{{title}}"></a></p>
+                            {{else}}
+                            <p><i>{{_ "None"}}</i></p>
+
+                            {{/each}}
+                          </div>
+                        </div>
+                        {{/with}}
+                        {{/each}}
+                      </p>
+                    </div>
                   </div>
-                  <!--<div class="pull-left space-top-detail">
-                      <img src="img/detail-sm.png" class="img-responsive">
-                      <img src="img/detail-sm1.png" class="img-responsive space-img-detail">
-                  </div>-->
                   <div class="space-top-detail1">
                       <!-- <img src="img/cream.png" class="img-responsive"> -->
                       <img id="hoverZoom" class="img-responsive" src="{{getImgForProduct _id}}" alt="{{title}}"/>	
@@ -24,7 +38,6 @@
                     <h2 class="pull-right">{{selected_price}}</h2>
                   </div>
                 </div>
-
                 <div class="row">
                  <div class="col-sm-12">
                    <div class="well-deatail">
@@ -34,11 +47,9 @@
                 </div>
             </div>
            </section>
-
-           <section class="shadow_bottom">
+           <section id="produst_listing" class="shadow_bottom" dir="{{getDirection}}">
             <div class="wrapper">
-
-                <div class="row">
+                <div class="row" id="article">
                    <div class="pull-right">
                        <img src="/img/filter-img.png" class="img-responsive space-top-img1">
                    </div>
@@ -57,86 +68,98 @@
                   <div class="space-comment">
                      <textarea class="form-control" id="status" name="styled-textarea" rows="7" placeholder="Write what you want ..."></textarea>
                    </div>
-                   <button class="btn_register pull-right" id="posting" value="{{_"SEND"}}"></button>
+                   <button class="btn_register pull-right" id="posting" value="{{_"POST"}}"></button>
                 </div>
-
                 <div class="clear-fix"></div>
-
                 <div class="row">
-                   <div class="col-sm-12">
-                      <div class="col-sm-5 pull-left space-top-detail2">
-                       <img src="/img/sm-girl.png" class="img-responsive">
-                      </div>
-                       <div class="col-sm-5 pull-left space-top-detail2">
-                         <h4>Sarah</h4>
-                         <p class="no-margin">07-20-2015</p>
-                         <p class="no-margin">11:16</p>
-                      </div>
-                      <div class="col-sm-2 pull-right space-top-detail2">
-                       <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
-                      </div>
-                      <div class="col-sm-12">
-                        <!--  <p class="pull-left space-top-detail3">
-                         	Take me your advice blah blajdklazld ldjalk dlkazn zjd bazkj bdjbza daz ndakzndkajbdkjab djkzabd bazdbaznbdabd,abdaz Take me your advice blah blajdklazld ldjalk dlkazn zjd
-                         </p> -->
-                         {{#if currentUser}}
-								{{>addreview}}
-								{{/if}}
-								<!--{{#each getReviews review filterReview removeFilter}}-->
+                           <div class="col-sm-12">
+                              <div class="col-sm-5 pull-left space-top-detail2">
+                               <img src="/img/sm-girl.png" class="img-responsive">
+                              </div>
+                               <div class="col-sm-5 pull-left space-top-detail2">
+                                 <h4>Sarah</h4>
+                                 <p class="no-margin">07-20-2015</p>
+                                 <p class="no-margin">11:16</p>
+                              </div>
+                              <div class="col-sm-2 pull-right space-top-detail2">
+                               <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
+                              </div>
+                              <div class="col-sm-12">
+                                 <p class="pull-left space-top-detail3">{{#if currentUser}}
+                                  {{>addreview}}
+                                  {{/if}}
+                                  <!--{{#each getReviews review filterReview removeFilter}}-->
 
-								{{#each getReviewBySort review}}
-								{{>review}}
-								{{else}}
-								<i>هیچ بررسی</i>
-								{{/each}}
-                         <div class="pull-left border-detail">   
-                         </div>
-                      </div>
-                   </div>  
-                </div>
+                                  {{#each getReviewBySort review}}
+                                  {{>review}}
+                                  {{else}}
+                                  <i>هیچ بررسی</i>
+                                  {{/each}}</p>
+                                 <div class="pull-left border-detail">   
+                                 </div>
+                              </div>
+                           </div>  
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="col-sm-5 pull-left space-top-detail2">
+                               <img src="/img/sm-girl.png" class="img-responsive">
+                              </div>
+                               <div class="col-sm-5 pull-left space-top-detail2">
+                                 <h4>Sarah</h4>
+                                 <p class="no-margin">07-20-2015</p>
+                                 <p class="no-margin">11:16</p>
+                              </div>
+                              <div class="col-sm-2 pull-right space-top-detail2">
+                               <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
+                              </div>
+                              <div class="col-sm-12">
+                                <p class="pull-left space-top-detail3">
+                                    <h1>{{_ "ARTICLE ABOUT"}}</h1>
+                                  {{#each articles}}
+                                  {{#with getArticle this}}
+                                  {{>article}}
+                                  {{/with}}
+                                  {{else}}
+                                  <i>{{_ "No articles about"}} {{title}}</i>
+                                  {{/each}}</p>
+                                 <div class="pull-left border-detail">   
+                                 </div>
+                              </div>
+                           </div>  
+                        </div>
 
-               <!--  <div class="row">
-                   <div class="col-sm-12">
-                      <div class="col-sm-5 pull-left space-top-detail2">
-                       <img src="/img/sm-girl.png" class="img-responsive">
-                      </div>
-                       <div class="col-sm-5 pull-left space-top-detail2">
-                         <h4>Sarah</h4>
-                         <p class="no-margin">07-20-2015</p>
-                         <p class="no-margin">11:16</p>
-                      </div>
-                      <div class="col-sm-2 pull-right space-top-detail2">
-                       <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
-                      </div>
-                      <div class="col-sm-12">
-                         <p class="pull-left space-top-detail3">Take me your advice blah blajdklazld ldjalk dlkazn zjd bazkj bdjbza daz ndakzndkajbdkjab djkzabd bazdbaznbdabd,abdaz Take me your advice blah blajdklazld ldjalk dlkazn zjd</p>
-                         <div class="pull-left border-detail">   
-                         </div>
-                      </div>
-                   </div>  
-                </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="col-md-5 pull-left space-top-detail2">
+                               <img src="/img/sm-girl.png" class="img-responsive">
+                              </div>
+                               <div class="col-sm-5 pull-left space-top-detail2">
+                                 <h4>Sarah</h4>
+                                 <p class="no-margin">07-20-2015</p>
+                                 <p class="no-margin">11:16</p>
+                              </div>
+                              <div class="col-sm-2 pull-right space-top-detail2">
+                               <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
+                              </div>
+                              <div class="col-sm-12">
+                                 <p class="pull-left space-top-detail3"><h1>{{_ "Tutorial about"}}</h1>
 
-                <div class="row">
-                   <div class="col-sm-12">
-                      <div class="col-md-5 pull-left space-top-detail2">
-                       <img src="/img/sm-girl.png" class="img-responsive">
-                      </div>
-                       <div class="col-sm-5 pull-left space-top-detail2">
-                         <h4>Sarah</h4>
-                         <p class="no-margin">07-20-2015</p>
-                         <p class="no-margin">11:16</p>
-                      </div>
-                      <div class="col-sm-2 pull-right space-top-detail2">
-                       <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
-                      </div>
-                      <div class="col-sm-12">
-                         <p class="pull-left space-top-detail3">Take me your advice blah blajdklazld ldjalk dlkazn zjd bazkj bdjbza daz ndakzndkajbdkjab djkzabd bazdbaznbdabd,abdaz Take me your advice blah blajdklazld ldjalk dlkazn zjd</p>
-                         <div class="pull-left border-detail">   
-                         </div>
-                      </div>
-                   </div>  
-                </div> -->
-             </div>
-           </section>
-        </article>
+                              {{#each tutoes}}
+                              {{#with getTutoes this}}
+                              {{>tutoes}}
+                              {{/with}}
+                              {{else}}
+                              <i>{{_ "No tutorial about"}}{{title}}</i> 
+                              {{/each}}</p>
+                                 <div class="pull-left border-detail">   
+                                 </div>
+                              </div>
+                           </div>  
+                        </div>
+
+               
+           </div>
+       </section>
+   </article>
 </template>
