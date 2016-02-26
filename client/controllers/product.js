@@ -1706,6 +1706,22 @@ Template.details.helpers({
 			return Session.get('selected_point');
 		}
 	});
+Template.details.helpers({
+    getprofile:function(){
+        var id = Meteor.userId();
+        return Meteor.users.findOne({_id:id});
+    },
+     getImage: function(id){
+            var img = images.findOne({_id:id});
+            if(img){
+                console.log(img.copies.images.key);
+                return img.copies.images.key;
+            }
+            else{
+                return;
+            }
+    },
+});
 
 
 
