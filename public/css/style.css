@@ -104,7 +104,7 @@ h4 { font-size: 22px; margin-bottom: .66em; }
 h5 { font-size: 18px; margin-bottom: .66em; }
 h6 { font-size: 16px; margin-bottom: .66em; }
 
-a, a:visited, a:hover, a:link{text-decoration: none; color: #fff;}
+a, a:visited, a:hover, a:link{text-decoration: none; color:black;}
 a.underline {text-decoration: underline; }
 
 .half_column {width: 48%; display: inline-block;}

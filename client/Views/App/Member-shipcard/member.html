@@ -11,7 +11,7 @@
 					<div class="bg_border"></div>
 					<div class="row_img">
 						<div class="col-xs-9 pull-right">
-							<p class="text_profile text-right">{{getpoint}}</p>
+							<p class="text_profile text-right">{{getpoint}} pt</p>
 						</div>
 					</div>
 				</div>
@@ -45,10 +45,8 @@
 										<p class="title_gold1">GOLD</p>
 									</div>
 									<div class="progress vertical border_gold">
-										{{#if isGold}}
-
-										<div class="progress-bar progress-bar-gold" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPourcentage}}%"></div>
-										{{/if}}
+										
+										<div class="progress-bar progress-bar-gold" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getGold}}%"></div>
 									</div>
 								</div>
 
@@ -57,9 +55,9 @@
 										<p class="title_silver">SILVER</p>
 									</div>
 									<div class="progress vertical border_silver">
-										{{#if isSilver}}
-										<div class="progress-bar progress-bar-silver" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPourcentage}}%"></div>
-										{{/if}}
+										
+										<div class="progress-bar progress-bar-silver" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getSilver}}%"></div>
+										
 									</div>
 								</div>
 								
@@ -68,9 +66,9 @@
 										<p class="title_black">BLACK</p>
 									</div>
 									<div class="progress vertical border_black1">
-										{{#if isBronze}}
-										<div class="progress-bar progress-black" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPourcentage}}%"></div>
-										{{/if}}
+										
+										<div class="progress-bar progress-black" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getBronze}}%"></div>
+										
 									</div> 
 								</div>
 							</div>

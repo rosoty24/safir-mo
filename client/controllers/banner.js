@@ -40,7 +40,7 @@ Template.banner.helpers({
 	},
 	getbanner:function(){
 		return banner.find();
-	},
+	}, 
 	getbannerId:function(){
 		return Session.get('bannerId');
 	},
