@@ -12,21 +12,81 @@ $(window).scroll(function() {
         processScroll = true;
     }
 });
+Session.set('keyword', "");
+Session.set('groupsearch', "");
+Session.set("searchall","");
 Template.headermenu.events({
-    'click .tag': function(e){
-        var id=this._id+";";
-        var position=Session.get('search').indexOf(id);
-        console.log(position);
-        if(position<0){
-            var newVal=Session.get('search')+this._id+";";
-            Session.set('search',newVal);
-        }else{
-            var newVal=Session.get('search').replace(this._id+";","");
-            Session.set('search',newVal);
-        }
-        console.log("Search:"+Session.get('search'));
+'click .kesearch': function(e){
+        e.preventDefault();
+        //alert('ok');
+        var Search = $(".input-search").val();
+         alert(Search);
+        if(Search =='')
+            console.log("Please fill in search box!");
+        else{
+            var key = $(".input-search").val();
+        var groupid = $("#group-text").attr("data-selected");
+        Session.set('keyword', key);
+        Session.set('groupsearch', groupid);
+        if(Session.get('groupsearch')=='')
+            Session.set('groupsearch', 10);
+        Router.go('/searchproduct/' +Search);
+        $('#textToSearch').val('');
+    }
+},
+'click .searchselection': function(e,tpl){
+    var id=$(e.currentTarget).attr("data-group");
+    Session.set('groupsearch', id);
+    console.log('searching: '+id);
+       //alert('hoop');
+   },
+    // 'keyup #textToSearch':function(e){
+
+    //     //var Search = $(".input-search").val();
+    //     var code = e.keyCode || e.which;
+    //      if(code == 13) { //Enter keycode
+    //         //e.preventDefault();
+    //        alert();
+    //      }
+    // },
+    'click .search-group': function(e,tmp){
+        var group_text = $(e.currentTarget).html();
+        var group_value = $(e.currentTarget).attr('data-group');
+        $("#group-text").html( group_text );
+        $("#group-text").attr("data-selected",group_value);
+        $(".box-inner").toggle();
+    }
+});
+
+Template.search.events({
+    // 'click .tag': function(e){
+    //     var id=this._id+";";
+    //     var position=Session.get('search').indexOf(id);
+    //     console.log(position);
+    //     if(position<0){
+    //         var newVal=Session.get('search')+this._id+";";
+    //         Session.set('search',newVal);
+    //     }else{
+    //         var newVal=Session.get('search').replace(this._id+";","");
+    //         Session.set('search',newVal);
+    //     }
+    //     console.log("Search:"+Session.get('search'));
+
+// Template.headermenu.events({
+//     'click .tag': function(e){
+//         var id=this._id+";";
+//         var position=Session.get('search').indexOf(id);
+//         console.log(position);
+//         if(position<0){
+//             var newVal=Session.get('search')+this._id+";";
+//             Session.set('search',newVal);
+//         }else{
+//             var newVal=Session.get('search').replace(this._id+";","");
+//             Session.set('search',newVal);
+//         }
+//         console.log("Search:"+Session.get('search'));
         
-    },
+    // },
     'click #favorite':function(e){
 
 
@@ -39,7 +99,6 @@ Template.headermenu.events({
                     proId:id,
                     userId:Session.get('userId')
                 }
-
                 Meteor.call('insertFavorite',obj);
                 alert('Product successfully append to favorite!');
             }
@@ -47,14 +106,13 @@ Template.headermenu.events({
                 var newId=Random.id();
                 Session.setPersistent('userId',newId);
                  //var ses=Session.get('userId');
-                 
                  var obj={
                     proId:id,
                     userId:Session.get('userId')
                 }
 
                 Meteor.call('insertFavorite',obj);
-                alert('Product successfully added to favorite!');
+                //alert('Product successfully added to favorite!');
             }
         }
     });
@@ -129,49 +187,7 @@ Template.headermenu.helpers({
 });
 
 /*Kis Search Product*/
-Session.set('keyword', "");
-Session.set('groupsearch', "");
-Session.set("searchall","");
-Template.header.events({
-'click .kesearch': function(e){
-        e.preventDefault();
-        var Search = $(".input-search").val();
-        if(Search =='')
-            alert("Please fill in search box!");
-        else{
-            var key = $(".input-search").val();
-        //var groupid = $("#group-text").attr("data-selected");
-        Session.set('keyword', key);
-        //Session.set('groupsearch', groupid);
-        if(Session.get('groupsearch')=='')
-            Session.set('groupsearch', 10);
-        Router.go('searchproduct' );
-        $('#textToSearch').val('');
-    }
-},
-'click .searchselection': function(e,tpl){
-    var id=$(e.currentTarget).attr("data-group");
-    Session.set('groupsearch', id);
-    console.log('searching: '+id);
-       //alert('hoop');
-   },
-    // 'keyup #textToSearch':function(e){
 
-    //     //var Search = $(".input-search").val();
-    //     var code = e.keyCode || e.which;
-    //      if(code == 13) { //Enter keycode
-    //         //e.preventDefault();
-    //        alert();
-    //      }
-    // },
-    'click .search-group': function(e,tmp){
-        var group_text = $(e.currentTarget).html();
-        var group_value = $(e.currentTarget).attr('data-group');
-        $("#group-text").html( group_text );
-        $("#group-text").attr("data-selected",group_value);
-        $(".box-inner").toggle();
-    }
-});
 
 Template.searchproduct.helpers({
     nbproducts: function(){
@@ -218,7 +234,7 @@ Template.searchproduct.helpers({
     },
 });
 
-Template.header.rendered = function(){
+Template.headermenu.rendered = function(){
     $(document).ready(function(){
         $(".slide-toggle").click(function(){
             $(".box-inner").toggle();
@@ -227,10 +243,11 @@ Template.header.rendered = function(){
             
             var code = e.keyCode || e.which;
              if(code == 13) { //Enter keycode
+                //alert('enter');
                 e.preventDefault();
                 var Search=$('#textToSearch').val();
                 if(Search ==''){
-                    alert("Please fill in search box!");
+                   console.log("Please fill in search box!");
                 }else{
                    
                     Session.set('keyword', Search);
