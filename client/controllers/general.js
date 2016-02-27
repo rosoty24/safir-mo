@@ -1,4 +1,4 @@
-    Template.registerHelper('getImgForProduct', function (id_product) {
+Template.registerHelper('getImgForProduct', function (id_product) {
         var p=products.findOne({_id:id_product});
         if(p.image instanceof Array){
             var id= p.image[0];

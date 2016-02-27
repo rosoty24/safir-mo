@@ -1,9 +1,10 @@
 <template name="home">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-         {{#each getbanner}}
+   <div class="swiper-container">
+    <div class="swiper-wrapper">
+        {{#each getbanner}}
             <div class="swiper-slide" data-hash="slide1"><img src="{{getImg imageId}}"></div>
         {{/each}}
+            
         </div>
       <!--<div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
@@ -13,7 +14,7 @@
     <article>
       <div class="wrapper" >
           <span class="post-date">27 JUNE 2013, 14:13</span>
-          <h3 class="home_products text-center">TRENDY PRODUCTS</h3>
+          <h3 class="home_products text-center">{{_ "TRENDY PRODUCTS"}}</h3>
           <div class="row">
             <!-- product slide -->
             <div class="swiper-container-product">
@@ -23,7 +24,7 @@
                             {{#with getProduct this}}
                                 <div class="swiper-slide">
                                     <div class="thumbnail">
-                                    <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                    <a href="details/{{slug title}}"><img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /></a> 
                                     <div class="caption"> 
                                         <p class="text-center">{{title}}</p> 
                                         <h3 class="text-center price">{{price}}</h3>
@@ -36,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <h3 class="text-center">BEST SELLING PRODUCT</h3>
+        <h3 class="text-center">{{_ "BEST SELLING PRODUCT"}}</h3>
         <div class="row">
             <div class="swiper-container-product">
                 <div class="swiper-wrapper">
@@ -45,7 +46,7 @@
                            {{#with getProduct this}}
                                 <div class="swiper-slide">
                                     <div class="thumbnail">
-                                        <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                        <a href="details/{{slug title}}"><img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> </a>
                                         <div class="caption"> 
                                             <p class="text-center">{{title}}</p> 
                                             <h3 class="text-center price">{{price}}</h3>
@@ -58,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <h3 class="home_products text-center">SEASON</h3>
+        <h3 class="home_products text-center">{{_ "SEASON"}}</h3>
         <div class="row">
             <div class="swiper-container-product">
                 <div class="swiper-wrapper">
@@ -67,7 +68,7 @@
                             {{#with getProduct this}}
                                 <div class="swiper-slide">
                                     <div class="thumbnail">
-                                        <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                        <a href="details/{{slug title}}"><img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> </a>
                                         <div class="caption">
                                             <p class="text-center">{{title}}</p> 
                                             <h3 class="text-center price">{{price}}</h3>
