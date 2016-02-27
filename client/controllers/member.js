@@ -27,13 +27,53 @@ Template.member.helpers({
 		}
 		if(me.profile.shipcard!='undefined'){
 			var pt=Number(me.profile.shipcard.point);
-			var result = pt/100000;
+			console.log("MY_POINT="+pt);
+			var result = pt*100/10000;
 			console.log('ME PROFILE='+result);
 			return result;
 		}
 		else
 			console.log('ME 0');
 			return 0;
+	},
+	getBronze:function(){
+		var me=Meteor.user();
+		if(me.profile.shipcard!='undefined'){
+			var pt=Number(me.profile.shipcard.point);
+			console.log("MY_POINT="+pt);
+			var result = pt*100/999;
+			console.log('ME PROFILE='+result);
+			if(pt >= 0)
+				return result;
+			else
+				return;
+		}
+	},
+	getSilver:function(){
+		var me=Meteor.user();
+		if(me.profile.shipcard!='undefined'){
+			var pt=Number(me.profile.shipcard.point);
+			console.log("MY_POINT="+pt);
+			var result = pt*100/9999;
+			console.log('ME PROFILE='+result);
+			if(pt >= 1000)
+				return result;
+			else
+				return;
+		}
+	},
+	getGold:function(){
+		var me=Meteor.user();
+		if(me.profile.shipcard!='undefined'){
+			var pt=Number(me.profile.shipcard.point);
+			console.log("MY_POINT="+pt);
+			var result = pt*100/30000;
+			console.log('ME PROFILE='+result);
+			if(pt>=10000)
+				return result;
+			else
+				return;
+		}
 	},
 	nextRank: function(){
 		
