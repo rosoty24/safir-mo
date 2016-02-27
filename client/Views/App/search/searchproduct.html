@@ -1,80 +1,67 @@
 <template name="searchproduct">
-
 {{#if displayproduct}}
 	<div class="container">
-				<div class="col-md-12">
-					<div class="hold_result">
-						<h1>{{_"Products"}}</h1><br>
-						<p>{{nbproducts}} {{_"Products result"}}</p>
+		<div class="col-md-12">
+			<div class="hold_result">
+				<h1>{{_"Products"}}</h1><br>
+				<p>{{nbproducts}} {{_"Products result"}}</p>
+			</div>
+			<div class="hold_bradcame">
+				<a href="#" class="pull-left green">{{_"Best selling"}} <span class="fa fa-caret-right"></span></a>
+				<p class="pull-right black">{{_"View by page"}}</p>
+			</div>
+		<div class="hold_product">			
+			{{#each product}}
+			<div class="col-xs-6 col-md-3 product_item">
+				<div class="thumbnail text-left">
+					<div class="clearfix" style="width: 100%;">
+						<a href="/details/{{slug title}}" title="{{title}}">
+							<img src="{{getImgForProduct _id}}" class="img-responsive img-circle center-block" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;">
+						</a>
 					</div>
-					<div class="hold_bradcame">
-						<a href="#" class="pull-left green">{{_"Best selling"}} <span class="fa fa-caret-right"></span></a>
-						<p class="pull-right black">{{_"View by page"}}</p>
+					<div class="clearfix" style="width: 100%;height:70px;line-height:90%; padding-bottom:40px;">
+						<a href="/details/{{slug title}}" class="title">{{smaller title 7}}</a>
+						<div class="clearfix text-center" style="width: 100%; height: 50px; overflow: hidden; padding-bottom:50px;">
+							<a href="/details/{{slug title}}" class="price">{{price}} </a>
+							<a href="#" id="unlike"><span id="unlike{{_id}}" class="fa fa-heart-o fonfa"></span></a>
+							<a href="#" id="like" style="color:red;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa"></span></a>
+						</div>
 					</div>
-
-		<div class="hold_product">
-			
-				{{#each product}}
-
-				<div class="col-xs-6 col-md-3 product_item">
-						<div class="thumbnail text-left">
-								<div class="clearfix" style="width: 100%;">
-										<a href="/details/{{slug title}}" title="{{title}}">
-											<img src="{{getImgForProduct _id}}" class="img-responsive img-circle center-block" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;">
-										</a>
-									</div>
-									<div class="clearfix" style="width: 100%;height:70px;line-height:90%; padding-bottom:40px;">
-										<a href="/details/{{slug title}}" class="title">{{smaller title 7}}</a>
-										<div class="clearfix text-center" style="width: 100%; height: 50px; overflow: hidden; padding-bottom:50px;">
-										<a href="/details/{{slug title}}" class="price">{{price}} </a>
-										
-										<a href="#" id="unlike"><span id="unlike{{_id}}" class="fa fa-heart-o fonfa"></span></a>
-										<a href="#" id="like" style="color:red;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa"></span></a>
-									</div>
-
-								</div>
-							</div>
-							</div>
-				{{/each}}
-				
-			
-		</div>
-				</div>		
-		</div>
-		{{else}}
-		<h3 style="text-align:center">{{_"No Product result"}}</h3>
-{{/if}}
-
-{{#if displayContent}}
-		<h1>{{_"Contents"}}</h1>
-	<div class="container">
-		<div class="hold_result">
-						<p>{{nbcontents}} {{_"Contents results"}}</p>
-		</div>
-
-	</div>
-	{{#each content}}
-	<div class="container">
-				<div class="mode-news webzine-title1">
-					<h2 class="text-center bold"><a href="#" class="title" style="color:black;">{{title}}</a></h2>
-					<div class="mode-img"><a href="#">
-						{{#with getFirstImgContent _id}}
-						<img src="{{getImg this}}" class="img-responsive img-circle center-block" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;">
-						{{/with}}
-					</a>
-					</div>
-					<div class="mode-description">
-						<!-- <p class="center-block">{{{content}}}</p> -->
-					</div>
-						
-					
 				</div>
 			</div>
-		<section id="not-line-straight">
-			<img src="/images/line1.jpg" class="img-responsive">
-		</section>
-		{{/each}}
-    
-{{/if}}
+			{{/each}}
+		</div>
+		</div>		
+	</div>
+	{{else}}
+		<h3 style="text-align:center">{{_"No Product result"}}</h3>
+	{{/if}}
 
+	{{#if displayContent}}
+		<h1>{{_"Contents"}}</h1>
+		<div class="container">
+			<div class="hold_result">
+				<p>{{nbcontents}} {{_"Contents results"}}</p>
+			</div>
+		</div>
+	{{#each content}}
+	<div class="container">
+		<div class="mode-news webzine-title1">
+			<h2 class="text-center bold"><a href="#" class="title" style="color:black;">{{title}}</a></h2>
+			<div class="mode-img"><a href="#">
+				{{#with getFirstImgContent _id}}
+				<img src="{{getImg this}}" class="img-responsive img-circle center-block" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;">
+				{{/with}}
+			</a>
+			</div>
+			<div class="mode-description">
+				<!-- <p class="center-block">{{{content}}}</p> -->
+			</div>
+		</div>
+	</div>
+	<section id="not-line-straight">
+		<img src="/images/line1.jpg" class="img-responsive">
+	</section>
+	{{/each}}
+	{{/if}}
 </template>
