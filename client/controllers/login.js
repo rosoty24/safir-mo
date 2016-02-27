@@ -26,35 +26,36 @@ Template.register.events({
     	console.log("let's start");
     	var rerole = 'member';
     	var msg = "";
+      var validateEmail='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$';
     	//var regPassword=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 		//console.log('register in progress 2...')
 	    if(username == "" || firstname == "" ||  lastname == "" ||country == "" ||city == "" ||email == "" ||password == "" ||con_password == ""){
               if( username == "")
-                  $('.error_username').text("Please input your username !");
+                  $('.error_username').text("لطفا ورودی نام کاربری خود را.");
               if( firstname == "")
-                  $('.error_firstname').text("Please input your firstname !");
+                  $('.error_firstname').text("لطفا ورودی نام خود را.");
               if( lastname == "")
-                  $(".error_lastname").text("Please input your lastname !");
+                  $(".error_lastname").text("لطفا نام خانوادگی خود را به.");
               if( country == "")
-                  $('.error_pays').text("Please input your country !");
+                  $('.error_pays').text("لطفا ورودی کشور خود را.");
               if( city == "")
-                  $('.error_ville').text("Please input your city !");
+                  $('.error_ville').text("لطفا ورودی شهرستان خود را.");
               if(email == "")
-                  $(".error_email").text("Please input your email !");
+                  $(".error_email").text("لطفا ایمیل خود را ورودی.");
               if( con_password == "")
-                  $('.error_conpassword').text("Please input your confirm password !");
+                  $('.error_conpassword').text("لطفا ورودی عبور تکرار رمز عبور خود را.");
               if(password == "")
-                $(".error_password").text("Please input your password !");  
+                $(".error_password").text("لطفا ورودی رمز عبور خود را.");  
 
-    		}else if(con_password != password){
+    		    }else if(con_password != password){
                 // alert("passwords not match");
-                $(".error_conpassword").text("Your Password not match!");
+                $(".error_conpassword").text("رمز عبور خود را مطابقت ندارد.");
             }
         else{
 			//alert(firstname+lastname+email+password);
 			if(password.length>=6){
 				console.log('controls passed with success!');
-				Meteor.call('regUser',firstname, lastname, email, password,con_password, shipcard, point, rerole,country,city,username,function(err){
+				Meteor.call('regUser',firstname, lastname, email, password,con_password,validateEmail,shipcard, point, rerole,country,city,username,function(err){
 					if(err){
 						console.log(err.reason);
 						Session.set("registerError",err.reason);
@@ -142,23 +143,23 @@ Template.register.events({
         if(password){
             if(VryStrongPass.test(password))
             {
-                passwordsInfo.removeClass().addClass('vrystrongpass').html("Very Strong! (Awesome, please don't forget your pass now!)");
+                passwordsInfo.removeClass().addClass('vrystrongpass').html("بسیار قوی! (عالی، لطفا عبور خود را فراموش کرده ام حال حاضر!)");
             }  
             else if(StrongPass.test(password))
             {
-                passwordsInfo.removeClass().addClass('strongpass').html("Strong! (Enter special chars to make even stronger");
+                passwordsInfo.removeClass().addClass('strongpass').html("قوی! (را وارد کنید کاراکتر های خاص را حتی قوی تر");
             }  
             else if(MediumPass.test(password))
             {
-                passwordsInfo.removeClass().addClass('goodpass').html("Good! (Enter uppercase letter to make strong)");
+                passwordsInfo.removeClass().addClass('goodpass').html("خوب! (را وارد کنید حروف بزرگ به قوی)");
             }
             else if(WeakPass.test(password))
             {
-                passwordsInfo.removeClass().addClass('stillweakpass').html("Still Weak! (Enter digits to make good password)");
+                passwordsInfo.removeClass().addClass('stillweakpass').html("هنوز ضعیف! (ارقام را وارد کنید برای ایجاد رمز عبور خوب)");
             }
             else
             {
-                passwordsInfo.removeClass().addClass('weakpass').html("Very Weak! (Must be 6 or more chars)");
+                passwordsInfo.removeClass().addClass('weakpass').html("خیلی ضعیف! (باید 6 یا بیشتر کاراکتر)");
             }
         };
     
