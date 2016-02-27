@@ -7,8 +7,8 @@
                     <h3 class="pull-right">{{title}}</h3>
                   </div>
                   <div class="test_color">
-                    <div class="choose_color">COLOR</div>
-                    <div>SIZE</div>
+                   <!--  <div class="choose_color">COLOR</div>
+                    <div>SIZE</div> -->
                     <a id="show_image">Show Image</a>
                           <p id="my_images" style="display:none;">
                           {{#each getParentAttr oldId}}
@@ -97,13 +97,13 @@
                 {{#if currentUser}}
                     <div class="col-sm-12">
                       <div class="space-comment">
-                         <textarea class="form-control" id="status" name="styled-textarea" rows="7" placeholder="Write what you want ..."></textarea>
+                         <textarea class="form-control" id="status" name="styled-textarea" rows="7" value="{{_ "Write what you want"}}"></textarea>
                        </div>
-                       <button class="btn_register pull-right" id="posting">SEND</button>
+                       <button class="btn_register pull-right" id="posting">{{_ "SEND"}}</button>
                       
                     </div>
                 {{/if}}
-                <div class="clear-fix"></div>
+                <!-- <div class="clear-fix"></div> -->
                  {{#each getReviews review filterReview removeFilter}}
                     <div class="row">
                         <div class="col-sm-12">
@@ -124,9 +124,7 @@
                             </div>
                         </div>  
                     </div>
-                 {{/each}} 
-               
-               
+                 {{/each}}
             </div>
        </section>
    </article>
