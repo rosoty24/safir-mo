@@ -22,13 +22,13 @@
 						<div class="col-xs-12 col-md-6 ">
 							<form class="form-horizontal form_pro" role="form">
 								<div class="form-group">
-									<label class="col-xs-5 col-sm-4 label_pro">NAME</label>
+									<label class="col-xs-5 col-sm-4 label_pro">{{_"NAME"}}</label>
 									<div class="col-xs-7 col-sm-6">
 										<span class="info">{{profile.firstname}} {{profile.lastname}}</span>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-5 col-sm-4 label_pro">EMAIL</label>
+									<label class="col-xs-5 col-sm-4 label_pro">{{_"EMAIL"}}</label>
 									{{#each emails}}
 									<div class="col-xs-7 col-sm-6">
 										<span class="info">{{address}}</span>
@@ -36,41 +36,41 @@
 									{{/each}}
 								</div>
 								<div class="form-group">
-									<label class="col-xs-5 col-sm-4 label_pro">ADDRESS</label>
+									<label class="col-xs-5 col-sm-4 label_pro">{{_"ADDRESS"}}</label>
 									<div class="col-xs-7 col-sm-6">
 										<span class="info">{{profile.address}}</span>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-5 col-sm-4 label_pro">BIRTH DATE</label>
+									<label class="col-xs-5 col-sm-4 label_pro">{{_"BIRTH DATE"}}</label>
 									<div class="col-xs-7 col-sm-6">
 										<span class="info">{{profile.birth}}</span>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-5 col-sm-4 label_pro">SEX</label>
+									<label class="col-xs-5 col-sm-4 label_pro">{{_"SEX"}}</label>
 									<div class="col-xs-7 col-sm-6">
 										<span class="info">{{profile.sex}}</span>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-5 col-sm-4 label_pro">LIFE STYLE</label>
+									<label class="col-xs-5 col-sm-4 label_pro">{{_"LIFE STYLE"}}</label>
 									<div class="col-xs-7 col-sm-6">
-										<span class="info">Nerd, hard worker , dreamer</span>
+										<span class="info">{{_"Nerd, hard worker , dreamer"}}</span>
 									</div>
 								</div>
 							</form>
 						</div>
 						{{/with}}
 						<div class="col-xs-12">
-							<a href="/editprofile"><button id="singlebutton" name="singlebutton" class="btn btn-primary pull-right">Edit
+							<a href="/editprofile"><button id="singlebutton" name="singlebutton" class="btn btn-primary pull-right">{{_"Edit"}}
 							</button></a>
 						</div>
 						<div class="col-xs-12">
 							<div class="hr" style="margin-top:20px;"></div>
 						</div>
 						<div class="col-xs-12">
-							<h5 class="h5_bold">COMPLÉTEZ LES QUESTION POUR ÊTRE MIEUX CONSEILLÉ</h5>
+							<h5 class="h5_bold">{{_"COMPLÉTEZ LES QUESTION POUR ÊTRE MIEUX CONSEILLÉ"}}</h5>
 						</div>
 						<!-- <div class="col-xs-12">
 							<h4 class="title_select">Skin</h4>

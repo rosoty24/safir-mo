@@ -4,10 +4,13 @@
 	"EMAIL": "پست الکترونیکی",
 	"SEX": "جنسیت",
 	"ADDRESS": "آدرس",
-	"EDIT": "ویرایش",
 	"BACK": "قبلی",
 	"Complete these questions":"تکمیل این سوال",
 	"Answer": "پاسخ",
 	"Profile Image":"مشخصات تصویر",
-	"writing answer":"نوشتن پاسخ"
+	"writing answer":"نوشتن پاسخ",
+	"LIFE STYLE": "سبک زندگی",
+	"Edit":"ویرایش",
+	"COMPLÉTEZ LES QUESTION POUR ÊTRE MIEUX CONSEILLÉ":"تکمیل این سوال برای بهتر توصیه می شود"
+
 }
