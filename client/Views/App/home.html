@@ -1,10 +1,19 @@
 <template name="home">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
+   <div class="swiper-container">
+    <div class="swiper-wrapper">
+        {{#each getbanner}}
+            <div class="swiper-slide" data-hash="slide1"><img src="{{getImg imageId}}"></div>
+            <p>MY test now:{{url}}</p>
+            <h3>kkkkkk===={{getImgForProduct _id}}</h3>
+
+        {{/each}}
+            
+        </div>
+        <!-- <div class="swiper-wrapper">
          {{#each getbanner}}
             <div class="swiper-slide" data-hash="slide1"><img src="{{getImg imageId}}"></div>
         {{/each}}
-        </div>
+        </div> -->
       <!--<div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div> -->

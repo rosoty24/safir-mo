@@ -6,7 +6,6 @@ $(window).scroll(function() {
 	if (processScroll  && $(window).scrollTop() > $(document).height() - $(window).height() - 100) {
 		processScroll = false;
     // your functionality here
-    //alert("Welcome scroll");
     var oldLimit=Session.get('querylimit');
     oldLimit+=16;
     Session.set('querylimit',oldLimit);
@@ -193,19 +192,19 @@ Template.listproducts.events({
 
 });
 
-Template.listproducts.onCreated(function(){
+// Template.listproducts.onCreated(function(){
 
 //    $(window).scroll(function(e) {
 //       if($(window).scrollTop() == $(document).height() - $(window).height()) {
 
 //       		var limit=Number(Session.get('querylimit'));
-//     	limit=limit+16;
+//     	limit=limit+4;
 //     	Session.set('querylimit',limit);
 //           //alert("Welcome Rosoty");
 //    	}
 // })
 
-});
+// });
 
 Template.details.rendered=function(){
 	$("[rel='tooltip']").tooltip(); 
