@@ -58,9 +58,9 @@ Template.mainLayoutMobile.onRendered(function(){
 });
 
 Template.mainLayoutMobile.events({
-    "click #makeup":function(){
-        $("#panel_makeup").slideToggle("slow");
-    },
+    // "click #makeup":function(){
+    //     $("#panel_makeup").slideToggle("slow");
+    // },
     // "click #panel_makeup":function(){
     //     $(".sub_dropdown").slideToggle("slow");
     // },
@@ -111,6 +111,15 @@ Template.mainLayoutMobile.events({
         //$("#refineitem").append('<li><a href="" class="border-dashed">'+brand+' <span class="fa fa-times removeRefineItemBrand" ></span></a></li>');
         Router.go('advanced');
     }
+});
+Template.menu.onRendered(function(){
+    $(document).ready(function() {
+        $(".u-vmenu").vmenuModule({
+            Speed: 200,
+            autostart: false,
+            autohide: true
+        });
+    });
 });
 // Template.header.helpers({
 // 	getCart: function(){

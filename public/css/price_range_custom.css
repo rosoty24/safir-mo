@@ -58,6 +58,7 @@
 .panel_price_range{
 	display: none;
     overflow: hidden;
+    background: #333333;
 }
 .panel_price_range span{
     font-size: 12px;
@@ -71,8 +72,6 @@
     padding: 15px;
     background: #333333;
     height: 250px;
-    /* KA */
-    margin-right: 15px;
 }
 
 /* panel advanced */

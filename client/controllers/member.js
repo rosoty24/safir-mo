@@ -133,16 +133,19 @@ Template.member.helpers({
 		console.log('POINT:'+point);
 		if(point>=0 && point<1000){
 			Session.set('rank','BRONZE');
+			Session.set('BRONZE_POINT',999);
 			//$('#ranking').addClass("backpt");
 		}
 		else if(point>=1000 && point <10000){
 			Session.set('rank','SILVER');
+			Session.set('SILVER_POINT',9999);
 			//$('#ranking').addClass("backptsilver");
 		}
   			
   		else{
   			//$('#ranking').addClass("backptgold");
   			Session.set('rank','GOLD');
+  			Session.set('GOLD_POINT',20000);
   		}
   		console.log('rank:'+Session.get('rank'));
 		}

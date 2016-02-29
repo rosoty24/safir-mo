@@ -14,20 +14,15 @@
             </ul>
             <div id="panel_makeup">
 	            <ul class="make-up">
-	                <li><a href="">All Eye makeup</a></li>
-	                <li><a href="">Eyeshadow Palettes & Eye Sets</a></li>
-	                <li><a href="">Mascara</a></li>
-	                <li><a href="">Eyeliner</a></li>
-	                <li><a href="">Eyeshadow</a></li>
-	                <li><a href="">Eyeshadow Primer & Base</a></li>
-	                <li><a href="">Under Eye Concealer</a></li>
-	                <li><a href="">Eyebrows</a></li>
-	                <li><a href="">Eyeliner</a></li>
-	                <li><a href="">Eyelash Enhancers & Primers</a></li>
-	                <li><a href="">Eyelash Curlers</a></li>
-	                <li><a href="">False Eyelashes</a></li>
-	                <li><a href="">Eye Makeup Remover</a></li>
-	                <li><a href="">Eye Brushes</a></li>
+	            	{{#each getParent}}
+	                <li id="child_makeup"><a href="">{{title}}</a>
+		                <ul>
+		                	{{#each getChildren _id}}
+		                	<li id="child"><a href="{{pathFor 'listing' id=(slug title)}}">child {{title}}</a></li>
+		                	{{/each}}
+		                </ul>
+	                </li>
+	            	{{/each}}
 	            </ul>
             <!-- <div class="row">
                     <div id="menu">

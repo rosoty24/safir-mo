@@ -1,18 +1,18 @@
 .img-bg-login{
-	background: #FFF;
-	display: block;
-	background: url("../img/bg-login.png") no-repeat center center fixed;
-	background-size: 100% auto;
-	position: relative;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+    background: #FFF;
+    display: block;
+    background: url("../img/bg-login.png") no-repeat center center fixed;
+    background-size: 100% auto;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .form-login{
-	background: rgb(255, 255, 255) none repeat scroll 0% 0%;
-	box-shadow: 3px 3px 10px #ccc;
-	margin: 40px 30px;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+    box-shadow: 3px 3px 10px #ccc;
+    margin: 40px 30px;
 }
 .btn-red{
     color: #FFF;
@@ -21,7 +21,7 @@
 }
 .btn{
     display: inline-block;
-    padding: 6px 25px;
+    padding: 6px 20px;
     margin-bottom: 0px;
     font-size: 18px;
     font-weight: normal;
@@ -39,7 +39,7 @@ button.btn-red{
     border: medium none;
     font-size: 20px !important;
 }
-button {
+/*button {
     border: medium none;
     font-size: 20px !important;
     padding: 6px 20px;
@@ -47,6 +47,33 @@ button {
     background-color: #000;
     color: #FFF;
     margin-bottom: 15px;
+}*/
+.btn-re-log{
+    padding-top: 15px;
+    margin: 0 auto;
+}
+.btn-register{
+    background:#000;
+    color:#fff;
+    font-size: 16px !important;
+}
+.btn-register-white{
+    background:#fff;
+    color:#000;
+    font-size: 16px !important;
+}
+.btn-log{
+    background:#000;
+    color:#fff;
+    font-size: 16px !important;
+}
+.btn-log-white{
+    background:#fff;
+    color:#000;
+    font-size: 16px !important;
+}
+.or{
+    color:#000; font-size: 16px !important;
 }
 .button-log{
     border: medium none;
@@ -57,8 +84,8 @@ button {
     color: #000;
 }
 div.form-login span{
-	font-size: 18px;
-	font-weight: 700;
+    font-size: 18px;
+    font-weight: 700;
 }
 form.mar-log {
     width: 100%;
