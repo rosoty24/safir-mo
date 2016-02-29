@@ -1,0 +1,62 @@
+/* Webzine-mobile */
+
+
+.space-img{
+    margin-top: 30px;
+}
+
+.title-webzin-mobile h2{
+    color: #dd2a1b;
+    font-size: 22px;
+    font-family: "Avalonbold";
+}
+.title-webzin-mobile a{
+    text-decoration: none;
+}
+
+.text-webzin-mobile p{
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 0px;
+}
+.text-webzin-mobile-detail p{
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+.cate-webzine {
+    color: #cccccc;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top:0px;
+}
+.wrapper-icon {
+    float: left;
+    margin-top:0px;
+}
+.cate-webzine-detail {
+    color: #cccccc;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top:25px;
+}
+.wrapper-icon-detail {
+    float: left;
+    margin-top:25px;
+}
+.fa-facebook {
+    color: #cccccc;
+}
+.fa-twitter {
+    color: #cccccc;
+    padding-left: 20px;
+}
+.clear-fix{
+    clear: both;
+}
+div.wrapper {
+    margin: 3em 16px;
+}
+

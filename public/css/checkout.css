@@ -1,0 +1,118 @@
+.wrapper-checkout{
+	padding-bottom: 0px;
+}
+.p-title{
+	font-size:12px;
+	margin-bottom:0px;
+}
+.panel-body h4 a.price{
+	font-weight:bold;
+	color:#dd2a1b;
+}
+.panel-body span{
+	font-weight:bold;
+}
+.panel-body .checkbox{
+	margin-top:0px;
+	margin-bottom:20px;
+}
+.panel-body .checkbox label{
+	font-size:12px;
+}
+.panel-footer span{
+	font-size:12px;
+}
+.panel .panel-footer a{
+	font-size:12px;
+	color:#333;
+}
+.btn_checkout {
+	border-radius: 0px;
+	background: #333 none repeat scroll 0% 0%;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	padding: 5px 5px;
+	margin: 0px 0px;
+	background: #ff0505;
+	border: none;
+	background: -moz-linear-gradient(top, #ff0505 0%, #8f0222 99%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff0505), color-stop(99%,#8f0222));
+	background: -webkit-linear-gradient(top, #ff0505 0%,#8f0222 99%);
+	background: -o-linear-gradient(top, #ff0505 0%,#8f0222 99%);
+	background: -ms-linear-gradient(top, #ff0505 0%,#8f0222 99%);
+	background: linear-gradient(to bottom, #ff0505 0%,#8f0222 99%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0505', endColorstr='#8f0222',GradientType=0 );
+}
+.checkout-detail{
+	padding:10px 0px;
+	border-bottom:1px solid #ddd;
+}
+.title-product{
+	font-weight:bold;
+}
+.price-product{
+	color:#8c3622;
+}
+.date{
+	font-size:14px;
+	color:#a06432;
+	margin-bottom:0px;
+}
+.free{
+	font-size:14px;
+	color:#696969;
+	margin-bottom:0px;
+	margin-top:0px;
+}
+.bs-example{
+	padding:10px 0px;
+	text-align:center;
+}
+.number{
+	margin-right:5px;
+}
+.btn-group .number{
+	padding:6 20px;
+}
+.select-number{
+	padding:4px 10px;
+}
+.color-gray{
+	color:#000;
+	padding-top:5px;
+}
+.swiper-container-checkout {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.btn-checkout{
+    color: #333;
+    background-color: #ccc;
+    border:0px solid #000;
+    border-radius: 4px;
+}
+/*tage brands*/
+.btn-tage-brands{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0px;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.42857;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    -moz-user-select: none;
+    border:1px dashed #fff;
+    color: #fff;
+}
+.tage-brands{
+	padding: 10px 0px 0px 10px;
+}
