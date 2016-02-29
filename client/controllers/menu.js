@@ -1,8 +1,20 @@
-
 Session.set('children1','');
 Session.set('children2','');
 Session.set('selected_menu','');
-Template.header.helpers({
+Session.setDefault('CHILDMAKEUP','');
+Template.menu.events({
+	"click #makeup":function(){
+        $("#makeup").addClass("active");
+        $("#panel_makeup").slideToggle("slow");
+        $("#panel_all_makeup").hide();
+    },
+    "click #all_makeup":function(){
+        $("#panel_all_makeup").slideToggle("slow");
+        $("#all_makeup").addClass("active");
+        $("#panel_makeup").hide();
+    }
+});
+Template.menu.helpers({
 	getParent: function(){
 		Session.get('LANG');
 		return categories.find({"$or":[{"parent":"0"},{"parent":" "}]}).map(function(document, index) {
@@ -10,9 +22,10 @@ Template.header.helpers({
             return document;
         });
 	},
-	getChildren: function(parent){
+	getChildren: function(id){
+		console.log("MY_CHILDREN="+id);
 		Session.get('LANG');
-		return categories.find({"parent":parent}).map(function(document, index) {
+		return categories.find({"parent":id}).map(function(document, index) {
             document.index = index + 1;
             return document;
         });
