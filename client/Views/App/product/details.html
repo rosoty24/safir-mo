@@ -57,23 +57,39 @@
                       </p> -->
                     </div>
                   </div>
-                  <div class="space-top-detail1">
-                      <!-- <img src="img/cream.png" class="img-responsive"> -->
-                      <img id="hoverZoom" class="img-responsive" src="{{getImgForProduct _id}}" alt="{{title}}"/>	
+              <div class="main_color">
+                <div>
+                  <p class="toggle">COLOR</p>
+                  <div style="display: none;" class="bg-white">
+                    <ul class="list-inline">
+                      <li><a href="" ><i class="fa fa-circle fa-2x color1"></i></a></li>
+                      <li><a href="" ><i class="fa fa-circle fa-2x color2"></i></a></li>
+                      <li><a href="" ><i class="fa fa-circle fa-2x color3"></i></a></li>
+                      <li><a href="" ><i class="fa fa-circle fa-2x color4"></i></a></li>
+                      <li><a href="" ><i class="fa fa-circle fa-2x color5"></i></a></li>
+                      <li><a href="" ><i class="fa fa-circle fa-2x color6"></i></a></li>
+                      <li><a href="" ><i class="fa fa-circle fa-2x color7"></i></a></li>
+                      <li><a href="" ><i class="fa fa-circle fa-2x color8"></i></a></li>
+                    </ul>
                   </div>
-                  <div class="col-sm-12">
-                    <button class="btn_addtocard pull-left" id="addtocart">{{_ "ADD TO CART"}}</button>
-                    <h2 class="pull-right">{{selected_price}}</h2>
-                  </div>
-                </div>
-                <div class="row">
-                 <div class="col-sm-12">
-                   <div class="well-deatail">
-                        <p class="text-center text-detail">{{description}}</p>
+                    <div class="space-top-detail1">
+                        <!-- <img src="img/cream.png" class="img-responsive"> -->
+                        <img id="hoverZoom" class="img-responsive" src="{{getImgForProduct _id}}" alt="{{title}}"/>	
                     </div>
-                 </div>
+                    <div class="col-sm-12">
+                      <button class="btn_addtocard pull-left" id="addtocart">{{_ "ADD TO CART"}}</button>
+                      <h2 class="pull-right">{{selected_price}}</h2>
+                    </div>
+                  </div>
+                  <div class="row">
+                   <div class="col-sm-12">
+                     <div class="well-deatail">
+                          <p class="text-center text-detail">{{description}}</p>
+                      </div>
+                   </div>
+                  </div>
+              </div>
                 </div>
-          
            </section>
            <section id="produst_listing" class="shadow_bottom" dir="{{getDirection}}">
             <div class="wrapper">
@@ -124,7 +140,6 @@
                         </div>  
                     </div>
                  {{/each}} 
-               
                
             </div>
        </section>
