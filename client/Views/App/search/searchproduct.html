@@ -1,38 +1,35 @@
 <template name="searchproduct">
 {{#if displayproduct}}
-	<div class="container">
-		<div class="col-md-12">
-			<div class="hold_result">
-				<h1>{{_"Products"}}</h1><br>
-				<p>{{nbproducts}} {{_"Products result"}}</p>
-			</div>
-			<div class="hold_bradcame">
-				<a href="#" class="pull-left green">{{_"Best selling"}} <span class="fa fa-caret-right"></span></a>
-				<p class="pull-right black">{{_"View by page"}}</p>
-			</div>
-		<div class="hold_product">			
-			{{#each product}}
-			<div class="col-xs-6 col-md-3 product_item">
-				<div class="thumbnail text-left">
-					<div class="clearfix" style="width: 100%;">
-						<a href="/details/{{slug title}}" title="{{title}}">
-							<img src="{{getImgForProduct _id}}" class="img-responsive img-circle center-block" style="width:170px;height:170px;">
-						</a>
-					</div>
-					<div class="clearfix" style="width: 100%;height:70px;line-height:90%; padding-bottom:40px;">
-						<a href="/details/{{slug title}}" class="title">{{smaller title 7}}</a>
-						<div class="clearfix text-center" style="width: 100%; height: 50px; overflow: hidden; padding-bottom:50px;">
-							<a href="/details/{{slug title}}" class="price">{{price}} </a>
-							<a href="#" id="unlike"><span id="unlike{{_id}}" class="fa fa-heart-o fonfa"></span></a>
-							<a href="#" id="like" style="color:red;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa" style="display: none;"></span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			{{/each}}
-		</div>
-		</div>		
-	</div>
+	 <article>
+        <div class="wrapper">
+            <p class="text-selling-top">{{nbproducts}}/{{totalProducts}} {{_ "products result"}}</p>
+
+            <p class="text-selling-second">{{_ "Best selling"}} <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p>
+
+            <div class="row">
+                    {{#each product}}
+                    <div class="col-xs-6">
+                        <div class="">
+                            <a href="/details/{{slug title}}" title="{{title}}">
+                            <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50">
+                            </a>
+                            <div class="caption">
+                                <div class="caption"> 
+                                <a href="{{pathFor 'details' id=_id}}" class="title">
+                                    <p class="text-center text-selling-detail">{{smaller title 8}}</p> </a>
+                                    <h3 class="text-center price-selling">{{price}}
+                                    <a href="" style="color:#e4332a;" id="unlike">
+                                    <span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span>
+                                    </a>
+                                    <a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right" style="display: none;"></span></a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                {{/each}}
+            </div>
+        </div>
+    </article>
 	{{else}}
 		<h3 style="text-align:center">{{_"No Product result"}}</h3>
 	{{/if}}
