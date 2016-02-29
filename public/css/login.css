@@ -1,18 +1,18 @@
 .img-bg-login{
-	background: #FFF;
-	display: block;
-	background: url("../img/bg-login.png") no-repeat center center fixed;
-	background-size: 100% auto;
-	position: relative;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+    background: #FFF;
+    display: block;
+    background: url("../img/bg-login.png") no-repeat center center fixed;
+    background-size: 100% auto;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .form-login{
-	background: rgb(255, 255, 255) none repeat scroll 0% 0%;
-	box-shadow: 3px 3px 10px #ccc;
-	margin: 40px 30px;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+    box-shadow: 3px 3px 10px #ccc;
+    margin: 40px 30px;
 }
 .btn-red{
     color: #FFF;
@@ -84,8 +84,8 @@ button.btn-red{
     color: #000;
 }
 div.form-login span{
-	font-size: 18px;
-	font-weight: 700;
+    font-size: 18px;
+    font-weight: 700;
 }
 form.mar-log {
     width: 100%;

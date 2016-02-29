@@ -5,30 +5,30 @@
                 <div class="row">
                     <div class="form-login">
                         <div class="text-center">
-                            <a href="/login"><button class="button-log" id="loginTop">Login</button></a>
-                            <strong class="joiner">or</strong>
-                            <a href="/register"><button id="registerTop">Register</button></a>
+                            <a href="/login"><button class="button-log" id="loginTop">{{_ "Login"}}</button></a>
+                            <strong class="joiner">{{_ "Or"}}</strong>
+                            <a href="/register"><button id="registerTop">{{_ "Register"}}</button></a>
                         </div>
                         <form class="form-horizontal mar-log" id="UserLogin">
                             <p id="loginError" style="color:red"></p>
                             <div class="control-group">
-                                <label class="control-label" for="inputEmail">Username</label>
+                                <label class="control-label" for="inputEmail">{{_ "Username"}}</label>
                                 <div class="controls">
                                     <input type="text" id="email" placeholder="" required>
                                 </div>
                               </div>
                             <div class="control-group">
-                                <label class="control-label" for="password">Password</label>
+                                <label class="control-label" for="password">{{_ "Password"}}</label>
                                 <div class="controls">
                                     <input type="password" id="password" placeholder="" required>
                                 </div>
                               </div>
                             <div class="control-group">
                                 <div class="controls">
-                                    <button type="submit" class="btn btn-red" id="btn_login">Sign in</button>
+                                    <button type="submit" class="btn btn-red" id="btn_login">{{_ "Sign in"}}</button>
                                 </div>
                                 <div class="controls pull-right">
-                                    <a href="/email"><label class="text_decoration">Forgot your password ?</label></a>
+                                    <a href="/email"><label class="text_decoration">{{_ "Forgot your password ?"}}</label></a>
                                 </div>
                             </div>
                         </form>

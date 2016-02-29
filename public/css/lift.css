@@ -1,5 +1,5 @@
 .img-pro{
-	width: 100%;
+    width: 100%;
 }
 .thumbnail {
     display: block;
@@ -27,12 +27,12 @@ h3, .h3 {
 }
 
 .mar-control-all-contents{
-	margin: 5px 35px;
+    margin: 5px 35px;
 }
 @media (max-width: 479px){
-	.img-heart {
-	    vertical-align: middle;
-	    width: 20px;
-	    margin: -10px 0px 0px 12px;
-	}
+    .img-heart {
+        vertical-align: middle;
+        width: 20px;
+        margin: -10px 0px 0px 12px;
+    }
 }
