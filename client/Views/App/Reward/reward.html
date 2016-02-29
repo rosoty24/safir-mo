@@ -1,261 +1,51 @@
-<template name="reward123rjkrdjkrf">
-    <!--Start container -->
-    <div class="container" style="padding-top:30px;">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                	<h3 class="my1h3"><a href="/profile">{{_ "MY SAFIR PROFILE"}}</a></h3>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                	<h3 class="my1h3"><a href="/member">{{_ "MEMBER PROFILE"}}</a></h3>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                	<h3 class="my1h3 backre"><a href="/reward">{{_ "REWARDS & POINTS"}}</a></h3>
-                </div>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mept">
-
-            	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mept1">
-                  
-                    {{#if isGold}} 
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 backptgold">
-                        <h1 class="text-right" style="margin: 0px;">{{_"pt"}} {{getpoint}}</h1>
-                    </div>
-                    {{/if}} 
-                    {{#if isSilver}}
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 backptsilver">
-                        <h1 class="text-right" style="margin: 0px;">{{_"pt"}} {{getpoint}}</h1>
-                    </div>
-                    {{/if}}
-                    {{#if isBronze}}
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 backpt">
-                        <h1 class="text-right" style="margin: 0px;">{{_ "pt"}} {{getpoint}}</h1>
-                    </div>
-                    {{/if}}
-
-                </div>
-                
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rewards">
-            	<h3 dir="{{getDirection}}">{{_ "HOW TO EARN MORE POINTS"}}</h3>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rewards1">
-                {{#if isGold}}
-                <div id="konrewardgold">
-                	<h3>{{_ "REWARDS"}}</h3>
-                </div>
-                {{/if}}
-
-                {{#if isSilver}}
-                <div id="konrewardsilver">
-                    <h3>{{_ "REWARDS"}}</h3>
-                </div>
-                {{/if}}
-
-                {{#if isBronze}}
-                <div id="konrewards">
-                    <h3>{{_ "REWARDS"}}</h3>
-                </div>
-                {{/if}}
-                <!--slide reward-->
-                  <div class="col-md-12">
-                    <div class="swiper-container1">
-                      <!-- {{#with list1}}
-                        <h1 class="text-center" style="font-weight:bold;">{{title}}</h1> -->
-
-                        <div class="swiper-wrapper ">
-                            <div class="clearout"></div> 
-                            {{#each getproductreward getpoint}}
-                           <!--  {{#with getProduct this}} -->
-                          
-                          <div class="swiper-slide">
-                            <div class="text-left" style="width: 100%; margin-bottom:10px; height:150px; text-align:center">
-                              <a href="/details/{{slug title}}" title="{{title}}">
-                                <img src="{{getImg image}}" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;" class="img-responsive img-circle center-block" alt="{{title}}">
-                              </a>
-                              <div class="clearfix" style="width: 100%;overflow:hidden;text-align: center;">
-                                <a href="/details/{{slug title}}" style="color:black;" class="title">{{title}}</a>
-                              </div>
-                            </div>
-                          </div> 
-                            
-                         <!--  {{/with}} -->
-                          {{/each}}
-
-                        </div>
-                     <!--  {{/with}} -->
-                    </div>
-                    <div class="swiper-button-next" id="swiper2-next" style="margin-right: -10px; margin-top: 0px;"></div>
-                    <div class="swiper-button-prev" id="swiper2-prev" style="margin-left: -10px; margin-top: 0px;"></div>
-                   </div>
-                <!--slide reward-->
-            </div>
-            <!--Start product-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                    {{#if getproduct}}
-                        <ul id="flexiselDemo4"> 
-                            {{#each getproduct}}
-
-                            <li>
-                                <a href="/details/{{slug title}}" title="{{title}}"><img src="{{getImg image}}" width="150" height="150" class="img-circle img-responsive" style="border:solid black 6px;" alt="{{title}}"/></a> <br /><div class="rewarddetails" style="font-weight:lighter;">{{title}} <br /><strong>{{point}}</strong> </div>
-                            </li>
-                            {{else}}
-                            <i>{{_ "No products for your level"}}</i>
-                            {{/each}}                                                                          
-                        </ul>
-                    {{else}}
-                        <h1>{{_ "No product"}}</h1>
-                    {{/if}}
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <script type="text/javascript">
-
-                $("#flexiselDemo4").flexisel({
-                    enableResponsiveBreakpoints: true,
-                    responsiveBreakpoints: { 
-                        portrait: { 
-                            changePoint:480,
-                            visibleItems: 1
-                        }, 
-                        landscape: { 
-                            changePoint:640,
-                            visibleItems: 2
-                        },
-                        tablet: { 
-                            changePoint:768,
-                            visibleItems: 3
-                        }
-                    }
-                });
-
-
-            </script>   
-
-
-            <!--End product-->	
-
-            <!--Start product1-->
-
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rewards1" style="margin-top: 10px;">
-            	{{#if isGold}}
-                <div id="konrewardgold">
-                	<h3>{{_ "HOW TO EARN MORE POINTS"}}</h3>
-                </div>
-                {{/if}}
-
-                {{#if isSilver}}
-                <div id="konrewardsilver">
-                    <h3>{{_ "HOW TO EARN MORE POINTS"}}</h3>
-                </div>
-                {{/if}}
-
-                {{#if isBronze}}
-                <div id="konrewards">
-                    <h3>{{_ "HOW TO EARN MORE POINTS"}}</h3>
-                </div>
-                {{/if}}
-            </div>
-            <!--Start hover points-->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 maginbotom" align="center">
-            	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 product maginbotom">
-
-                    <a href="#"><img src="/images/pro3.png" onmouseover="this.src='/images/point.png'" 
-                        onmouseout="this.src='/images/pro3.png'" class="img-responsive" alt="get points by visiting to the site"></a>
-
-                        <h3>
-                           {{_ "get points by visiting to the site"}}
-
-
-                       </h3>
-                   </div>
-                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 product maginbotom">
-                       <a href="/listQuizz"><img src="/images/pro4.png" onmouseover="this.src='/images/point.png'" 
-                        onmouseout="this.src='/images/pro4.png'" class="img-responsive" alt="points on a specific day"></a>
-                        <h3>
-                           {{_ "points on a specific day"}}
-
-                       </h3>
-                   </div>
-                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 product">
-                       <a href="#"><img src="/images/pro5.png" onmouseover="this.src='/images/point.png'" 
-                        onmouseout="this.src='/images/pro5.png'" class="img-responsive" alt="points for a specific product"></a>
-                        <h3>
-                            {{_ "points for a specific product"}}
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 maginbotom" align="center">
-                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 product maginbotom">
-                       <a href="#"><img src="/images/pro6.png" onmouseover="this.src='/images/point.png'" 
-                        onmouseout="this.src='/images/pro6.png'" class="img-responsive" alt="points for watching tutorials"></a>
-                        <h3>
-
-                            {{_ "points for watching tutorials"}}                    </h3>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 product maginbotom">
-                           <a href="#"><img src="/images/pro7.png" onmouseover="this.src='/images/point.png'" 
-                            onmouseout="this.src='/images/pro7.png'" class="img-responsive" alt="points when shopping online"></a>
-                            <h3>
-
-                                {{_ "points when shopping online"}}
-                            </h3>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 product">
-                           <a href="#"><img src="/images/pro8.png" onmouseover="this.src='/images/point.png'" 
-                            onmouseout="this.src='/images/pro8.png'" class="img-responsive" alt="points for sharing Safir perfumery"></a>
-                            <h3>
-
-                                {{_ "points for sharing Safir perfumery"}}
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 maginbotom" align="center">
-                       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 product maginbotom">
-                           <a href="#"><img src="/images/pro9.png" onmouseover="this.src='/images/point.png'" 
-                            onmouseout="this.src='/images/pro9.png'" class="img-responsive" alt="points for like the page"></a>
-                            <h3>
-
-                                {{_ "points for like the page"}}
-                            </h3>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 product maginbotom">
-                           <a href="{{pathFor 'imedation'}}"><img src="/images/pro10.png" onmouseover="this.src='/images/point.png'" 
-                            onmouseout="this.src='/images/pro10.png'" class="img-responsive" alt="write a mail to your friend"></a>
-                            <h3>
-                               {{_ "write a mail to your friend"}}
-
-                           </h3>
-                          
-                       </div>
-                       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 product">
-                           <a href="#"><img src="/images/pro7.png" onmouseover="this.src='/images/point.png'" 
-                            onmouseout="this.src='/images/pro7.png'" class="img-responsive" alt="extra points for comment"></a>
-                            <h3>
-                                {{_ "extra points for comment"}}
-                            </h3>
-                        </div>
-                    </div>
-                    <!--End pro points-->
-                </div>
-                <!--End row -->
-            </div>
-
-            <script>
-               var swiper = new Swiper('.swiper-container1', {
-                nextButton: '#swiper2-next',
-                prevButton: '#swiper2-prev',
-                slidesPerView:3,
-                loop:true,
-                centeredSlides: true,
-                paginationClickable: false,
-                spaceBetween: 5
-                //autoplay: 4500
-                });
-               </script>
-        </template>
+<template name="reward">
+	<article>
+		<section>
+			<div class="wrapper">
+				<div class="row">
+					<div class="text-right">{{getpoint}} pt</div>
+				<div class="col-xs-12">
+					<h4 class="text-center">REWARDS / HOW TO EARN MORE POINTS</h4>
+				</div>
+			    </div>
+			</div>
+			<div class="row">
+				<div class="bg_title">
+					<h4 class="small_reward text-right">REWARDS</h4>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="row_img">
+					{{#each getproductreward point}}
+					<div class="col-xs-4">
+						<a href="#"><img src="{{getImg image}}" class="center-block img-responsive img-circle"></a>
+						<div class="text-center">
+							<p class="text_img">{{title}}</p>
+							<h4 class="title_reward">{{getpoint}} pt</h4>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="bg_title">
+					<h4 class="small_reward text-right">HOW TO EARN MORE POINTS</h4>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="row_img">
+					<div class="col-xs-6">
+						<a href="#"><img src="img/img_reward4.png" class="center-block img-responsive img-circle"></a>
+					</div>
+					<div class="col-xs-6">
+						<a href="#"><img src="img/img_reward3.png" class="center-block img-responsive img-circle"></a>
+					</div>
+				</div>
+			</div>
+			
+		</section>
+    </article>
+</template>
