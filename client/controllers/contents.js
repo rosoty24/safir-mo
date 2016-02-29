@@ -176,6 +176,18 @@ Template.updateContent.helpers({
 		return nameImage;
 	}
 });
+Template.webzinelisting.onRendered(function(){
+    var swiper = new Swiper('.swiper-container', {
+        autoplay: 5000,
+        pagination: '.swiper-pagination',
+        paginationClickable: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        hashnav: true,
+        autoplayDisableOnInteraction: true
+    });
+});
 Template.webzinelisting.helpers({
 	webzinelists:function(){
 		var arr=[];
@@ -201,14 +213,16 @@ Template.webzinelisting.helpers({
 		//console.log(JSON.stringify+arr);
 		return arr;
 	},
-	odd:function(number){
-		//alert(number);
-		if(number % 2 ==0){
-			return true;
-		}else{
-			return false;
-		}
-	},
+
+	// odd:function(number){
+	// 	//alert(number);
+	// 	if(number % 2 ==0){
+	// 		return true;
+	// 	}else{
+	// 		return false;
+	// 	}
+	// },
+
 	// webzine1 : function(){
 	// 	var type=contents_type.findOne({"type":"Webzine"});
 

@@ -2,7 +2,9 @@
     <article>
         <div class="wrapper">
             <p class="text-selling-top">{{nbproducts}}/{{totalProducts}} {{_ "products result"}}</p>
-            <p class="text-selling-second">Best selling <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p>
+
+            <p class="text-selling-second">{{_ "Best selling"}} <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p>
+
             <div class="row">
                     {{#each products}}
                     <div class="col-xs-6">
@@ -12,7 +14,8 @@
                             </a>
                             <div class="caption">
                                 <div class="caption"> 
-                                    <p class="text-center text-selling-detail">{{smaller title 8}}</p> 
+                                <a href="{{pathFor 'details' id=_id}}" class="title">
+                                    <p class="text-center text-selling-detail">{{smaller title 8}}</p> </a>
                                     <h3 class="text-center price-selling">{{price}}
                                     <a href="" style="color:#e4332a;" id="unlike">
                                     <span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span>

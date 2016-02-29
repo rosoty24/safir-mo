@@ -1355,6 +1355,31 @@ Template.manageproduct.helpers({
 });
 
 Template.details.helpers({
+	getTime:function(time){
+
+    var d = new Date(time * 1000), // Convert the passed timestamp to milliseconds
+    yyyy = d.getFullYear(),
+    mm = ('0' + (d.getMonth() + 1)).slice(-2), // Months are zero based. Add leading 0.
+    dd = ('0' + d.getDate()).slice(-2),   // Add leading 0.
+    hh = d.getHours(),
+    h = hh,
+    min = ('0' + d.getMinutes()).slice(-2),  // Add leading 0.
+    ampm = 'AM',
+    time;
+    
+   if (hh > 12) {
+     ampm = 'AM';
+   } else if (hh === 12) {
+     h = 12;
+      ampm = 'PM';
+   } else if (hh == 0) {
+     h = 12;
+   }
+  // ie: 2013-02-18, 8:35 AM 
+   time = hh + ':' + min +' '+ ampm;
+ 
+  return time;
+     },
 	getTagList: function(productid) {
 		var pro = products.findOne({
 			_id: productid
@@ -1706,6 +1731,22 @@ Template.details.helpers({
 			return Session.get('selected_point');
 		}
 	});
+Template.details.helpers({
+    getprofile:function(){
+        var id = Meteor.userId();
+        return Meteor.users.findOne({_id:id});
+    },
+     getImage: function(id){
+            var img = images.findOne({_id:id});
+            if(img){
+                console.log(img.copies.images.key);
+                return img.copies.images.key;
+            }
+            else{
+                return;
+            }
+    },
+});
 
 
 

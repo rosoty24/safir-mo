@@ -27,13 +27,53 @@ Template.member.helpers({
 		}
 		if(me.profile.shipcard!='undefined'){
 			var pt=Number(me.profile.shipcard.point);
-			var result = pt/100000;
+			console.log("MY_POINT="+pt);
+			var result = pt*100/10000;
 			console.log('ME PROFILE='+result);
 			return result;
 		}
 		else
 			console.log('ME 0');
 			return 0;
+	},
+	getBronze:function(){
+		var me=Meteor.user();
+		if(me.profile.shipcard!='undefined'){
+			var pt=Number(me.profile.shipcard.point);
+			console.log("MY_POINT="+pt);
+			var result = pt*100/999;
+			console.log('ME PROFILE='+result);
+			if(pt >= 0)
+				return result;
+			else
+				return;
+		}
+	},
+	getSilver:function(){
+		var me=Meteor.user();
+		if(me.profile.shipcard!='undefined'){
+			var pt=Number(me.profile.shipcard.point);
+			console.log("MY_POINT="+pt);
+			var result = pt*100/9999;
+			console.log('ME PROFILE='+result);
+			if(pt >= 1000)
+				return result;
+			else
+				return;
+		}
+	},
+	getGold:function(){
+		var me=Meteor.user();
+		if(me.profile.shipcard!='undefined'){
+			var pt=Number(me.profile.shipcard.point);
+			console.log("MY_POINT="+pt);
+			var result = pt*100/30000;
+			console.log('ME PROFILE='+result);
+			if(pt>=10000)
+				return result;
+			else
+				return;
+		}
 	},
 	nextRank: function(){
 		
@@ -93,16 +133,19 @@ Template.member.helpers({
 		console.log('POINT:'+point);
 		if(point>=0 && point<1000){
 			Session.set('rank','BRONZE');
+			Session.set('BRONZE_POINT',999);
 			//$('#ranking').addClass("backpt");
 		}
 		else if(point>=1000 && point <10000){
 			Session.set('rank','SILVER');
+			Session.set('SILVER_POINT',9999);
 			//$('#ranking').addClass("backptsilver");
 		}
   			
   		else{
   			//$('#ranking').addClass("backptgold");
   			Session.set('rank','GOLD');
+  			Session.set('GOLD_POINT',20000);
   		}
   		console.log('rank:'+Session.get('rank'));
 		}

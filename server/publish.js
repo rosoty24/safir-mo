@@ -1,4 +1,9 @@
-
+TAPi18n.publish('brand', function (limit){
+    // if(limit!=-1)
+        return products.i18nFind({},{fields:{Brand:1}});//return products.find({},{limit:limit});
+    // else
+    //     return products.i18nFind({},{fields:{Brand:1}});
+});
 TAPi18n.publish("categories", function () {//console.log('categories:'+categories.find({}).fetch().length);
     return categories.i18nFind({});
 });
