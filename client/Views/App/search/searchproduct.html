@@ -16,7 +16,7 @@
 				<div class="thumbnail text-left">
 					<div class="clearfix" style="width: 100%;">
 						<a href="/details/{{slug title}}" title="{{title}}">
-							<img src="{{getImgForProduct _id}}" class="img-responsive img-circle center-block" style="width:170px;height:170px;border-radius:50%;border:solid black 8px;">
+							<img src="{{getImgForProduct _id}}" class="img-responsive img-circle center-block" style="width:170px;height:170px;">
 						</a>
 					</div>
 					<div class="clearfix" style="width: 100%;height:70px;line-height:90%; padding-bottom:40px;">
@@ -24,7 +24,7 @@
 						<div class="clearfix text-center" style="width: 100%; height: 50px; overflow: hidden; padding-bottom:50px;">
 							<a href="/details/{{slug title}}" class="price">{{price}} </a>
 							<a href="#" id="unlike"><span id="unlike{{_id}}" class="fa fa-heart-o fonfa"></span></a>
-							<a href="#" id="like" style="color:red;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa"></span></a>
+							<a href="#" id="like" style="color:red;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa" style="display: none;"></span></a>
 						</div>
 					</div>
 				</div>
