@@ -58,6 +58,37 @@ Template.mainLayoutMobile.onRendered(function(){
 });
 
 Template.mainLayoutMobile.events({
+    'click .checkbox input': function(event) {
+        var rank = [];
+        $('.checkbox input').each( function(){
+            if(this.checked){
+                var max = $(this).attr('data-max');
+                var min = $(this).attr('data-min');
+                rank.push({max:max,min:min});
+            }
+        });
+        var minX = Infinity, maxX = -Infinity;
+        for( var min in rank){
+            if( minX > rank[min].min )
+                minX = rank[min].min;
+        }
+        for( var max in rank ){
+            if( maxX < rank[max].max )
+                maxX = rank[max].max;
+        }
+        // console.log("min: "+minX);
+        // console.log("max: "+maxX);
+        // console.log(rank);
+        Session.set("advanced_price_min",minX);
+        console.log("SESS MIN: "+Session.get("advanced_price_min"));
+        Session.set("advanced_price_max",maxX);
+        console.log("SESS MAX: "+Session.get("advanced_price_max"));
+        if(Router.current().route.getName()=='advanced'){
+            return;
+        }else{
+            Router.go("/advanced");
+        }
+    },
     // "click #makeup":function(){
     //     $("#panel_makeup").slideToggle("slow");
     // },

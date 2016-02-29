@@ -1179,8 +1179,7 @@ Template.details.events({
 			console.log("shopid="+shopid+" / found="+qty.QTY);
 			$("#available_qty").text(qty.QTY);*/
 		},
-		'click #addpost':function(e){
-			alert("ok");
+		'click #posting':function(e){
 			e.preventDefault();
 			if(Meteor.userId()){
 				var description=$('#status').val();
