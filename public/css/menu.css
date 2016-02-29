@@ -1,0 +1,9 @@
+#panel_makeup ul.make-up li {
+    padding: 10px 0px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(156,153,163,1);
+    box-shadow: none;
+}
+.active{
+	color:#29abe2;
+}
