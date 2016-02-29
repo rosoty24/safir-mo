@@ -835,4 +835,5 @@ input.input-search[type="text"], textarea {
     padding: 4px 10px;
     width: 80%;
     border-radius: 20px;
+    color: black;
 }

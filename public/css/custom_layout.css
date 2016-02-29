@@ -18,7 +18,7 @@
     margin-right: 8px;
 }
 
-#menu-search::before {
+/*#menu-search::before {
     background-size: 24px auto;
     background-position: center center;
     background-repeat: no-repeat;
@@ -31,7 +31,7 @@
     left: 0px;
     content: "";
     top: 5px;
-}
+}*/
 
 #menu-search-input-text {
     width: 180px;
@@ -557,7 +557,7 @@ ul.sub_dropdown{
     margin-right: 8px;
 }
 
-#menu-search::before {
+/*#menu-search::before {
     background-size: 24px auto;
     background-position: center center;
     background-repeat: no-repeat;
@@ -570,7 +570,7 @@ ul.sub_dropdown{
     left: 0px;
     content: "";
     top: 5px;
-}
+}*/
 
 #menu-search-input-text {
     width: 180px;
