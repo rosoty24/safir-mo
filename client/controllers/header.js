@@ -80,9 +80,9 @@ Template.mainLayoutMobile.events({
         // console.log("max: "+maxX);
         // console.log(rank);
         Session.set("advanced_price_min",minX);
-        console.log("SESS MIN: "+Session.get("advanced_price_min"));
+        //console.log("SESS MIN: "+Session.get("advanced_price_min"));
         Session.set("advanced_price_max",maxX);
-        console.log("SESS MAX: "+Session.get("advanced_price_max"));
+        //console.log("SESS MAX: "+Session.get("advanced_price_max"));
         if(Router.current().route.getName()=='advanced'){
             return;
         }else{

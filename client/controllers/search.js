@@ -20,7 +20,7 @@ Template.headermenu.events({
         e.preventDefault();
         //alert('ok');
         var Search = $(".input-search").val();
-         alert(Search);
+         //alert(Search);
         if(Search =='')
             console.log("Please fill in search box!");
         else{

@@ -3,7 +3,13 @@
         <div class="wrapper">
             <p class="text-selling-top">{{nbproducts}}/{{totalProducts}} {{_ "products result"}}</p>
 
-            <p class="text-selling-second">{{_ "Best selling"}} <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p>
+            <!-- <p class="text-selling-second">{{_ "Best selling"}} <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p> -->
+            <a href="#" id="bestSelling" style="color:black;"><span class="glyphicon glyphicon-play" aria-hidden="true">{{_ "Best selling"}}</span></a>
+
+            <a href="#" class="text-selling-second" id="name" style="color:black;"> <span class="glyphicon glyphicon-play" aria-hidden="true">{{_ "Sort Name"}} </span></a>
+
+            <a href="#" class="text-selling-second" id="price" style="color:black;"> <span class="glyphicon glyphicon-play" aria-hidden="true">{{_ "Sort Price"}}</span></a>
+
 
             <div class="row">
                     {{#each products}}
@@ -20,7 +26,7 @@
                                         <a href="{{pathFor 'details' id=_id}}" class="title">   <p class="text-center text-selling-detail">{{smaller title 8}}</p> </a>
                                     </div>
                                     <h3 class="text-center price-selling">{{price}}
-                                    <a href="" style="color:#e4332a;" id="unlike">
+                                    <a href="#" style="color:#e4332a;" id="unlike">
                                     <span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span>
                                     </a>
                                     <a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right"></span></a></h3>

@@ -8,6 +8,10 @@ Template.menu.events({
         $("#panel_makeup").slideToggle("slow");
         $("#panel_all_makeup").hide();
     },
+    "click #child_makeup":function(){
+    	//alert("pisey toggle");
+    	$("#panel_makeup").slideToggle("hide");
+    },
     "click #all_makeup":function(){
         $("#panel_all_makeup").slideToggle("slow");
         $("#all_makeup").addClass("active");

@@ -1,76 +1,207 @@
 <template name="checkout">
-		<style type="text/css">
-			.modal-backdrop.in{
-				display: none;
-			}
-		</style>
-	<section class="hold-checkout">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9">
-					{{#each getCart}}
-					<div class="well">
-						<div class="row">
-						{{#with getProductInfo id_product}}
-						<div class="col-sm-2">
-							<img src="{{getFirstImgProduct _id}}" class="img-responsive img-circle img-circle-border-cart">
-						</div>
-						{{/with}}
-						<div class="col-sm-5">
-							{{#with getProductInfo id_product}}
-							<h3 class="title-cart">{{title}}</h3>
-							{{/with}}
-							<div class="col-sm-6">
-								<div class="hold-add-cart">
-									<div class="row">
-										<span class="pull-left">{{_ "Subtotal"}}:</span>
-										<span class="pull-right"> {{subtotal}}  تومان</span>
-									</div>
-									<div class="row">
-										<span class="pull-left">{{_ "Quantity"}}:</span>
-										<input type="text" value="{{quantity}}" id="quantity" class="pull-right">
-										<!-- <span class="pull-right" style="border-bottom:1px solid #ccc;">{{quantity}}</span> -->
-									</div>
-									<div class="row">
-										<span class="pull-left"><b>{{_ "Shop"}}:</b></span>
-										<span class="pull-right"><strong>{{shop}}</strong></span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="hold-apply">
-								<button type="button" class="btn btn-default btn-block btn-delete" id="removecheckout">{{_ "Remove"}}</button>
-							</div>
-						</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					{{/each}}
-				</div>
-				<div class="col-sm-3">
+	<section class="checkout">
+    	<div class="wrapper-checkout">
+            <div class="row">
+				<div class="col-xs-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">
-								{{_ "Get deliver in all Iran!"}}
-							</h3>
+							<p class="p-title">
+								Add $26.01 for FREE Shipping. <a href="">See details</a>
+							</p>
 						</div>
 						<div class="panel-body">
-							<span>{{_ "Total"}}: <a class="price" href="#">{{getTotal}} ﷼</a></span>
+							<h4 class="title-product">{{_ "Total"}}:<a class="price" href="#">{{getTotal}} ﷼</a></h4>
 							<div class="checkbox">
-							  <label>{{_ "This order contains"}} {{getCart.count}} {{_ "items"}} </label>
+							  <label><input type="checkbox" value="">{{_ "This order contains"}} {{getCart.count}} {{_ "items"}}</label>
 							</div>
-							<button type="button" class="btn-checkoutred btn_checkout btn-block" id="btnAdd"> {{_ "Proceed to checkout"}} </button>
+							<button type="button" class="btn_checkout btn-block">{{_ "Proceed to checkout"}}</button>
 						</div>
 						<div class="panel-footer">
 							<a href="">
 								<span>{{_"2 type of transportation available"}}</span>
 							</a>
 						</div>
-					</div>			
+					</div>
+				</div> <!-- col-xs-12 -->
+			</div> <!-- row -->
+        </div>
+        {{#each getCart}}
+			<div class="checkout-detail">
+				{{#with getProductInfo id_product}}
+					<div class="col-xs-4"> 
+						<img src="{{getFirstImgProduct _id}}" class="img-circle">
+					</div>
+				{{/with}}
+				<div class="col-xs-8">
+				{{#with getProductInfo id_product}}
+					<h4 class="title-product">{{title}}</h4>
+					<h4 class="price-product">{{../subtotal}}</h4>
+					<p class="date">In stock on {{date}}</p>
+					<p class="free">Free Shipping</p>
+					{{/with}}
+				</div>
+
+				<div class="col-xs-12">
+				<div class="bs-example">
+					<div class="" role="group" aria-label="...">
+					  <div class="btn-group" role="group">
+					    <button type="button" class="btn dropdown-toggle btn-checkout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  	{{quantity}} <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu" id="quantity">
+					      <li><a href="#" class="qty">{{quantity}}</a></li>
+					      <li><a href="#" class="qty">2</a></li>
+					      <li><a href="#" class="qty">3</a></li>
+					      <li><a href="#" class="qty">4</a></li> 
+					    </ul>
+					  </div>
+					  <button type="button" class="btn btn-checkout" id="removecheckout">Delete</button>
+					  <button type="button" class="btn btn-checkout" id="savelater">Save for later</button>
+					</div>
 				</div>
 			</div>
+				<div class="clearfix"></div>
+				<div class="col-xs-12">
+					<p class="text-center color-gray">Get $50 gift card upon approval for the <br> Amazon.com Reward Visa Card</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		{{/each}}
+		<div class="wrapper">
+			<h4 class="title-product text-center">{{_ "Costumer Who Bought Items In Your Cart Also Bought"}}</h4>
+			<div class="row">
+				<div class="swiper-container-checkout">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+						<div class="swiper-slide">
+							<div class="thumbnail">
+                                <img data-holder-rendered="true" src="img/photo.jpg" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> 
+                                <div class="caption"> 
+                                    <p class="text-center">Product title can display only two line maximum....</p> 
+                                    <h3 class="text-center price">21,00€</h3>
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="btn btn-checkout btn-block"><span class="pull-left">Continou Shopping</span> <i class="fa fa-angle-right pull-right"></i></button>
 		</div>
-	</section>
-
+    </section>
 </template>
