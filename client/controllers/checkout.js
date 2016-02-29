@@ -1,4 +1,12 @@
 Session.set("total", 0);
+Template.checkout.onRendered(function(){
+    var swiper = new Swiper('.swiper-container-checkout', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 2,
+        paginationClickable: true,
+        spaceBetween: 30
+    });
+});
 Template.checkout.helpers({
 	resNum: function(){
 		return Random.id();
@@ -56,11 +64,13 @@ Template.checkout.events({
 		Meteor.call('addPayment',obj);
 
 	},
-	"change #quantity":function(e,tmp){
+	"click .qty":function(e,tmp){
 		//alert("Changing qty");
-		var qty = $(e.currentTarget).val();
+		e.preventDefault();
+		var qty = $(e.currentTarget).text();
 		var id =this._id; //$(e.currentTarget).attr("data-id");
 		var productid =this.id_product; $(e.currentTarget).attr("pro-id");
+        //alert(productid);
 		var pro = products.findOne({_id:productid});
 		var subtotal = 0;
 		if( pro ){
@@ -199,3 +209,4 @@ Template.confirmorder2.events({
 		Meteor.call('addDelivery',idorder,delivery,userid);
 	}
 });
+
