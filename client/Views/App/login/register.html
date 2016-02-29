@@ -5,62 +5,64 @@
 	                <div class="row">
 	                    <div class="form-register">
 	                        <div class="text-center">
-	                            <a href="/login"><button class="button-log" id="loginTop">Login</button></a>
-	                            <strong class="joiner">or</strong>
-	                            <a href="/register"><button id="registerTop">Register</button></a>
+	                            <a href="/login"><button class="button-log" id="loginTop">{{_ "Login"}}</button></a>
+	                            <strong class="joiner">{{_ "Or"}}</strong>
+	                            <a href="/register"><button id="registerTop">{{_ "Register"}}</button></a>
 	                        </div>
 	                        <form class="control-group">
 	                       <!--  <div class="register_msg" style="margin-top:10px;color:red"></div> -->
 	                            <div class="control-group">
-	                                <label class="control-label" for="inputEmail">Username</label>
+	                                <label class="control-label" for="inputEmail">{{_ "Username"}}</label>
 	                                <div class="controls">
 	                                    <input type="text" id="uname" placeholder="">
 	                                </div>
 	                                <p class="error_username" style="margin-top:10px;color:red"></p>
 	                            </div>
 	                            <div class="control-group">
-	                                <label class="control-label" for="inputEmail">First name</label>
+	                                <label class="control-label" for="inputEmail">{{_ "First name"}}</label>
 	                                <div class="controls">
 	                                    <input class="short" type="text" id="fname" placeholder="">
 	                                </div>
 	                                <p class="error_firstname" style="margin-top:10px;color:red"></p>
 	                            </div>
 	                            <div class="control-group">
-	                                <label class="control-label" for="inputEmail">Last name</label>
+	                                <label class="control-label" for="inputEmail">{{_ "Last name"}}</label>
 	                                <div class="controls">
 	                                    <input class="short" type="text" id="lname" placeholder="">
 	                                </div>
 	                                <p class="error_lastname" style="margin-top:10px;color:red"></p>
 	                            </div>
 	                            <div class="control-group">
-	                                <label class="control-label" for="inputEmail">Pays</label>
+	                                <label class="control-label" for="inputEmail">{{_ "City"}}</label>
 	                                <div class="controls">
 	                                    <input class="short" type="text" id="pays" placeholder="">
 	                                </div>
 	                                <p class="error_pays" style="margin-top:10px;color:red"></p>
 	                            </div>
 	                            <div class="control-group">
-	                                <label class="control-label" for="inputEmail">Ville</label>
+	                                <label class="control-label" for="inputEmail">{{_ "Ville"}}</label>
 	                                <div class="controls">
 	                                    <input class="short" type="text" id="ville" placeholder="">
 	                                </div>
 	                                <p class="error_ville" style="margin-top:10px;color:red"></p>
 	                            </div>
-	                            <div class="control-group">
-	                                <label class="control-label" for="inputEmail">Email</label>
+	                            <div class="control-group" action="demo_form.asp">
+	                                <label class="control-label" for="inputEmail">{{_ "Email"}}</label>
 	                                <div class="controls">
-	                                    <input type="text" id="email" placeholder="" required pattern="[^ @]*@[^ @]*">
+	                                    <input type="text" id="email"  name="email">
 
 	                                </div>
 	                                <p class="error_email" style="margin-top:10px;color:red"></p>
+	                                <p class="msg error" style="margin-top:10px;color:red"></p>
+	                                <p class="msg success" style="margin-top:10px;color:red"></p>
 	                            </div>
 	                            <div class="control-group">
-	                                <label class="control-label" for="inputPassword">Password</label>
+	                                <label class="control-label" for="inputPassword">{{_ "Password"}}</label>
 	                                <div class="controls">
 	                                    <input type="password" class="reg-password" id="password" placeholder="">
 	                                </div>
 	                                <p class="error_password" style="margin-top:10px;color:red"></p>
-	                            <label class="control-label" for="inputPassword">Confirm Password</label>
+	                            <label class="control-label" for="inputPassword">{{_ "Confirm Password"}}</label>
 	                                <div class="controls">
 	                                    <input type="password" class="reg-conpassword" id="con_password" placeholder="">
 	                                </div>
@@ -72,7 +74,7 @@
 	                            </div>
 	                            <div class="control-group">
 	                                <div class="controls">
-	                                    <button type="submit" class="btn btn-blue" id="btnRegister">Register</button>
+	                                    <button type="submit" class="btn btn-blue" id="btnRegister">{{_ "Register"}}</button>
 	                                </div>
 	                            </div>
 	                        </form>
