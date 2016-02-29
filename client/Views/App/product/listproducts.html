@@ -9,13 +9,16 @@
                     {{#each products}}
                     <div class="col-xs-6">
                         <div class="">
-                            <a href="/details/{{slug title}}" title="{{title}}">
-                            <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50">
-                            </a>
+                            <div style="height:130px; overflow: hidden;">
+                                <a href="/details/{{slug title}}" title="{{title}}">
+                                <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50">
+                                </a>
+                            </div>
                             <div class="caption">
-                                <div class="caption"> 
-                                <a href="{{pathFor 'details' id=_id}}" class="title">
-                                    <p class="text-center text-selling-detail">{{smaller title 8}}</p> </a>
+                                <div class="caption">
+                                    <div style="height:50px; overflow: hidden;"> 
+                                        <a href="{{pathFor 'details' id=_id}}" class="title">   <p class="text-center text-selling-detail">{{smaller title 8}}</p> </a>
+                                    </div>
                                     <h3 class="text-center price-selling">{{price}}
                                     <a href="" style="color:#e4332a;" id="unlike">
                                     <span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span>
