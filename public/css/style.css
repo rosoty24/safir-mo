@@ -467,9 +467,10 @@ form { width: 100%; overflow: hidden; }
 {
 	height: 48px;
 	width: 100%;
+	margin:5px 0px;
 }
 
-#menu-search:before
+/*#menu-search:before
 {
 	background-size: 26px;
 	background-position: center;
@@ -482,7 +483,7 @@ form { width: 100%; overflow: hidden; }
 	position: absolute;
 	left: 0;
 	content: '';
-}
+}*/
 
 	#menu-search-input-text
 	{
@@ -822,3 +823,17 @@ article
 		float: right;	
 		margin-right: 16px;
 	}
+
+/*input search menu*/
+.icon-search{
+	padding: 0px 13px;
+}
+input.input-search[type="text"], textarea {
+    background: #fff;
+    border: 2px solid #000;
+    margin: 5px 0px 10px;
+    padding: 4px 10px;
+    width: 80%;
+    border-radius: 20px;
+    color: black;
+}
