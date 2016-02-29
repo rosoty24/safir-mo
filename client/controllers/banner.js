@@ -32,7 +32,6 @@ Template.banner.events({
 		e.preventDefault();
 		banner.remove(this._id);
 	}
-	
 });
 Template.banner.helpers({
 	getImgBrous:function(){
@@ -43,15 +42,13 @@ Template.banner.helpers({
 	}, 
 	getbannerId:function(){
 		return Session.get('bannerId');
-	},
-
-	
-});
-Template.home.helpers({
-	getbanner:function(){
-		return banner.find({"typebanner":"home"});
 	}
 });
+// Template.home.helpers({
+// 	getbanner:function(){
+// 		return banner.find({"typebanner":"home"});
+// 	}
+// });
 Template.webzinelisting.helpers({
 	getbannerwebzine:function(){
 		return banner.find({"typebanner":"webzine"});

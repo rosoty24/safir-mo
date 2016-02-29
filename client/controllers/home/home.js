@@ -24,7 +24,7 @@ Template.home.rendered=function(){
 
 Template.home.helpers({
 	list1: function(){
-		console.log('liste:'+list_product.find().fetch().length);
+		//console.log('liste:'+list_product.find().fetch().length);
 		return list_product.find().fetch()[0];
 	},
 	list2: function(){
@@ -50,5 +50,8 @@ Template.home.helpers({
 			return p.image[0];
 		else
 			return p.image;
+	},
+	getbanner:function(){
+		return banner.find({"typebanner":"home"});
 	}
 });
