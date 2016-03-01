@@ -4,10 +4,12 @@
         	<div class="wrapper">
                 <div class="row">
                     <div class="form-login">
-                        <div class="text-center">
-                            <a href="/login"><button class="button-log" id="loginTop">{{_ "Login"}}</button></a>
-                            <strong class="joiner">{{_ "Or"}}</strong>
-                            <a href="/register"><button id="registerTop">{{_ "Register"}}</button></a>
+                        <div class="text-center btn-re-log">
+                            <ul class="list-inline">
+                                <li><a href="/login"><button class="btn btn-log-white">{{_ "Login"}}</button></a></li>
+                                <li>{{_ "Or"}}</li>
+                                <li><a href="/register"><button class="btn btn-register">{{_ "Register"}}</button></a></li>
+                            </ul>
                         </div>
                         <form class="form-horizontal mar-log" id="UserLogin">
                             <p id="loginError" style="color:red"></p>
