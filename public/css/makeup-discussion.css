@@ -1,0 +1,160 @@
+.sub-tabs{
+	margin: 10px 25px;
+}
+.sub-tabs ul li a{
+	color: #888;
+	text-decoration: none;
+	font-size: 13px;
+}
+div.hold-each-comment p.ti-des{
+	font-size: 12px;
+    margin: 5px 0 0 0px;
+}
+div.hold-each-comment p.com-des{
+	font-size: 10px;
+    margin:0px;
+}
+p.title-comment{
+	font-size: 12px;
+    margin: 5px 0 0 -20px;
+}
+p.desc-comment{
+	font-size: 10px;
+    margin: 0 0 0 -20px;
+}
+
+.hold-reply-row .list-inline li{
+	font-size: 11px;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+.hold-reply-row .list-inline li i{
+	color:#dd2a1b;
+}
+.hold-each-comment{
+	background-color: #ebebeb;
+	border-radius: 5px;
+}
+.hold-each-comment, .hold-each-comment-bg{
+	margin-top: 20px;
+}
+
+/*end makeup discussion 1*/
+
+.hold-click-each-comment{
+	margin-top: 20px;
+}
+
+p.p-usr-name{
+	font-weight: bold;
+	font-size: 25px;
+	margin-top: 10px;
+}
+hr.hr-usr{
+	border: 1px solid #000;
+}
+li.li-choose-category{
+	font-size: 16px;
+	font-weight: bold;
+}
+.hold-click-each-comment ul.list-inline li.li-bg{
+	font-size: 12px;
+	background-color: #ebebeb;
+	border-radius: 5px;
+	text-decoration: none;
+}
+.hold-click-each-comment ul.list-inline li.li-bg a{
+	font-size: 12px;
+	text-decoration: none;
+	color: #000;
+}
+
+.hold-click-each-comment ul.list-inline li.active{
+	background-color: #29abe2;
+	color: #fff;
+}
+.hold-click-each-comment ul.list-inline li.active a{
+	color: #fff;
+}
+.hold-object{
+	margin-top: 30px;
+}
+.hold-object ul{
+	background-color: #ebebeb;
+	padding: 5px;
+	margin-left: 0px;
+}
+.hold-object ul li.object-comment{
+	font-size: 11px;
+}
+.hold-object ul li.object-comment-name{
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/*end makeup discussion 2*/
+.reply-makeup ul{
+	margin-top: 30px;
+}
+.reply-makeup ul li.li-reply{
+	background-color: #29abe2;
+	font-size: 13px;
+	border-radius: 5px;
+}
+.reply-makeup ul li.li-reply a{
+	text-decoration: none;
+	color: #fff;
+}
+p.small-desc-comment{
+	font-size: 10px;
+}
+.hold-each-comment .hold-like-row{
+	margin-top: 0px;
+}
+.hold-each-comment .hold-like-row a i{
+	font-weight: bold;
+	margin-right: 10px;
+	float: right;
+	color: #000;
+}
+.popup-textarea{
+	border:none;
+	margin-bottom:5px;
+}
+.form-popup{
+	padding:20px 0px;
+}
+.btn-send {
+	border-radius:5px;
+	background:#29abe2;
+	color:#fff;
+	padding:3px 15px;
+}
+a.btn-send{
+	color:#fff;
+}
+.w2popup{
+	background:#fff;
+}
+.reply-makeup ul li.li-reply{
+	background-color: #29abe2;
+	font-size: 13px;
+	border-radius: 5px;
+	padding-right:4px;
+	padding-left:4px;
+}
+div.hold-reply-row ul.list-inline{
+    margin-left: -35px;
+}
+label a img{
+	width: 20px;
+}
+div.block-comment button{
+    margin: 15px 0px;
+    padding: 5px 15px;
+    background: #337ab7;
+    color: #fff;
+}
+div.hold-click-each-comment ul.subcat{
+	margin-left: 0px;
+}
