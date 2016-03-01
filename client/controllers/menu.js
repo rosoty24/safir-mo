@@ -8,8 +8,17 @@ Template.menu.events({
         $("#panel_makeup").slideToggle("slow");
         $("#panel_all_makeup").hide();
     },
-    "click #child_makeup":function(){
+    "click #child_makeup":function(e){
     	//alert("pisey toggle");
+    	//$( "p" ).removeClass( "myClass yourClass" )
+    	var parentsId = this._id; 
+    	Session.set("PARENTS",parentsId );
+    	console.log("MY ID CATGORY IS==========="+parentsId);
+    	var parentName = $(e.currentTarget).text();
+    		$("#makeup").html(parentName);
+    		Session.set("parentNAME", parentName);
+    		$("#all_makeup").html("All "+parentName);
+    		$("#allCategory").html("All "+parentName);
     	$("#panel_makeup").slideToggle("hide");
     },
     "click #all_makeup":function(){
@@ -26,8 +35,10 @@ Template.menu.helpers({
             return document;
         });
 	},
-	getChildren: function(id){
-		console.log("MY_CHILDREN="+id);
+
+	getChildren: function(){
+		//cnonsole.log("MY_CHILDREN="+id);
+		var id = Session.get("PARENTS");
 		Session.get('LANG');
 		return categories.find({"parent":id}).map(function(document, index) {
             document.index = index + 1;
