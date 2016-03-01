@@ -14,21 +14,23 @@
             <div class="row">
                     {{#each products}}
                     <div class="col-xs-6">
-                        <div class="">
+                        <div class="styleImg">
                             <a href="/details/{{slug title}}" title="{{title}}">
-                            <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50">
+                                <img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" class="img-circle" width="50">
                             </a>
-                            <div class="caption">
-                                <div class="caption"> 
+                        </div>
+                        <div class="caption" >
+                            <div class="styleText"> 
                                 <a href="{{pathFor 'details' id=_id}}" class="title">
-                                    <p class="text-center text-selling-detail">{{smaller title 8}}</p> </a>
-                                    <h3 class="text-center price-selling">{{price}}
-                                    <a href="#" style="color:#e4332a;" id="unlike">
-                                    <span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span>
-                                    </a>
-                                    <a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right"></span></a></h3>
-                                </div>
+                                    <p class="text-center text-selling-detail">{{smaller title 8}}</p>
+                                </a>
                             </div>
+                            <h3 class="text-center price-selling">{{price}}
+                                <a href="#" style="color:#e4332a;" id="unlike">
+                                    <span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span>
+                                </a>
+                                <a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right"></span></a>
+                            </h3>
                         </div>
                     </div>  
                 {{/each}}

@@ -7,7 +7,7 @@
 		<ul id="menu-lateral" class="menu">
 			<li>
                 <a href="/">
-                    <span class="menu-li-title">Market</span>
+                    <span class="menu-li-title left-menu">Market</span>
                 </a>
             </li>
             {{#if currentUser}}
@@ -15,77 +15,57 @@
 	                <a href="#">
 	                    <span class="menu-li-title">My profile</span>
 	                </a>
-	                <ul style="display: none;" id="submenu-1">
+	                <ul id="submenu-1">
 	                    <li>
 	                        <a href="/profile">
-	                            <span class="menu-li-title">My safir profile</span>
+	                            <span class="menu-li-title left-menu">My safir profile</span>
 	                        </a>
 	                    </li>
 	                    <li>
 	                        <a href="/profile1">
-	                            <span class="menu-li-title">Member profile</span>
+	                            <span class="menu-li-title left-menu">Member profile</span>
 	                        </a>
 	                    </li>
 	                    <li>
 	                        <a href="/reward">
-	                            <span class="menu-li-title">Rewards & points</span>
+	                            <span class="menu-li-title left-menu">Rewards & points</span>
 	                        </a>
 	                    </li>
 	                    <li>
-	                        <a href="">
-	                            <span class="menu-li-title">Like</span>
+	                        <a href="/favorite">
+	                            <span class="menu-li-title left-menu">Like</span>
 	                        </a>
 	                    </li>
 	                </ul>
 	            </li>
 	            <li>
 					<a href="#">
-						<span class="menu-li-title" id="logout">Logout</span>
+						<span class="menu-li-title left-menu" id="logout">Logout</span>
 					</a>
 				</li>
             {{else}}
 				<li class="icon box">
 					<a href="/login">
-						<span class="menu-li-title">Sing in / Register</span>
+						<span class="menu-li-title left-menu">Sing in / Register</span>
 					</a>
 				</li>
 			{{/if}}
-			<!-- <li id="a-submenu-1" class="icon plus">
-				<a href="/bestSelling">
-					<span class="menu-li-title">Link selling</span>
-				</a>
-			</li> --> <!-- #submenu-1 -->
-			<!-- <li class="icon info">
-				<a href="aboutus.html">
-					<span class="menu-li-title">Gift</span>
-				</a>
-			</li>
-			<li class="icon info">
-				<a href="aboutus.html">
-					<span class="menu-li-title">Feedback</span>
-				</a>
-			</li> -->
 		</ul> <!-- .menu -->
 		<hr/>
 		<ul>
 			<li class="icon info">
 				<a href="/webzinelisting">
-					<span class="menu-li-title">WEBZINE</span>
+					<span class="menu-li-title left-menu">WEBZINE</span>
 				</a>
 			</li>
 			<li class="icon info">
 				<a href="/tuto">
-					<span class="menu-li-title">TUTO</span>
+					<span class="menu-li-title left-menu">TUTO</span>
 				</a>
 			</li>
-			<!-- <li class="icon info">
-				<a href="/look">
-					<span class="menu-li-title">LOOKS</span>
-				</a>
-			</li> -->
 			<li class="icon info">
 				<a href="/forum/listing">
-					<span class="menu-li-title">FORUM</span>
+					<span class="menu-li-title left-menu">FORUM</span>
 				</a>
 			</li>
 		</ul>
@@ -98,151 +78,67 @@
 				</li>
 				<!--panel price range -->
 				<div class="panel_price_range">
-					<!-- <div class="row">
-						<span class="pull-left">0 $</span><span class="pull-right">+1000 $</span>
-					</div>
-					<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="1000" data-slider-step="5" data-slider-value="[0,1000]" id="sl2" > -->
-					<!-- <div class="pull-right">
-						<div class="checkbox">
-						  	<label><input type="checkbox" value=""> 0 to 700K</label>
-						</div>
-						<div class="checkbox">
-						  	<label><input type="checkbox" value="">700K to 1M</label>
-						</div>
-						<div class="checkbox">
-						  	<label><input type="checkbox" value=""> 1M to 2M</label>
-						</div>
-						<div class="checkbox">
-						  	<label><input type="checkbox" value=""> 2M to 3M</label>
-						</div>
-						<div class="checkbox">
-						  	<label><input type="checkbox" value=""> 3M to 4M</label>
-						</div>
-						<div class="checkbox">
-						  	<label><input type="checkbox" value=""> All</label>
-						</div>
-					</div> -->
 					<div class="pull-right">
 						<div class="checkbox">
-						  	<label><input type="checkbox" value="" data-max="100" data-min="0" id="f-check" name="checkbox"> 0 to 700K</label>
+						  	<label><input type="checkbox" value="" data-max="100" data-min="0" name="checkbox" class="right-menu"> 0 to 700K</label>
 						</div>
 						<div class="checkbox">
-						  	<label><input type="checkbox" value="1000" id="f-check" data-max="1000" data-min="100" name="checkbox">700K to 1M</label>
+						  	<label><input type="checkbox" value="1000" class="right-menu" data-max="1000" data-min="100" name="checkbox">700K to 1M</label>
 						</div>
 						<div class="checkbox">
-						  	<label><input type="checkbox" value="2000" id="f-check" data-max="10000" data-min="1000" name="checkbox"> 1M to 2M</label>
+						  	<label><input type="checkbox" value="2000" class="right-menu" data-max="10000" data-min="1000" name="checkbox"> 1M to 2M</label>
 						</div>
 						<div class="checkbox">
-						  	<label><input type="checkbox" value="3000" id="f-check" data-max="100000" data-min="10000" name="checkbox"> 2M to 3M</label>
+						  	<label><input type="checkbox" value="3000" class="right-menu" data-max="100000" data-min="10000" name="checkbox"> 2M to 3M</label>
 						</div>
 						<div class="checkbox">
-						  	<label><input type="checkbox" value="4000" id="f-check" data-max="1000000" data-min="100000" name="checkbox"> 3M to 4M</label>
+						  	<label><input type="checkbox" value="4000" class="right-menu" data-max="1000000" data-min="100000" name="checkbox"> 3M to 4M</label>
 						</div>
 						<div class="checkbox">
-						  	<label><input type="checkbox" value="100000000" id="f-check" data-max="10000000" name="checkbox"> All</label>
+						  	<label><input type="checkbox" value="100000000" class="right-menu" data-max="10000000" name="checkbox"> All</label>
 						</div>
 					</div>
 				</div>
 				<li class="item"><a href="#" id="brands">Brands</a></li>
 				<!-- panel brands -->
-					<div class="panel_brands">
-						<div class="col-xs-12">
-							<div class="col-xs-4 refine-item tohide">
-								<a href="" class="alphabet"><h1>A</h1></a>
-								<a href="" class="alphabet"><h1>B</h1></a>
-								<a href="" class="alphabet"><h1>C</h1></a>
-								<a href="" class="alphabet"><h1>D</h1></a>
-								<a href="" class="alphabet"><h1>F</h1></a>
-								<a href="" class="alphabet"><h1>G</h1></a>
-								<a href="" class="alphabet"><h1>H</h1></a>
-								<a href="" class="alphabet"><h1>I</h1></a>
-								<a href="" class="alphabet"><h1>J</h1></a>
-								<a href="" class="alphabet"><h1>K</h1></a>
-								<a href="" class="alphabet"><h1>L</h1></a>
-								<a href="" class="alphabet"><h1>M</h1></a>
-								<a href="" class="alphabet"><h1>N</h1></a>
-								<a href="" class="alphabet"><h1>O</h1></a>
-								<a href="" class="alphabet"><h1>P</h1></a>
-								<a href="" class="alphabet"><h1>Q</h1></a>
-								<a href="" class="alphabet"><h1>R</h1></a>
-								<a href="" class="alphabet"><h1>S</h1></a>
-								<a href="" class="alphabet"><h1>T</h1></a>
-								<a href="" class="alphabet"><h1>U</h1></a>
-								<a href="" class="alphabet"><h1>V</h1></a>
-								<a href="" class="alphabet"><h1>W</h1></a>
-								<a href="" class="alphabet"><h1>X</h1></a>
-								<a href="" class="alphabet"><h1>Y</h1></a>
-								<a href="" class="alphabet"><h1>Z</h1></a>
-							</div>
-							<div class="col-xs-8">
-								<div class="hold_item_brands">
-									<div class="nav nav-pills" id="allBrands">
-										
-									</div>
+				<div class="panel_brands">
+					<div class="col-xs-12">
+						<div class="col-xs-2 refine-item tohide">
+							<a href="" class="alphabet"><h1>A</h1></a>
+							<a href="" class="alphabet"><h1>B</h1></a>
+							<a href="" class="alphabet"><h1>C</h1></a>
+							<a href="" class="alphabet"><h1>D</h1></a>
+							<a href="" class="alphabet"><h1>F</h1></a>
+							<a href="" class="alphabet"><h1>G</h1></a>
+							<a href="" class="alphabet"><h1>H</h1></a>
+							<a href="" class="alphabet"><h1>I</h1></a>
+							<a href="" class="alphabet"><h1>J</h1></a>
+							<a href="" class="alphabet"><h1>K</h1></a>
+							<a href="" class="alphabet"><h1>L</h1></a>
+							<a href="" class="alphabet"><h1>M</h1></a>
+							<a href="" class="alphabet"><h1>N</h1></a>
+							<a href="" class="alphabet"><h1>O</h1></a>
+							<a href="" class="alphabet"><h1>P</h1></a>
+							<a href="" class="alphabet"><h1>Q</h1></a>
+							<a href="" class="alphabet"><h1>R</h1></a>
+							<a href="" class="alphabet"><h1>S</h1></a>
+							<a href="" class="alphabet"><h1>T</h1></a>
+							<a href="" class="alphabet"><h1>U</h1></a>
+							<a href="" class="alphabet"><h1>V</h1></a>
+							<a href="" class="alphabet"><h1>W</h1></a>
+							<a href="" class="alphabet"><h1>X</h1></a>
+							<a href="" class="alphabet"><h1>Y</h1></a>
+							<a href="" class="alphabet"><h1>Z</h1></a>
+						</div>
+						<div class="col-xs-10 brand-item">
+							<div class="hold_item_brands">
+								<div class="nav nav-pills" id="allBrands">
+									
 								</div>
 							</div>
 						</div>
-						<!-- <div class="row">
-							<div class="col-xs-4"><h1><a href="">A</a></h1></div>
-							<div class="col-xs-4">
-								<h4>Brand</h4>
-								<h4>Brand</h4>
-							</div>
-							<div class="col-xs-4">
-								<h4>Brand</h4>
-								<h4>Brand</h4>
-								<h4>Brand</h4>
-							</div>
-						</div>
-						<br/>
-						<div class="row">
-							<div class="col-xs-4"><h1><a href="">B</a></h1></div>
-							<div class="col-xs-4">
-								<h4>Brand</h4>
-								<h4>Brand</h4>
-							</div>
-							<div class="col-xs-4">
-								<h4>Brand</h4>
-								<h4>Brand</h4>
-								<h4>Brand</h4>
-							</div>
-						</div>
-						<br/>
-						<div class="row">
-							<div class="col-xs-4"><h1><a href="">C</a></h1></div>
-							<div class="col-xs-4">
-								<h4>Brand</h4>
-								<h4>Brand</h4>
-							</div>
-							<div class="col-xs-4">
-								<h4>Brand</h4>
-								<h4>Brand</h4>
-								<h4>Brand</h4>
-							</div>
-						</div> -->
 					</div>
-				<!-- <li class="item"><a href="#" id="advanced">Advanced</a></li> -->
-				<!--panel advanced-->
-				<!-- <div class="panel_advanced">
-					<ul>
-						<li><a href="">Ingredient Preference</a></li>
-						<li><a href="">Concern</a></li>
-						<li><a href="#" id="skin_type">Skin Type</a></li>
-						<div class="panel_skin_type">
-							<div class="col-xs-6">
-								<p>Brand</p>
-								<p>Brand</p>
-								<p>Brand</p>
-							</div>
-							<div class="col-xs-6">
-								<p>Brand</p>
-								<p>Brand</p>
-								<p>Brand</p>
-							</div>
-						</div>
-						<li><a href="#" id="skin_type">Season</a></li>
-					</ul>
-				</div> -->
+				</div>
 			</ul>
 		</div>
    	</section> <!-- #sidebar-wrapper -->
