@@ -9,7 +9,6 @@ Template.menu.events({
         $("#panel_all_makeup").hide();
     },
     "click #child_makeup":function(){
-    	//alert("pisey toggle");
     	$("#panel_makeup").slideToggle("hide");
     },
     "click #all_makeup":function(){
@@ -42,23 +41,16 @@ Template.menu.helpers({
 	}
 });
 Template.header.onRendered(function () {
-//default font
-$('body').css('font-family','Nazanin Bold');
-
-		
-  
-  var userId = Meteor.userId();
-  var time = Date.now();
-  var currenturl = window.location.href;
-  if( !Session.get('userId') || Session.get('userId') == ""){
-         			var newId=Random.id();
-         			Session.setPersistent('userId',newId);
-         			console.log('Newid'+newId);
-  }
-  console.log('MY CART USER ID='+Session.get('userId'));
-  //alert(currentPage);
-	//Meteor.call('getMonIp',userId,time,currenturl);
-	//alert('inserted');
+	//default font
+	$('body').css('font-family','Nazanin Bold');
+  	var userId = Meteor.userId();
+  	var time = Date.now();
+  	var currenturl = window.location.href;
+  	if( !Session.get('userId') || Session.get('userId') == ""){
+        var newId=Random.id();
+        Session.setPersistent('userId',newId);
+  	}
+  	console.log('MY CART USER ID='+Session.get('userId'));
 });
 Template.footer.events({
 	'mouseenter #footer':function(e){
@@ -98,50 +90,31 @@ Template.mainLayout.events({
 		//alert('contenttrack');
 	}
 });
-
-
 Template.header.events({
 	'click #en':function(e,tpl){
 		//alert(TAPi18n.getLanguage());
 		if(TAPi18n.getLanguage()=='fa'){
 			var lang='en';			
 			$("body").css("font-family","HelveticaNeue, sans-serif");
-			
 		}
-		else{	
-
+		else{
 			var lang='fa';		
 			$('body').css('font-family','Nazanin Bold');
-			
-		}
-			
+		}	
 		Session.set('LANG',lang);
-		
-		
-      TAPi18n.setLanguage(lang).done(function () {
-        Session.set("showLoadingIndicator", false);
-      })
-      .fail(function (error_message) {
-        // Handle the situation
-        console.log(error_message);
-      });
+      	TAPi18n.setLanguage(lang).done(function () {
+        	Session.set("showLoadingIndicator", false);
+      	})
+      	.fail(function (error_message) {
+        	// Handle the situation
+        	console.log(error_message);
+      	});
 
 	},
 	'click .kesearch': function(e,tpl){
 		var search=tpl.$("#textToSearch").val();
 		Session.set('keyword',search);
 		var url="/searchproduct"+"/"+search;
-		Router.go(url);
-		//var listProducts=products.find({"title":{"$regex": search}});
-		 // if (Router.current().route.getName() == "search") { // new
-   //      products.update(t.data._id, {$set: search});
-   //      Router.go('/properties/' + t.data._id);
-   //  } else { // edit 
-   //      var id = Properties.insert(searchproduct);
-   //      Router.go('/properties/' + id + '/edit');
-   //  }   
-// }
-		
+		Router.go(url);	
 	}
-
 });

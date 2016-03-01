@@ -2,3 +2,16 @@
 .nonelike{
 	display: none;
 }
+/********** KA *************/
+/** refine brand **/
+a.alphabet, a.targetBrand, .info a{
+	color: #fff;
+	text-decoration: none;
+}
+div.refine-item{
+	padding: 0px;
+}
+div.brand-item{
+	padding-left: 0px;
+}
+/********** KA *************/
