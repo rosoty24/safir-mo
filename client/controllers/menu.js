@@ -3,6 +3,9 @@ Session.set('children2','');
 Session.set('selected_menu','');
 Session.setDefault('CHILDMAKEUP','');
 Template.menu.events({
+	"click #child_child":function(){
+		$("#panel_all_makeup").slideToggle("hide");
+	},
 	"click #makeup":function(){
         $("#makeup").addClass("active");
         $("#panel_makeup").slideToggle("slow");
@@ -19,11 +22,11 @@ Template.menu.events({
     		Session.set("parentNAME", parentName);
     		$("#all_makeup").html("All "+parentName);
     		$("#allCategory").html("All "+parentName);
-    	$("#panel_makeup").slideToggle("hide");
+    		$("#panel_makeup").slideToggle("hide");
     },
     "click #all_makeup":function(){
     	var id = this._id;
-    	alert(id);
+    	//alert(id);
         $("#panel_all_makeup").slideToggle("slow");
         $("#all_makeup").addClass("active");
         $("#panel_makeup").hide();
