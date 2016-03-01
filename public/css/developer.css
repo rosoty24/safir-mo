@@ -1,4 +1,3 @@
-
 .nonelike{
 	display: none;
 }
@@ -13,5 +12,14 @@ div.refine-item{
 }
 div.brand-item{
 	padding-left: 0px;
+}
+/** listing product **/
+.styleImg{
+	height:130px;
+	overflow: hidden;
+}
+.styleText{
+	height: 45px;
+	overflow: hidden;
 }
 /********** KA *************/
