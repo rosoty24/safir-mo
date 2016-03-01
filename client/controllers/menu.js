@@ -1,7 +1,41 @@
 Session.set('children1','');
 Session.set('children2','');
 Session.set('selected_menu','');
-Session.setDefault('CHILDMAKEUP','');
+Template.mainLayoutMobile.events({
+	'click #en':function(e,tpl){
+		//alert(TAPi18n.getLanguage());
+		e.preventDefault();
+		if(TAPi18n.getLanguage()=='fa'){
+			var lang='en';		
+			//$("body").css("font-family","HelveticaNeue, sans-serif");	
+		}
+		else{	
+
+			var lang='fa';		
+			//$('body').css('font-family','Nazanin Bold');	
+		}
+			
+		Session.set('LANG',lang);
+		
+		
+      TAPi18n.setLanguage(lang).done(function () {
+        Session.set("showLoadingIndicator", false);
+      })
+      .fail(function (error_message) {
+        // Handle the situation
+        console.log(error_message);
+      });
+
+	}
+});
+Template.mainLayoutMobile.helpers({
+	changeLanguage: function(){
+		if(TAPi18n.getLanguage()=='fa')
+			return 'English';
+		if(TAPi18n.getLanguage()=='en')
+			return 'فارسی';
+	}
+});
 Template.menu.events({
 	"click #child_child":function(){
 		$("#panel_all_makeup").slideToggle("hide");
@@ -49,13 +83,8 @@ Template.menu.helpers({
             document.index = index + 1;
             return document;
         });
-	},
-	changeLanguage: function(){
-		if(TAPi18n.getLanguage()=='fa')
-			return 'English';
-		if(TAPi18n.getLanguage()=='en')
-			return 'فارسی';
 	}
+	
 });
 Template.header.onRendered(function () {
 //default font
@@ -117,32 +146,32 @@ Template.mainLayout.events({
 
 
 Template.header.events({
-	'click #en':function(e,tpl){
-		//alert(TAPi18n.getLanguage());
-		if(TAPi18n.getLanguage()=='fa'){
-			var lang='en';			
-			$("body").css("font-family","HelveticaNeue, sans-serif");
+	// 'click #en':function(e,tpl){
+	// 	//alert(TAPi18n.getLanguage());
+	// 	if(TAPi18n.getLanguage()=='fa'){
+	// 		var lang='en';			
+	// 		$("body").css("font-family","HelveticaNeue, sans-serif");
 			
-		}
-		else{	
+	// 	}
+	// 	else{	
 
-			var lang='fa';		
-			$('body').css('font-family','Nazanin Bold');
+	// 		var lang='fa';		
+	// 		$('body').css('font-family','Nazanin Bold');
 			
-		}
+	// 	}
 			
-		Session.set('LANG',lang);
+	// 	Session.set('LANG',lang);
 		
 		
-      TAPi18n.setLanguage(lang).done(function () {
-        Session.set("showLoadingIndicator", false);
-      })
-      .fail(function (error_message) {
-        // Handle the situation
-        console.log(error_message);
-      });
+ //      TAPi18n.setLanguage(lang).done(function () {
+ //        Session.set("showLoadingIndicator", false);
+ //      })
+ //      .fail(function (error_message) {
+ //        // Handle the situation
+ //        console.log(error_message);
+ //      });
 
-	},
+	// },
 	'click .kesearch': function(e,tpl){
 		var search=tpl.$("#textToSearch").val();
 		Session.set('keyword',search);

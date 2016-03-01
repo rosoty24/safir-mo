@@ -1,0 +1,87 @@
+/* profile-mobile */
+
+.profile-black{
+    -moz-user-select: none;
+    background: #000 none repeat scroll 0 0;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 5px 30px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+table.edit-profile{
+    display: table;
+    text-align: center;
+    margin: 0px auto;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+}
+table.edit-profile tr td{
+    border: none;
+    text-align: left;
+}
+table.edit-profile td{
+    padding: 0px;
+    text-align: left;
+    border: none;
+}
+input.input-profile[type="text"], textarea {
+    background-color: transparent;
+    border: 1px solid #000;
+    margin: 0px;
+    padding: 5px;
+    width: 100%;
+}
+
+button.profile-black{
+    margin: 15px 0px;
+}
+
+div.browse-wrap {
+    top:0;
+    left:0;
+    margin:0px;
+    cursor:pointer;
+    overflow:hidden;
+    padding:0px;
+    text-align:center;
+    position:relative;
+    background-color:#f6f7f8;
+}
+div.title {
+    color:#3b5998;
+    font-size:14px;
+    font-weight:bold;
+    font-family:tahoma, arial, sans-serif;}
+input.upload {
+    right:0;
+    margin:0;
+    bottom:0;
+    padding:0;
+    opacity:0;
+    height:300px;
+    outline:none;
+    cursor:inherit;
+    position:absolute;
+    font-size:1000px !important;}
+span.upload-path {
+    text-align: center;
+    margin:20px;
+    display:block;
+    font-size: 80%;
+    color:#3b5998;
+    font-weight:bold;
+    font-family:tahoma, arial, sans-serif;
+}
+article div.wrap-edit{
+    margin: 4em 16px;
+}

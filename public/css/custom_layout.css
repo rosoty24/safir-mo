@@ -255,4 +255,9 @@ ul.sub_dropdown{
     float: left;
    
 }
-
+/*01-03-2016 mainlayout style*/
+div.header_top_right ul.nav > li > a#en {
+    position: relative;
+    display: block;
+    padding: 0px 5px;
+}
