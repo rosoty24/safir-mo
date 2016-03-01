@@ -1152,6 +1152,7 @@ Template.details.events({
          		Meteor.call('updateStatus',sameproduct._id,obj);
          		//alert('محصول با موفقیت به سبد خرید اضافه شد');
          		cart.update(sameproduct._id, {$set: {quantity: upqty, subtotal:subtotal}});
+         		Router.go("/checkout");
          	}else{
          		var pro = products.findOne({_id:id_product});
          		if( pro ){
@@ -1731,24 +1732,6 @@ Template.details.helpers({
 			return Session.get('selected_point');
 		}
 	});
-Template.details.helpers({
-    getprofile:function(){
-        var id = Meteor.userId();
-        return Meteor.users.findOne({_id:id});
-    },
-     getImage: function(id){
-            var img = images.findOne({_id:id});
-            if(img){
-                console.log(img.copies.images.key);
-                return img.copies.images.key;
-            }
-            else{
-                return;
-            }
-    },
-});
-
-
 
 
 Template.details.rendered=function(){
@@ -2937,217 +2920,6 @@ Template.add_review.events({
 		Meteor.call("add_review",title,comment,grade,user,productid);
 	}
 });
-
-Template.details.events({
-	'click .morereview':function(e){
-			e.preventDefault();
-			var last = Session.get('numberOfReviews');
-			var sum = Number(last) + 5;
-			var update = Session.set('numberOfReviews',sum);
-			return update;
-	},
-	"mouseenter #ex1": function(e,tpl){
-		if(Session.get('miniature')==0){
-			$('#ex1').trigger('zoom.destroy');
-			$('#ex1').zoom();
-			Session.set('miniature',1);
-		}
-
-	},
-	'click .btn-filter-view':function(e,tpl){
-		var val=$(".octofilter-container").css('display');
-		if(val=='block'){
-			$("#closeFilter").css('display','block');
-		}
-
-	},
-	'click #closeFilter':function(e,tpl){
-		$(".octofilter-container").toggle();
-		$("#closeFilter").css('display','none');
-	},
-	'click #loads':function(e){
-		var url=$('#loads').attr('src');
-		Session.set('src',url);
-	},
-	'click .miniature': function(e,tpl){
-		var str=JSON.stringify(this);
-		str=str.replace('"','');
-		str=str.replace('"','');
-		$(".img_principle").attr('src',str);
-
-	},
-	'click #refresh': function(e,tpl){
-
-	},
-	'click .octofilter-link': function(e,tpl){
-		console.log('ABC');
-	},
-	'click .octofilter-clear': function(e,tpl){
-
-	},
-	'click #flip': function(e,tpl){
-		$("#panel").slideToggle("slow");
-	},
-	'click #show': function(e,tpl){
-		$("#show-text").slideToggle("slow");
-	},
-	'click h3': function(e,tpl){
-		$(".fa-angle-down").slideToggle("slow");
-	},
-	'click .octofilter-link':function(e,tpl){
-
-	},
-	'click #filterok': function(e,tpl){
-		var username=tpl.$("#filter").val();
-		Session.set("filter",username);
-		
-	},
-	'click #img_attr':function(e,tpl){
-		var attr=attribute.findOne({"_id":this._id});
-		var title=attribute.findOne({"_id":this._id}).value;
-		var product=products.findOne({"oldId":this.product});
-		Session.set('selected_price',attr.price);
-		Session.set('selected_point',attr.point);
-		Session.set('selected_attr',attr._id);
-		var url=this.productImage;
-		$("#current_attr").text(title);
-		$(".img_principle").attr('src',url);
-		Session.set('miniature',0);
-
-	},
-	'click #favorite':function(e){
-		e.preventDefault();
-		var id=this._id;
-		console.log('id'+Session.get('userId'));
-		if(Session.get('userId')){
-
-                 var obj={
-                 	proId:id,
-                 	userId:Session.get('userId')
-                 }
-
-                 Meteor.call('insertFavorite',obj);
-                 alert('Product successfully append to favorite!');
-             }
-             else{
-             	var newId=Random.id();
-             	Session.setPersistent('userId',newId);
-                 
-                 var obj={
-                 	proId:id,
-                 	userId:Session.get('userId')
-                 }
-
-                 Meteor.call('insertFavorite',obj);
-                 alert('Product successfully added to favorite!');
-             }
-         },
-         'click #addtocart':function(e,tpl){       
-         	e.preventDefault();
-         	var id_product=this._id;
-         	var qty=tpl.$("#qty").val();
-         	var attribute=Session.get('selected_attr');
-         	if(attribute=='No attribute')
-         		attribute='';	
-         	console.log('ADDINGTOCARTid='+Session.get('userId'));
-         	var userId = Session.get('userId');
-         	var selectPrice=Session.get('selected_price');
-         	var subtotal = 0;
-
-         	var sameproduct = cart.find({ id_product:id_product, userId:userId,attribute:attribute}).fetch();
-         	
-         	if( sameproduct.length>0){
-         		sameproduct=sameproduct[0];
-         		var pro = products.findOne({_id:id_product});
-         		upqty = parseInt( sameproduct.quantity ) + parseInt(qty);
-         		if( pro ){
-         			subtotal = upqty * parseInt(Session.get('selected_price'));
-         		}
-         		console.log('update of the cart');
-         		var obj={quantity: upqty, subtotal:subtotal};
-         		Meteor.call('updateStatus',sameproduct._id,obj);
-         		Router.go("/checkout");
-         	}else{
-         		alert('product:'+id_product);
-         		var pro = products.findOne({_id:id_product});
-         		if( pro ){
-         			subtotal = parseInt(qty) * parseInt(Session.get('selected_price'));
-         		}
-         		else
-         			subtotal=0;
-         		var obj={
-         			id_product:id_product,
-         			userId:Session.get('userId'),
-         			quantity:qty,
-         			subtotal:subtotal,
-         			/*shop:shop,*/
-         			attribute:attribute,
-         			order_status:0
-         		};
-
-         		Meteor.call('addtocart',obj);
-				Router.go("/checkout");
-			}           
-		},
-		"change #shop":function(e,tpl){
-			/*var shopid=$("#shop").val();
-			var qty=stock.findOne({"Barcode":Session.get('barcode'),"RetailStoreID":shopid});
-			console.log("shopid="+shopid+" / found="+qty.QTY);
-			$("#available_qty").text(qty.QTY);*/
-		},
-		'click #posting':function(e){
-			e.preventDefault();
-			if(Meteor.userId()){
-				var description=$('#status').val();
-				var detailId=this._id;
-				var collection="products";
-				var userid = Meteor.userId();
-				var profile = users.findOne({_id:userid}).profile;
-				var point = 5;
-			if(profile.shipcard!=null)
-				var upoint=Number(profile.shipcard.point);
-			else
-				var upoint=0;
-			upoint+=point;
-
-			var obj={
-				description:description
-			};
-
-			if(TAPi18n.getLanguage()=='fa'){
-				var object={
-					id:detailId,
-					userid:userid,
-					collectionName:collection,
-					i18n:{fa:{description}}
-				}
-			}
-			else{
-				var object={
-					id:detailId,
-					userid:userid,
-					collectionName:collection,
-					i18n:{en:{description}}
-				}
-			}
-			
-			if(description==""){
-				alert("Please put a text before to click the button.");
-			}else{
-				Meteor.call('insertTradeDetail', object, function(err){
-					if(err){
-						console.log(err);
-					}else{
-						Meteor.call('earnPoint',userid,upoint);
-						alert("You have earned "+point+" points!");
-					}
-				});
-			}
-		}else{
-			alert("Please login before making translation!");
-		}
-	}
-});
 Template.manageproduct.helpers({
 	getListImg: function(product){
 		var p=products.findOne({_id:product});
@@ -3267,348 +3039,348 @@ Template.manageproduct.helpers({
 	}
 });
 
-Template.details.helpers({
-	getTagList: function(productid) {
-		var pro = products.findOne({
-			_id: productid
-		});
-		if (pro) {
-			var y = pro.tags;
+// Template.details.helpers({
+// 	getTagList: function(productid) {
+// 		var pro = products.findOne({
+// 			_id: productid
+// 		});
+// 		if (pro) {
+// 			var y = pro.tags;
 
-			var x = {};
-			var id = [];
-			for (var i = 0; i < y.length; ++i) {
-				var obj = y[i];
+// 			var x = {};
+// 			var id = [];
+// 			for (var i = 0; i < y.length; ++i) {
+// 				var obj = y[i];
 
-                //If a property for this DtmStamp does not exist yet, create
-                if (x[obj.parent] === undefined) {
-                    x[obj.parent] = [obj.parent]; //Assign a new array with the first element of DtmStamp.
-                    id.push(obj.parent);
-                }
-                //x will always be the array corresponding to the current DtmStamp. Push a value the current value to it.
-                x[obj.parent].push(obj.value);
+//                 //If a property for this DtmStamp does not exist yet, create
+//                 if (x[obj.parent] === undefined) {
+//                     x[obj.parent] = [obj.parent]; //Assign a new array with the first element of DtmStamp.
+//                     id.push(obj.parent);
+//                 }
+//                 //x will always be the array corresponding to the current DtmStamp. Push a value the current value to it.
+//                 x[obj.parent].push(obj.value);
 
-            }
+//             }
 
-            var s = '';
-            for (j = 0; j < id.length; j++) {
-            	var data = x[id[j]];
-                var p = 0;
-                for (k = 0; k < data.length; k++) {
-                	p++;
+//             var s = '';
+//             for (j = 0; j < id.length; j++) {
+//             	var data = x[id[j]];
+//                 var p = 0;
+//                 for (k = 0; k < data.length; k++) {
+//                 	p++;
 
-                	if (p == 1) {
-                		var tag = parent_tags.findOne({
-                			_id: data[k]
-                		});
-                		var name = (tag) ? tag.title : 'no name';
-                		s += '<li><strong>' + name + '</strong> : ';
-                	} else {
-                		s += data[k];
-                		s += (p < data.length) ? ' , ' : '';
-                	}
-                	if (p >= data.length) {
-                		p = 0;
-                		s += '</li>';
-                	}
-                }
-                console.log(s);
-            };
+//                 	if (p == 1) {
+//                 		var tag = parent_tags.findOne({
+//                 			_id: data[k]
+//                 		});
+//                 		var name = (tag) ? tag.title : 'no name';
+//                 		s += '<li><strong>' + name + '</strong> : ';
+//                 	} else {
+//                 		s += data[k];
+//                 		s += (p < data.length) ? ' , ' : '';
+//                 	}
+//                 	if (p >= data.length) {
+//                 		p = 0;
+//                 		s += '</li>';
+//                 	}
+//                 }
+//                 console.log(s);
+//             };
 
-            return s;
+//             return s;
 
-        }
-    },
-    existReview:function(review){
-    	if(review){
-    		return true;
-    	}else{
-    		return false;
-    	}
-    },
-    getMainImg: function(){
-    	console.log('mainImg'+Session.get('mainImg'));
-    	return Session.get('mainImg');
-	},
-	getProductImg: function(product){
-		var p=products.findOne({_id:product});
-		if(p.image instanceof Array)
-			return p.image[0];
-		else
-			return p.image;
-	},
-	getListImg: function(product){
-		var p=products.findOne({_id:product});
-		if(p.image instanceof Array)
-			return p.image;
-		else
-			return [p.image];
-	},
-	suggestion: function(title){
-		return contents.find({"content":{"$regex":title}});
-	},
-	getArticle: function(idarticle){
-		return contents.findOne({"_id":idarticle});
-	},
-	getTutoes: function(idtutoes){
-		return contents.findOne({"_id":idtutoes});
-	},
-	getAllAttributes: function(productId,parent){
-		var result=attribute.find({"product":productId,"parent":parent});
-		if(result.count()<2){
-			Session.set('removescroll',true);
+//         }
+//     },
+//     existReview:function(review){
+//     	if(review){
+//     		return true;
+//     	}else{
+//     		return false;
+//     	}
+//     },
+//     getMainImg: function(){
+//     	console.log('mainImg'+Session.get('mainImg'));
+//     	return Session.get('mainImg');
+// 	},
+// 	getProductImg: function(product){
+// 		var p=products.findOne({_id:product});
+// 		if(p.image instanceof Array)
+// 			return p.image[0];
+// 		else
+// 			return p.image;
+// 	},
+// 	getListImg: function(product){
+// 		var p=products.findOne({_id:product});
+// 		if(p.image instanceof Array)
+// 			return p.image;
+// 		else
+// 			return [p.image];
+// 	},
+// 	suggestion: function(title){
+// 		return contents.find({"content":{"$regex":title}});
+// 	},
+// 	getArticle: function(idarticle){
+// 		return contents.findOne({"_id":idarticle});
+// 	},
+// 	getTutoes: function(idtutoes){
+// 		return contents.findOne({"_id":idtutoes});
+// 	},
+// 	getAllAttributes: function(productId,parent){
+// 		var result=attribute.find({"product":productId,"parent":parent});
+// 		if(result.count()<2){
+// 			Session.set('removescroll',true);
 			
-		}else{
-			Session.set('removescroll',false);
-		}
-		return result;
-	},
-	getParentDetails: function(parent){
-		return parentattr.findOne({"_id":parent});
-	},
-	listAttr: function(parent){
-		return attribute.find({"product":parent});
-	},
-	getParentAttr: function(product){
-		console.log('cherche les attr de '+product);
-		var list=attribute.find({"product":product}).fetch();
-		var out=[];
-		for(var i=0;i<list.length;i++){
-			var contains=0;
-			for(var j=0;j<out.length;j++)
-				if(out[j].parent==list[i].parent)
-					contains=1;
-				if(contains==0)
-					out.push(list[i]);
-			}
-			console.log('finish');
-			return out;
-		},
-		getShops: function(id){
-			return shops.find({"products.product":id,"products.quantity":{ "$nin": ["0"] }});
-		},
-		getAttribute: function(id){
+// 		}else{
+// 			Session.set('removescroll',false);
+// 		}
+// 		return result;
+// 	},
+// 	getParentDetails: function(parent){
+// 		return parentattr.findOne({"_id":parent});
+// 	},
+// 	listAttr: function(parent){
+// 		return attribute.find({"product":parent});
+// 	},
+// 	getParentAttr: function(product){
+// 		console.log('cherche les attr de '+product);
+// 		var list=attribute.find({"product":product}).fetch();
+// 		var out=[];
+// 		for(var i=0;i<list.length;i++){
+// 			var contains=0;
+// 			for(var j=0;j<out.length;j++)
+// 				if(out[j].parent==list[i].parent)
+// 					contains=1;
+// 				if(contains==0)
+// 					out.push(list[i]);
+// 			}
+// 			console.log('finish');
+// 			return out;
+// 		},
+// 		getShops: function(id){
+// 			return shops.find({"products.product":id,"products.quantity":{ "$nin": ["0"] }});
+// 		},
+// 		getAttribute: function(id){
 
-			return attribute.findOne({"_id": id});
-		},
-		getTagName: function(tagid){
-			if(tagid!=null)
-				return tags.findOne({_id:tagid}).title;
-			else
-				return;
-		},
-		getAttr: function(id){
-			return attribute.findOne({"_id":id});
-		},
-		getCategoryName: function(categoryid){
-			console.log("cat:"+categoryid);
-			if(categoryid!=null)
-				return categories.findOne({_id:categoryid}).title;
-			else
-				return;
-		},
-		getShopname: function( id ){
-			var shop = shops.findOne({_id:id });
-			if( shop ) return shop.name; 
-		},
-		filterReview: function(){
-			Tracker.autorun(function () {
-				console.log('RERUNNING');
-				return Session.get('fiterValue');
-			});
-		},
-		removeFilter: function(){
-			Tracker.autorun(function () {
-				console.log('RERUNNING delete');
-				return Session.get('removefilter');
-			});
-		},
-		slic:function(tags){
-			var parentarr=[];
-			var valuearr=[];
-		for(var i=0;i<tags.length;i++){
-			parentarr.push(tags[i].parent);
-		}
-		function onlyUnique(value, index, self) { 
-			return self.indexOf(value) === index;
-		}
+// 			return attribute.findOne({"_id": id});
+// 		},
+// 		getTagName: function(tagid){
+// 			if(tagid!=null)
+// 				return tags.findOne({_id:tagid}).title;
+// 			else
+// 				return;
+// 		},
+// 		getAttr: function(id){
+// 			return attribute.findOne({"_id":id});
+// 		},
+// 		getCategoryName: function(categoryid){
+// 			console.log("cat:"+categoryid);
+// 			if(categoryid!=null)
+// 				return categories.findOne({_id:categoryid}).title;
+// 			else
+// 				return;
+// 		},
+// 		getShopname: function( id ){
+// 			var shop = shops.findOne({_id:id });
+// 			if( shop ) return shop.name; 
+// 		},
+// 		filterReview: function(){
+// 			Tracker.autorun(function () {
+// 				console.log('RERUNNING');
+// 				return Session.get('fiterValue');
+// 			});
+// 		},
+// 		removeFilter: function(){
+// 			Tracker.autorun(function () {
+// 				console.log('RERUNNING delete');
+// 				return Session.get('removefilter');
+// 			});
+// 		},
+// 		slic:function(tags){
+// 			var parentarr=[];
+// 			var valuearr=[];
+// 		for(var i=0;i<tags.length;i++){
+// 			parentarr.push(tags[i].parent);
+// 		}
+// 		function onlyUnique(value, index, self) { 
+// 			return self.indexOf(value) === index;
+// 		}
 
-		var unique = parentarr.filter( onlyUnique );
-		for(var j=0;j<unique.length;j++){
-			if(unique[j]==tags[j].parent){
-				valuearr.push(tags[j].value);
-			}
-		}
+// 		var unique = parentarr.filter( onlyUnique );
+// 		for(var j=0;j<unique.length;j++){
+// 			if(unique[j]==tags[j].parent){
+// 				valuearr.push(tags[j].value);
+// 			}
+// 		}
 
-	},
-	getParentTagName: function(id){
-		return parent_tags.findOne({"_id":id}).title;
-	},
-	getReviews: function(reviews,filtre,toremove){
+// 	},
+// 	getParentTagName: function(id){
+// 		return parent_tags.findOne({"_id":id}).title;
+// 	},
+// 	getReviews: function(reviews,filtre,toremove){
 
-		console.log('reloading reviews...'+Session.get('fiterValue'));
-		var toRemove=Session.get('removefilter').split(':');
-		var myFilter=Session.get('fiterValue');
-		for(var i=0;i<toRemove.length;i++){
-			if(toRemove[i]=='')
-				continue;
-			var str=':'+toRemove[i];
-			myFilter.replace(str,'');
-		}
+// 		console.log('reloading reviews...'+Session.get('fiterValue'));
+// 		var toRemove=Session.get('removefilter').split(':');
+// 		var myFilter=Session.get('fiterValue');
+// 		for(var i=0;i<toRemove.length;i++){
+// 			if(toRemove[i]=='')
+// 				continue;
+// 			var str=':'+toRemove[i];
+// 			myFilter.replace(str,'');
+// 		}
 			
-			if(Session.get('fiterValue')=="" || Session.get('fiterValue')=="undefined"){
-				var lastResult=[];
-				var numberOfResult=Session.get('numberOfReviews');
+// 			if(Session.get('fiterValue')=="" || Session.get('fiterValue')=="undefined"){
+// 				var lastResult=[];
+// 				var numberOfResult=Session.get('numberOfReviews');
 
-				if(numberOfResult>reviews.length)
-					numberOfResult=reviews.length
-				console.log('NUMBER OF lastResult.length '+numberOfResult);
-				for(var i=0;i<numberOfResult;i++)
-					lastResult.push(reviews[i]);
+// 				if(numberOfResult>reviews.length)
+// 					numberOfResult=reviews.length
+// 				console.log('NUMBER OF lastResult.length '+numberOfResult);
+// 				for(var i=0;i<numberOfResult;i++)
+// 					lastResult.push(reviews[i]);
 
-				console.log('NUMBER OF lastResult.length '+lastResult.length);
-				return lastResult;
+// 				console.log('NUMBER OF lastResult.length '+lastResult.length);
+// 				return lastResult;
 
-			}
-			console.log('Calling filterReview='+reviews.length);
-			var values=Session.get('fiterValue').split(':');
-			//fiterValue
-			var ages=[];
-			var myTags=[];
-			var grades=[];
+// 			}
+// 			console.log('Calling filterReview='+reviews.length);
+// 			var values=Session.get('fiterValue').split(':');
+// 			//fiterValue
+// 			var ages=[];
+// 			var myTags=[];
+// 			var grades=[];
 
-			for(var i=0;i<values.length;i++){
-				var param=values[i];
-				if(param=='')
-					continue;
-				console.log("Processing "+param);
-				if(param.indexOf('-')>=0){
-					ages.push(param);
-				}else if(param.indexOf('/')>=0){
-					grades.push(param);
-				}else{
-					myTags.push(param);
-				}
-			}
+// 			for(var i=0;i<values.length;i++){
+// 				var param=values[i];
+// 				if(param=='')
+// 					continue;
+// 				console.log("Processing "+param);
+// 				if(param.indexOf('-')>=0){
+// 					ages.push(param);
+// 				}else if(param.indexOf('/')>=0){
+// 					grades.push(param);
+// 				}else{
+// 					myTags.push(param);
+// 				}
+// 			}
 
-			console.log('ages:'+ages.length);
-			console.log('myTags:'+myTags.length);
-			console.log('grades:'+grades.length);
+// 			console.log('ages:'+ages.length);
+// 			console.log('myTags:'+myTags.length);
+// 			console.log('grades:'+grades.length);
 
-			var results=[];
-			for(var i=0;i<ages.length;i++){
-				var ageMin=Number(ages[i].split('-')[0]);
-				var ageMax=Number(ages[i].split('-')[1]);
+// 			var results=[];
+// 			for(var i=0;i<ages.length;i++){
+// 				var ageMin=Number(ages[i].split('-')[0]);
+// 				var ageMax=Number(ages[i].split('-')[1]);
 
-				console.log('min:'+ageMin);
-				console.log('max:'+ageMax);
-				//Loop into reviews
-				for(var j=0;j<reviews.length;j++){
-					Meteor.subscribe("users",reviews[j].user);
-					var curUser=users.findOne({"_id":reviews[j].user});
-					if(Number(curUser.profile.age)<= ageMax && Number(curUser.profile.age)>=ageMin){
-						results.push(reviews[j]);
+// 				console.log('min:'+ageMin);
+// 				console.log('max:'+ageMax);
+// 				//Loop into reviews
+// 				for(var j=0;j<reviews.length;j++){
+// 					Meteor.subscribe("users",reviews[j].user);
+// 					var curUser=users.findOne({"_id":reviews[j].user});
+// 					if(Number(curUser.profile.age)<= ageMax && Number(curUser.profile.age)>=ageMin){
+// 						results.push(reviews[j]);
 
-					}
+// 					}
 
-				}
-			}
-			console.log('Size of the rest:'+reviews.length);
-			console.log('Still in the sand after ager filter:'+results.length);
-			if(results.length>0){
-				console.log('remise a 0');
-				reviews=[];
-				reviews=results.slice(0);
-				results=[];
-			}
+// 				}
+// 			}
+// 			console.log('Size of the rest:'+reviews.length);
+// 			console.log('Still in the sand after ager filter:'+results.length);
+// 			if(results.length>0){
+// 				console.log('remise a 0');
+// 				reviews=[];
+// 				reviews=results.slice(0);
+// 				results=[];
+// 			}
 
-			console.log('Size of the rest:'+reviews.length);
-			for(var i=0;i<myTags.length;i++){
-				var curTag=myTags[i];
-				console.log('tagging '+curTag);
-				for(var j=0;j<reviews.length;j++){
-					var curUser=users.findOne({"_id":reviews[j].user});
-					if(curUser.profile.tag.indexOf(curTag)>=0)
-						results.push(reviews[j]);
-				}
-			}
+// 			console.log('Size of the rest:'+reviews.length);
+// 			for(var i=0;i<myTags.length;i++){
+// 				var curTag=myTags[i];
+// 				console.log('tagging '+curTag);
+// 				for(var j=0;j<reviews.length;j++){
+// 					var curUser=users.findOne({"_id":reviews[j].user});
+// 					if(curUser.profile.tag.indexOf(curTag)>=0)
+// 						results.push(reviews[j]);
+// 				}
+// 			}
 
-			console.log('Still in the sand(tags):'+results.length);
-			if(results.length>0){
-				console.log('remise a 0');
-				reviews=[];
-				reviews=results.slice(0);
-				results=[];
+// 			console.log('Still in the sand(tags):'+results.length);
+// 			if(results.length>0){
+// 				console.log('remise a 0');
+// 				reviews=[];
+// 				reviews=results.slice(0);
+// 				results=[];
 
-			}
-			if(grades.length==0)
-				results=reviews.slice(0);
-			console.log('Size of the rest:'+reviews.length);
-			for(var i=0;i<grades.length;i++){
-				var curGrade=grades[i].split('/')[0];
-				//Loop into reviews
+// 			}
+// 			if(grades.length==0)
+// 				results=reviews.slice(0);
+// 			console.log('Size of the rest:'+reviews.length);
+// 			for(var i=0;i<grades.length;i++){
+// 				var curGrade=grades[i].split('/')[0];
+// 				//Loop into reviews
 
-				for(var j=0;j<reviews.length;j++){
+// 				for(var j=0;j<reviews.length;j++){
 					
-					if(Number(reviews[j].grade)==Number(curGrade) && results.indexOf(reviews[j])<0){
-						results.push(reviews[j]);
-						console.log('Comparing '+curGrade+' and '+reviews[j].grade);
-					}
+// 					if(Number(reviews[j].grade)==Number(curGrade) && results.indexOf(reviews[j])<0){
+// 						results.push(reviews[j]);
+// 						console.log('Comparing '+curGrade+' and '+reviews[j].grade);
+// 					}
 
-				}
-			}
+// 				}
+// 			}
 
-			console.log('Still in the sand(grades):'+results.length);
-			console.log('afterFilter:'+results.length);
+// 			console.log('Still in the sand(grades):'+results.length);
+// 			console.log('afterFilter:'+results.length);
 
-			var lastResult=[];
-			var numberOfResult=Session.get('numberOfReviews');
+// 			var lastResult=[];
+// 			var numberOfResult=Session.get('numberOfReviews');
 
-			if(numberOfResult>results.length)
-				numberOfResult=results.length
-			console.log('NUMBER OF lastResult.length '+numberOfResult);
-			for(var i=0;i<numberOfResult;i++)
-				lastResult.push(results[i]);
+// 			if(numberOfResult>results.length)
+// 				numberOfResult=results.length
+// 			console.log('NUMBER OF lastResult.length '+numberOfResult);
+// 			for(var i=0;i<numberOfResult;i++)
+// 				lastResult.push(results[i]);
 
-			console.log('NUMBER OF lastResult.length '+lastResult.length);
-			return lastResult;
+// 			console.log('NUMBER OF lastResult.length '+lastResult.length);
+// 			return lastResult;
 
 
-		},
-		getReviewsShort: function(reviews,limit){
-			if(Session.get("filter")==""){
-				var ret=[];
-				for(var i=0;i<reviews.length && i<=limit;i++){
-					var current=reviews[i];
-					ret.push(current);
-				}
-				return ret;
-			}
-			else{
-				var ret=[];
-				for(var i=0;i<reviews.length && i<=limit;i++){
-					var current=reviews[i];
-					var currentAuthor=users.findOne({_id:current.user});
-					if(currentAuthor.emails[0].address==Session.get("filter"))
-						ret.push(current);
-				}
-				return ret;
-			}
-		},
-		path: function(){
-			return Session.get('path');
-		},
-		selected_attr: function(){
-			return Session.get('selected_attr');
-		},
-		selected_price: function(){
-			return Session.get('selected_price');
-		},
-		selected_point: function(){
-			return Session.get('selected_point');
-		}
-	});
-
+// 		},
+// 		getReviewsShort: function(reviews,limit){
+// 			if(Session.get("filter")==""){
+// 				var ret=[];
+// 				for(var i=0;i<reviews.length && i<=limit;i++){
+// 					var current=reviews[i];
+// 					ret.push(current);
+// 				}
+// 				return ret;
+// 			}
+// 			else{
+// 				var ret=[];
+// 				for(var i=0;i<reviews.length && i<=limit;i++){
+// 					var current=reviews[i];
+// 					var currentAuthor=users.findOne({_id:current.user});
+// 					if(currentAuthor.emails[0].address==Session.get("filter"))
+// 						ret.push(current);
+// 				}
+// 				return ret;
+// 			}
+// 		},
+// 		path: function(){
+// 			return Session.get('path');
+// 		},
+// 		selected_attr: function(){
+// 			return Session.get('selected_attr');
+// 		},
+// 		selected_price: function(){
+// 			return Session.get('selected_price');
+// 		},
+// 		selected_point: function(){
+// 			return Session.get('selected_point');
+// 		}
+// 	});
+// });
 
 
 
