@@ -112,12 +112,14 @@ Template.checkout.events({
 		}else{
 			userid = Session.get('userId');
 		}
-		Meteor.call('removemycheckout',id,function (err){
-			if(err)
-				console.log("Error Remove Checkout: "+err.reason);
-			else
-				console.log("Remove Checkout Success!!!");
-		});	
+		if(confirm("Are you sure want to delete this?")){
+			Meteor.call('removemycheckout',id,function (err){
+				if(err)
+					console.log("Error Remove Checkout: "+err.reason);
+				else
+					console.log("Remove Checkout Success!!!");
+			});	
+		}
 		//alert('had been remove!');
 	},
 	'click #btnAdd':function(e){

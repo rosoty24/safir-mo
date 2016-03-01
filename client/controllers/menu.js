@@ -22,6 +22,8 @@ Template.menu.events({
     	$("#panel_makeup").slideToggle("hide");
     },
     "click #all_makeup":function(){
+    	var id = this._id;
+    	alert(id);
         $("#panel_all_makeup").slideToggle("slow");
         $("#all_makeup").addClass("active");
         $("#panel_makeup").hide();

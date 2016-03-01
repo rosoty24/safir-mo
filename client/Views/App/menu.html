@@ -3,10 +3,10 @@
         <div class="hold_refine">
             <ul class="refine_menu list-inline">
             	<li class="active">
-	                <a href="#" id="makeup">Makeup <i class="fa fa-caret-down"></i></a>
+	                <a href="{{pathFor 'listing' id=(slug title)}}" id="makeup"> <i class="fa fa-caret-down"></i></a>
 	            </li>
 	            <li>
-	            	<a href="" id="all_makeup">All Makeup <i class="fa fa-caret-down"></i></a>
+	            	<a href="{{pathFor 'listing' id=(slug title)}}" id="all_makeup">All Makeup <i class="fa fa-caret-down"></i></a>
 	            </li>
                 <li>
                 	<a href="">Mascara...</a>
@@ -15,12 +15,12 @@
             <div id="panel_makeup">
 	            <ul class="make-up">
 	            	{{#each getParent}}
-	                <li id="child_makeup"><a href="">{{title}}</a>
-		                <ul>
+	                <li id="child_makeup"><a href="{{pathFor 'listing' id=(slug title)}}">{{title}}</a>
+		                <!-- <ul>
 		                	{{#each getChildren _id}}
 		                	<li id="child"><a href="{{pathFor 'listing' id=(slug title)}}">child {{title}}</a></li>
 		                	{{/each}}
-		                </ul>
+		                </ul> -->
 	                </li>
 	            	{{/each}}
 	            </ul>
@@ -109,12 +109,17 @@
 	            <div class="row">
 	            	<div class="u-vmenu">
 						<ul>
+							<li><a href="#" id="allCategory"> </a></li>
+						{{#with getParent}}
+							{{#each getChildren _id}}
 							<li>
-								<a href="#">1-Item 1</a>
+								<a href="{{pathFor 'listing' id=(slug title)}}">{{title}}</a>
+							
 								<ul>
-									<li><a href="#">2-Subitem 1</a>
-									</li>
-									<li>
+									<!-- <li><a href="{{pathFor 'listing' id=(slug title)}}">child {{title}}</a>
+									</li> -->
+									
+									<!-- <li>
 										<a href="#">2-Subitem 2</a>
 										<ul>
 											<li><a href="#">3-Subitem 1</a>
@@ -149,40 +154,13 @@
 										</ul>
 									</li>
 									<li><a href="#">2-Subitem 5</a>
-									</li>
+									</li> -->
 								</ul>
 							</li>
-							<li><a href="#">1-Item 2</a>
-								<ul>
-									<li><a href="#">2-Subitem 1</a>
-									</li>
-									<li><a href="#">2-Subitem 2</a>
-									</li>
-									<li><a href="#">2-Subitem 3</a>
-									</li>
-									<li><a href="#">2-Subitem 4</a>
-									</li>
-								</ul>
-							</li>
-							<li><a href="#">1-Item 3</a>
-								<ul>
-									<li><a href="#">2-Subitem 1</a>
-									</li>
-									<li><a href="#">2-Subitem 2</a>
-									</li>
-									<li><a href="#">2-Subitem 3</a>
-									</li>
-									<li><a href="#">2-Subitem 4</a>
-									</li>
-									<li><a href="#">2-Subitem 5</a>
-									</li>
-									<li><a href="#">2-Subitem 6</a>
-									</li>
-								</ul>
-							</li>
-							<li><a href="#">1-Item without subitems</a>
-							</li>
+							{{/each}}
+						{{/with}}
 						</ul>
+						
 					</div>
 	            </div>
             </div>
