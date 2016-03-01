@@ -14,7 +14,7 @@
 							<div class="checkbox">
 							  <label><input type="checkbox" value="">{{_ "This order contains"}} {{getCart.count}} {{_ "items"}}</label>
 							</div>
-							<button type="button" class="btn_checkout btn-block">{{_ "Proceed to checkout"}}</button>
+							<button type="button" class="btn-checkoutred btn_checkout btn-block" id="btnAdd">{{_ "Proceed to checkout"}}</button>
 						</div>
 						<div class="panel-footer">
 							<a href="">
@@ -32,14 +32,15 @@
 						<img src="{{getFirstImgProduct _id}}" class="img-circle">
 					</div>
 				{{/with}}
-				<div class="col-xs-8">
+
 				{{#with getProductInfo id_product}}
+				<div class="col-xs-8">
 					<h4 class="title-product">{{title}}</h4>
 					<h4 class="price-product">{{../subtotal}}</h4>
-					<p class="date">In stock on {{date}}</p>
+					<p class="date">In stock on {{getTime date}}</p>
 					<p class="free">Free Shipping</p>
-					{{/with}}
 				</div>
+				{{/with}}
 
 				<div class="col-xs-12">
 				<div class="bs-example">
@@ -49,10 +50,11 @@
 					  	{{quantity}} <span class="caret"></span>
 					    </button>
 					    <ul class="dropdown-menu" id="quantity">
-					      <li><a href="#" class="qty">{{quantity}}</a></li>
+					      <li><a href="#" class="qty">1</a></li>
 					      <li><a href="#" class="qty">2</a></li>
 					      <li><a href="#" class="qty">3</a></li>
-					      <li><a href="#" class="qty">4</a></li> 
+					      <li><a href="#" class="qty">4</a></li>
+					      <li><a href="#" class="qty">5</a></li>  
 					    </ul>
 					  </div>
 					  <button type="button" class="btn btn-checkout" id="removecheckout">Delete</button>

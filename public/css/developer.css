@@ -1,4 +1,36 @@
-
 .nonelike{
 	display: none;
 }
+/********** KA *************/
+/** refine brand **/
+a.alphabet, a.targetBrand, .info a{
+	color: #fff;
+	text-decoration: none;
+}
+div.refine-item{
+	padding: 0px;
+}
+div.brand-item{
+	padding-left: 0px;
+}
+/** listing product **/
+.styleImg{
+	height:130px;
+	overflow: hidden;
+}
+.styleText{
+	height: 45px;
+	overflow: hidden;
+}
+/** Login & Register **/
+.controls a{
+	color: #000;
+}
+#password, #con_password{
+	width: 228px;
+	height: 42px;
+	border: 1px solid;
+	margin-bottom: 10px;
+}
+
+/********** KA *************/

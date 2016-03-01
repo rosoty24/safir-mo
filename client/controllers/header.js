@@ -10,6 +10,8 @@ Session.setDefault('parentTagId','');
 Session.setDefault('click','');
 Template.mainLayoutMobile.onRendered(function(){
     // Toggle script
+    Session.set("MAKEUP", "MAKEUP");
+    $("#makeup").html(Session.get("MAKEUP"));
     $(".container").hide();
     $(".toggle").click(function(){
         $(this).toggleClass("active").next().slideToggle(350);
@@ -58,6 +60,12 @@ Template.mainLayoutMobile.onRendered(function(){
 });
 
 Template.mainLayoutMobile.events({
+    "click .left-menu":function(){
+        $("#content-wrapper").removeClass("moved-right");
+    },
+    "click .right-menu":function(){
+        $("#content-wrapper").removeClass("moved-left");
+    },
     'click .checkbox input': function(event) {
         var rank = [];
         $('.checkbox input').each( function(){
@@ -76,25 +84,14 @@ Template.mainLayoutMobile.events({
             if( maxX < rank[max].max )
                 maxX = rank[max].max;
         }
-        // console.log("min: "+minX);
-        // console.log("max: "+maxX);
-        // console.log(rank);
         Session.set("advanced_price_min",minX);
-        //console.log("SESS MIN: "+Session.get("advanced_price_min"));
         Session.set("advanced_price_max",maxX);
-        //console.log("SESS MAX: "+Session.get("advanced_price_max"));
         if(Router.current().route.getName()=='advanced'){
             return;
         }else{
             Router.go("/advanced");
         }
     },
-    // "click #makeup":function(){
-    //     $("#panel_makeup").slideToggle("slow");
-    // },
-    // "click #panel_makeup":function(){
-    //     $(".sub_dropdown").slideToggle("slow");
-    // },
     "click #price_range":function(){
         $(".panel_price_range").slideToggle("slow");
     },
@@ -104,9 +101,6 @@ Template.mainLayoutMobile.events({
     "click #advanced":function(){
         $(".panel_advanced").slideToggle("slow");
     },
-    // "click #skin_type":function(){
-    //     $(".panel_skin_type").slideToggle("slow");
-    // },
     "click #logout":function(e){
         e.preventDefault();
         Meteor.logout();
@@ -129,7 +123,7 @@ Template.mainLayoutMobile.events({
         }
         var html="";
         for(var i=0;i<myBrands.length;i++)
-            html=html+"<h4><a href='' class='targetBrand'  >"+myBrands[i]+"</a></h4>";
+            html=html+"<h4><a href='' class='targetBrand right-menu'>"+myBrands[i]+"</a></h4>";
         tpl.$("#allBrands").html(html);
     },
     'click .targetBrand': function(e,tpl){
@@ -152,14 +146,3 @@ Template.menu.onRendered(function(){
         });
     });
 });
-// Template.header.helpers({
-// 	getCart: function(){
-// 		var totalItem=0;
-// 		mycart = cart.find({userId:Session.get('userId')});
-// 		mycart.forEach(function(value){
-// 			//var totalItem=value.quantity;
-// 			totalItem+=parseInt(value.quantity);
-// 		});
-// 		return totalItem;
-// 	}
-// });
