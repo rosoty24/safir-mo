@@ -1,32 +1,22 @@
 <template name="webzinedetails">
 	<article>
-    	<div class="wrapper" style="margin-top: 50px;">
-              <div class="title-webzin-mobile">
-                  <h2>{{title}}</h2>
+    	<div class="wrapper" style="margin-top: 50px;" dir="{{getDirection}}">
+          <div class="title-webzin-mobile">
+              <h2>{{title}}</h2>
+          </div>
+          {{#with getFirstImgContent _id}}
+          <div class="space-img">
+              <img src="img/man-img.png" class="img-responsive">
+          </div>
+          {{/with}}
+          <div class="col-xs-12">
+              <div class="text-right">
+                <p class="cate-webzine-detail">Lipsticks</p>
               </div>
-
-              {{#with getFirstImgContent _id}}
-              <div class="space-img">
-                <img src="img/man-img.png" class="img-responsive">
-              </div>
-              {{/with}}
-
-               <div class="col-xs-6">
-                 <div class="wrapper-icon-detail">
-                  <a href=""> <i class="fa fa-facebook"></i> </a>
-                  <a href=""> <i class="fa fa-twitter"></i> </a>
-                 </div>
-               </div>
-            
-               <div class="col-xs-6">
-                 <div class="text-right">
-                     <p class="cate-webzine-detail">Lipsticks</p>
-                 </div>
-               </div>
-
-              <div class="text-webzin-mobile-detail">
-                  <p>{{{content}}}</p>
-              </div>
-         </div>
+          </div>
+          <div class="text-webzin-mobile-detail">
+                <p>{{{content}}}</p>
+          </div>
+      </div>
     </article>
 </template>

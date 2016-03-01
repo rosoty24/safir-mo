@@ -241,12 +241,15 @@ Template.webzinelisting.helpers({
 		if( i <= 1 ) return false;
 		else return true;
 	},
-     getImage: function(id){
+    getImage: function(id){
 		var p=contents.findOne({_id:id});
 		if(p.image instanceof Array)
 			return p.image[0];
 		else
 			return p.image;
+	},
+	getbanner:function(){
+	return banner.find({"typebanner":"webzine"});
 	}
 });
 Session.set("commentValidation","");

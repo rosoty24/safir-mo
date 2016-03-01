@@ -1,5 +1,5 @@
 <template name="member">
-	<article>
+	<article dir="{{getDirection}}">
 		<section class="shadow_bottom">
 			<div class="wrapper">
 				<div class="row">
@@ -78,12 +78,12 @@
 							<div class="col-xs-5">
 								<img src="/img/gif.png" class="center-block img-responsive">
 							</div>
-							<div class="col-xs-7">
+							<div class="col-xs-7" dir="{{getDirection}}">
 								<p class="text_profile text-right">{{_"Write the information that is gainedwhen one is silver or gold"}}</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-12">
+					<div class="col-xs-12" dir="{{getDirection}}">
 						<div class="row_img">
 							<p class="text_profile text-center">{{_"Be more active on the forum to earn points and gift"}}</p>
 						</div>
