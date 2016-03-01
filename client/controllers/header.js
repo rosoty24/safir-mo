@@ -58,6 +58,12 @@ Template.mainLayoutMobile.onRendered(function(){
 });
 
 Template.mainLayoutMobile.events({
+    "click .left-menu":function(){
+        $("#content-wrapper").removeClass("moved-right");
+    },
+    "click .right-menu":function(){
+        $("#content-wrapper").removeClass("moved-left");
+    },
     'click .checkbox input': function(event) {
         var rank = [];
         $('.checkbox input').each( function(){
@@ -115,7 +121,7 @@ Template.mainLayoutMobile.events({
         }
         var html="";
         for(var i=0;i<myBrands.length;i++)
-            html=html+"<h4><a href='' class='targetBrand'>"+myBrands[i]+"</a></h4>";
+            html=html+"<h4><a href='' class='targetBrand right-menu'>"+myBrands[i]+"</a></h4>";
         tpl.$("#allBrands").html(html);
     },
     'click .targetBrand': function(e,tpl){
