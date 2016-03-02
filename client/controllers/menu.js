@@ -37,20 +37,33 @@ Template.mainLayoutMobile.helpers({
 	}
 });
 Template.menu.events({
-	"click #child_child":function(){
+	'click #secondChild':function(e){
+		e.preventDefault();
+		$("#second_makeup").slideToggle("show");
+	},
+	"click #child_child":function(e){
+		e.preventDefault();
+		var id = this._id;
+		var name = $(e.currentTarget).text();
+		//alert(name);
+		$("#secondChild").html(name);
+		Session.set("FIRSTCHILDID", id);
+		
 		$("#panel_all_makeup").slideToggle("hide");
 	},
+
 	"click #makeup":function(){
         $("#makeup").addClass("active");
         $("#panel_makeup").slideToggle("slow");
         $("#panel_all_makeup").hide();
     },
     "click #child_makeup":function(e){
+    	e.preventDefault();
     	//alert("pisey toggle");
     	//$( "p" ).removeClass( "myClass yourClass" )
     	var parentsId = this._id; 
     	Session.set("PARENTS",parentsId );
-    	console.log("MY ID CATGORY IS==========="+parentsId);
+    	//console.log("MY ID CATGORY IS==========="+parentsId);
     	var parentName = $(e.currentTarget).text();
     		$("#makeup").html(parentName);
     		Session.set("parentNAME", parentName);
@@ -58,7 +71,8 @@ Template.menu.events({
     		$("#allCategory").html("All "+parentName);
     		$("#panel_makeup").slideToggle("hide");
     },
-    "click #all_makeup":function(){
+    "click #all_makeup":function(e){
+    	e.preventDefault();
     	var id = this._id;
     	//alert(id);
         $("#panel_all_makeup").slideToggle("slow");
@@ -83,6 +97,19 @@ Template.menu.helpers({
             document.index = index + 1;
             return document;
         });
+	},
+	getFirstChild:function(){
+		var id = Session.get("FIRSTCHILDID");
+		return categories.find({"parent":id}).map(function(document, index) {
+            document.index = index + 1;
+            return document;
+        });
+	},
+	changeLanguage: function(){
+		if(TAPi18n.getLanguage()=='fa')
+			return 'English';
+		if(TAPi18n.getLanguage()=='en')
+			return 'فارسی';
 	}
 	
 });
