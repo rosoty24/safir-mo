@@ -37,8 +37,9 @@ Template.editprofile.helpers({
         return profile;
         //console.log(profile+'UserId'+id);
     },
-     getImage: function(id){
-            var img = images.findOne({_id:id});
+     getImage: function(){
+            var profile = Session.get('ADDAVATAR');
+            var img = images.findOne({_id:profile});
             if(img){
                 console.log(img.copies.images.key);
                 return img.copies.images.key;
@@ -46,6 +47,13 @@ Template.editprofile.helpers({
             else{
                 return;
             }
+    },
+    isProfile:function(){
+        var profile = Session.get('ADDAVATAR');
+        if(profile)
+            return true;
+        else
+            return false;
     },
     error_message: function (){
             var msg = Session.get('error_mg',msg);
@@ -114,9 +122,19 @@ Template.editprofile.events({
                     profile:profile,
                 };
             }
-            Meteor.call('editprofile',id,obj);
+            Meteor.call('editprofile',id,obj,function(error){
+                if(error)
+                    console.log("editprofile error"+error.reason)
+                else
+                    console.log("editprofile successfully");
+            });
             
-            Meteor.call('addpoint',id,attr);
+            Meteor.call('addpoint',id,attr,function(error){
+                if(error)
+                    console.log("addpoint error"+error.reason)
+                else
+                    console.log("addpoint successfully");
+            });
             alert("You have earned "+upoint+" points!");
         }
 

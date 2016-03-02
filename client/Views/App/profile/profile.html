@@ -1,0 +1,69 @@
+<template name="profile">
+    <article style="height:600px;"> <!-- start container -->
+    	<div class="wrapper" style="margin-top: 50px;">
+
+              <div>
+              	{{#with getprofile}}
+              	<div class="col-xs-4">
+                     <img src="{{getImg image}}" class="img-responsibve">
+               	</div>
+               	{{/with}}
+
+	            <div class="col-xs-8">
+	                <h2 style="margin:0 auto;">{{#with getprofile}}{{profile.firstname}} {{profile.lastname}}{{/with}}</h2>
+	                <!-- <h5 style="margin:0 auto;">USERNAME</h5> -->
+	                <h2>{{getpoint}} pt</h2>
+	            </div>
+              </div>
+
+              <div class="col-xs-12">
+                <hr style="border:1px solid #000;">
+              </div>
+
+              <div class="col-xs-12">
+	            <div class="row">
+	            	{{#with getprofile}}
+					{{profile.image}}
+	            	<table class="table-profile table">
+	                        <tbody>
+	                            <tr>
+	                                <td>{{_"Name"}}</td>
+	                                <td style="font-weight:bold">{{profile.firstname}} {{profile.lastname}}</td>
+	                            </tr>
+	                            <tr>
+	                                <td>{{_"BIRTH DATE"}}</td>
+	                                <td style="font-weight:bold">{{profile.birth}}</td>
+	                            </tr>
+	                            <tr>
+	                                <td>{{_"EMAIL"}}</td>
+	                                {{#each emails}}
+	                                <td style="font-weight:bold">{{address}}</td>
+	                                {{/each}}
+	                            </tr>
+	                            <tr>
+	                                <td>{{_"SEX"}}</td>
+	                                <td style="font-weight:bold">{{profile.sex}}</td>
+	                            </tr>
+	                            <tr>
+	                                <td>{{_"ADDRESS"}}</td>
+	                                <td style="font-weight:bold">{{profile.address}}</td>
+	                            </tr>
+	                        </tbody>
+                    </table>
+                    {{/with}}
+	            </div>
+                <div>
+                    <a href="/editprofile"><button type="button" class="profile-black pull-right">{{_"Edit"}}</button></a>
+                </div>
+              </div>
+
+              <div class="col-xs-12">
+                <hr style="border:1px solid #000;">
+              </div>
+        </div>
+        <section>
+       		<img src="/img/imgpsh_fullsize.png" width="100%">
+       	</section>
+
+    </article> <!-- end container -->
+</template>

@@ -1,16 +1,22 @@
-<template name="register">
-	  <article>
+<template name ="register">
+	  <article dir="{{getDirection}}">
 	        <section class="img-bg-register">
 	        	<div class="wrapper">
 	                <div class="row">
 	                    <div class="form-register">
-	                        <div class="text-center">
+	                        <!-- <div class="text-center">
 	                            <a href="/login"><button class="button-log" id="loginTop">{{_ "Login"}}</button></a>
 	                            <strong class="joiner">{{_ "Or"}}</strong>
 	                            <a href="/register"><button id="registerTop">{{_ "Register"}}</button></a>
+	                        </div> -->
+	                        <div class="text-center btn-re-log">
+	                            <ul class="list-inline">
+	                                <li><a href="/login"><button class="btn btn-log">{{_ "Login"}}</button></a></li>
+	                                <li>{{_ "Or"}}</li>
+	                                <li><a href="/register"><button class="btn btn-register-white">{{_ "Register"}}</button></a></li>
+	                            </ul>
 	                        </div>
 	                        <form class="control-group">
-	                       <!--  <div class="register_msg" style="margin-top:10px;color:red"></div> -->
 	                            <div class="control-group">
 	                                <label class="control-label" for="inputEmail">{{_ "Username"}}</label>
 	                                <div class="controls">
@@ -21,28 +27,28 @@
 	                            <div class="control-group">
 	                                <label class="control-label" for="inputEmail">{{_ "First name"}}</label>
 	                                <div class="controls">
-	                                    <input class="short" type="text" id="fname" placeholder="">
+	                                    <input class="text" type="text" id="fname" placeholder="">
 	                                </div>
 	                                <p class="error_firstname" style="margin-top:10px;color:red"></p>
 	                            </div>
 	                            <div class="control-group">
 	                                <label class="control-label" for="inputEmail">{{_ "Last name"}}</label>
 	                                <div class="controls">
-	                                    <input class="short" type="text" id="lname" placeholder="">
+	                                    <input class="text" type="text" id="lname" placeholder="">
 	                                </div>
 	                                <p class="error_lastname" style="margin-top:10px;color:red"></p>
 	                            </div>
 	                            <div class="control-group">
 	                                <label class="control-label" for="inputEmail">{{_ "City"}}</label>
 	                                <div class="controls">
-	                                    <input class="short" type="text" id="pays" placeholder="">
+	                                    <input class="text" type="text" id="pays" placeholder="">
 	                                </div>
 	                                <p class="error_pays" style="margin-top:10px;color:red"></p>
 	                            </div>
 	                            <div class="control-group">
 	                                <label class="control-label" for="inputEmail">{{_ "Ville"}}</label>
 	                                <div class="controls">
-	                                    <input class="short" type="text" id="ville" placeholder="">
+	                                    <input class="text" type="text" id="ville" placeholder="">
 	                                </div>
 	                                <p class="error_ville" style="margin-top:10px;color:red"></p>
 	                            </div>
