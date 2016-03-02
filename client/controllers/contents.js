@@ -413,6 +413,9 @@ Template.webzinedetails.helpers({
 			console.log('NUMBER OF lastResult.length '+lastResult.length);
 			//return lastResult;
 	},
+	getCatergoryName: function(categoryId){
+		 return categories.findOne({"_id":categoryId}).title;
+	}
 });
 
 Template.addContent.helpers({

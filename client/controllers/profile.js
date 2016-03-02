@@ -28,6 +28,16 @@ Template.profile.helpers({
             }
        });
         return answer;
+    },
+    getpoint: function(){
+        var me=Meteor.user();
+        //alert("me mellow ");
+        if(me==null)
+            return;
+        if(typeof me.profile.shipcard != "undefined")
+            return me.profile.shipcard.point;
+        else
+            return 0;
     }
 });
 Template.editprofile.helpers({
@@ -75,7 +85,8 @@ Template.editprofile.events({
         var point = 5;
         var profile = Meteor.users.findOne({_id:id}).profile.firstname;
             var upoint = Meteor.users.findOne({_id:id}).profile.shipcard.point;
-            upoint+=point;
+                upoint = Number(upoint);
+                upoint+=point;
             // alert(profile+ upoint);
             var attr= {
               profile:{
