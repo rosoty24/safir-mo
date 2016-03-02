@@ -1,3 +1,172 @@
+<template name="menu123">
+	<div class="col-xs-12">
+        <div class="hold_refine">
+            <ul class="refine_menu list-inline">
+            	<li class="active">
+	                <a href="{{pathFor 'listing' id=(slug title)}}" id="makeup"> <i class="fa fa-caret-down"></i></a>
+	            </li>
+	            <li>
+	            	<a href="{{pathFor 'listing' id=(slug title)}}" id="all_makeup">All Makeup <i class="fa fa-caret-down"></i></a>
+	            </li>
+                <li>
+                	<a href="">Mascara...</a>
+                </li>
+            </ul>
+            <div id="panel_makeup">
+	            <ul class="make-up">
+	            	{{#each getParent}}
+	                <li id="child_makeup"><a href="{{pathFor 'listing' id=(slug title)}}">{{title}}</a>
+		                <!-- <ul>
+		                	{{#each getChildren _id}}
+		                	<li id="child"><a href="{{pathFor 'listing' id=(slug title)}}">child {{title}}</a></li>
+		                	{{/each}}
+		                </ul> -->
+	                </li>
+	            	{{/each}}
+	            </ul>
+            <!-- <div class="row">
+                    <div id="menu">
+	                    <div class="panel_advanced">
+	                        <ul>
+	                            <li><a href="">Ingredient Preference</a></li>
+	                            <li><a href="">Concern</a></li>
+	                            <li><a href="#" id="skin_type">Skin Type</a></li>
+	                            <div class="panel_skin_type">
+	                                <div class="col-xs-6">
+	                                    <p>Brand</p>
+	                                    <p>Brand</p>
+	                                    <p>Brand</p>
+	                                </div>
+	                                <div class="col-xs-6">
+	                                    <p>Brand</p>
+	                                    <p>Brand</p>
+	                                    <p>Brand</p>
+	                                </div>
+	                            </div>
+	                            <li><a href="#" id="skin_type">Season</a></li>
+	                        </ul>
+	                    </div>
+                        <div class="panel list-group">
+                        
+                            <a href="#" class="list-group-item" data-toggle="collapse" data-target="#sm" data-parent="#menu">MESSAGES</a>
+                            <div id="sm" class="sublinks collapse">
+                                <ul class="sub_dropdown">
+                                    <li><a href="">All Eye makeup</a></li>
+                                    <li><a href="">Eyeshadow Palettes & Eye Sets</a></li>
+                                    <li><a href="">Mascara</a></li>
+                                    <li><a href="">Eyeliner</a></li>
+                                    <li><a href="">Eyeshadow</a></li>
+                                    <li><a href="">Eyeshadow Primer & Base</a></li>
+                                    <li><a href="">Under Eye Concealer</a></li>
+                                    <li><a href="">Eyebrows</a></li>
+                                    <li><a href="">Eyeliner</a></li>
+                                    <li><a href="">Eyelash Enhancers & Primers</a></li>
+                                    <li><a href="">Eyelash Curlers</a></li>
+                                    <li><a href="">False Eyelashes</a></li>
+                                    <li><a href="">Eye Makeup Remover</a></li>
+                                    <li><a href="">Eye Brushes</a></li>
+                                </ul>
+                            </div>
+                            <a href="#" class="list-group-item" data-toggle="collapse" data-target="#sl" data-parent="#menu">TASKS</a>
+                            <div id="sl" class="sublinks collapse">
+                                <a class="list-group-item small">saved tasks</a>
+                                <a class="list-group-item small">add new task</a>
+                            </div>
+                            <a href="#" class="list-group-item">ANOTHER LINK ...</a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><a href="">Nails</a>
+						</li>
+                        <li><a href="">Frangrance</a></li>
+                        <li><a href="">Skin care</a></li>
+                        <li><a href="#">Makeup</a>
+                            <div class="hold_sub_dropdown">
+                                <ul class="sub_dropdown">
+                                    <li><a href="">All Eye makeup</a></li>
+                                    <li><a href="">Eyeshadow Palettes & Eye Sets</a></li>
+                                    <li><a href="">Mascara</a></li>
+                                    <li><a href="">Eyeliner</a></li>
+                                    <li><a href="">Eyeshadow</a></li>
+                                    <li><a href="">Eyeshadow Primer & Base</a></li>
+                                    <li><a href="">Under Eye Concealer</a></li>
+                                    <li><a href="">Eyebrows</a></li>
+                                    <li><a href="">Eyeliner</a></li>
+                                    <li><a href="">Eyelash Enhancers & Primers</a></li>
+                                    <li><a href="">Eyelash Curlers</a></li>
+                                    <li><a href="">False Eyelashes</a></li>
+                                    <li><a href="">Eye Makeup Remover</a></li>
+                                    <li><a href="">Eye Brushes</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="">Bath & Body</a></li>
+                        <li><a href="">Hair</a></li>
+                    </ul> 
+            </div> -->
+            </div>
+            <div id="panel_all_makeup" style="display: none;">
+	            <div class="row">
+	            	<div class="u-vmenu">
+						<ul>
+							<li><a href="#" id="allCategory"> </a></li>
+						{{#with getParent}}
+							{{#each getChildren _id}}
+							<li>
+								<a href="{{pathFor 'listing' id=(slug title)}}">{{title}}</a>
+							
+								<ul>
+									<!-- <li><a href="{{pathFor 'listing' id=(slug title)}}">child {{title}}</a>
+									</li> -->
+									
+									<!-- <li>
+										<a href="#">2-Subitem 2</a>
+										<ul>
+											<li><a href="#">3-Subitem 1</a>
+												<ul>
+													<li><a href="#">4-Subitem 1</a>
+													</li>
+													<li><a href="#">4-Subitem 2</a>
+													</li>
+													<li><a href="#">4-Subitem 3</a>
+													</li>
+													<li><a href="#">4-Subitem 4</a>
+													</li>
+												</ul>
+											</li>
+											<li><a href="#">3-Subitem 2</a>
+											</li>
+											<li><a href="#">3-Subitem 3</a>
+											</li>
+											<li><a href="#">3-Subitem 4</a>
+											</li>
+										</ul>
+									</li>
+									<li><a href="#">2-Subitem 3</a>
+									</li>
+									<li>
+										<a href="#">2-Subitem 4</a>
+										<ul>
+											<li><a href="#">Subitem 1</a>
+											</li>
+											<li><a href="#">Subitem 2</a>
+											</li>
+										</ul>
+									</li>
+									<li><a href="#">2-Subitem 5</a>
+									</li> -->
+								</ul>
+							</li>
+							{{/each}}
+						{{/with}}
+						</ul>
+						
+					</div>
+	            </div>
+            </div>
+        </div>
+    </div>
+</template>
 <template name="menu">
 	<div class="col-xs-12">
         <div class="hold_refine">

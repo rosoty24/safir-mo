@@ -22,4 +22,15 @@ div.brand-item{
 	height: 45px;
 	overflow: hidden;
 }
+/** Login & Register **/
+.controls a{
+	color: #000;
+}
+#password, #con_password{
+	width: 228px;
+	height: 42px;
+	border: 1px solid;
+	margin-bottom: 10px;
+}
+
 /********** KA *************/
