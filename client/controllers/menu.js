@@ -3,18 +3,20 @@ Session.set('children2','');
 Session.set('selected_menu','');
 Session.setDefault('CHILDMAKEUP','');
 Template.menu.events({
-	"click #makeup":function(){
+	"click #makeup":function(e){
+		e.preventDefault();
         $("#makeup").addClass("active");
         $("#panel_makeup").slideToggle("slow");
         $("#panel_all_makeup").hide();
     },
 
     "click #child_makeup":function(e){
+    	e.preventDefault();
     	//alert("pisey toggle");
     	//$( "p" ).removeClass( "myClass yourClass" )
     	var parentsId = this._id; 
     	Session.set("PARENTS",parentsId );
-    	console.log("MY ID CATGORY IS==========="+parentsId);
+    	//console.log("MY ID CATGORY IS==========="+parentsId);
     	var parentName = $(e.currentTarget).text();
     		$("#makeup").html(parentName);
     		Session.set("parentNAME", parentName);
@@ -22,12 +24,19 @@ Template.menu.events({
     		$("#allCategory").html("All "+parentName);
     	$("#panel_makeup").slideToggle("hide");
     },
-    "click #all_makeup":function(){
+    "click #all_makeup":function(e){
+    	e.preventDefault();
     	var id = this._id;
     	alert(id);
         $("#panel_all_makeup").slideToggle("slow");
         $("#all_makeup").addClass("active");
         $("#panel_makeup").hide();
+    },
+    'click #firstChild':function(e){
+    	e.preventDefault();
+    	var fistChildId = this._id;
+    	//alert("ID "+id);
+    	Session.set("FIRSTCHILD", fistChildId);
     }
 });
 Template.menu.helpers({
@@ -48,6 +57,13 @@ Template.menu.helpers({
             return document;
         });
 	},
+	getFirstChild:function(){
+		var id = Session.get("FIRSTCHILD");
+		return categories.find({"parent":id}).map(function(document, index) {
+            document.index = index + 1;
+            return document;
+        });
+	}
 	changeLanguage: function(){
 		if(TAPi18n.getLanguage()=='fa')
 			return 'English';

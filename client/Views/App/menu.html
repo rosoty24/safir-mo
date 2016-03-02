@@ -113,7 +113,7 @@
 						{{#with getParent}}
 							{{#each getChildren _id}}
 							<li>
-								<a href="{{pathFor 'listing' id=(slug title)}}">{{title}}</a>
+								<a href="{{pathFor 'listing' id=(slug title)}}" id="firstChild">{{title}}</a>
 							
 								<ul>
 									<!-- <li><a href="{{pathFor 'listing' id=(slug title)}}">child {{title}}</a>
