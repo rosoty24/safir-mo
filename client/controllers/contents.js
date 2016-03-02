@@ -876,7 +876,7 @@ Template.tutodetails.events({
 	'click #addreview': function(e,tpl){
 		e.preventDefault();
 		var comment=tpl.$("#comment").val();
-		alert(comment);
+		//alert(comment);
 		//var grade=tpl.$("#sel1").val();
 		Meteor.call('addReviewTuto',comment,Meteor.userId(),this._id);
 		
