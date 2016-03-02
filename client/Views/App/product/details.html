@@ -28,7 +28,8 @@
                                 <img id="hoverZoom" class="img-responsive" src="{{getImgForProduct _id}}" alt="{{title}}"/>
                                 <!-- </span> -->
                           </div>
-                          <div class="col-sm-12">
+                          <div class="row">
+                            <div class="col-sm-12">
                             <div class="form-group pull-left" >
                               <select id="qty" style="-webkit-appearance:menulist;">
                                 <option>1</option>
@@ -38,9 +39,13 @@
                                 <option>5</option>
                               </select>
                             </div>
-                            <button class="btn_addtocard pull-left" id="addtocart">{{_ "ADD TO CART"}}</button>
+                          </div>
+                          <div class="col-sm-12">
+                               <button class="btn_addtocard pull-left" id="addtocart">{{_ "ADD TO CART"}}</button>
                             <h2 class="pull-right">{{selected_price}} تومان</h2>
                           </div>
+                          </div>
+                          
                         </div>
 
                         <div class="row">
