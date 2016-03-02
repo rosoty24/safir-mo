@@ -1,7 +1,7 @@
 Session.set("pro","");
 Template.searchproduct.events({
     'click #unlike':function(e){
-        alert('unlike');
+        //alert('unlike');
         e.preventDefault();
         var unlike = '#unlike'+this._id;
         var like = '#like'+this._id;
@@ -28,7 +28,7 @@ Template.searchproduct.events({
     },
     'click #like':function(e){
         e.preventDefault();
-        alert('like');
+        //alert('like');
         var unlike = '#unlike'+this._id;
         var like = '#like'+this._id;
         $(like).addClass('nonelike');

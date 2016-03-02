@@ -37,28 +37,35 @@ Template.mainLayoutMobile.helpers({
 	}
 });
 Template.menu.events({
+
 	'click #secondChild':function(e){
 		e.preventDefault();
 		$("#second_makeup").slideToggle("show");
+		$("#panel_makeup").hide();
+		$("#panel_all_makeup").hide();
+	},
+	'click #second_child':function(){
+		$("#second_makeup").slideToggle("hide");
 	},
 	"click #child_child":function(e){
-		e.preventDefault();
+		//e.preventDefault();
 		var id = this._id;
 		var name = $(e.currentTarget).text();
 		//alert(name);
 		$("#secondChild").html(name);
 		Session.set("FIRSTCHILDID", id);
-		
 		$("#panel_all_makeup").slideToggle("hide");
 	},
 
 	"click #makeup":function(){
         $("#makeup").addClass("active");
+        $("#secondChild").html("");
         $("#panel_makeup").slideToggle("slow");
         $("#panel_all_makeup").hide();
+        $("#second_makeup").hide();
     },
     "click #child_makeup":function(e){
-    	e.preventDefault();
+    	//e.preventDefault();
     	//alert("pisey toggle");
     	//$( "p" ).removeClass( "myClass yourClass" )
     	var parentsId = this._id; 
@@ -78,6 +85,7 @@ Template.menu.events({
         $("#panel_all_makeup").slideToggle("slow");
         $("#all_makeup").addClass("active");
         $("#panel_makeup").hide();
+        $("#second_makeup").hide();
     }
 });
 Template.menu.helpers({
