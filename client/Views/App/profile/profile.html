@@ -5,7 +5,11 @@
               <div>
               	{{#with getprofile}}
               	<div class="col-xs-4">
-                     <img src="{{getImg image}}" class="img-responsibve">
+              		{{#if image}}
+                     	<img src="{{getImg image}}" class="img-responsibve">
+                    {{else}}
+                    	<img src="/img/img_reward4.png" class="img-responsibve">
+                    {{/if}}
                	</div>
                	{{/with}}
 

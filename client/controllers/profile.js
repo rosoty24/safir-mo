@@ -76,7 +76,7 @@ Template.editprofile.events({
         var profile = Meteor.users.findOne({_id:id}).profile.firstname;
             var upoint = Meteor.users.findOne({_id:id}).profile.shipcard.point;
             upoint+=point;
-            alert(profile+ upoint);
+            // alert(profile+ upoint);
             var attr= {
               profile:{
                 firstname:firstname,
@@ -91,14 +91,14 @@ Template.editprofile.events({
              }
             }
                 var error_mg="";
-                if( firstname  =="" || lastname =="" || address ==""){
+                if( firstname  =="" || lastname ==""){
 
                     if (firstname =="")
                             error_mg += "Firstname is requied";
                     if (lastname =="")
                             error_mg += "Lastname is requied";
-                    if (address =="")
-                            error_mg +="Address is requied";
+                    // if (address =="")
+                    //         error_mg +="Address is requied";
                     return Session.set("error_mg",error_mg);
 
                 }else {
@@ -135,7 +135,7 @@ Template.editprofile.events({
                 else
                     console.log("addpoint successfully");
             });
-            alert("You have earned "+upoint+" points!");
+            // alert("You have earned "+upoint+" points!");
         }
 
                 // Meteor.call('editarray',id,ojb);
@@ -152,6 +152,7 @@ Template.editprofile.events({
         }
     }
 });
+
 Template.profile.events({
     'click #btn-answer': function(e){
         //alert("Hello");

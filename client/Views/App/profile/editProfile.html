@@ -1,9 +1,13 @@
 <template name="editprofile">
-    <article>
+    <article dir="{{getDirection}}">
     	<div class="wrapper wrap-edit">
     		<div>
 				{{#each getprofile}}
+                {{#if image}}
 				    <img style="border:5px solid #000;width:150px;height:150px;" src="{{getImg image}}" class="img-circle center-block" alt="Avatar"/>
+                {{else}}
+                    <img src="/img/img_reward4.png" class="img-responsibve">
+                {{/if}}
 				{{/each}}
 			</div>
 			<!-- <div class="col-xs-12 col-sm-6 col-lg-9">
@@ -17,7 +21,7 @@
     			{{#each getprofile}}
 				<table class="edit-profile">
 				    <tr>
-    					<td><label>Profile Image</label></td>
+    					<td><label>{{_"Profile Image"}}</label></td>
     					<td>
     						<div class="browse-wrap">
     							<div class="title">Browse file</div>
@@ -27,35 +31,35 @@
     					</td>
     				</tr>
     				<tr>
-    					<td><label>First name</label></td>
+    					<td><label>{{_"First name"}}</label></td>
     					<td><input type="text" class="input-profile" id="firstname" value="{{profile.firstname}}"/></td>
     				</tr>
     				<tr>
-    					<td><label>Last name</label></td>
+    					<td><label>{{_"Last name"}}</label></td>
     					<td><input type="text" class="input-profile" id="lastname" value="{{profile.lastname}}"/></td>
     				</tr>
     				<tr>
-    					<td><label>Date of birth</label></td>
+    					<td><label>{{_"Birth Date"}}</label></td>
     					<td><input type="text" class="input-profile" id="birth" value="{{profile.birth}}"/></td>
     				</tr>
     				<tr>
-    					<td><label>Sex</label></td>
+    					<td><label>{{_"Sex"}}</label></td>
     					<td>
     						<select id="gender">
-    							<option value="{{profile.sex}}">{{profile.sex}}</option>
+    							<option value="{{profile.sex}}" style="display:none;">{{profile.sex}}</option>
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
     						</select>
     					</td>
     				</tr>
     				<tr>
-    					<td><label>Address</label></td>
+    					<td><label>{{_"Address"}}</label></td>
     					<td><textarea type="text" id="address">{{profile.address}}</textarea></td>
     				</tr>
 				</table>
 				{{/each}}
 				<div class="col-xs-12">
-	                <button type="button" class="profile-black pull-right" id="updateProfile">Edit</button>
+	                <button type="button" class="profile-black pull-right" id="updateProfile">{{_"Edit"}}</button>
 	            </div>
     	</div>
     	<script type="text/javascript">
