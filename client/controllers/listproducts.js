@@ -12,6 +12,7 @@ $(window).scroll(function() {
     processScroll = true;
 }
 });
+
 Template.listproducts.rendered=function(){
 	Session.set("MAKEUP", "MAKEUP");
     Session.set("ALLMAKEUP", "ALL MAKEUP");
@@ -214,13 +215,5 @@ Template.listproducts.events({
 
 // });
 
-Template.details.rendered=function(){
-	Session.set("MAKEUP", "MAKEUP");
-    Session.set("ALLMAKEUP", "ALL MAKEUP");
-    Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
-    $("#makeup").html(Session.get("MAKEUP"));
-    $("#all_makeup").html(Session.get("ALLMAKEUP"));
-    $("#secondChild").html(Session.get("ALLALLMAKEUP"));
-	$("[rel='tooltip']").tooltip(); 
-};
+
 
