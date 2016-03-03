@@ -20,43 +20,43 @@
                             </div>
                         </div>
                     </div>
-                 {{/with}}
-                  {{/each}}
-                          <div class="space-top-detail1">
-                              <!-- <img src="img/cream.png" class="img-responsive"> -->
-                              <!-- <span class='zoom' id='ex1'> -->
-                                <img id="hoverZoom" class="img-responsive" src="{{getImgForProduct _id}}" alt="{{title}}"/>
-                                <!-- </span> -->
-                          </div>
-                          <div class="row">
-                            <div class="col-sm-12">
+                    {{/with}}
+                {{/each}}
+                <div class="space-top-detail1">
+                    <img id="hoverZoom" class="img-responsive" src="{{getImgForProduct _id}}" alt="{{title}}"/>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-12">
                             <div class="form-group pull-left" >
-                              <select id="qty" style="-webkit-appearance:menulist;">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                              </select>
+                                <label>Select Quatity: </label>
+                                <select id="qty" style="-webkit-appearance:menulist;">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
                             </div>
-                          </div>
-                          <div class="col-sm-12">
-                               <button class="btn_addtocard pull-left" id="addtocart">{{_ "ADD TO CART"}}</button>
-                            <h2 class="pull-right">{{selected_price}} تومان</h2>
-                          </div>
-                          </div>
-                          
-                        </div>
-
-                        <div class="row">
-                         <div class="col-sm-12">
-                           <div class="well-deatail">
-                                <p class="text-center text-detail">{{{description}}}</p>
-                            </div>
-                         </div>
                         </div>
                     </div>
-                   </section>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button class="btn_addtocard pull-left" id="addtocart">{{_ "ADD TO CART"}}</button>
+                            <h2 class="pull-right">{{selected_price}} تومان</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="well-deatail">
+                        <p class="text-center text-detail">{{{description}}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
                    <section class="shadow_bottom">
                     <div class="wrapper">
                         <!-- <div class="row">
