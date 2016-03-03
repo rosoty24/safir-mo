@@ -1,13 +1,13 @@
 <template name="listForum">
     <article>
-        <section id="refine_menu">
+        <section id="refine_menu" dir="{{getDirection}}">
             <div class="col-xs-12">
                 <div class="row">
                     <div class="hold_refine">
                         <ul class="refine_menu list-inline">
                             <div class="col-xs-12">
                                 <li class="active">
-                                    <a href="#" id="makeup">Category <i class="fa fa-caret-down"></i></a>
+                                    <a href="#" id="makeup">{{_ "Category"}} <i class="fa fa-caret-down"></i></a>
                                 </li>
                             </div>
                         </ul>
@@ -22,11 +22,11 @@
                 </div>
             </div>
         </section>
-        <section class="shadow_bottom">
+        <section class="shadow_bottom" dir="{{getDirection}}">
           <div class="wrapper">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h4 id="cate">List All Forums</h4>
+                        <h4 id="cate">{{_ "List All Forums"}}</h4>
                             {{#each getallForum}}
                             <div class="hold-each-comment">
                                 <div class="row">

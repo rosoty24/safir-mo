@@ -62,8 +62,6 @@ Template.addContent.events({
 		        };
 	        });
     	}
-    	
-
     }
 });
 Template.addContent.helpers({
