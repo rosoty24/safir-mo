@@ -15,6 +15,11 @@ Template.mainLayoutMobile.onRendered(function(){
         $(this).toggleClass("active").next().slideToggle(350);
         return false;
     });
+    // -----------------------------
+    $("#child-left-forum").hide();
+    jQuery('#left-forum').click(function(){
+        jQuery('#child-left-forum').toggle(250);
+    });
     // -------- Toggle script end ------ //
     $("#submenu-1").hide();
     jQuery('#a-submenu-1').click(function(){
