@@ -42,7 +42,7 @@ Template.addquizz.events({
 				}else{
 					console.log("AddQuizz Success");
 					Bert.alert( 'AddQuizz Successfull', 'success', 'fixed-bottom', 'fa-frown-o' );
-					Router.go("managequizz");
+					Router.go("listQuizz");
 				}
 			});
 		}
