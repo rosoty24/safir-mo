@@ -1,4 +1,10 @@
 Template.home.rendered=function(){
+	Session.set("MAKEUP", "MAKEUP");
+    Session.set("ALLMAKEUP", "ALL MAKEUP");
+    Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
+    $("#makeup").html(Session.get("MAKEUP"));
+    $("#all_makeup").html(Session.get("ALLMAKEUP"));
+    $("#secondChild").html(Session.get("ALLALLMAKEUP"));
 	var swiper = new Swiper('.swiper-container', {
 		autoplay: 5000,
         pagination: '.swiper-pagination',
