@@ -1,5 +1,5 @@
 <template name="headermenu">	
-	<section id="menu-wrapper">
+	<section id="menu-wrapper" dir="{{getDirection}}">
 		<div id="menu-search">
 			<span><button class="btn kesearch left-menu"><i class="fa fa-search search-font"></i></button></span>
 		   	<input class="input-search" id="textToSearch" type="text" placeholder="{{_"Search for..."}}" />
@@ -7,46 +7,46 @@
 		<ul id="menu-lateral" class="menu">
 			<li>
                 <a href="/">
-                    <span class="menu-li-title left-menu">Market</span>
+                    <span class="menu-li-title left-menu">{{_"Market"}}</span>
                 </a>
             </li>
             {{#if currentUser}}
 				<li id="a-submenu-1" class="icon plus">
 	                <a href="#">
-	                    <span class="menu-li-title">Profile</span>
+	                    <span class="menu-li-title">{{_"Profile"}}</span>
 	                </a>
 	                <ul id="submenu-1" style="display: none;">
 	                    <li>
 	                        <a href="/profile">
-	                            <span class="menu-li-title left-menu">My Profile</span>
+	                            <span class="menu-li-title left-menu">{{_"My Profile"}}</span>
 	                        </a>
 	                    </li>
 	                    <li>
 	                        <a href="/member">
-	                            <span class="menu-li-title left-menu">Member profile</span>
+	                            <span class="menu-li-title left-menu">{{_"Member profile"}}</span>
 	                        </a>
 	                    </li>
 	                    <li>
 	                        <a href="/member">
-	                            <span class="menu-li-title left-menu">Member profile</span>
+	                            <span class="menu-li-title left-menu">{{_"Member profile"}}</span>
 	                        </a>
 	                    </li>
 	                    <li>
 	                        <a href="/reward">
-	                            <span class="menu-li-title left-menu">Rewards & points</span>
+	                            <span class="menu-li-title left-menu">{{_"Rewards & points"}}</span>
 	                        </a>
 	                    </li>
 	                </ul>
 	            </li>
 	            <li>
 					<a href="#">
-						<span class="menu-li-title left-menu" id="logout">Logout</span>
+						<span class="menu-li-title left-menu" id="logout">{{_"Logout"}}</span>
 					</a>
 				</li>
             {{else}}
 				<li class="icon box">
 					<a href="/login">
-						<span class="menu-li-title left-menu">Sing in / Register</span>
+						<span class="menu-li-title left-menu">{{_"Sing in / Register"}}</span>
 					</a>
 				</li>
 			{{/if}}
@@ -55,22 +55,22 @@
 		<ul>
 			<li class="icon info">
 				<a href="/favorite">
-					<span class="menu-li-title left-menu">FAVORITE</span>
+					<span class="menu-li-title left-menu">{{_"FAVORITE"}}</span>
 				</a>
 			</li>
 			<li class="icon info">
 				<a href="/webzinelisting">
-					<span class="menu-li-title left-menu">WEBZINE</span>
+					<span class="menu-li-title left-menu">{{_"WEBZINE"}}</span>
 				</a>
 			</li>
 			<li class="icon info">
 				<a href="/tuto">
-					<span class="menu-li-title left-menu">TUTO</span>
+					<span class="menu-li-title left-menu">{{_"TUTO"}}</span>
 				</a>
 			</li>
 			<li class="icon info">
 				<a href="/forum/listing">
-					<span class="menu-li-title left-menu">FORUM</span>
+					<span class="menu-li-title left-menu">{{_"FORUM"}}</span>
 				</a>
 			</li>
 		</ul>

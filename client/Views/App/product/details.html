@@ -1,5 +1,5 @@
 <template name="details">
-    <article>
+    <article dir="{{getDirection}}">
     <section class="shadow_bottom">
         <div class="wrapper">
             <div class="row">
@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group pull-left" >
-                                <label>Select Quatity: </label>
+                                <label>{{_"Select Quatity:"}} </label>
                                 <select id="qty" style="-webkit-appearance:menulist;">
                                     <option>1</option>
                                     <option>2</option>

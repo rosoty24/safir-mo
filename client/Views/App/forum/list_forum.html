@@ -1,22 +1,22 @@
 <template name="listForum">
   <article>
-        <section class="shadow_bottom">
+        <section class="shadow_bottom" dir="{{getDirection}}">
           <div class="wrapper">
                 <div class="row">
           <div class="col-xs-12">
-            <h4>MAKEUP DISCUSSION</h4>
+            <h4>{{_"MAKEUP DISCUSSION"}}</h4>
               {{#each getallForum}}
                         <div class="sub-tabs">
                             <div class="row">
                                 <ul class="list-inline">
                                     <li>
-                                        <a href="">LIKES</a>
+                                        <a href="">{{_"LIKES"}}</a>
                                     </li>
                                     <li>
-                                        <a href="">NEWS</a>
+                                        <a href="">{{_"NEWS"}}</a>
                                     </li>
                                     <li>
-                                        <a href="">PEOPLE WITH SIMILAR PROFIL</a>
+                                        <a href="">{{_"PEOPLE WITH SIMILAR PROFILE"}}</a>
                                     </li>
                                 </ul>
                             </div>
