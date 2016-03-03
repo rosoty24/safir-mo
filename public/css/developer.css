@@ -95,3 +95,11 @@ button#btnshopcart{
     text-shadow: 1px 1px 1px #296429;
 }
 .hid_div{display: none}
+
+/*forum somaly start style*/
+.input{
+    background-color: #ebebeb;
+    border: 0px; 
+    border-radius: 0px;
+}
+/*forum somaly end style*/

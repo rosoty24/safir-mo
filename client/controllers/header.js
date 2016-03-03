@@ -10,12 +10,6 @@ Session.setDefault('parentTagId','');
 Session.setDefault('click','');
 Template.mainLayoutMobile.onRendered(function(){
     // Toggle script
-    Session.set("MAKEUP", "MAKEUP");
-    Session.set("ALLMAKEUP", "ALL MAKEUP");
-    Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
-    $("#makeup").html(Session.get("MAKEUP"));
-    $("#all_makeup").html(Session.get("ALLMAKEUP"));
-    $("#secondChild").html(Session.get("ALLALLMAKEUP"));
     $(".container").hide();
     $(".toggle").click(function(){
         $(this).toggleClass("active").next().slideToggle(350);

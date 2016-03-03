@@ -1735,6 +1735,10 @@ Template.details.helpers({
 
 
 Template.details.rendered=function(){
+	$(".toggle").click(function(){
+		$(this).toggleClass("active").next().slideToggle(350);
+			return false;
+	});
 	Session.set("MAKEUP", "MAKEUP");
     Session.set("ALLMAKEUP", "ALL MAKEUP");
     Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
@@ -1742,12 +1746,7 @@ Template.details.rendered=function(){
     $("#all_makeup").html(Session.get("ALLMAKEUP"));
     $("#secondChild").html(Session.get("ALLALLMAKEUP"));
 	$("[rel='tooltip']").tooltip(); 
-
 	//alert('RENDERED');
-	$(".toggle").click(function(){
-		$(this).toggleClass("active").next().slideToggle(350);
-			return false;
-	});
 	$("#myElement").click();
 	$("#gallerycontainer").scrollLeft(0);
 	//alert("data="+this.data._id);
@@ -1795,7 +1794,6 @@ Template.details.rendered=function(){
 			if(result.indexOf(arr[i])<0)
 				result.push(arr[i]);
 		}
-
 		console.log("final:"+result);
 
 		$('#input').octofilter({
@@ -1830,7 +1828,7 @@ Template.details.rendered=function(){
 		}
 	});
 
-	
+
 
 	};
 

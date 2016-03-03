@@ -80,7 +80,9 @@ Template.myforum.events({
     'click #delete': function(){
         var user_id = Meteor.userId();
         var id = this._id;
-        Meteor.call('deleteForum',id,user_id);
+        if (confirm("Are u sure?")) {
+            Meteor.call('deleteForum',id,user_id);
+        }
     }
 });
 
