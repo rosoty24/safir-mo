@@ -188,6 +188,15 @@ Template.headermenu.helpers({
 
 /*Kis Search Product*/
 
+Template.searchproduct.rendered=function(){
+    Session.set("MAKEUP", "MAKEUP");
+    Session.set("ALLMAKEUP", "ALL MAKEUP");
+    Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
+    $("#makeup").html(Session.get("MAKEUP"));
+    $("#all_makeup").html(Session.get("ALLMAKEUP"));
+    $("#secondChild").html(Session.get("ALLALLMAKEUP"));
+};
+
 
 Template.searchproduct.helpers({
     nbproducts: function(){

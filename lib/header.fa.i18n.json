@@ -1,6 +1,5 @@
 { 
 	"Home": "خانه",
-	"ALL":"همه",
 	"My Profile": "حساب کاربری من",
 	"MEMBER PROFILE":"حساب کاربری عضویت",
 	"Rewards and points": "جوایز و امتیازات",
@@ -15,5 +14,8 @@
 	"Logout":"خروج از سیستم",
 	"Sing in / Register":"ورود / ثبت نام",
 	"FAVORITE":"مورد علاقه",
-	"FORUM":"انجمن"
+	"FORUM":"انجمن",
+	"Price Range": "حدود قیمت",
+	"Brands": "مارک های",
+	"All":"همه"
 }
