@@ -1,10 +1,21 @@
 { 
 	"Home": "خانه",
-	"ALL":"همه",
 	"My Profile": "حساب کاربری من",
 	"MEMBER PROFILE":"حساب کاربری عضویت",
 	"Rewards and points": "جوایز و امتیازات",
 	"TUTO": "آموزش",
 	"Log Out":"خروج",
-	"Search for...": "پر فروش ترین ها"
+	"Search for...": "پر فروش ترین ها",
+	"Market":"بازار",
+	"Profile":"مشخصات",
+	"My Profile":"پروفایل من",
+	"Member profile":"مشخصات کاربران",
+	"Rewards & points":"پاداش و امتیاز",
+	"Logout":"خروج از سیستم",
+	"Sing in / Register":"ورود / ثبت نام",
+	"FAVORITE":"مورد علاقه",
+	"FORUM":"انجمن",
+	"Price Range": "حدود قیمت",
+	"Brands": "مارک های",
+	"All":"همه"
 }

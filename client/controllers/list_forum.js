@@ -9,18 +9,47 @@ $(window).scroll(function() {
     processScroll = true;
 }
 });
+Template.listForum.onRendered(function(){
+    $(document).ready(function() {
+        $(".u-vmenu").vmenuModule({
+            Speed: 200,
+            autostart: false,
+            autohide: true
+        });
+    });
+});
+Template.listForum.events({
+    "click #makeup":function(){
+        $("#panel_makeup").slideToggle("slow");
+    },
+    "click #child_cate":function(e,tpl){
+        var catId = this._id;
+        Session.set("CATEID",catId);
+        var cateName = tpl.$(e.currentTarget).attr("data-cate");
+        tpl.$("#cate").html(cateName);
+        $("#panel_makeup").hide();
+    }
+});
 //list forum
 Template.listForum.helpers({
+    getAllCate:function(){
+        return categories.find();
+    },
     allForums: function(){
         //return posts.find({});
         return posts.find({parentId:"0"},{limit:Session.get('loadlimit')});
     },
     getallForum: function(){
-        //return posts.find({});
-        return posts.find({},{limit:Session.get('loadlimit')});
+        //return posts.find({},{limit:Session.get('loadlimit')});
+        var item = Session.get("CATEID");
+        if(item){
+            return posts.find({category:item},{limit:Session.get('loadlimit')});
+        }
+        else{
+            return posts.find({},{limit:Session.get('loadlimit')});
+        }
     },
-     getprofile:function( userId ){
-        console.log('user:'+userId);
+    getprofile:function( userId ){
         var user = Meteor.users.findOne({_id:userId});
         //return user.profile.firstname;
         return user;

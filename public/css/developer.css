@@ -1,7 +1,7 @@
 .nonelike{
 	display: none;
 }
-/********** KA *************/
+/**********  *************/
 /** refine brand **/
 a.alphabet, a.targetBrand, .info a{
 	color: #fff;
@@ -53,7 +53,7 @@ button#btnshopcart{
     width: 277px; background: transparent -moz-linear-gradient(center top , #F7DFA5, #F0C14B) repeat scroll 0% 0%;
     font-size: 16px;
 }
-/********** KA *************/
+/**********  *************/
 
 /* ============ LOGIN =============*/
  #pass-info {
@@ -96,6 +96,7 @@ button#btnshopcart{
 }
 .hid_div{display: none}
 
+
 /*forum somaly start style*/
 .input{
     background-color: #ebebeb;
@@ -103,3 +104,27 @@ button#btnshopcart{
     border-radius: 0px;
 }
 /*forum somaly end style*/
+
+/*=== header style ===*/
+
+.menu > li a {
+    height: 48px;
+    outline: 0px none;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    width: 50%;
+}
+ul li.info {
+    font-weight: bold;
+    color: #000;
+    width: 50%;
+}
+ul li a span.menu-li-title {
+    font-size: 12px;
+    margin-left: 0px;
+    line-height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFF;
+}
