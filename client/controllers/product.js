@@ -1735,6 +1735,13 @@ Template.details.helpers({
 
 
 Template.details.rendered=function(){
+	Session.set("MAKEUP", "MAKEUP");
+    Session.set("ALLMAKEUP", "ALL MAKEUP");
+    Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
+    $("#makeup").html(Session.get("MAKEUP"));
+    $("#all_makeup").html(Session.get("ALLMAKEUP"));
+    $("#secondChild").html(Session.get("ALLALLMAKEUP"));
+	$("[rel='tooltip']").tooltip(); 
 
 	//alert('RENDERED');
 	$(".toggle").click(function(){
@@ -1820,18 +1827,13 @@ Template.details.rendered=function(){
 				tagSession=tagSession+value+';';
 				Session.set("tag_filter",tagSession);
 			}
-			
 		}
-		
-		
-		
 	});
+
+	
 
 	};
 
-	Template.details.onRendered(function () {
- // alert('onRendered');
-});
 // datetimepicker
 Template.addproduct.onRendered(function() {
 
@@ -1906,13 +1908,6 @@ Template.addproduct.rendered = function(){
 				console.log('hopppp');
 
 			};
-			Template.details.onRendered(function(){
-				if(Session.get('removescroll') == true){
-					$('#gallerycontainer').removeAttr('id');
-				}
-			});
-
-			
 // add Products
 Session.set("tags", "");
 Session.set("category", "");
@@ -3384,91 +3379,6 @@ Template.manageproduct.helpers({
 
 
 
-Template.details.rendered=function(){
-	$(".toggle").click(function(){
-		$(this).toggleClass("active").next().slideToggle(350);
-		return false;
-	});
-	$("#myElement").click();
-	$("#gallerycontainer").scrollLeft(0);
-	var productId=this.data._id;
-	var p=products.find({"_id":productId});
-	var attr=attribute.findOne({"product":p.fetch()[0].oldId});
-	Session.set('selected_price',attr.price);
-	Session.set('selected_point',attr.point);
-
-	var arr=[];
-	console.log('data: '+productId);
-	if(p.fetch().length>0){
-		var currentProduct=p.fetch()[0];
-		console.log('user selected');
-		
-		if(p.hasOwnProperty('review')){
-			var coms=currentProduct.review;
-			console.log('has my reviews2 '+coms );
-
-			for(var i=0;i<coms.length;i++){
-				var curUser=users.findOne({"_id":coms[i].user});
-				console.log('comm selected'+curUser.profile.tag);
-				
-
-				//if(curUser.profile.tag!='undefined'){
-					if(curUser.profile.hasOwnProperty('tag')){
-						console.log('saving'+curUser.profile.tag);
-						for(var j=0;j<curUser.profile.tag.length;j++)
-							arr.push(curUser.profile.tag[j]);
-					}
-
-				}
-			}
-			console.log("tagggg:"+arr);
-		}
-		var result=[];
-		for(var i=0;i<arr.length;i++){
-			if(result.indexOf(arr[i])<0)
-				result.push(arr[i]);
-		}
-
-		console.log("final:"+result);
-
-		$('#input').octofilter({
-
-			source: {
-				Grade: ['1/5', '2/5', '3/5', '4/5', '5/5'],
-				Tag:result ,
-				Age: ['15-25','25-35' , '35-50', '50-100'],
-				Hair:['Black ','White']
-			}
-		});
-		$('.container').click();
-
-		$('.octofilter-link').click(function() {
-			console.log("TRIGGER");
-			var value=$( this ).text();
-
-		if($( this ).hasClass('octofiltered')){//delete
-			
-			var tagSession=Session.get("tag_filter");
-			
-			var indexTag=tagSession.indexOf(value);
-			tagSession=tagSession.replace(value+';','');
-			Session.set("tag_filter",tagSession);
-		}else{
-			var tagSession=Session.get("tag_filter");
-			if(tagSession.indexOf(value)<0){
-				tagSession=tagSession+value+';';
-				Session.set("tag_filter",tagSession);
-			}
-			
-		}
-		
-		
-		
-	});
-
-	};
-
-
 Template.addproduct.rendered = function(){
 	if(this.data!=null){
 		Session.set('oldId',this.data.oldId);
@@ -3526,11 +3436,5 @@ Template.addproduct.rendered = function(){
 				console.log('hopppp');
 
 			};
-			Template.details.onRendered(function(){
-				if(Session.get('removescroll') == true){
-					$('#gallerycontainer').removeAttr('id');
-				}
-
-			});
 
 			
