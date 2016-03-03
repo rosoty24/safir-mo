@@ -68,10 +68,21 @@
 					<span class="menu-li-title left-menu">{{_"TUTO"}}</span>
 				</a>
 			</li>
-			<li class="icon info">
-				<a href="/forum/listing">
-					<span class="menu-li-title left-menu">{{_"FORUM"}}</span>
+			<li class="icon info" id="left-forum">
+				<a href="#">
+					<span class="menu-li-title">{{_"FORUM"}}</span>
 				</a>
+				<ul id="child-left-forum">
+					<li class="left-menu"><a href="/forum/listing">
+						<span>Listing Forum</span>
+					</a></li>
+					<li class="left-menu"><a href="/forum/myforum">
+						<span>My Forum</span>
+					</a></li>
+					<li class="left-menu"><a href="/forum/addnew">
+						<span>Add Forum</span>
+					</a></li>
+				</ul>
 			</li>
 		</ul>
     </section> <!-- #menu-wrapper -->

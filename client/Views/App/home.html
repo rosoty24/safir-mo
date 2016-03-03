@@ -6,7 +6,7 @@
     <div class="swiper-wrapper">
         {{#each getbanner}}
             <div class="swiper-slide" data-hash="slide1">
-                <img src="{{getImg imageId}}">
+                <a href="{{url}}"><img src="{{getImg imageId}}"></a>
             </div>
         {{/each}}
             
@@ -28,7 +28,7 @@
                             {{#with getProduct this}}
                                 <div class="swiper-slide">
                                     <div class="thumbnail">
-                                    <a href="details/{{slug title}}"><img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /></a> 
+                                    <a href="{{pathFor 'details' id=(slug title)}}"><img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /></a> 
                                     <div class="caption"> 
                                         <p class="text-center">{{title}}</p> 
                                         <h3 class="text-center price">{{price}}</h3>
@@ -50,7 +50,7 @@
                            {{#with getProduct this}}
                                 <div class="swiper-slide">
                                     <div class="thumbnail">
-                                        <a href="details/{{slug title}}"><img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> </a>
+                                        <a href="{{pathFor 'details' id=(slug title)}}"><img data-holder-rendered="true" src="{{getImgForProduct _id}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> </a>
                                         <div class="caption"> 
                                             <p class="text-center">{{title}}</p> 
                                             <h3 class="text-center price">{{price}}</h3>

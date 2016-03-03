@@ -12,6 +12,8 @@ Meteor.methods({
 		return posts.insert(attr);
 	},
 	deleteForum: function(id,user_id){
-		return posts.remove(id);
+		
+			return posts.remove(id);
+			
 	}
 });
