@@ -1,4 +1,18 @@
 Session.set("total", 0);
+Template.confirmorder.events({
+	'click #btnshopcart':function(){
+		var id = order.find({_id:Session.get('orderId')});
+		var add=$("#oldAddress").text();
+		Meteor.call('addAdress',id,add);
+		Router.go("/confirmorder2");
+	},
+	'click #btnAdd':function(){
+		var id = order.find({_id:Session.get('orderId')});
+		var add=$("#newAddress").val();
+		Meteor.call('addAdress',id,add);
+		Router.go("/confirmorder2");
+	}
+});
 Template.checkout.onRendered(function(){
     var swiper = new Swiper('.swiper-container-checkout', {
         pagination: '.swiper-pagination',
@@ -181,27 +195,6 @@ Template.confirmorder2.helpers({
 		return Random.id();
 	}
 });
-
-Template.confirmorder.events({
-	'click #btnshopcart':function(e){
-		e.preventDefault();
-		var id = order.find({_id:Session.get('orderId')});
-		var add=$("#oldAddress").text();
-
-		//alert(addresses);
-		Meteor.call('addAdress',id,add);
-		Router.go("/confirmorder2");
-	
-	},
-	'click #btnAdd':function(e){
-		e.preventDefault();
-		var id = order.find({_id:Session.get('orderId')});
-		
-		var add=$("#newAddress").val();
-		Meteor.call('addAdress',id,add);
-		Router.go("/confirmorder2");
-	}
-});
 Template.confirmorder2.events({
 	'click #btnUpdate':function(e){
 		//e.preventDefault();
@@ -211,4 +204,3 @@ Template.confirmorder2.events({
 		Meteor.call('addDelivery',idorder,delivery,userid);
 	}
 });
-

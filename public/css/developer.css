@@ -32,12 +32,31 @@ div.brand-item{
 	border: 1px solid;
 	margin-bottom: 10px;
 }
-
+/** comfirmOrder **/
+label.control-label{
+    color: #000;
+}
+h1.page-header{
+    text-transform: capitalize;
+    font-size: 26px;
+    color: #000;
+}
+button#btnAdd{
+    background: transparent -moz-linear-gradient(center top , #F7DFA5, #F0C14B) repeat scroll 0% 0%;
+    font-size: 16px;
+    color: #000;
+}
+form.confirm{
+    padding: 0 0;
+}
+button#btnshopcart{
+    width: 277px; background: transparent -moz-linear-gradient(center top , #F7DFA5, #F0C14B) repeat scroll 0% 0%;
+    font-size: 16px;
+}
 /********** KA *************/
 
 /* ============ LOGIN =============*/
  #pass-info {
-    border: 1px solid #ddd;
     border-radius: 4px;
     color: #829cbd;
     font: 12px/25px Arial,Helvetica,sans-serif;

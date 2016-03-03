@@ -4,112 +4,73 @@
 			display: none;
 		}
 	</style>
-<div id="wrapper">
-
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-					    <h1 class="page-header" style="text-transform: capitalize;font-size: 26px;">
-					            <!-- {{_"Question"}} -->
-					            <b>{{_ "Select a shipping address"}}</b>
-					    </h1>
-
-                        <div class="col-lg-12">
-                            <ul class="active">
-                                <!-- <i class="fa fa-dashboard"></i> {{_"Question Add"}} -->
-                                {{#with getprofile}}
-                                <b>{{username}}</b>
-                                <p style="margin-bottom: 10px;"></p>
-                                <h5>floor 3</h5>
-                                <p style="margin-bottom: 10px;"></p>
-                                {{#each emails}}
-                                <h5>Email: {{address}}</h5>
-                                <p style="margin-bottom: 10px;"></p>
-                                {{/each}}
-                                <h5 id="oldAddress">{{getAddress1}}</h5>
-                                <p style="margin-bottom: 10px;"></p>
-       
-                                {{/with}}
-                            </ul>
-                        </div>
-                        <div class="col-xs-12">
-                        	<button type="button" id="btnshopcart" class="btn btn-warning" style="width: 277px; background: transparent -moz-linear-gradient(center top , #F7DFA5, #F0C14B) repeat scroll 0% 0%; font-size: 16px;">
-                        		<h5>{{_ "Shop to this address"}}</h5>
-                        	</button>
-                        	<p style="margin-bottom: 20px;"></p>
-                        </div>
-                        
-                    <div class="col-lg-12"> 
-<!-- soon -->
-					<div class="container">
-						<div class="row">
-							 <form class="form-horizontal">
-					            <fieldset>
-					                <!-- Address form -->
-					        	    <div class="banner_chien"></div><br><br>
-					    <h1 class="page-header" style="text-transform: capitalize;font-size: 26px;">
-					            <!-- {{_"Question"}} -->
-					            <b>{{_ "Add a new address"}}</b>
-					    </h1>
-					    	    <p class="help-block">
-					            	 {{_ "Be sure to click the button"}} 
-					            </p>
-
+	<div id="wrapper">
+		<div class="container-fluid">
+			<!-- Page Heading -->
+            <div class="row">
+                <div class="col-xs-12">
+					<h1 class="page-header"><b>{{_ "Select a shipping address"}}</b></h1>
+					<div class="col-xs-12">
+                        {{#with getprofile}}
+                            <b>{{username}}</b>
+                            <h5>floor 3</h5>
+                            {{#each emails}}
+	                            <h5>Email: {{address}}</h5>
+                            {{/each}}
+                            <h5 id="oldAddress">{{getAddress1}}</h5>
+                        {{/with}}
+                    </div>
+                    <div class="col-xs-12">
+                    	<button type="button" id="btnshopcart" class="btn btn-warning">
+                    		<h5>{{_ "Shop to this address"}}</h5>
+                    	</button>
+                    </div>
+                    <div class="col-xs-12"> 
+						<!-- soon -->
+						<div class="container">
+							<div class="row">
+							 	<form class="confirm">
+					    			<h1 class="page-header"><b>{{_ "Add a new address"}}</b></h1>
+					    	    	<p class="help-block">{{_ "Be sure to click the button"}}</p>
 					                <!-- full-name input-->
 					                <div class="control-group">
 					                    <label class="control-label">{{_ "Address"}} :</label>
 					                    <div class="controls">
-					                        <textarea rows="4" cols="50" id="newAddress">
-
-											</textarea>
-
+					                        <textarea id="newAddress"></textarea>
 					                        <p class="help-block"></p>
 					                    </div>
 					                </div>
-					                
 					                 <div class="col-xs-12">
-			                        	<!-- <button type="button" class="btn btn-warning col-xs-offset-5" style="background: transparent -moz-linear-gradient(center top , #F7DFA5, #F0C14B) repeat scroll 0% 0%; font-size: 16px; margin-left: 366px; color: black;">
-			                        		<h5>Ship to this address</h5>
-			                        	</button>	 -->
-			                        	<button class="btn btn-warning col-xs-offset-5" type="button" id="btnAdd" style="background: transparent -moz-linear-gradient(center top , #F7DFA5, #F0C14B) repeat scroll 0% 0%; font-size: 16px; margin-left: 366px; color: black;"><h5>{{_ "Ship to this address"}}</h5></button>	                        	
-			                        	<p style="margin-bottom: 20px;"></p>
+			                        	<button class="btn btn-warning" type="button" id="btnAdd"><h5>{{_ "Ship to this address"}}</h5></button>
 			                        </div>
-			                       
-					            </fieldset>
-					        </form>
-					        <p style="margin-bottom: 20px;"></p>
+					        	</form>
+							</div>
 						</div>
-					</div>
-	
-					</div>
-					
-							<br>
-						</div>
-                    </div>
-                </div>
-                <!-- /.row -->
+					</div><br>
+				</div>
             </div>
-<script type="text/javascript">
-					$(document).ready(function() {
-						$(".modal-backdrop").hide();
-					    $('#address1').change(function() {
-					        if($(this).is(":checked")) {
-					            $('#address').hide();   
-					        }else{
-					        	$('#address').show();
-					        }         
-					    });
-					    $( "#address" ).keyup(function() {
-						  var str=$('#address1').val();
-						  if(str!=''){
-						  	$('#address1').hide();
-						  }
-						});
-						$( "#address" ).mouseout(function() {
-						  	$('#address1').show();
-						});
-					});
-				</script>
+        </div>
+    <!-- /.row -->
+    </div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".modal-backdrop").hide();
+		    $('#address1').change(function() {
+		        if($(this).is(":checked")) {
+		            $('#address').hide();   
+		        }else{
+		        	$('#address').show();
+		        }         
+		    });
+		    $( "#address" ).keyup(function() {
+			  var str=$('#address1').val();
+			  if(str!=''){
+			  	$('#address1').hide();
+			  }
+			});
+			$( "#address" ).mouseout(function() {
+			  	$('#address1').show();
+			});
+		});
+	</script>
 </template>
