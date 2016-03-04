@@ -3,18 +3,14 @@ Session.set('fiterValue',"");
 Session.set('removefilter','');
 Session.set('numberOfReviews',2);
 Template.details.events({
-		'submit form': function(e, tpl){
+	'click #addreview': function(e,tpl){
 		e.preventDefault();
 		var userid=Meteor.userId();
-		if(userid==null){
-			alert("You have to be logged to submit a review!");
-			return;
-		}
+		//alert(userid);
 		var title=tpl.$("#title").val();
-		var text=tpl.$("#comment").val();
-		var grade=tpl.$("#sel1").val();
-		$("#bt_review").click();
-		Meteor.call('addReview',title,text,grade,userid,this._id, function(err){
+		var comment=tpl.$("#comment").val();
+		//console.log(title+ comment);
+		Meteor.call('addreviewdetail',title,comment,userid,this._id, function(err){
 			if(err){
 				console.log("addreview: "+err.reason);
 			}else{
@@ -25,31 +21,6 @@ Template.details.events({
 		alert("Review added successfully!")
 	}
 	});
-
-// Template.details.events({
-// 	'click #addreview': function(e,tpl){
-// 		e.preventDefault();
-// 		var userid=Meteor.userId();
-// 		//alert(userid);
-// 		var title=tpl.$("#title").val();
-// 		var comment=tpl.$("#comment").val();
-// 		//console.log(title+ comment);
-// 		var grade=tpl.$("#sel1").val();
-// 		if(userid==null){
-// 			alert("You have to be logged to submit a review!");
-// 			return;
-// 		}
-// 		Meteor.call('addreviewdetail',title,comment,grade,userid,this._id, function(err){
-// 			if(err){
-// 				console.log("addreview: "+err.reason);
-// 			}else{
-// 				console.log("successfully");
-// 			}
-
-// 		});
-// 		alert("Review added successfully!")
-// 	}
-// 	});
 
 Template.details.helpers({
 	existReview:function(review){
@@ -213,8 +184,4 @@ Template.details.helpers({
 				return ret;
 			}
 		}*/
-		// getAllreview: function(){
-		// 	return products.find({});
-		// }
-		
 	});

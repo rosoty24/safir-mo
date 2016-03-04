@@ -84,25 +84,11 @@
                             <input id="title" type="text" class="form-control" placeholder="{{_"Title"}}..." required/>
                              <textarea class="form-control" id="comment" name="styled-textarea" onfocus="this.value='';" rows="7">{{_"Write what you want"}}</textarea>
                            </div>
-                           <div class="col-md-3 col-md-offset-2 pull-left">
-                            <form role="form">
-                              <div class="form-group select_grade">
-                                <select class="form-control" id="sel1">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
-                              </div>
-                            </form>
-                          </div>
                            <button class="btn_register pull-right" id="addreview">{{_ "SEND"}}</button>
                         </div>
                      {{/if}}
                         <div class="clear-fix"></div>
-                        {{#each getReviews review filterReview removeFilter}}
-                          <!-- {{#each getReviews}} -->
+                          {{#each getReviews review filterReview removeFilter}}
                         <div class="row">
                            <div class="col-sm-12">
                               <div class="col-sm-5 pull-left space-top-detail2">
@@ -124,16 +110,8 @@
                               </div>
                            </div>  
                         </div>
+                            
                         {{/each}} 
-                                      <!-- {{#if currentUser}}
-                                      {{>addreview}}
-                                      {{/if}}
-                                      {{#each getReviews review filterReview removeFilter}}
-                                     
-                                      {{>review}}
-                                      {{else}}
-                                      <i>هیچ بررسی</i>
-                                      {{/each}} -->
                         </div>
                    </section>
                 </article>
