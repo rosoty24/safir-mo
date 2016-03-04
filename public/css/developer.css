@@ -63,8 +63,8 @@ ul#child-left-forum{
     width: 250px;
     margin-left:-63px;
 }
-li.left-menu{
-    margin: 0px 0px 15px 30px;
+li.left-menu a{
+    padding: 0px 30px;
 }
 /********** KA *************/
 /* ============ LOGIN =============*/
