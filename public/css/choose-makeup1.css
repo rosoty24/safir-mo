@@ -1,0 +1,165 @@
+.component{
+	background:#ddd;
+}
+.main-bg-choose-makeup1{
+	background:url('../img/bg.png')no-repeat;
+	background-size:100% 100%;
+}
+.panel-default > .panel-heading {
+    background-color: #363639;
+    border-color: #363639;
+    color: #fff;
+	padding:3px 0px;
+}
+.bg-white{
+	background:url('../img/bg-white.png')no-repeat;
+	padding:10px 10px;
+	background-size:100% 100%;
+	opacity:0.5;	
+}
+.img-choose-makeup1{
+	width:40%;
+	height:40%;
+}
+.section1, .section2, .list-color {
+	overflow:hidden;
+}
+.section1{
+	padding:15px 0px;
+	margin-bottom:20px;
+	margin-top:50px;
+}
+/*------------------------------Choose MakeUp 2------------------------------------*/
+.main-bg-choose-makeup2{
+	background:url('../img/background-pink-black.png')no-repeat;
+	background-size:100% 100%;
+}
+.panel-default > .logo2 {
+    background-color: #363639;
+    border-color: #363639;
+    color: #fff;
+	padding:3px 0px;
+}
+
+.radio {
+  display: inline-block;
+  padding-right: 20px;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer;
+  text-align:center;
+}
+
+.radio:hover .inner {
+  -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: .5;
+}
+
+.radio input {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.radio input:checked + .outer .inner {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+.radio input:checked + .outer { border: 3px solid #fff; }
+
+.radio input:focus + .outer .inner {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  background-color:#363639;
+}
+.radio .outer {
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: left;
+  margin: 5px 9px 10px 10px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.radio .inner {
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  width: 14px;
+  height: 14px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  display: block;
+  border-radius: 50%;
+  background-color: #363639;
+  opacity: 0;
+}
+/*----------------Choose MakeUp 4--------------------*/
+
+.item p{
+	text-align:center;
+	font-weight:bold;
+	padding-top:20px;
+}
+.answer-radia .carousel-control.left {
+    background: none;
+	background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+
+.answer-radia .carousel-control.right {
+    background-image: none;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+    background-repeat: repeat-x;
+}
+.white-color{
+	border-radius:50%;
+	background:#f8e2e6;
+	height:100px;
+	width:100px;
+	margin:0px auto; 
+}
+.Light-Brown{
+	border-radius:50%;
+	background:#efddc8;
+	height:100px;
+	width:100px;
+	margin:0px auto;
+}
+.Moderate-brown{
+	border-radius:50%;
+	background:#ddba93;
+	height:100px;
+	width:100px;
+	margin:0px auto;
+}
+.Brown{
+	border-radius:50%;
+	background:#755022;
+	height:100px;
+	width:100px;
+	margin:0px auto;
+}
+.Black{
+	border-radius:50%;
+	background:#4d3313;
+	height:100px;
+	width:100px;
+	margin:0px auto; 
+}
+.border-click{
+	border-radius:50%;
+	border:8px solid #fff;
+	height:100px;
+	width:100px;
+}
+.prev, .next{
+	margin-top:-36px;
+}
+
+
