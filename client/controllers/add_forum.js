@@ -91,14 +91,18 @@ Template.forumDetail.events({
         var forum = posts.findOne({_id:id});
         var categoryid = (forum)? forum.category:'';
         var image = Session.get("ADDIMAGEID");
-        Meteor.call('addReply', userid,id,description,categoryid,time,image,status, function(err){
-            if(err){
-                console.log("Reply: "+err.reason);
-            }else{
-                console.log("Success");
-                Router.go('/forum/listing');
-            }
-        });
+        if(description=='' || description==undefined){
+            tpl.$(".error").removeClass("hidden");
+        }else{
+            Meteor.call('addReply', userid,id,description,categoryid,time,image,status, function(err){
+                if(err){
+                    console.log("Reply: "+err.reason);
+                }else{
+                    console.log("Success");
+                    Router.go('/forum/listing');
+                }
+            });
+        }
     },
     'change #image': function(event, template) {
     var files = event.target.files;
