@@ -140,6 +140,11 @@ ul li a span.menu-li-title {
     text-transform: uppercase;
     color: #FFF;
 }
+ /*video style*/
+#mainVideo {
+    display: inline-block;
+    padding-right: 55px;
+}
 
 /* sticky for scrool in refine menu*/
 /*.sticker {
