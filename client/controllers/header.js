@@ -128,6 +128,7 @@ Template.mainLayoutMobile.events({
         for(var i=0;i<myBrands.length;i++)
             html=html+"<h4><a href='' class='targetBrand right-menu'>"+myBrands[i]+"</a></h4>";
         tpl.$("#allBrands").html(html);
+        
     },
     'click .targetBrand': function(e,tpl){
         e.preventDefault();
