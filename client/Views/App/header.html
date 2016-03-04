@@ -68,6 +68,7 @@
 					<span class="menu-li-title left-menu">{{_"TUTO"}}</span>
 				</a>
 			</li>
+
 			<li class="icon info" id="left-forum">
 				<a href="#">
 					<span class="menu-li-title">{{_"FORUM"}}</span>
@@ -147,7 +148,7 @@
 					</div>
 					<div class="col-xs-10 brand-item">
 						<div class="hold_item_brands">
-							<div class="nav nav-pills" id="allBrands">
+							<div class="nav nav-pills sticker" style="position:fixed;" id="allBrands">
 								
 							</div>
 						</div>
@@ -161,4 +162,9 @@
 		    $('#sl2').slider();     
 		});
     </script>
+   <!--  <script>
+    $(window).load(function(){
+      $(".sticker").sticky({ topSpacing: 0, center:true, className:"hey" });
+    });
+  </script> -->
 </template>
