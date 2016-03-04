@@ -1,7 +1,7 @@
 .nonelike{
 	display: none;
 }
-/**********  *************/
+/********** KA *************/
 /** refine brand **/
 a.alphabet, a.targetBrand, .info a{
 	color: #fff;
@@ -50,13 +50,23 @@ form.confirm{
     padding: 0 0;
 }
 button#btnshopcart{
-    width: 277px; background: transparent -moz-linear-gradient(center top , #F7DFA5, #F0C14B) repeat scroll 0% 0%;
+    width: 277px;
+    background: transparent -moz-linear-gradient(center top , #F7DFA5, #F0C14B) repeat scroll 0% 0%;
     font-size: 16px;
 }
-/********** Left menu *************/
-ul li ul#child-left-forum{
-    background-color: #2a2b2e;
+/** Left menu **/
+ul#submenu-1 li span.menu-li-title{
+    margin-left: 30px;
 }
+ul#child-left-forum{
+    background-color: #2a2b2e;
+    width: 250px;
+    margin-left:-63px;
+}
+li.left-menu{
+    margin: 0px 0px 15px 30px;
+}
+/********** KA *************/
 /* ============ LOGIN =============*/
  #pass-info {
     border-radius: 4px;
