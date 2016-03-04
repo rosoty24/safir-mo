@@ -1,56 +1,56 @@
 <template name="quizzQA">
-<article>
-                	<div class="wrapper">
-						<div class="main-bg-choose-makeup2">
-							<div class="panel-choose-makeup1 panel-default">
-								<div class="panel-heading logo2" >
-									<div class="row">
-										<div class="col-xs-4 col-md-4">
-											<img src="img/safir.png" class="img-logo2">
-										</div>
-										<div class="col-xs-4 col-md-4">
-											<img src="img/3sum-icons.png" class="img-logo3 center-block">
-										</div>
-										<div class="col-xs-4 col-md-4">
-											<h2 class="cat write text-right">Lips</h2>
-										</div>
-									</div>
-								</div>
-								<div class="panel-body text-center"> 
-									{{#with getFirstQu question}}
-										<div class="row">
-											<div class="col-md-8 col-md-offset-2">
-												<div class="section1-question">
-													<div class="col-md-12">
-														<p class="question text-center">{{question}}</p>
-													</div>
-												</div>
-												{{#each answers}}
-													<div class="answer-radia">
-														<div class="col-md-4 col-md-offset-3">
-															<label class="radio">
-																<input id="face" type="radio" name="radios checkbox">
-																<span class="outer"><span class="inner"></span></span>{{value}}
-															</label>
-															
-														</div>
-													</div>
-
-												{{/each}}
-												<div class="section3">
-													<div class="row">
-														<div class="col-xs-8 col-xs-offset-2 col-md-2 col-md-offset-3 ">
-															<div id="goNext" class="btn btn-block btn-Begins pull-right" type="button">Submit </div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									{{/with}}
-								</div>
-								
+	<article>
+    	<div class="wrapper">
+			<div class="main-bg-choose-makeup2">
+				<div class="panel-choose-makeup1 panel-default">
+					<div class="panel-heading logo2" >
+						<div class="row">
+							<div class="col-xs-4 col-md-4">
+								<img src="img/safir.png" class="img-logo2">
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<img src="img/3sum-icons.png" class="img-logo3 center-block">
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<h2 class="cat write text-right">Lips</h2>
 							</div>
 						</div>
 					</div>
-                </article>
-   </template>
+					<div class="panel-body text-center"> 
+						{{#with getFirstQu question}}
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2">
+									<div class="section1-question">
+										<div class="col-md-12">
+											<p class="question text-center">{{question}}</p>
+										</div>
+									</div>
+									{{#each answers}}
+										<div class="answer-radia">
+											<div class="col-md-4 col-md-offset-3">
+												<label class="radio">
+													<input id="face" type="radio" name="radios checkbox">
+													<span class="outer"><span class="inner"></span></span>{{value}}
+												</label>
+												
+											</div>
+										</div>
+
+									{{/each}}
+									<div class="section3">
+										<div class="row">
+											<div class="col-xs-8 col-xs-offset-2 col-md-2 col-md-offset-3 ">
+												<div id="goNext" class="btn btn-block btn-Begins pull-right" type="button">Submit </div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						{{/with}}
+					</div>
+					
+				</div>
+			</div>
+		</div>
+    </article>
+</template>
