@@ -75,28 +75,31 @@ Template.addPost.events({
 });
 
 Template.forumDetail.events({
-    'submit form': function(e,tpl){
-    e.preventDefault();
-    var userid = Meteor.userId();
-    var description = $('#description').val();
-    var d = new Date();
-    var date = d.getDate();
-    var year = d.getFullYear();
-    var month = d.getMonth()+1;
-    var time = date+"-"+month+"-"+year;
-    var id = this._id;
-    var forum = posts.findOne({_id:id});
-    var categoryid = (forum)? forum.category:'';
-    var image = Session.get("ADDIMAGEID");
-    Meteor.call('addReply', userid,id,description,categoryid,time,image,status, function(err){
-      if(err){
-        console.log(err.reason);
-      }else{
-        console.log("Success");
-         Router.go('/forum/listing');
-      }
-    });
-  },
+    'click .li-reply':function(e,tpl){
+        e.preventDefault();
+        tpl.$(".reply").removeClass("hidden");
+    },
+    'click .btn-send': function(e,tpl){
+        var userid = Meteor.userId();
+        var description = $('#description').val();
+        var d = new Date();
+        var date = d.getDate();
+        var year = d.getFullYear();
+        var month = d.getMonth()+1;
+        var time = date+"-"+month+"-"+year;
+        var id = this._id;
+        var forum = posts.findOne({_id:id});
+        var categoryid = (forum)? forum.category:'';
+        var image = Session.get("ADDIMAGEID");
+        Meteor.call('addReply', userid,id,description,categoryid,time,image,status, function(err){
+            if(err){
+                console.log("Reply: "+err.reason);
+            }else{
+                console.log("Success");
+                Router.go('/forum/listing');
+            }
+        });
+    },
     'change #image': function(event, template) {
     var files = event.target.files;
     for (var i = 0, ln = files.length; i < ln; i++) {
