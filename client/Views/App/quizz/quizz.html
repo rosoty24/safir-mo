@@ -1,56 +1,56 @@
-<template name= "quizzQA">
-	<div class="container">
-        <div class="row">
-	        <div class="col-lg-12">
-	      <!--   <h1>Select quizz</h1>
-	        	<h1>{{name}}</h1> -->
-	        </div>
-        	<div class="col-lg-12">
-        		<section class="bg_home">
-					<div class="container">
-						<div class="quick_view">
-						<!-- Trigger the modal with a button -->
-						  <button type="button" class="btn btn-default center-block" data-toggle="modal" data-target="#quizz" id="quizzpop"></button>
-						  <!-- Modal -->
-						  <div class="modal" id="quizz" role="dialog">
-
-							<div class="modal-dialog modal-lg">
-					
-					  <!-- Modal content-->
-					  <div class="modal-content">
-						<div class="modal-header">
-						  <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>	  
-						</div>
-						<div class="clearfix"></div>
-						<div class="modal-body">
-							<div class="row">
-							{{#with getFirstQu question}}
-								<div class="col-md-12">
-									<h5 class="pop_title text-center">{{question}}</h5>
-									{{#each answers}}
-									<div class="col-lg-2 col-sm-6">
-										<img src="{{getImg image}}" class="img-circle center-block" alt="Cinque Terre" height="100" width="100">
-										<p class="text-center" style="font-size:12px; padding:5px"><label class="checkbox"><input name="checkbox" checked="" value="{{value}}" type="radio" id="face"><i></i>{{value}}</label></p>
+<template name="quizzQA">
+<article>
+                	<div class="wrapper">
+						<div class="main-bg-choose-makeup2">
+							<div class="panel-choose-makeup1 panel-default">
+								<div class="panel-heading logo2" >
+									<div class="row">
+										<div class="col-xs-4 col-md-4">
+											<img src="img/safir.png" class="img-logo2">
+										</div>
+										<div class="col-xs-4 col-md-4">
+											<img src="img/3sum-icons.png" class="img-logo3 center-block">
+										</div>
+										<div class="col-xs-4 col-md-4">
+											<h2 class="cat write text-right">Lips</h2>
+										</div>
 									</div>
-									{{/each}}
 								</div>
-							{{/with}}
+								<div class="panel-body text-center"> 
+									{{#with getFirstQu question}}
+										<div class="row">
+											<div class="col-md-8 col-md-offset-2">
+												<div class="section1-question">
+													<div class="col-md-12">
+														<p class="question text-center">{{question}}</p>
+													</div>
+												</div>
+												{{#each answers}}
+													<div class="answer-radia">
+														<div class="col-md-4 col-md-offset-3">
+															<label class="radio">
+																<input id="face" type="radio" name="radios checkbox">
+																<span class="outer"><span class="inner"></span></span>{{value}}
+															</label>
+															
+														</div>
+													</div>
+
+												{{/each}}
+												<div class="section3">
+													<div class="row">
+														<div class="col-xs-8 col-xs-offset-2 col-md-2 col-md-offset-3 ">
+															<div id="goNext" class="btn btn-block btn-Begins pull-right" type="button">Submit </div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									{{/with}}
+								</div>
+								
 							</div>
 						</div>
-						<div class="modal-footer">
-							<div class="model-footer-button">
-								<button type="button" class="btn btn-default" id="goBack"  data-dismiss="close">Go Back</button>
-								<button type="button" class="btn btn-default" id="backqu"  data-dismiss="close">BACK</button>	
-								<button type="button" class="btn btn-default center-block" data-toggle="modal" data-target="#next" id="goNext">NEXT</button>
-							</div>
-						</div>
-					  </div>					  
 					</div>
-						  </div><!--/ end model -->
-						</div>
-					</div>
-				</section>
-        	</div>
-        </div>
-    </div>
-</template>
+                </article>
+   </template>

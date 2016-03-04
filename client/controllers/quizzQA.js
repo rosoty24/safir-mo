@@ -6,6 +6,7 @@ Template.quizzQA.rendered = function() {
 
 Template.quizzQA.events({
 	'click #goNext':function(e){
+		alert("submit here");
 		var arr=[];
 		e.preventDefault();
 		var index=Session.get('sesIndex');
@@ -40,7 +41,13 @@ Template.quizzQA.events({
 		//alert(countses);
 		//alert('makara='+JSON.stringify(arr));
 		if(countqu == countses){
-			Meteor.call('insertQuestionAnswer',{userId:Meteor.userId(),quizz:arr});
+			Meteor.call('insertQuestionAnswer',{userId:Meteor.userId(),quizz:arr},function(error){
+				if(error){
+					console.log("insertQuestionAnswer error"+error.reason)
+				}else{
+					console.log("insertQuestionAnswer success");
+				}
+			});
 			Bert.alert('Insert success','success','growl-top-right');
 			$('.close').click();
 		}
