@@ -159,7 +159,7 @@ Template.updateForum.events({
         var image = Session.get("ADDIMAGEID");
         var forum = posts.findOne({_id:id});
         var parent_id = (forum)? forum.parentId:'';
-        var time = (forum)? forum.date;
+        var time = (forum)? forum.date:'';
         var category = Session.get("CATEGORYID");
         if(topic == "" || topic == null) {
           Bert.alert( 'Please input topic', 'danger', 'growl-top-right' );
