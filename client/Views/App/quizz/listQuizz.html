@@ -3,12 +3,6 @@
     	<div class="wrapper">
 			<div class="quiz">
 				<div class="row">
-					<div class="col-xs-12">
-						<div class="member_head">
-							<h2 class="text-right">QUIZ AFFINITY</h2>
-							<p class="text-right ">Ecrire quelques infos a propos du quizz Sur le fait qu’ on propose des produits adpates</p>
-						</div>
-					</div>
 					<!-- quiz 1 -->
 					<div class="col-xs-12">
 						<div class="hold_refine">
@@ -163,22 +157,29 @@
 						</div>
 					</div>
 					<!--/ quiz 2 -->
+					
 					{{#each qetListQuizz}}
-					{{getQuizzBackground _id}}
 					<div class="col-xs-6">
 						<div class="panel">
 						  <div class="panel-heading-quiz">
 							<a href="/quizzQA/{{_id}}" id="quizzName"><h3 class="panel-title text-center">{{name}}</h3></a>
 						  </div>
-						  <div class="panel-body bg-hair">
+						  <div class="panel-body {{getQuizzBackground _id}}">
 							<div class="row">
-								<div class="col-xs-12"><button type="button" class="btn btn-quiz1 btn-block">Suggested</button></div>
-								<div class="col-xs-12"><button type="button" class="btn btn-quiz2 btn-block">Redo the quiz</button></div>
+								<div class="col-xs-12">
+									<button type="button" class="{{getQuizzBtton _id}}">hjk</button>
+								</div>
+								<div class="col-xs-12 showbutton"><button type="button" class="btn b1 btn-quiz1 btn-block" style="display: none;">Suggested</button></div>
+
+								
+								<div class="col-xs-12 showbutton"><button type="button" class="btn b2 btn-quiz2 btn-block" style="display: none;">Redo the quiz</button></div>
+								
 							</div>
 						  </div>
 						</div>
 					</div>
 					{{/each}}
+
 					<!--/ quiz 5 -->
 					<!-- Modal -->
 					  <div class="modal fade" id="myModal" role="dialog">

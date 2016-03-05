@@ -79,16 +79,26 @@ Template.quizz.onRendered(function () {
   
 
 });
-
 Template.listQuizz.helpers({
 	qetListQuizz:function(){
 	return quizz.find();
 	},
 	getQuizzBackground:function(quizz){
-		var a =answerquizz.find({ quizzId:quizz},{ "quizzId" : { $exists : true, $ne : null } });
-		console.log(a);
-		//var booleanResponse = answerquizz.find(({ quizzId:quizz},{quizzId: { $exists: true, $nin: {[valueToCheck]}} })
-		//var result = answerquizz.findOne({quizzId:quizz,quizzId:{"$exists":'true'}});
-		
+		var result = answerquizz.find({quizzId:quizz}).count();
+		if(result>0){
+			 return "bg-hair-grey";
+		}
+		else{
+			return "bg-hair";
+		}
+	},
+	getQuizzBtton:function(quizzid){
+		var result = answerquizz.find({quizzId:quizzid}).count();
+		if(result>0){
+			return "div.showbutton button.b1";
+		}
+		else{
+			return "b2";
+		}
 	}
 });

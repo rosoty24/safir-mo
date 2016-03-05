@@ -2,6 +2,7 @@ Session.set('NUM_QUESTION',0);
 // ============================ ADD QUIZZ AND ANSWER ===================== //
 Template.addquizz.events({
 	"click #btn-save":function(){
+		alert('ok');
 		var arr_result = [];
 		var quizz_name = $("#quizz_name").val();
 		var quizz_type = $("#quizz_type").val();

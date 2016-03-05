@@ -51,6 +51,10 @@
 	background:url(../img/bg-hair.png) no-repeat;
 	background-size:100% 100%;
 }
+.bg-hair-grey{
+	background:url(../img/hair.png) no-repeat;
+	background-size:100% 100%;
+}
 .bg-perfume{
 	background:url(../img/bg-perfume.png) no-repeat;
 	background-size:100% 100%;
@@ -75,6 +79,13 @@
 	font-weight:bold;
 	margin: 0px 0px 8px;
 	padding: 6px 12px 10px 12px;
+}
+.b1{
+	display: block;
+	background:url(../img/btn-quiz1.png) no-repeat;
+}
+.b2{
+	display: block;
 }
 .btn-quiz2{
 	background:#f1c3cf;
