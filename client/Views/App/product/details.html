@@ -16,7 +16,7 @@
                             <p class="toggle">{{name}} :</p>
                             <div style="display: none;" class="bg-white">
                               <ul class="list-inline">
-                              {{#each getAllAttributes ../product _id}}
+                              {{#each getAllAttributes ../product _id}}              
                                     <li><a href="" ><img src="{{getImg productImage}}" width="70" height="70" id="img_attr"></a></li>
                                 {{/each}}
                               </ul>
@@ -62,27 +62,29 @@
     </section>
                    <section class="shadow_bottom">
                     <div class="wrapper">
-                        <!-- <div class="row">
-                           <div class="pull-right">
+                        <div class="row">
+                           <!-- <div class="pull-right">
                                <img src="img/filter-img.png" class="img-responsive space-top-img1">
-                           </div>
+                           </div> -->
                            <div class="col-sm-12">
                               <div class="col-md-6 pull-left space-top-detail2">
-                               <img src="img/sm-girl.png" class="img-responsive">
+                               <img src="{{getImg currentUser.image}}" class="img-responsive center-block" style="width: 50%;">
+                              <h4 class="bold text-center">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</h4>
                               </div>
-                               <div class="col-md-6 pull-left space-top-detail2">
+                               <!-- <div class="col-md-6 pull-left space-top-detail2">
                                  <h4>Sarah</h4>
                                  <p class="no-margin">07-20-2015</p>
                                  <p class="no-margin">11:16</p>
                               </div>
-                           </div>
-                        </div> -->
+ -->                           </div>
+                        </div>
                      {{#if currentUser}}
                         <div class="col-sm-12">
                           <div class="space-comment box">
-                             <textarea class="form-control" id="status" name="styled-textarea" onfocus="this.value=''; setbg('#ccc');" onblur="setbg('white')" rows="7">{{_"Write what you want ..."}}</textarea>
+                            <input id="title" type="text" class="form-control" placeholder="{{_"Title"}}..." required/>
+                             <textarea class="form-control" id="comment" name="styled-textarea" onfocus="this.value='';" rows="7">{{_"Write what you want"}}</textarea>
                            </div>
-                           <button class="btn_register pull-right" id="posting">{{_ "SEND"}}</button>
+                           <button class="btn_register pull-right" id="addreview">{{_ "SEND"}}</button>
                         </div>
                      {{/if}}
                         <div class="clear-fix"></div>
@@ -90,16 +92,16 @@
                         <div class="row">
                            <div class="col-sm-12">
                               <div class="col-sm-5 pull-left space-top-detail2">
-                               <img src="{{getImg currentUser.image}}" class="img-responsive center-block" style="width: 50%;">
-                               <!-- <img src="img/sm-girl.png" class="img-responsive"> -->
+                              <img src="{{getImages user}}" class="img-responsive center-block image{{user}}" style="width:50%;">
+                              <h4 class="bold text-center {{user}}">{{getImageUser user}}</h4>
                               </div>
                                <div class="col-sm-5 pull-left space-top-detail2">
-                                 <h4>{{#with getprofile}}{{profile.firstname}} {{profile.lastname}}{{/with}}</h4>
+                                <h2>{{title}}</h2>
                                  <p class="no-margin">{{getDate date}}</p>
                                  <p class="no-margin">{{getTime date}}</p>
                               </div>
                               <div class="col-sm-2 pull-right space-top-detail2">
-                               <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;19</h3> 
+                               <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp; {{grade}}/5</h3> 
                               </div>
                               <div class="col-sm-12">
                                  <p class="pull-left space-top-detail3">{{comment}}</p>
@@ -108,6 +110,7 @@
                               </div>
                            </div>  
                         </div>
+                            
                         {{/each}} 
                         </div>
                    </section>

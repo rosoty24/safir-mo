@@ -879,8 +879,11 @@ Template.tutodetails.events({
 		var comment=tpl.$("#comment").val();
 		//alert(comment);
 		//var grade=tpl.$("#sel1").val();
-		Meteor.call('addReviewTuto',comment,Meteor.userId(),this._id);
-		
+		 if( comment == ""){
+		 	$('#validTuto').text("Please input your comment here!!!")
+		 }else{
+		 	Meteor.call('addReviewTuto',comment,Meteor.userId(),this._id);
+		 }
 
 	},
 	'click .morereview':function(e){
