@@ -1,0 +1,156 @@
+/*/ Custom, iPhone Retina /*/ 
+@media only screen and (min-width : 320px) {
+	img.logo1{
+		width:25%;
+		text-align:center;
+		padding:0px;
+	}
+	img.img-logo2{
+		width:100%;
+		text-align:center;
+		padding:10px 20px;
+	}
+	img.img-logo3{
+		width:100%;
+		text-align:center;
+		padding:10px 20px;
+	}
+	.cat{
+		padding: 0px 20px;
+		font-size:16px;
+	}
+	.header-popup h2{
+		font-size:24px;
+		margin:5px 0px;
+	}
+	.list-color{
+		margin-top:0px;
+	}
+	.section1-question .skin-color{
+		font-size:20px;
+	}
+	.btn-color{
+		background:url('../img/btn-quiz1.png')no-repeat;
+		background-size:100% 100%;
+		border-radius: 4px;
+		font-weight:bold;
+		font-size:16px;
+		padding:10px 20px;
+		margin-bottom:15px;
+		margin-left:23px;
+	}
+}
+/*/ Extra Small Devices, Phones /*/ 
+@media only screen and (max-width : 480px) {
+	
+}
+/*/ Small Devices, Tablets /*/
+@media only screen and (min-width : 768px) {
+	img.logo1{
+		width:15%;
+		text-align:center;
+		padding:0px;
+	}
+	img.img-logo2{
+		width:55%;
+		text-align:center;
+		padding:10px 20px;
+	}
+	img.img-logo3{
+		width:55%;
+		text-align:center;
+		padding:10px 20px;
+	}
+	.cat{
+		padding: 20px 20px;
+	}
+	.header-popup h2{
+		font-size:28px;
+		margin:17px 0px;
+	}
+	.section1-question .skin-color{
+		font-size:24px;
+	}
+	.btn-color{
+		background:url('../img/btn-quiz1.png')no-repeat;
+		background-size:100% 100%;
+		border-radius: 4px;
+		font-weight:bold;
+		font-size:20px;
+		padding:10px 35px;
+		margin-bottom:15px;
+		margin-left:40px;
+		margin-top:30px;
+	}
+}
+/*/ Medium Devices, Desktops /*/
+@media only screen and (min-width : 992px) {
+}
+/*/ Large Devices, Wide Screens /*/
+@media only screen and (min-width : 1200px) {
+	.container{
+		max-width:940px;
+	}
+	.modal-header{
+		padding:0px;
+	}
+	img.logo1{
+		width:15%;
+		text-align:center;
+		padding:5px;
+	}
+	img.img-logo2{
+		width:35%;
+		text-align:center;
+		padding:15px 20px;
+	}
+	img.img-logo3{
+		width:35%;
+		text-align:center;
+		padding:15px 20px;
+	}
+	.cat{
+		padding: 26px 20px;
+	}
+	.header-popup h2 {
+		margin: 10px 0px;
+		font-size:24px;
+	}
+	.header-popup h2.lip {
+		margin: 20px 0px;
+		font-size:36px;
+	}
+	.section1-question .skin-color{
+		font-size:28px;
+	}
+	.btn-color{
+		background:url('../img/btn-quiz1.png')no-repeat;
+		background-size:100% 100%;
+		border-radius: 4px;
+		font-weight:bold;
+		font-size:20px;
+		padding:10px 35px;
+		margin-bottom:15px;
+		margin-left:40px;
+		margin-top:30px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

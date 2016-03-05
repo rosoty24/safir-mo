@@ -68,10 +68,22 @@
 					<span class="menu-li-title left-menu">{{_"TUTO"}}</span>
 				</a>
 			</li>
-			<li class="icon info">
-				<a href="/forum/listing">
-					<span class="menu-li-title left-menu">{{_"FORUM"}}</span>
+
+			<li class="icon info" id="left-forum">
+				<a href="#">
+					<span class="menu-li-title">{{_"FORUM"}}</span>
 				</a>
+				<ul id="child-left-forum">
+					<li class="left-menu"><a href="/forum/listing">
+						<span class="forum">{{_"LIST FORUM"}}</span>
+					</a></li>
+					<li class="left-menu"><a href="/forum/myforum">
+						<span>{{_"MY FORUM"}}</span>
+					</a></li>
+					<li class="left-menu"><a href="/forum/addnew">
+						<span>{{_"ADD FORUM"}}</span>
+					</a></li>
+				</ul>
 			</li>
 		</ul>
     </section> <!-- #menu-wrapper -->
@@ -136,7 +148,7 @@
 					</div>
 					<div class="col-xs-10 brand-item">
 						<div class="hold_item_brands">
-							<div class="nav nav-pills" id="allBrands">
+							<div class="nav nav-pills sticker" style="position:fixed;" id="allBrands">
 								
 							</div>
 						</div>
@@ -150,4 +162,9 @@
 		    $('#sl2').slider();     
 		});
     </script>
+   <!--  <script>
+    $(window).load(function(){
+      $(".sticker").sticky({ topSpacing: 0, center:true, className:"hey" });
+    });
+  </script> -->
 </template>

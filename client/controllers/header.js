@@ -15,6 +15,11 @@ Template.mainLayoutMobile.onRendered(function(){
         $(this).toggleClass("active").next().slideToggle(350);
         return false;
     });
+    // -----------------------------
+    $("#child-left-forum").hide();
+    jQuery('#left-forum').click(function(){
+        jQuery('#child-left-forum').toggle(250);
+    });
     // -------- Toggle script end ------ //
     $("#submenu-1").hide();
     jQuery('#a-submenu-1').click(function(){
@@ -123,6 +128,7 @@ Template.mainLayoutMobile.events({
         for(var i=0;i<myBrands.length;i++)
             html=html+"<h4><a href='' class='targetBrand right-menu'>"+myBrands[i]+"</a></h4>";
         tpl.$("#allBrands").html(html);
+        
     },
     'click .targetBrand': function(e,tpl){
         e.preventDefault();

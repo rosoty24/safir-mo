@@ -79,3 +79,9 @@ Template.quizz.onRendered(function () {
   
 
 });
+
+Template.listQuizz.helpers({
+	qetListQuizz:function(){
+	return quizz.find();
+	}
+});

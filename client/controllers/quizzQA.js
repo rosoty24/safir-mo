@@ -6,13 +6,15 @@ Template.quizzQA.rendered = function() {
 
 Template.quizzQA.events({
 	'click #goNext':function(e){
+		//alert("submit here");
 		var arr=[];
 		e.preventDefault();
 		var index=Session.get('sesIndex');
+		//alert(index);
 		Session.set('sesIndex',index+1);
 		//alert('qu='+this.question[index].question);
 		var question=this.question[index].question;
-		var answer=$("input[name='checkbox']:checked").val();
+		var answer=$("input[name='radios_checkbox']:checked").val();
 		var str=question+':'+answer+';';
 		if(Session.get('strqu')==''){
 			var newstr=str;
@@ -40,8 +42,15 @@ Template.quizzQA.events({
 		//alert(countses);
 		//alert('makara='+JSON.stringify(arr));
 		if(countqu == countses){
-			Meteor.call('insertQuestionAnswer',{userId:Meteor.userId(),quizz:arr});
+			Meteor.call('insertQuestionAnswer',{userId:Meteor.userId(),quizz:arr},function(error){
+				if(error){
+					console.log("insertQuestionAnswer error"+error.reason)
+				}else{
+					console.log("insertQuestionAnswer success");
+				}
+			});
 			Bert.alert('Insert success','success','growl-top-right');
+			Router.go('/listQuizz');
 			$('.close').click();
 		}
 		

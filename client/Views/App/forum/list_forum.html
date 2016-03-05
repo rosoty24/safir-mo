@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h4 id="cate">{{_ "List All Forums"}}</h4>
-                            {{#each getallForum}}
+                        {{#each getallForum}}
                             <div class="hold-each-comment">
                                 <div class="row">
                                 {{#with getprofile this.userId}}
@@ -46,14 +46,14 @@
                                         <p class="desc-comment">{{description}}</p>
                                         <div class="hold-reply-row">
                                             <ul class="list-inline">
-                                                <li><a href="/forum/detail/{{_id}}">22 reply</a></li>
+                                                <li><a href="/forum/detail/{{_id}}">{{getReply _id}} reply</a></li>
                                                 <li>{{>timeago date}}</li>
                                             </ul>
                                         </div> <!-- hold-reply-row-->
                                     </div>
                                 </div>
                             </div> <!-- hold-each-comment-->
-                            {{/each}}
+                        {{/each}}
                     </div> <!-- col-xs-12 -->
                 </div> <!-- row -->
             </div>
