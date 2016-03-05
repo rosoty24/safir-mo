@@ -23,80 +23,81 @@ Template.addPost.events({
 		var id = Meteor.userId();
 		var topic = $('#topic').val();
 		var description = $('#description').val();
-    alert("dis "+description);
 		/*var d = new Date();
 		var date = d.getDate();
 		var year = d.getFullYear();
 		var month = d.getMonth()+1;
 		var time = date+"-"+month+"-"+year;*/
-    var time = new Date();
+        var time = new Date();
 		var image = Session.get("ADDIMAGEID");
 		var parent_id = "0";
-    var category = Session.get("CATEGORYID");
-    if (category == "" || category == null) {
-      Bert.alert( 'Please choose topic', 'danger', 'growl-top-right' );
-    }
-    else if(topic == "" || topic == null) {
-      Bert.alert( 'Please input topic', 'danger', 'growl-top-right' );
-    }
-    else if (description == "" || description == null) {
-      Bert.alert( 'Please input description', 'danger', 'growl-top-right' );
-    }
-    else if (image == "" || image == null) {
-      Bert.alert( 'Please choose image', 'danger', 'growl-top-right' );
-    }
-		else{
-      if(Meteor.user()){
-      Meteor.call('addPost', id,parent_id,topic,description,image,time,category, function(err){
-        if(err){
-          console.log(err.reason);
-        }else{
-          Bert.alert( 'success', 'success', 'growl-top-right' ); 
-          Router.go('/forum/myforum');
+        var category = Session.get("CATEGORYID");
+        if (category == "" || category == null) {
+          Bert.alert( 'Please choose topic', 'danger', 'growl-top-right' );
         }
-      });
-    }else{
-      Router.go("/login");
-    }
-    }
+        else if(topic == "" || topic == null) {
+          Bert.alert( 'Please input topic', 'danger', 'growl-top-right' );
+        }
+        else if (description == "" || description == null) {
+          Bert.alert( 'Please input description', 'danger', 'growl-top-right' );
+        }
+        else if (image == "" || image == null) {
+          Bert.alert( 'Please choose image', 'danger', 'growl-top-right' );
+        }
+		else{
+            if(Meteor.user()){
+                Meteor.call('addPost', id,parent_id,topic,description,image,time,category, function(err){
+                    if(err){
+                        console.log(err.reason);
+                    }else{
+                        Bert.alert( 'success', 'success', 'growl-top-right' ); 
+                        Router.go('/forum/myforum');
+                    }
+                });
+            }else{
+                Router.go("/login");
+            }
+        }
 	
 	},
-	  'change #image': function(event, template) {
-    var files = event.target.files;
-    for (var i = 0, ln = files.length; i < ln; i++) {
-      images.insert(files[i], function (err, fileObj) {
-        // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
-       // alert("sess"+fileObj._id)
-        Session.set('ADDIMAGEID', fileObj._id);
-      });
-    }
-  },
-  
+	'change #image': function(event, template) {
+        var files = event.target.files;
+        for (var i = 0, ln = files.length; i < ln; i++) {
+            images.insert(files[i], function (err, fileObj) {
+                // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+                // alert("sess"+fileObj._id)
+                Session.set('ADDIMAGEID', fileObj._id);
+            });
+        }
+    },
 });
-
 Template.forumDetail.events({
-    'submit form': function(e,tpl){
-    e.preventDefault();
-    var userid = Meteor.userId();
-    var description = $('#description').val();
-    var d = new Date();
-    var date = d.getDate();
-    var year = d.getFullYear();
-    var month = d.getMonth()+1;
-    var time = date+"-"+month+"-"+year;
-    var id = this._id;
-    var forum = posts.findOne({_id:id});
-    var categoryid = (forum)? forum.category:'';
-    var image = Session.get("ADDIMAGEID");
-    Meteor.call('addReply', userid,id,description,categoryid,time,image,status, function(err){
-      if(err){
-        console.log(err.reason);
-      }else{
-        console.log("Success");
-         Router.go('/forum/listing');
-      }
-    });
-  },
+    'click .li-reply':function(e,tpl){
+        e.preventDefault();
+        tpl.$(".reply").removeClass("hidden");
+    },
+    'click .btn-send': function(e,tpl){
+        var userid = Meteor.userId();
+        var description = $('#description').val();
+        var time = new Date();
+        var id = this._id;
+        var forum = posts.findOne({_id:id});
+        var categoryid = (forum)? forum.category:'';
+        var topic = (forum)? forum.topic:'';
+        var image = Session.get("ADDIMAGEID");
+        if(description=='' || description==null){
+            tpl.$(".error").removeClass("hidden");
+        }else{
+            Meteor.call('addReply', userid,id,topic,description,categoryid,time,image,status, function(err){
+                if(err){
+                    console.log(err.reason);
+                }else{
+                    console.log("Success");
+                    Router.go('/forum/listing');
+                }
+            });
+        }
+    },
     'change #image': function(event, template) {
     var files = event.target.files;
     for (var i = 0, ln = files.length; i < ln; i++) {
@@ -108,7 +109,6 @@ Template.forumDetail.events({
     }
   }
 });
-
 Template.addPost.onRendered( function() {
  $( "#addPost" ).validate({
     rules: {

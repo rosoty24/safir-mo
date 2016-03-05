@@ -83,12 +83,10 @@ Template.details.helpers({
 			console.log('ages:'+ages.length);
 			console.log('myTags:'+myTags.length);
 			console.log('grades:'+grades.length);
-
 			var results=[];
 			for(var i=0;i<ages.length;i++){
 				var ageMin=Number(ages[i].split('-')[0]);
 				var ageMax=Number(ages[i].split('-')[1]);
-
 				console.log('min:'+ageMin);
 				console.log('max:'+ageMax);
 				//Loop into reviews

@@ -5,7 +5,7 @@
                 <ul class="refine_menu list-inline">
                     <div class="col-xs-6">
                         <li class="active">
-                            <a href="#" id="makeup">TOPIC <i class="fa fa-caret-down"></i></a>
+                            <a href="#" id="makeup">{{_"TOPIC"}}<i class="fa fa-caret-down"></i></a>
                         </li>
                     </div>
                 </ul>
@@ -24,7 +24,7 @@
             <div class="wrapper">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h4 id="topicName"> TOPIC NAME </h4>
+                        <h4 id="topicName">{{_"TOPIC NAME"}}</h4>
                         <div class="hold-click-each-comment">
                             <div class="row">
                                 {{#with getprofile}}
@@ -52,9 +52,9 @@
                                 <textarea rows="20" cols="200" id="description" class="input" placeholder="Write what you want..." ></textarea>
                                 <div class="clearfix"></div>
                                 <div class="block-comment">
-                                     <label>Choose Image<a href=""><img src="/img/attach-file.png" name="image" id="images"></a>
+                                     <label>{{_"Choose Image"}}<a href=""><img src="/img/attach-file.png" name="image" id="images"></a>
                                     <input type="file" id="image" style="display: none;" /></label>
-                                    <button class="pull-right" id="addPost">ADD FORUM</button>
+                                    <button class="pull-right" id="addPost">{{_"ADD FORUM"}}</button>
                                 </div>
                             </div>
                         </div><!-- hold-click-each-comment -->

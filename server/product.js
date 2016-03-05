@@ -88,12 +88,11 @@ Meteor.methods({
 	unpublishPro: function(id, attr){
 		products.update({_id:id},{$set: attr});
 	},
-	add_review: function(title,comment,grade,userid,productid){
+	add_review: function(title,comment,userid,productid){
 		var date=new Date.now();
 		var attr={
 			'title':title,
 			'comment':comment,
-			'grade':grade,
 			'userid':userid,
 			'date':date
 		};
