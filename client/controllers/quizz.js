@@ -83,5 +83,12 @@ Template.quizz.onRendered(function () {
 Template.listQuizz.helpers({
 	qetListQuizz:function(){
 	return quizz.find();
+	},
+	getQuizzBackground:function(quizz){
+		var a =answerquizz.find({ quizzId:quizz},{ "quizzId" : { $exists : true, $ne : null } });
+		console.log(a);
+		//var booleanResponse = answerquizz.find(({ quizzId:quizz},{quizzId: { $exists: true, $nin: {[valueToCheck]}} })
+		//var result = answerquizz.findOne({quizzId:quizz,quizzId:{"$exists":'true'}});
+		
 	}
 });

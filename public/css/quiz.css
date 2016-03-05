@@ -1,0 +1,122 @@
+
+.swiper-container-quiz{
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+.quiz .panel{
+	border-radius: 0px;
+	border-bottom: 1px solid transparent;
+}
+.panel-heading-quiz{
+    color: #FFF;
+    background-color: #000;
+    border-bottom: 1px solid transparent;
+}
+.panel-heading-quiz {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+}
+.quiz .panel-title{
+	font-weight:bold;
+}
+.all-face-quiz{
+	padding:15px 0px;
+	margin:15px 0px;
+	overflow:hidden;
+}
+/*background*/
+.btn:active{
+	background:red;
+}
+.bg-quiz1{
+	background:url(../img/background-pink-black.png) no-repeat;
+	background-size:100% 100%;
+}
+.bg-quiz2{
+	background:url(../img/bg-quiz2.png) no-repeat;
+	background-size:100% 100%;
+}
+.bg-lips{
+	background:url(../img/banner-mobile.png) no-repeat;
+	background-size:100% 100%;
+}
+
+.bg-eyes{
+	background:url(../img/bg-eyes.png) no-repeat;
+	background-size:100% 100%;
+}
+.bg-hair{
+	background:url(../img/bg-hair.png) no-repeat;
+	background-size:100% 100%;
+}
+.bg-perfume{
+	background:url(../img/bg-perfume.png) no-repeat;
+	background-size:100% 100%;
+}
+.bg-nails{
+	background:url(../img/bg-nails.png) no-repeat;
+	background-size:100% 100%;
+}
+.bg-body{
+	background:url(../img/bg-body.png) no-repeat;
+	background-size:100% 100%;
+}
+.bg-white-quiz{
+	background:url(../img/bg-white.png) repeat;
+	background-size:100% 100%;
+	opacity:0.5;
+}
+/*btn*/
+.btn-quiz1{
+	background:url(../img/btn-quiz1.png) no-repeat;
+	background-size:100% 100%;
+	font-weight:bold;
+	margin: 0px 0px 8px;
+	padding: 6px 12px 10px 12px;
+}
+.btn-quiz2{
+	background:#f1c3cf;
+	background-size:100% 100%;
+	font-weight:bold;
+	border-radius:10px;
+}
+#all_question{
+	display: none;
+}
+.swiper-container .swiper-wrapper .swiper-slide {
+    -webkit-flex-shrink: 0;
+    -ms-flex: 0 0 auto;
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    text-align: center;
+}
+div.hold_refine{
+	margin-bottom: 20px;
+}
+form.quiz-form{
+    width: 100%;
+    overflow: hidden;
+    padding: 25px 15px 25px 55px;
+}
+div.skin1 {
+    background: #ccc;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 75px;
+}
+.click_skin_border{
+	background: #ccc;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 75px;
+	border:3px solid #fff;
+}
+
+.red{
+	color: red;
+}
