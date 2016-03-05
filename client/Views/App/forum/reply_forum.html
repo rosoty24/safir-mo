@@ -3,19 +3,19 @@
     <h1>Reply</h1>
       <form class="form-horizontal" id="addReply" role="form" method="post">
      <div class="form-group">
-        <label for="title" class="col-sm-2 control-label">Topic</label>
+        <label for="title" class="col-sm-2 control-label">{{_"Topic"}}</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" required id="topic" name="topic">
         </div>
     </div>
     <div class="form-group">
-        <label for="message" class="col-sm-2 control-label">Description</label>
+        <label for="message" class="col-sm-2 control-label">{{_"Description"}}</label>
         <div class="col-sm-6">
             <textarea class="form-control" required rows="4" name="description" id="description"></textarea>
         </div>
     </div>
         <div class="form-group">
-        <label for="message" class="col-sm-2 control-label">Select image:</label>
+        <label for="message" class="col-sm-2 control-label">{{_"Select image"}} :</label>
         <div class="col-sm-6">
             <input type="file" name="image" id="image" class="your-upload-class">
         </div>
