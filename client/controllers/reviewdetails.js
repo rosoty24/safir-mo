@@ -2,19 +2,37 @@ Session.set("filter","");
 Session.set('fiterValue',"");
 Session.set('removefilter','');
 Session.set('numberOfReviews',2);
-Template.addreviewsreyden.events({
+Template.details.events({
 	'click #addreview': function(e,tpl){
+		alert("ok");
 		e.preventDefault();
 		var userid=Meteor.userId();
-		//alert(userid);
+		alert(userid);
 		var title=tpl.$("#title").val();
 		var comment=tpl.$("#comment").val();
-		var grade=tpl.$("#sel1").val();
-		if(userid==null){
-			alert("You have to be logged to submit a review!");
-			return;
-		}
-		Meteor.call('add_review',title,comment,grade,userid,this._id);
+		alert(title+ comment);
+		Meteor.call('add_review',title,comment,userid,this._id);
+		alert("Review added successfully!")
+	},
+	/*'click .morereview':function(e){
+			e.preventDefault();
+			//alert();
+			var last = Session.get('numberOfReviews');
+			var sum = Number(last) + 5;
+			var update = Session.set('numberOfReviews',sum);
+			return update;
+		}*/
+	});
+Template.addreviewsreyden.events({
+	'click #addreview': function(e,tpl){
+		alert("ok");
+		e.preventDefault();
+		var userid=Meteor.userId();
+		alert(userid);
+		var title=tpl.$("#title").val();
+		var comment=tpl.$("#comment").val();
+		alert(title+ comment);
+		Meteor.call('add_review',title,comment,userid,this._id);
 		alert("Review added successfully!")
 	},
 	/*'click .morereview':function(e){
