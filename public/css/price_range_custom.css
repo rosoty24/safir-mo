@@ -68,10 +68,10 @@
 
 .panel_brands {
     display: none;
-    overflow: scroll;
+/*    overflow: scroll;*/
     padding: 15px;
     background: #333333;
-    height: 250px;
+    height: 270px;
 }
 
 /* panel advanced */

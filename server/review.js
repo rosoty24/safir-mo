@@ -36,5 +36,18 @@ Meteor.methods({
 
 		contents.update({ "_id": productId },{ $addToSet: {review: attr }});
 
-	}
+	},
+	addreviewdetail: function(title,comment,userid,productid){
+		var date=new Date();
+		var attr={
+			'title':title,
+			'comment':comment,
+			'userid':userid,
+			'productid':productid,
+			'date':date
+		};
+		console.log('Adding this review '+JSON.stringify(attr));
+		products.update({_id:productid},{ $push: { review: attr } });
+
+	},
 });
