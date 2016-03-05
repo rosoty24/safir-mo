@@ -80,18 +80,15 @@ Template.forumDetail.events({
         var userid = Meteor.userId();
         var description = $('#description').val();
         var time = new Date();
-        // var date = d.getDate();
-        // var year = d.getFullYear();
-        // var month = d.getMonth()+1;
-        // var time = date+"-"+month+"-"+year;
         var id = this._id;
         var forum = posts.findOne({_id:id});
         var categoryid = (forum)? forum.category:'';
+        var topic = (forum)? forum.topic:'';
         var image = Session.get("ADDIMAGEID");
         if(description=='' || description==null){
             tpl.$(".error").removeClass("hidden");
         }else{
-            Meteor.call('addReply', userid,id,description,categoryid,time,image,status, function(err){
+            Meteor.call('addReply', userid,id,topic,description,categoryid,time,image,status, function(err){
                 if(err){
                     console.log(err.reason);
                 }else{

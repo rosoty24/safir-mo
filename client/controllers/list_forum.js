@@ -150,3 +150,36 @@ Template.forumDetail.helpers({
         return time;
     }
 });
+Template.updateForum.events({
+    "click #update":function(){
+        var id = this._id;
+        var userid = Meteor.userId();
+        var topic = $('#topic').val();
+        var description = $('#description').val();
+        var image = Session.get("ADDIMAGEID");
+        var forum = posts.findOne({_id:id});
+        var parent_id = (forum)? forum.parentId:'';
+        var time = (forum)? forum.date;
+        var category = Session.get("CATEGORYID");
+        if(topic == "" || topic == null) {
+          Bert.alert( 'Please input topic', 'danger', 'growl-top-right' );
+        }
+        else if (description == "" || description == null) {
+          Bert.alert( 'Please input description', 'danger', 'growl-top-right' );
+        }
+        else{
+            if(Meteor.user()){
+                Meteor.call('updateForum',id,userid,parent_id,topic,description,image,time,category, function(err){
+                    if(err){
+                        console.log(err.reason);
+                    }else{
+                        Bert.alert( 'success', 'success', 'growl-top-right' ); 
+                        Router.go('/forum/myforum');
+                    }
+                });
+            }else{
+                Router.go("/login");
+            }
+        }
+    }
+});
