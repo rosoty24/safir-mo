@@ -40,7 +40,13 @@
     				</tr>
     				<tr>
     					<td><label>{{_"Birth Date"}}</label></td>
-    					<td><input type="text" class="input-profile" id="birth" value="{{profile.birth}}"/></td>
+    					<td><!-- <input type="text" class="input-profile" id="birth" value="{{profile.birth}}"/> -->
+                            <div class="input-group " >
+                                <span class="input-group-addon "><i class="glyphicon glyphicon-calendar"></i></span>
+                                <input id ="birth" dateformat="d M y" type="date" class="set-due-date form-control" value="{{profile.birth}}"/>
+                                <span class="datepicker_label datetimepicker" style="pointer-events: none;"></span>
+                            </div>
+                        </td>
     				</tr>
     				<tr>
     					<td><label>{{_"Sex"}}</label></td>
