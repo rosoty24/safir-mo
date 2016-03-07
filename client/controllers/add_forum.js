@@ -1,3 +1,4 @@
+Session.set('ADDIMAGEID','');
 Template.addPost.events({
   "click #makeup":function(){
     $("#panel_makeup").slideToggle("slow");

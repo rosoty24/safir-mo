@@ -149,3 +149,17 @@ div.block-comment button{
 div.hold-click-each-comment ul.subcat{
 	margin-left: 0px;
 }
+.hold-each-comment ul li:nth-child(odd){
+	background-color:#ebebeb;
+	overflow: hidden;
+}
+.hold-each-comment ul li:nth-child(even){
+	background-color:#fff;
+	overflow: hidden;
+}
+.hold-reply-row ul.row-date li.reply{
+	background: none;
+}
+ul li img{
+	margin-top: 4px;
+}

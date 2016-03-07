@@ -1,0 +1,66 @@
+<template name="listForum">
+    <article>
+        <section id="refine_menu" dir="{{getDirection}}">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="hold_refine">
+                        <ul class="refine_menu list-inline">
+                            <div class="col-xs-12">
+                                <li class="active">
+                                    <a href="#" id="makeup">{{_ "Category"}} <i class="fa fa-caret-down"></i></a>
+                                </li>
+                            </div>
+                        </ul>
+                        <div id="panel_makeup">
+                            <ul class="make-up">
+                                {{#each getAllCate}}
+                                    <li id="child_cate" data-cate="{{title}}"><a href="#">{{title}}</a></li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="shadow_bottom" dir="{{getDirection}}">
+          <div class="wrapper">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4 id="cate">{{_ "List All Forums"}}</h4>
+                        <div class="hold-each-comment">
+                            <ul>
+                                {{#each getallForum}}
+                                <li>
+                                    <div class="row">
+                                        {{#with getprofile this.userId}}
+                                            {{#if image}}
+                                                <div class="col-xs-3">
+                                                    <img src="{getImg image}}" class="">
+                                                </div>
+                                            {{else}}
+                                                <div class="col-xs-3">
+                                                    <img src="/img/menu1.png" class="">
+                                                </div>
+                                            {{/if}}
+                                        {{/with}}
+                                         <div class="col-xs-9">
+                                            <p class="title-comment"><a href="/forum/detail/{{_id}}">{{topic}}</a></p>
+                                            <p class="desc-comment">{{description}}</p>
+                                            <div class="hold-reply-row">
+                                                <ul class="list-inline row-date">
+                                                    <li class="reply"><a href="/forum/detail/{{_id}}">{{getReply _id}} reply</a></li>
+                                                    <li class="reply">{{>timeago date}}</li>
+                                                </ul>
+                                            </div> <!-- hold-reply-row-->
+                                        </div>
+                                    </div>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div> <!-- col-xs-12 -->
+                </div> <!-- row -->
+            </div>
+        </section>
+    </article>
+</template>

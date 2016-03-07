@@ -7,13 +7,13 @@
 					<div class="col-xs-12">
 						<div class="hold-tuto">
 							<a href="/tutolisting/{{slug title}}" id="linkTotulisting"><h6 class="tuto-title">{{title}}</h6></a>
-							<a href="/tutolisting/{{slug title}}" id="linkTotulisting">
 							{{#with getCategoryImg _id}}
 							<div class="hold-tuto-videos">
-								<img src="{{getImg this}}" class="img-responsive" alt="{{title}}">
+								<a href="/tutolisting/{{slug title}}" id="linkTotulisting">
+									<img src="{{getImg image}}" class="img-responsive" alt="{{title}}">
+								</a>
 							</div>
 							{{/with}}
-							</a>
 							<div>
 								<p>{{content}}</p>
 							</div>
