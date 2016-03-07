@@ -55,8 +55,7 @@ Template.addPost.events({
                     if(err){
                         console.log(err.reason);
                     }else{
-                        // Bert.alert( 'success', 'success', 'growl-top-right' ); 
-                        $('.successfull').text("لطفا شرح ورودی.");
+                        Bert.alert( 'success', 'success', 'growl-top-right' ); 
                         Router.go('/forum/myforum');
                     }
                 });
