@@ -56,7 +56,7 @@ Template.addPost.events({
                         console.log(err.reason);
                     }else{
                         // Bert.alert( 'success', 'success', 'growl-top-right' ); 
-                        $('.success').text("موفقیت");
+                        $('.successfull').text("لطفا شرح ورودی.");
                         Router.go('/forum/myforum');
                     }
                 });
