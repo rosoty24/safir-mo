@@ -1,5 +1,5 @@
 Meteor.methods({
- regUser:function(firstname, lastname, email, password,con_password, shipcard, point,validateEmail, rerole,country,city,username){
+ regUser:function(firstname, lastname, email, password,con_password, shipcard, point, rerole,country,city,username){
    targetUserId = Accounts.createUser({
    	username:username,
     email: email,

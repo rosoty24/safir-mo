@@ -14,20 +14,13 @@ div.hold-each-comment p.com-des{
 	font-size: 10px;
     margin:0px;
 }
-p.title-comment{
-	font-size: 12px;
-    margin: 5px 0 0 -20px;
-}
+
 p.desc-comment{
 	font-size: 10px;
-    margin: 0 0 0 -20px;
+    margin: 0 0 0 5px;
 }
 
-.hold-reply-row .list-inline li{
-	font-size: 11px;
-	margin-left: 15px;
-	margin-top: 15px;
-}
+
 .hold-reply-row .list-inline li i{
 	color:#dd2a1b;
 }
@@ -143,9 +136,7 @@ a.btn-send{
 	padding-right:4px;
 	padding-left:4px;
 }
-div.hold-reply-row ul.list-inline{
-    margin-left: -35px;
-}
+
 label a img{
 	width: 20px;
 }
