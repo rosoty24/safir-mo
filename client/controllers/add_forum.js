@@ -15,6 +15,9 @@ Template.addPost.events({
     $("#panel_makeup").slideToggle("hide");
     //console.log("cat is ====="+id);
   },
+  'click #image': function(){
+    imgBrowse1 = $("input[id='images']").click().val();
+  },
   'click #images': function(){
     imgBrowse1 = $("input[id='image']").click().val();
   },
@@ -23,13 +26,9 @@ Template.addPost.events({
 		var id = Meteor.userId();
 		var topic = $('#topic').val();
 		var description = $('#description').val();
-		/*var d = new Date();
-		var date = d.getDate();
-		var year = d.getFullYear();
-		var month = d.getMonth()+1;
-		var time = date+"-"+month+"-"+year;*/
         var time = new Date();
 		var image = Session.get("ADDIMAGEID");
+        console.log("image: "+image);
 		var parent_id = "0";
         var category = Session.get("CATEGORYID");
         if (category == "" || category == null) {
@@ -65,7 +64,7 @@ Template.addPost.events({
         for (var i = 0, ln = files.length; i < ln; i++) {
             images.insert(files[i], function (err, fileObj) {
                 // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
-                // alert("sess"+fileObj._id)
+                //alert("sess"+fileObj._id)
                 Session.set('ADDIMAGEID', fileObj._id);
             });
         }
