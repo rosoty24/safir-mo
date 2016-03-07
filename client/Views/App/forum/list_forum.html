@@ -27,33 +27,37 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h4 id="cate">{{_ "List All Forums"}}</h4>
-                        {{#each getallForum}}
-                            <div class="hold-each-comment">
-                                <div class="row">
-                                {{#with getprofile this.userId}}
-                                    {{#if image}}
-                                        <div class="col-xs-3">
-                                            <img src="{getImg image}}" class="">
+                        <div class="hold-each-comment">
+                            <ul>
+                                {{#each getallForum}}
+                                <li>
+                                    <div class="row">
+                                        {{#with getprofile this.userId}}
+                                            {{#if image}}
+                                                <div class="col-xs-3">
+                                                    <img src="{getImg image}}" class="">
+                                                </div>
+                                            {{else}}
+                                                <div class="col-xs-3">
+                                                    <img src="/img/menu1.png" class="">
+                                                </div>
+                                            {{/if}}
+                                        {{/with}}
+                                         <div class="col-xs-9">
+                                            <p class="title-comment"><a href="/forum/detail/{{_id}}">{{topic}}</a></p>
+                                            <p class="desc-comment">{{description}}</p>
+                                            <div class="hold-reply-row">
+                                                <ul class="list-inline row-date">
+                                                    <li class="reply"><a href="/forum/detail/{{_id}}">{{getReply _id}} reply</a></li>
+                                                    <li class="reply">{{>timeago date}}</li>
+                                                </ul>
+                                            </div> <!-- hold-reply-row-->
                                         </div>
-                                    {{else}}
-                                        <div class="col-xs-3">
-                                            <img src="/img/menu1.png" class="">
-                                        </div>
-                                    {{/if}}
-                                {{/with}}
-                                    <div class="col-xs-9">
-                                        <p class="title-comment"><a href="/forum/detail/{{_id}}">{{topic}}</a></p>
-                                        <p class="desc-comment">{{description}}</p>
-                                        <div class="hold-reply-row">
-                                            <ul class="list-inline">
-                                                <li><a href="/forum/detail/{{_id}}">{{getReply _id}} reply</a></li>
-                                                <li>{{>timeago date}}</li>
-                                            </ul>
-                                        </div> <!-- hold-reply-row-->
                                     </div>
-                                </div>
-                            </div> <!-- hold-each-comment-->
-                        {{/each}}
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
                     </div> <!-- col-xs-12 -->
                 </div> <!-- row -->
             </div>
