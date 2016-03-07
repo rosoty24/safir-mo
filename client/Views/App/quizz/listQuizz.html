@@ -1,25 +1,207 @@
 <template name="listQuizz">
-<div class="container">
-		<section class="row">
-			<div class="col-sm-12 col-md-12">
-				<div class="widget-box">
-					<div class="widget-title">
-						<h2><i class="glyphicon glyphicon-tasks"></i>{{_"Order List"}}</h2>
-					</div>
-					{{#each qetListQuizz}}
-					<div class="item">
-						<div class="clearfix">
-								<a href="" class="avatar-link">
-									<img class="img-active" src="{{getImg image}}" width="60">
-								</a>
-								<span class="title">
-									<a href="/quizzQA/{{_id}}">{{name}}</a>
-								</span>
+	<article>
+    	<div class="wrapper">
+			<div class="quiz">
+				<div class="row">
+					<!-- quiz 1 -->
+					<div class="col-xs-12">
+						<div class="hold_refine">
+							<div class="panel-heading-quiz">
+								<h3 id="question" class="panel-title">About you</h3>
+							</div>
+
+				            <div id="all_question">
+					            <div class="panel-body bg-quiz1">
+									<div class="col-xs-12">
+										<div class="panel">
+										  	<div class="panel-heading-quiz">
+												<h3 class="panel-title text-center">Are you a:</h3>
+										  	</div>
+										  	<div class="panel-body bg-lips">
+                                 				<form class="quiz-form">
+												    <fieldset data-role="controlgroup" data-mini="true">
+													    <div>
+													    	<input type="radio" name="radio-choice-v-6" id="radio-choice-v-6a" value="on">
+													        <label for="radio-choice-v-6a">Woman</label>
+													    </div>
+													    <div>
+													    	<input type="radio" name="radio-choice-v-6" id="radio-choice-v-6b" value="off">
+													        <label for="radio-choice-v-6b">Man</label>
+													    </div>
+												    </fieldset>
+												</form>
+										  	</div>
+										</div>
+										<div class="panel">
+										  	<div class="panel-heading-quiz">
+												<h3 class="panel-title text-center">How do you feel your skin:</h3>
+										  	</div>
+										  	<div class="panel-body bg-lips">
+                                 				<form class="quiz-form">
+												    <fieldset data-role="controlgroup" data-mini="true">
+													    <div>
+													    	<input type="radio" name="radio-choice-v-6" id="radio-choice-v-6a" value="on">
+													        <label for="radio-choice-v-6a">Dry</label>
+													    </div>
+													    <div>
+													    	<input type="radio" name="radio-choice-v-6" id="radio-choice-v-6b" value="off">
+													        <label for="radio-choice-v-6b">Combination</label>
+													    </div>
+												        <div>
+												        	<input type="radio" name="radio-choice-v-6" id="radio-choice-v-6c" value="other">
+												        	<label for="radio-choice-v-6c">Oily</label>
+												        </div>
+												    </fieldset>
+												</form>
+										  	</div>
+										</div>
+										<div class="panel">
+										  	<div class="panel-heading-quiz">
+												<h3 class="panel-title text-center">Your skin is:</h3>
+										  	</div>
+										  	<div class="panel-body bg-lips">
+												<div class="swiper-container">
+				                                    <div class="swiper-wrapper">
+				                                        <div class="swiper-slide text-center">
+				                                            <img src="/img/slide1.png" class="img-responsive img-circle">
+				                                            <p>complexions</p>
+				                                        </div>
+				                                        <div class="swiper-slide">
+				                                            <img src="/img/slide2.png" class="img-responsive img-circle">
+				                                            <p>complexions</p>
+				                                        </div>
+				                                        <div class="swiper-slide">
+				                                            <img src="/img/slide3.png" class="img-responsive img-circle">
+				                                            <p>complexions</p>
+				                                        </div>
+				                                        <div class="swiper-slide">
+				                                            <img src="/img/slide4.png" class="img-responsive img-circle">
+				                                            <p>complexions</p>
+				                                        </div>
+				                                        <div class="swiper-slide">
+				                                            <img src="/img/slide5.png" class="img-responsive">
+				                                            <p>complexions</p>
+				                                        </div>
+				                                        <div class="swiper-slide">
+				                                            <img src="/img/slide6.png" class="img-responsive">
+				                                            <p>complexions</p>
+				                                        </div>
+				                                    </div>
+				                                    <!-- Add Arrows -->
+				                                    <div class="swiper-button-prev"></div>
+				                                    <div class="swiper-button-next"></div>
+				                                </div>
+										  	</div>
+										</div>
+										<div class="panel">
+										  	<div class="panel-heading-quiz">
+												<h3 class="panel-title text-center">How you define yourself:</h3>
+										  	</div>
+										  	<div class="panel-body bg-lips">
+                                 				<form class="quiz-form">
+												    <fieldset data-role="controlgroup" data-mini="true">
+													    <div>
+													    	<input type="radio" name="radio-choice-v-6" id="radio-choice-v-6a" value="on">
+													        <label for="radio-choice-v-6a">Pop</label>
+													    </div>
+													    <div>
+													    	<input type="radio" name="radio-choice-v-6" id="radio-choice-v-6b" value="off">
+													        <label for="radio-choice-v-6b">Naturel</label>
+													    </div>
+												        <div>
+												        	<input type="radio" name="radio-choice-v-6" id="radio-choice-v-6c" value="other">
+												        	<label for="radio-choice-v-6c">Sophisticated</label>
+												        </div>
+												    </fieldset>
+												</form>
+										  	</div>
+										</div>
+										<div class="col-xs-12">
+											<button type="button" class="btn btn-quiz1 btn-block">Update modifications</button>
+										</div>
+									</div>
+								</div>
+				            </div>
+				        </div>
+						
+					</div><!--/ quiz 1 -->
+					
+					<!-- quiz 2 -->
+					<div class="col-xs-12">
+						<div class="panel">
+						  <div class="panel-heading-quiz">
+							<h3 class="panel-title text-center">All Face</h3>
+						  </div>
+						  <div class="panel-body bg-quiz2">
+							<div class="row">
+								<div class="col-xs-12">
+									
+									<div class="all-face-quiz bg-white-quiz">
+										<div class="col-xs-3">
+											<img src="/img/girl.png">
+										</div>
+										<div class="col-xs-9">
+											A makeup set for your face that fits you
+										</div>
+									</div>
+								
+									<div class="col-xs-8 col-xs-offset-2">
+										<button type="button" class="btn btn-quiz1 btn-block">Suggested products</button>
+									</div>
+									<div class="">
+										<button type="button" class="btn btn-quiz2 pull-right">Redo the quiz</button>
+									</div>
+								</div>
+							</div>
+						  </div>
 						</div>
 					</div>
-					{{/each}}	
+					<!--/ quiz 2 -->
+					
+					{{#each qetListQuizz}}
+					<div class="col-xs-6">
+						<div class="panel">
+						  <div class="panel-heading-quiz">
+							<a href="/quizzQA/{{_id}}" id="quizzName"><h3 class="panel-title text-center">{{name}}</h3></a>
+						  </div>
+						  <div class="panel-body {{getQuizzBackground _id}}">
+							<div class="row">
+								<div class="col-xs-12">
+									<button type="button" class="{{getQuizzBtton _id}}">hjk</button>
+								</div>
+								<div class="col-xs-12 showbutton"><button type="button" class="btn b1 btn-quiz1 btn-block" style="display: none;">Suggested</button></div>
+
+								
+								<div class="col-xs-12 showbutton"><button type="button" class="btn b2 btn-quiz2 btn-block" style="display: none;">Redo the quiz</button></div>
+								
+							</div>
+						  </div>
+						</div>
+					</div>
+					{{/each}}
+
+					<!--/ quiz 5 -->
+					<!-- Modal -->
+					  <div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog modal-sm">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <button type="button" class="close" data-dismiss="modal">×</button>
+							  <h4 class="modal-title">Modal Header</h4>
+							</div>
+							<div class="modal-body">
+							  <p>This is a small modal.</p>
+							</div>
+							<div class="modal-footer">
+							  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						  </div>
+						</div>
+					  </div>
 				</div>
 			</div>
-		</section>
-	</div>
+
+        </div>
+
+    </article>
 </template>

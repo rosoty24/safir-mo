@@ -79,9 +79,26 @@ Template.quizz.onRendered(function () {
   
 
 });
-
 Template.listQuizz.helpers({
 	qetListQuizz:function(){
 	return quizz.find();
+	},
+	getQuizzBackground:function(quizz){
+		var result = answerquizz.find({quizzId:quizz}).count();
+		if(result>0){
+			 return "bg-hair-grey";
+		}
+		else{
+			return "bg-hair";
+		}
+	},
+	getQuizzBtton:function(quizzid){
+		var result = answerquizz.find({quizzId:quizzid}).count();
+		if(result>0){
+			return "div.showbutton button.b1";
+		}
+		else{
+			return "b2";
+		}
 	}
 });

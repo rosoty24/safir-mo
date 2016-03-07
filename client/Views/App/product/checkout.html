@@ -37,7 +37,7 @@
 					<div class="col-xs-8">
 						<h4 class="title-product">{{title}}</h4>
 						<h4 class="price-product">{{../subtotal}}</h4>
-						<p class="date">{{_"In stock on"}} {{date}}</p>
+						<p class="date">{{_"In stock on"}} {{getDate date}} {{getTime date}}</p>
 						<p class="free">{{_"Free Shipping"}}</p>
 					</div>
 				{{/with}}
@@ -63,7 +63,8 @@
 			</div>
 				<div class="clearfix"></div>
 				<div class="col-xs-12">
-					<p class="text-center color-gray">{{_"Get $50 gift card upon approval for the "}}<br>{{_"Amazon.com Reward Visa Card"}}</p>
+					<p class="text-center color-gray">{{_"Get $50 gift card upon approval for the"}}</p>
+					<p class="text-center color-gray">{{_"Amazon.com Reward Visa Card"}}</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>

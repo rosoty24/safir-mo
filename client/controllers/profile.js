@@ -1,5 +1,8 @@
 Session.set('ADDAVATAR','');
 Session.set("error_mg","");
+Template.editprofile.onRendered(function() {
+    this.$('.datetimepicker').datetimepicker();
+});
 Template.profile.helpers({
     getprofile:function(){
         var id = Meteor.userId();
@@ -202,7 +205,4 @@ Template.profile.events({
             Meteor.call('addanswer',id,array);
             alert("Answer saved successfully");
     }
-});
-Template.editprofile.onRendered(function() {
-    this.$('.datetimepicker').datetimepicker();
 });

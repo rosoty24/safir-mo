@@ -1,0 +1,25 @@
+<template name="listQuizz123">
+<div class="container">
+		<section class="row">
+			<div class="col-sm-12 col-md-12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<h2><i class="glyphicon glyphicon-tasks"></i>{{_"Order List"}}</h2>
+					</div>
+					{{#each qetListQuizz}}
+					<div class="item">
+						<div class="clearfix">
+								<a href="" class="avatar-link">
+									<img class="img-active" src="{{getImg image}}" width="60">
+								</a>
+								<span class="title">
+									<a href="/quizzQA/{{_id}}">{{name}}</a>
+								</span>
+						</div>
+					</div>
+					{{/each}}	
+				</div>
+			</div>
+		</section>
+	</div>
+</template>

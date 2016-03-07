@@ -3,13 +3,19 @@ Session.set('strqu','');
 Template.quizzQA.rendered = function() {
     $("#quizzpop").click();
 }
-
+Template.listQuizz.events({
+	'click #quizzName':function(){
+		var id = this._id;
+		Session.set("QUIZZID", id);
+	}
+});
 Template.quizzQA.events({
 	'click #goNext':function(e){
 		//alert("submit here");
 		var arr=[];
 		e.preventDefault();
 		var index=Session.get('sesIndex');
+		quizzId = Session.get("QUIZZID");
 		//alert(index);
 		Session.set('sesIndex',index+1);
 		//alert('qu='+this.question[index].question);
@@ -42,7 +48,7 @@ Template.quizzQA.events({
 		//alert(countses);
 		//alert('makara='+JSON.stringify(arr));
 		if(countqu == countses){
-			Meteor.call('insertQuestionAnswer',{userId:Meteor.userId(),quizz:arr},function(error){
+			Meteor.call('insertQuestionAnswer',{quizzId,userId:Meteor.userId(),quizz:arr},function(error){
 				if(error){
 					console.log("insertQuestionAnswer error"+error.reason)
 				}else{

@@ -43,10 +43,10 @@ Template.listForum.helpers({
         //return posts.find({},{limit:Session.get('loadlimit')});
         var item = Session.get("CATEID");
         if(item){
-            return posts.find({parentId:"0",category:item},{limit:Session.get('loadlimit')});
+            return posts.find({category:item},{limit:Session.get('loadlimit')});
         }
         else{
-            return posts.find({parentId:"0"},{limit:Session.get('loadlimit')});
+            return posts.find({},{limit:Session.get('loadlimit')});
         }
     },
     getprofile:function( userId ){
@@ -116,38 +116,12 @@ Template.myforum.events({
 });
 
 Template.forumDetail.helpers({
-    // listReply: function(){
-    //     var id = this._id;
-    //     return posts.find({parentId:id});
-    // },
-    // getName: function(){
-    //     return Meteor.users.find({});
-    // },
-    getProfile:function(userId){
-        return Meteor.users.findOne({_id:userId});
+    listReply: function(){
+        var id = this._id;
+        return posts.find({parentId:id});
     },
-    getTime:function(time){
-        var d = new Date(time * 1000), // Convert the passed timestamp to milliseconds
-        yyyy = d.getFullYear(),
-        mm = ('0' + (d.getMonth() + 1)).slice(-2), // Months are zero based. Add leading 0.
-        dd = ('0' + d.getDate()).slice(-2),   // Add leading 0.
-        hh = d.getHours(),
-        h = hh,
-        min = ('0' + d.getMinutes()).slice(-2),  // Add leading 0.
-        ampm = 'AM',
-        time;
-        
-        if (hh > 12) {
-            ampm = 'AM';
-        }else if (hh === 12) {
-            h = 12;
-            ampm = 'PM';
-        }else if (hh == 0) {
-            h = 12;
-        }
-        // ie: 2013-02-18, 8:35 AM 
-        time = hh + ':' + min +' '+ ampm;
-        return time;
+    getName: function(){
+        return Meteor.users.find({});
     }
 });
 Template.updateForum.events({
