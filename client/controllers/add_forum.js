@@ -68,7 +68,7 @@ Template.addPost.events({
                 Session.set('ADDIMAGEID', fileObj._id);
             });
         }
-    },
+    }
 });
 Template.forumDetail.events({
     'click .li-reply':function(e,tpl){
