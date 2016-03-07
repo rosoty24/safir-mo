@@ -86,19 +86,10 @@ Template.listQuizz.helpers({
 	getQuizzBackground:function(quizz){
 		var result = answerquizz.find({quizzId:quizz}).count();
 		if(result>0){
-			 return "bg-hair-grey";
+			 return true;
 		}
 		else{
-			return "bg-hair";
-		}
-	},
-	getQuizzBtton:function(quizzid){
-		var result = answerquizz.find({quizzId:quizzid}).count();
-		if(result>0){
-			return "div.showbutton button.b1";
-		}
-		else{
-			return "b2";
+			return false;
 		}
 	}
 });

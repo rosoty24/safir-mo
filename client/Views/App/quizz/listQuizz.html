@@ -161,21 +161,29 @@
 					{{#each qetListQuizz}}
 					<div class="col-xs-6">
 						<div class="panel">
-						  <div class="panel-heading-quiz">
-							<a href="/quizzQA/{{_id}}" id="quizzName"><h3 class="panel-title text-center">{{name}}</h3></a>
-						  </div>
-						  <div class="panel-body {{getQuizzBackground _id}}">
-							<div class="row">
-								<div class="col-xs-12">
-									<button type="button" class="{{getQuizzBtton _id}}">hjk</button>
-								</div>
-								<div class="col-xs-12 showbutton"><button type="button" class="btn b1 btn-quiz1 btn-block" style="display: none;">Suggested</button></div>
-
-								
-								<div class="col-xs-12 showbutton"><button type="button" class="btn b2 btn-quiz2 btn-block" style="display: none;">Redo the quiz</button></div>
-								
-							</div>
-						  </div>
+						  	<div class="panel-heading-quiz">
+								<a href="/quizzQA/{{_id}}" id="quizzName"><h3 class="panel-title text-center">{{name}}</h3></a>
+						  	</div>
+						  	{{#if getQuizzBackground _id}}
+						  		<div class="panel-body bg-hair">
+									<div class="row">
+										<div class="col-xs-12 showbutton">
+											<button type="button" class="btn btn-quiz1 btn-block">Suggested</button>
+										</div>
+										<div class="col-xs-12 showbutton">
+											<button type="button" class="btn btn-quiz2 b2 btn-block">Redo the quiz</button>
+										</div>
+									</div>
+							  	</div>
+							{{else}}
+								<div class="panel-body bg-hair-grey">
+									<div class="row">
+										<div class="col-xs-12 showbutton">
+											<a href="/quizzQA/{{_id}}"><button type="button" class="btn btn-quiz1 btn-block">Begining</button></a>
+										</div>
+									</div>
+							  	</div>
+							{{/if}}
 						</div>
 					</div>
 					{{/each}}

@@ -68,21 +68,21 @@
 	background-size:100% 100%;
 }
 .bg-white-quiz{
-	background:url(../img/bg-white.png) repeat;
+	background:url(/img/bg-white.png) repeat;
 	background-size:100% 100%;
 	opacity:0.5;
 }
 /*btn*/
 .btn-quiz1{
-	background:url(../img/btn-quiz1.png) no-repeat;
+	background:url(/img/btn-quiz1.png) no-repeat;
 	background-size:100% 100%;
 	font-weight:bold;
 	margin: 0px 0px 8px;
 	padding: 6px 12px 10px 12px;
 }
-.div.showbutton button.b1{
+.b1{
 	display: block;
-	background:url(../img/btn-quiz1.png) no-repeat;
+	background:url(/img/btn-quiz1.png) no-repeat;
 }
 .b2{
 	display: block;
