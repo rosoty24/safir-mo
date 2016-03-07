@@ -8,6 +8,7 @@
                             <a href="#" id="makeup">{{_"TOPIC"}}<i class="fa fa-caret-down"></i></a>
                         </li>
                     </div>
+                  <p class="topiccate" style="margin-top:10px;color:red"></p>
                 </ul>
                 <div id="panel_makeup">
                     <ul class="make-up">
@@ -49,11 +50,14 @@
                             <hr class="hr-usr">
                             <div class="hold-object">
                                 <input type="text" class="input" placeholder="{{_ "Write your topic"}}..." required id="topic" style="background-color: #ebebeb; border-color:#ebebeb; ">
+                                <p class="topic" style="margin-top:10px;color:red"></p>
                                 <textarea rows="20" cols="200" id="description" class="input" placeholder="{{_ "Write what you want"}}..." ></textarea>
+                                <p class="description" style="margin-top:10px;color:red"></p>
                                 <div class="clearfix"></div>
                                 <div class="block-comment">
                                      <label>{{_"Choose Image"}}<a href=""><img src="/img/attach-file.png" name="image" id="images"></a>
                                     <input type="file" id="upload" style="display: none;" /></label>
+                                    <p class="images" style="margin-top:10px;color:red"></p>
                                     <button class="pull-right" id="addPost">{{_"ADD FORUM"}}</button>
                                 </div>
                             </div>

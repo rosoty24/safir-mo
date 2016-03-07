@@ -33,16 +33,21 @@ Template.addPost.events({
 		var parent_id = "0";
         var category = Session.get("CATEGORYID");
         if (category == "" || category == null) {
-          Bert.alert( 'Please choose topic', 'danger', 'growl-top-right' );
+          $('.topiccate').text("لطفا موضوع را انتخاب نمایید.");
+          // Bert.alert( 'Please choose topic', 'danger', 'growl-top-right' );
         }
         else if(topic == "" || topic == null) {
-          Bert.alert( 'Please input topic', 'danger', 'growl-top-right' );
+          // Bert.alert( 'Please input topic', 'danger', 'growl-top-right' );
+          $('.topic').text("لطفا موضوع ورودی.");
         }
         else if (description == "" || description == null) {
-          Bert.alert( 'Please input description', 'danger', 'growl-top-right' );
+          // Bert.alert( 'Please input description', 'danger', 'growl-top-right' );
+          $('.description').text("لطفا شرح ورودی.");
         }
         else if (image == "" || image == null) {
-          Bert.alert( 'Please choose image', 'danger', 'growl-top-right' );
+          // Bert.alert( 'Please choose image', 'danger', 'growl-top-right' );
+          $('.images').text("لطفا انتخاب کنید و آپلود تصاویر.");
+
         }
 		else{
             if(Meteor.user()){
