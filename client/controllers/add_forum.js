@@ -55,7 +55,8 @@ Template.addPost.events({
                     if(err){
                         console.log(err.reason);
                     }else{
-                        Bert.alert( 'success', 'success', 'growl-top-right' ); 
+                        // Bert.alert( 'success', 'success', 'growl-top-right' ); 
+                        $('.success').text("موفقیت");
                         Router.go('/forum/myforum');
                     }
                 });
