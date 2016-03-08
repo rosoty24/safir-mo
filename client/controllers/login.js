@@ -1,5 +1,7 @@
 Session.set("loginError","");
 Session.set("registerError","");
+//Session.set("DUPLICATE");
+
 Template.register.events({
 	'click #btnRegister': function(event){
     	event.preventDefault();
@@ -31,25 +33,60 @@ Template.register.events({
 		//console.log('register in progress 2...')
 	    if(username == "" || firstname == "" ||  lastname == "" ||country == "" ||city == "" ||email == "" ||password == "" ||con_password == ""){
               if( username == "")
+                if(TAPi18n.getLanguage()=='fa'){
                   $('.error_username').text("لطفا ورودی نام کاربری خود را.");
+                }else{
+                  $('.error_username').text("Error username.");
+                }
               if( firstname == "")
+                if(TAPi18n.getLanguage()=='fa'){
                   $('.error_firstname').text("لطفا ورودی نام خود را.");
+                }else{
+                  $('.error_firstname').text("Error firstname.");
+                }
               if( lastname == "")
+                if(TAPi18n.getLanguage()=='fa'){
                   $(".error_lastname").text("لطفا نام خانوادگی خود را به.");
+                }else{
+                  $(".error_lastname").text("Error lastname.");
+                }
               if( country == "")
+                if(TAPi18n.getLanguage()=='fa'){
                   $('.error_pays').text("لطفا ورودی کشور خود را.");
+                }else{
+                  $('.error_pays').text("Error pays.");
+                }
               if( city == "")
+                if(TAPi18n.getLanguage()=='fa'){
                   $('.error_ville').text("لطفا ورودی شهرستان خود را.");
+                }else{
+                  $('.error_ville').text("Error ville.");
+                }
               if(email == "")
+                if(TAPi18n.getLanguage()=='fa'){
                   $(".error_email").text("لطفا ایمیل خود را ورودی.");
+                }else{
+                  $(".error_email").text("Error email.");
+                }
               if( con_password == "")
+                if(TAPi18n.getLanguage()=='fa'){
                   $('.error_conpassword').text("لطفا ورودی عبور تکرار رمز عبور خود را.");
+                }else{
+                  $('.error_conpassword').text("Error con_password.");
+                }
               if(password == "")
-                $(".error_password").text("لطفا ورودی رمز عبور خود را.");  
+                if(TAPi18n.getLanguage()=='fa'){
+                  $(".error_password").text("لطفا ورودی رمز عبور خود را."); 
+                }else{
+                  $(".error_password").text("Error password.");
+                } 
 
     		    }else if(con_password != password){
-                // alert("passwords not match");
-                $(".error_conpassword").text("رمز عبور خود را مطابقت ندارد.");
+                if(TAPi18n.getLanguage()=='fa'){
+                  $(".error_conpassword").text("رمز عبور خود را مطابقت ندارد.");
+                }else{
+                  $(".error_conpassword").text("Error con_password.");
+                }
             }
         else{
 			//alert(firstname+lastname+email+password);
@@ -97,8 +134,30 @@ Template.register.events({
 			}
 		}
 
-	}
+	},
+  'change #email':function(e){
+      e.preventDefault(); 
+      var email = $('#email').val();
+      Meteor.call('validateUserByEmail',email,function(err,data){
+        if(!err){
+          if(data ==true){
+            Session.set("DUPLICATE",true);
+          }else{
+            Session.set("DUPLICATE",false);
+          }
+        }
+      });
+      
+    }
 });
+
+Template.register.helpers({
+  duplicateEmail:function(){
+    if(Session.get("DUPLICATE") == true) return true;
+    else return false;
+  }
+});
+
 Template.login.helpers({
 	loginEurror:function(){
 		var msg = Session.get("loginError");
@@ -188,7 +247,11 @@ Template.login.events({
         		if(error){
         			console.log("MY USER======"+error.reason);
         			Session.set("loginError",error.reason);
-        			$("#loginError").text("نام و یا رمز عبور شما اشتباه است! ");
+              if(TAPi18n.getLanguage()=='fa'){
+          			$("#loginError").text("نام و یا رمز عبور شما اشتباه است! ");
+              }else{
+                $("#loginError").text("Login Error! ");
+              }
         		} else {
         			Session.set("loginError","");
         			$('.close').click();

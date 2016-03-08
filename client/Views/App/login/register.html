@@ -62,6 +62,11 @@
 	                                <p class="msg error" style="margin-top:10px;color:red"></p>
 	                                <p class="msg success" style="margin-top:10px;color:red"></p>
 	                            </div>
+
+	                            {{#if duplicateEmail}}
+									<p style="color:red">{{_"Email is already exists!"}}</p>
+								{{/if}}
+								
 	                            <div class="control-group">
 	                                <label class="control-label" for="inputPassword">{{_ "Password"}}</label>
 	                                <div class="controls">
