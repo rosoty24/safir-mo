@@ -548,6 +548,7 @@ Template.tutolisting.helpers({
 	getContent:function(id){
 		var type=contents_type.findOne({type:"Tuto"});
 		console.log('makar:'+type._id+'categoryId:'+id);
+
 		console.log('Displaying tuto');
 		var string=type._id+':'+id;
 		Session.set('Tuto',string);

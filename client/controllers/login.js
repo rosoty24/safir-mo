@@ -8,9 +8,8 @@ Template.register.events({
     	var firstname =$('#fname').val();
     	var lastname =$('#lname').val();
     	var email = $('#email').val();
-        alert(email);
     	var password =$('#password').val();
-      var con_password=$('#con_password').val();
+        var con_password=$('#con_password').val();
     	var country=$('#pays').val();
     	var city=$('#ville').val();
     	var shipcard = '';
@@ -27,12 +26,10 @@ Template.register.events({
     	console.log("let's start");
     	var rerole = 'member';
     	var msg = "";
-        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
-      //var validateEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
-      //var validateEmail='/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/igm';
+        var validateEmail='/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/igm';
     	//var regPassword=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 		//console.log('register in progress 2...')
-	           if(username == "" || firstname == "" ||  lastname == "" ||country == "" ||city == "" ||email == "" ||password == "" ||con_password == ""){
+	    if(username == "" || firstname == "" ||  lastname == "" ||country == "" ||city == "" ||email == "" ||password == "" ||con_password == ""){
               if( username == "")
                   $('.error_username').text("لطفا ورودی نام کاربری خود را.");
               if( firstname == "")
@@ -43,10 +40,8 @@ Template.register.events({
                   $('.error_pays').text("لطفا ورودی کشور خود را.");
               if( city == "")
                   $('.error_ville').text("لطفا ورودی شهرستان خود را.");
-              if( email == "")
-                 $(".error_email").text("لطفا ایمیل خود را ورودی.");
-                   //$(".error_email").text("You have entered an invalid email address!");
-
+              if(email == "")
+                  $(".error_email").text("لطفا ایمیل خود را ورودی.");
               if( con_password == "")
                   $('.error_conpassword').text("لطفا ورودی عبور تکرار رمز عبور خود را.");
               if(password == "")
@@ -56,55 +51,50 @@ Template.register.events({
                 // alert("passwords not match");
                 $(".error_conpassword").text("رمز عبور خود را مطابقت ندارد.");
             }
-           
-            else{
-    			//alert(firstname+lastname+email+password);
-    		if(password.length>=6){
-                if(email.match(mailformat)){
-    			     console.log('controls passed with success!');
-    			     Meteor.call('regUser',firstname, lastname, email, password,con_password,shipcard, point, rerole,country,city,username,function(err){
-    					if(err){
-    						console.log(err.reason);
-    						Session.set("registerError",err.reason);
-    					}else{
-    						console.log('register done!!!');
-    						Session.set("registerError","");
-    						var dataImedation=imedation.find();
-    						dataImedation.forEach(function(value){
-    							if(email==value.email_imedate){
-    								var profiles=Meteor.users.findOne({_id:value.user_id}).profile;
-    								if(!profiles.shipcard){
-    									var oldShipcardid='';
-    									var oldPoint=0;
-    								}
-    								else{
-    									var oldPoint=profiles.shipcard.point;
-    									var oldShipcardid=profiles.shipcard.shipcardId
-    								}
-    								var obj={
-    									profile:{
-    										firstname:profiles.firstname,
-    										lastname:profiles.lastname,
-    										country:profiles.country,
-    										city:profiles.city,
-    										shipcard:{
-    											shipcardId:oldShipcardid,
-    											point:oldPoint+5
-    										}
-    									}
-    								}
-    								Meteor.call('imedatPoint',value.user_id,obj);
-    								alert('success');
-    								
-    							}
-    						});
-    						Router.go('/login'); 
-    					}
-    			});
-                }else{
-                    $(".error_email").text("email bad format");
-                }
-    		}
+        else{
+			//alert(firstname+lastname+email+password);
+			if(password.length>=6){
+				console.log('controls passed with success!');
+				Meteor.call('regUser',firstname, lastname, email, password,con_password,validateEmail,shipcard, point, rerole,country,city,username,function(err){
+					if(err){
+						console.log(err.reason);
+						Session.set("registerError",err.reason);
+					}else{
+						console.log('register done!!!');
+						Session.set("registerError","");
+						var dataImedation=imedation.find();
+						dataImedation.forEach(function(value){
+							if(email==value.email_imedate){
+								var profiles=Meteor.users.findOne({_id:value.user_id}).profile;
+								if(!profiles.shipcard){
+									var oldShipcardid='';
+									var oldPoint=0;
+								}
+								else{
+									var oldPoint=profiles.shipcard.point;
+									var oldShipcardid=profiles.shipcard.shipcardId
+								}
+								var obj={
+									profile:{
+										firstname:profiles.firstname,
+										lastname:profiles.lastname,
+										country:profiles.country,
+										city:profiles.city,
+										shipcard:{
+											shipcardId:oldShipcardid,
+											point:oldPoint+5
+										}
+									}
+								}
+								Meteor.call('imedatPoint',value.user_id,obj);
+								alert('success');
+								
+							}
+						});
+						Router.go('/login'); 
+					}
+				});
+			}
 		}
 
 	}

@@ -5,5 +5,8 @@ Meteor.methods({
   },
   insertQuestionAnswer:function(obj){
     answerquizz.insert(obj);
+  },
+  redoQuizzAnswer:function(id, obj){
+    answerquizz.update({quizzId:id},{$set: obj});
   }
 });
