@@ -309,6 +309,14 @@ Template.registerHelper("getReviewBySort", function(review) {
     })
     return result;
 });
+Template.registerHelper('getItemCart',function(){
+    var totalItem=0;
+        mycart = cart.find({userId:Session.get('userId')});
+        mycart.forEach(function(value){
+            totalItem+=parseInt(value.quantity);
+        });
+        return totalItem;
+})
 //======end makara==============================
 
 Template.registerHelper("capitalWord", function(str) {
