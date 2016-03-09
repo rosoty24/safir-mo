@@ -56,7 +56,12 @@
 .clear-fix{
     clear: both;
 }
-div.wrapper {
+/*div.wrapper {
     margin: 3em 16px;
+}*/
+/*Wrapper not found*/
+.wrapper-notfound{
+    margin: 3em 16px;
+    overflow: hidden;
+    min-height: 480px;
 }
-
