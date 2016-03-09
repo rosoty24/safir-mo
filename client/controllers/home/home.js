@@ -41,6 +41,10 @@ Template.home.helpers({
 
 		return list_product.find().fetch()[2];
 	},
+/*	list3: function(){
+
+		return list_product.find().fetch()[3];
+	},*/
 	getProduct: function(id){
 		var result =  products.findOne({"_id":id});
 		return result;
