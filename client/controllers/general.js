@@ -1,18 +1,17 @@
 Template.registerHelper('getImgForProduct', function (id_product) {
-        var p=products.findOne({_id:id_product});
-        if(p.image instanceof Array){
-            var id= p.image[0];
-        }           
-        else{
-            var id= p.image;
-        }
+    var p=products.findOne({_id:id_product});
+    if(p.image instanceof Array){
+        var id= p.image[0];
+    }           
+    else{
+        var id= p.image;
+    }
 
     if(id=='' || typeof id == "undefined")
         return '/img/unknown.png';
 
     else if(id.indexOf("uploads")>-1){
         id=id.replace(/ /g, "%20");
-        console.log("id img 1---" + id);
         path = id.replace('/uploads/images/','');
         return 'http://d1ak0tqynavn2m.cloudfront.net/'+path;
 
@@ -24,48 +23,42 @@ Template.registerHelper('getImgForProduct', function (id_product) {
         var img = images.findOne({_id:id});
         if(img){
             var id= img.copies.images.key;
-            console.log("id img 2---" + id);
-            //path = id.replace('images/','');
-            //return 'http://d1ak0tqynavn2m.cloudfront.net/'+path;
             path=id.replace('UserUploads/','');
-            console.log("path "+path);
             return 'http://d2l5w8pvs4gpu2.cloudfront.net/'+path;
         }else{
             return;
         } 
     }
 
-    });
+});
 
     //For user upload img
-    Template.registerHelper('getImg', function (id) {
-        if(id=='' || typeof id == "undefined")
-            return '/img/unknown.png';
+Template.registerHelper('getImg', function (id) {
+    if(id=='' || typeof id == "undefined")
+        return '/img/unknown.png';
 
-        else if(id.indexOf("uploads")>-1){
-            id=id.replace(/ /g, "%20");
-            console.log('repaclement===='+id);
-            path = id.replace('/uploads/images/','');
-            return 'http://d1ak0tqynavn2m.cloudfront.net/'+path;
-            //return id;
-        }
-        else if(id.indexOf("http://")>-1 || id.indexOf("https://")>-1 ){
-            return id;
+    else if(id.indexOf("uploads")>-1){
+        console.log("sokhy 1");
+        id=id.replace(/ /g, "%20");
+        path = id.replace('/uploads/images/','');
+        return 'http://d1ak0tqynavn2m.cloudfront.net/'+path;
+    }
+    else if(id.indexOf("http://")>-1 || id.indexOf("https://")>-1 ){
+        return id;
 
+    }else{
+        console.log("Sokhy 2");
+        var img = images.findOne({_id:id});
+        if(img){
+            var id= img.copies.images.key;
+            path=id.replace('UserUploads/','');
+            return 'http://d2l5w8pvs4gpu2.cloudfront.net/'+path;
         }else{
-            var img = images.findOne({_id:id});
-            if(img){
-                var id= img.copies.images.key;
-                console.log("id img---" + id);
-                path=id.replace('UserUploads/','');
-                console.log("path "+path);
-                return 'http://d2l5w8pvs4gpu2.cloudfront.net/'+path;
-            }else{
-                return;
-            } 
-        }
+            return;
+        } 
+    }
 
-    });
+});
 
     Template.registerHelper('trimString', function(passedString) {
         var theString = passedString.substring(0,110);
