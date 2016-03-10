@@ -8,6 +8,7 @@ Session.setDefault('advanced_is_favorite',0);
 Session.setDefault('currentCategory','');
 Session.setDefault('parentTagId','');
 Session.setDefault('click','');
+Session.set('countClick',1);
 Template.mainLayoutMobile.onRendered(function(){
     // Toggle script
     $(".container").hide();
@@ -21,10 +22,10 @@ Template.mainLayoutMobile.onRendered(function(){
         jQuery('#child-left-forum').toggle(250);
     });
     // -------- Toggle script end ------ //
-    $("#submenu-1").hide();
+   /* $("#submenu-1").hide();
     jQuery('#a-submenu-1').click(function(){
         jQuery('#submenu-1').toggle(250);
-    });
+    });*/
     var events = ("ontouchstart" in document.documentElement) ? 'touchstart touchon' : 'click';
     jQuery('#a-menu').bind(events, {direction:'right'},evthandler);
     jQuery('#a-sidebar').bind(events, {direction:'left'},evthandler);
@@ -149,4 +150,16 @@ Template.menu.onRendered(function(){
             autohide: true
         });
     });
+});
+Template.headermenu.events({
+    'click #a-submenu-1':function(e){
+        if(Session.get('countClick')%2!==0){
+            $("#submenu-1").removeClass('disnone');
+            Session.set('countClick',Session.get('countClick')+1);
+        }else{
+            $("#submenu-1").addClass('disnone');
+            Session.set('countClick',Session.get('countClick')+1);
+        }
+        
+    }
 });

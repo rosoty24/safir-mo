@@ -284,3 +284,6 @@
     z-index: 1000;
     margin-top:-9px;
 }
+.disnone{
+    display: none;
+}
