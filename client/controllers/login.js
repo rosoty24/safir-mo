@@ -253,6 +253,8 @@ Template.login.events({
                 $("#loginError").text("Login Error! ");
               }
         		} else {
+              alert();
+              Router.go('/profile');
         			Session.set("loginError","");
         			$('.close').click();
         			
