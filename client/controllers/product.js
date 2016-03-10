@@ -1181,7 +1181,6 @@ Template.details.events({
 			$("#available_qty").text(qty.QTY);*/
 		},
 		'click #posting':function(e){
-			alert("successfully");
 			e.preventDefault();
 			if(Meteor.userId()){
 				var description=$('#status').val();
