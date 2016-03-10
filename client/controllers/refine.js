@@ -74,6 +74,7 @@ Template.myrefine.events({
 			var myBrands=[];
 
 			var liste=products.find().fetch();
+
 			console.log("Processing2:"+liste.length);
 			for(var i=0;i<liste.length;i++){
 				if(liste[i].hasOwnProperty('Brand')){

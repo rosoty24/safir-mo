@@ -201,32 +201,32 @@ Template.registerHelper("smaller",function(text,size){
         return finalText;
     });
 
-    Template.registerHelper("slug",function(){
-        var title = this.title;
-        title = title.replace(/\-/g,"(minus)");
-        title = title.replace(/\s/g,"-");
-        title = title.replace(/\%/g,"(percentag)");
-        title = title.replace(/\+/g,"(plush)");
-        title = title.replace(/\ô/g,"(ocir)");
-        title = title.replace(/\®/g,"(copyright)");
-        title = title.replace(/\°/g,"(number)");
-        title = title.replace(/\Ô/g,"(bigocir)");
-        title = title.replace(/\²/g,"(square)");
-        title = title.replace(/\`/g,"(accentaigu)");
-        title = title.replace(/\é/g,"(eaccentaigu)");
-        title = title.replace(/\É/g,"(bigeaccentaigu)");
-        title = title.replace(/\&/g,"(and)");
-        title = title.replace(/\//g,"(slash)");
-        title = title.replace(/\’/g,"(apostrophe)");
-        title = title.replace(/\'/g,"(quote)");
-        title = title.replace(/\!/g,"(warning)");
-        title = title.replace(/\?/g,"(question)");
-        title = title.replace(/\$/g,"(dolla)");
-        title = title.replace(/\è/g,"(eaccentgrave)");
-        title = title.replace(/\–/g,"(hyphen)");
-        title = title.toLowerCase();
-        return title;
-    });
+   Template.registerHelper("slug",function(){
+    var title = this.title;
+    title = title.replace(/\-/g,"(minus)");
+    title = title.replace(/\s/g,"-");
+    title = title.replace(/\%/g,"(percentag)");
+    title = title.replace(/\+/g,"(plush)");
+    title = title.replace(/\ô/g,"(ocir)");
+    title = title.replace(/\®/g,"(copyright)");
+    title = title.replace(/\°/g,"(number)");
+    title = title.replace(/\Ô/g,"(bigocir)");
+    title = title.replace(/\²/g,"(square)");
+    title = title.replace(/\`/g,"(accentaigu)");
+    title = title.replace(/\é/g,"(eaccentaigu)");
+    title = title.replace(/\É/g,"(bigeaccentaigu)");
+    title = title.replace(/\&/g,"(and)");
+    title = title.replace(/\//g,"(slash)");
+    title = title.replace(/\’/g,"(apostrophe)");
+    title = title.replace(/\'/g,"(quote)");
+    title = title.replace(/\!/g,"(warning)");
+    title = title.replace(/\?/g,"(question)");
+    title = title.replace(/\$/g,"(dolla)");
+    title = title.replace(/\è/g,"(eaccentgrave)");
+    title = title.replace(/\–/g,"(hyphen)");
+    //title = title.toLowerCase();
+    return title;
+});
     Template.registerHelper("unSlug",function(){
         var title = this.title;
         title = title.replace(/\-/g," ");
