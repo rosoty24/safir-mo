@@ -14,12 +14,15 @@ $(window).scroll(function() {
 });
 
 Template.listproducts.rendered=function(){
-	Session.set("MAKEUP", "ALL CATEGORY");
-    //Session.set("ALLMAKEUP", "ALL MAKEUP");
-    //Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
-    $("#makeup").html(Session.get("MAKEUP"));
-    $("#all_makeup").html('ALL '+Session.get("parentNAME"));
-    //$("#secondChild").html(Session.get("ALLALLMAKEUP"));
+	if(TAPi18n.getLanguage()=='en'){
+		Session.set("MAKEUP", "ALL CATEGORY");
+	    $("#makeup").html(Session.get("MAKEUP"));
+	    $("#all_makeup").html('ALL '+Session.get("parentNAME"));
+	}else{
+		Session.set("MAKEUP", "رده");
+	    $("#makeup").html(Session.get("MAKEUP"));
+	    $("#all_makeup").html('همه '+Session.get("parentNAME"));
+	}
 };
 Template.listproducts.helpers({
 /*slugify:function(){
