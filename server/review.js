@@ -1,10 +1,9 @@
 Meteor.methods({
-	addReview: function(title,text,grade,userid,productId){
+	addReview: function(title,text,userid,productId){
 		var curDate=Date.now();
 		var attr={
 			title:title,
 			comment:text,
-			grade:grade,
 			user:userid,
 			date:curDate
 		};
@@ -43,7 +42,6 @@ Meteor.methods({
 			'title':title,
 			'comment':comment,
 			'userid':userid,
-			'productid':productid,
 			'date':date
 		};
 		console.log('Adding this review '+JSON.stringify(attr));

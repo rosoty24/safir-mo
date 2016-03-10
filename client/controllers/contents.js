@@ -565,6 +565,26 @@ Template.tutolisting.helpers({
 });
 
 Template.tutodetails.helpers({
+	getReviewsShort: function(reviews,limit){
+		if(Session.get("filter")==""){
+			var ret=[];
+			for(var i=0;i<reviews.length && i<=limit;i++){
+					var current=reviews[i];
+					ret.push(current);
+			}
+			return ret;
+		}
+		else{
+			var ret=[];
+			for(var i=0;i<reviews.length && i<=limit;i++){
+				var current=reviews[i];
+				var currentAuthor=users.findOne({_id:current.user});
+				if(currentAuthor.emails[0].address==Session.get("filter"))
+					ret.push(current);
+			}
+			return ret;
+		}
+	},
 	getImgTuTO: function(id){
 		var p=contents.findOne({_id:id});
 		if(p.image instanceof Array)
@@ -898,6 +918,7 @@ Template.tutodetails.events({
 
 
 Template.webzinedetails.helpers({
+	
 	suggestion: function(title){
 		return contents.find({"content":{"$regex":title}});
 	},

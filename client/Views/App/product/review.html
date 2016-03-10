@@ -1,17 +1,22 @@
 <template name="review">
-  <div class="hold_feedback">
-    <div  class="col-md-3">
-      <img src="{{getImages user}}" class="img-responsive center-block image{{user}}" style="width:50%;">
-      <h4 class="bold text-center {{user}}">{{getImageUser user}}</h4>
-    </div>
-    <div class="col-md-6">
-      <p><h2>{{title}}</h2>
-        {{comment}}
-      </p>
-    </div>
-    <div class="col-md-3 ">
-      <p>{{getDate date}}</p>
-      <a href="#" style="font-weight:bold; color:#333; margin:15px 0px"><i class="fa fa-heart-o"></i> &nbsp; {{grade}}/5</a>
-    </div>
-  </div>
+  <div class="row">
+         <div class="col-sm-12">
+          <div class="col-sm-5 pull-left space-top-detail2">
+            <img src="{{getImages userid}}" class="img-responsive center-block image{{user}}" style="width:50%;">
+            <h4 class="bold text-center {{user}}">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</h4>
+          </div>
+          <div class="pull-left space-top-detail3" >
+            <h2>{{comment}}</h2>
+            <p class="no-margin">{{getDate date}}</p>
+          </div>
+          <div class="col-sm-2 pull-right space-top-detail2">
+          <!--  <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp; {{grade}}/5</h3> --> 
+         </div>
+         <div class="col-sm-12">
+           <p class="col-sm-5 pull-left space-top-detail2">{{title}}</p>
+           <div class="pull-left border-detail">   
+           </div>
+         </div>
+       </div>  
+     </div>
 </template>

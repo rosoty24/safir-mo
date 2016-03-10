@@ -145,6 +145,13 @@ Template.registerHelper('getImg', function (id) {
         else
             return true;
     });
+    Template.registerHelper('getDate', function (curdate) {
+        console.log('date'+curdate);
+        var d = new Date(curdate);
+        var months=Number(d.getMonth())+1;
+        var str=d.getDate()+"/"+months+"/"+d.getFullYear();
+        return str;
+    }); 
 
     Template.registerHelper("getDirection",function(img,price){
         if(TAPi18n.getLanguage()=='fa')
@@ -304,9 +311,11 @@ Template.registerHelper("convertMsTimeStamp", function(tms) {
     });
 // ==========makara=======================
 Template.registerHelper("getReviewBySort", function(review) {
+
     var result=review.sort(function(x, y){
     return y.date - x.date;
     })
+   // alert('mydata='+JSON.stringify(result));
     return result;
 });
 Template.registerHelper('getItemCart',function(){
@@ -321,4 +330,54 @@ Template.registerHelper('getItemCart',function(){
 
 Template.registerHelper("capitalWord", function(str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+});
+Template.registerHelper("getImages", function(userId){
+
+    Meteor.call('getUserReview',userId,function(err,value){
+            if(err){
+                alert(err);
+            }else{
+                //makara
+                var id=value.image;
+                if(id=='' || typeof id == "undefined")
+                $('.image'+value._id).attr('src', '/img/unknown.png');
+
+                else if(id.indexOf("uploads")>-1){
+                    id=id.replace(/ /g, "%20");
+                    console.log('repaclement===='+id);
+                    path = id.replace('/uploads/images/','');
+    
+                    $('.image'+value._id).attr('src','http://d1ak0tqynavn2m.cloudfront.net/'+path);
+                    //return id;
+                }
+                else if(id.indexOf("http://")>-1 || id.indexOf("https://")>-1 ){
+                    $('.image'+value._id).attr('src', id);
+
+                }else{
+                    var img = images.findOne({_id:id});
+                    if(img){
+                        var id= img.copies.images.key;
+                        console.log("id img---" + id);
+                        path=id.replace('UserUploads/','');
+                        console.log("path "+path);
+                        $('.image'+value._id).attr('src', 'http://d2l5w8pvs4gpu2.cloudfront.net/'+path);
+                    }
+                }
+                //end makara
+                
+                
+            }
+        });
+
+});
+Template.registerHelper("getImageUser", function(userId){
+     Meteor.call('getUserReview',userId,function(err,value){
+            if(err){
+                alert(err);
+            }else{
+                
+                $('.'+value._id).text(value.profile.firstname+" "+value.profile.lastname);
+                
+            }
+        });
 });

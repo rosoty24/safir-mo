@@ -6,11 +6,10 @@ Template.details.events({
 	'click #addreview': function(e,tpl){
 		e.preventDefault();
 		var userid=Meteor.userId();
-		//alert(userid);
 		var title=tpl.$("#title").val();
 		var comment=tpl.$("#comment").val();
 		//console.log(title+ comment);
-		Meteor.call('addreviewdetail',title,comment,userid,this._id, function(err){
+		Meteor.call('addReview',title,comment,userid,this._id, function(err){
 			if(err){
 				console.log("addreview: "+err.reason);
 			}else{
@@ -18,7 +17,7 @@ Template.details.events({
 			}
 
 		});
-		alert("Review added successfully!")
+		//alert("Review added successfully!")
 	}
 	});
 
@@ -162,24 +161,24 @@ Template.details.helpers({
 
 
 		},
-		/*getReviewsShort: function(reviews,limit){
-			if(Session.get("filter")==""){
-				var ret=[];
-				for(var i=0;i<reviews.length && i<=limit;i++){
+		getReviewsShort: function(reviews,limit){
+		if(Session.get("filter")==""){
+			var ret=[];
+			for(var i=0;i<reviews.length && i<=limit;i++){
 					var current=reviews[i];
 					ret.push(current);
-				}
-				return ret;
 			}
-			else{
-				var ret=[];
-				for(var i=0;i<reviews.length && i<=limit;i++){
-					var current=reviews[i];
-					var currentAuthor=users.findOne({_id:current.user});
-					if(currentAuthor.emails[0].address==Session.get("filter"))
-						ret.push(current);
-				}
-				return ret;
+			return ret;
+		}
+		else{
+			var ret=[];
+			for(var i=0;i<reviews.length && i<=limit;i++){
+				var current=reviews[i];
+				var currentAuthor=users.findOne({_id:current.user});
+				if(currentAuthor.emails[0].address==Session.get("filter"))
+					ret.push(current);
 			}
-		}*/
+			return ret;
+		}
+	}
 	});
