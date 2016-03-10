@@ -14,12 +14,12 @@ $(window).scroll(function() {
 });
 
 Template.listproducts.rendered=function(){
-	Session.set("MAKEUP", "MAKEUP");
-    Session.set("ALLMAKEUP", "ALL MAKEUP");
-    Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
+	Session.set("MAKEUP", "ALL CATEGORY");
+    //Session.set("ALLMAKEUP", "ALL MAKEUP");
+    //Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
     $("#makeup").html(Session.get("MAKEUP"));
-    $("#all_makeup").html(Session.get("ALLMAKEUP"));
-    $("#secondChild").html(Session.get("ALLALLMAKEUP"));
+    $("#all_makeup").html('ALL '+Session.get("parentNAME"));
+    //$("#secondChild").html(Session.get("ALLALLMAKEUP"));
 };
 Template.listproducts.helpers({
 /*slugify:function(){

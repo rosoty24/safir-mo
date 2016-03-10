@@ -1,10 +1,10 @@
 Template.home.rendered=function(){
-	Session.set("MAKEUP", "MAKEUP");
-    Session.set("ALLMAKEUP", "ALL MAKEUP");
-    Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
+	Session.set("MAKEUP", "ALLCATEGORY");
+    //Session.set("ALLMAKEUP", "ALL MA");
+    //Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
     $("#makeup").html(Session.get("MAKEUP"));
-    $("#all_makeup").html(Session.get("ALLMAKEUP"));
-    $("#secondChild").html(Session.get("ALLALLMAKEUP"));
+    // $("#all_makeup").html(Session.get("ALLMAKEUP"));
+    // $("#secondChild").html(Session.get("ALLALLMAKEUP"));
 	var swiper = new Swiper('.swiper-container', {
 		autoplay: 5000,
         pagination: '.swiper-pagination',
@@ -15,7 +15,6 @@ Template.home.rendered=function(){
         hashnav: true,
         autoplayDisableOnInteraction: true
     });
-
     var swiper = new Swiper('.swiper-container-product', {
         pagination: '.swiper-pagination',
         slidesPerView: 2,
@@ -24,10 +23,8 @@ Template.home.rendered=function(){
     });
 	$('#ca-container').contentcarousel();
 	$('#ca-container1').contentcarousel();
-	$('#ca-container2').contentcarousel();
-									
+	$('#ca-container2').contentcarousel();							
 };
-
 Template.home.helpers({
 	list1: function(){
 		//console.log('liste:'+list_product.find().fetch().length);
@@ -41,10 +38,6 @@ Template.home.helpers({
 
 		return list_product.find().fetch()[2];
 	},
-/*	list3: function(){
-
-		return list_product.find().fetch()[3];
-	},*/
 	getProduct: function(id){
 		var result =  products.findOne({"_id":id});
 		return result;

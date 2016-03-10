@@ -14,11 +14,9 @@ Template.mainLayoutMobile.events({
 			var lang='fa';		
 			//$('body').css('font-family','Nazanin Bold');	
 		}
-			
 		Session.set('LANG',lang);
-		
-		
-      TAPi18n.setLanguage(lang).done(function () {
+
+      	TAPi18n.setLanguage(lang).done(function () {
         Session.set("showLoadingIndicator", false);
       })
       .fail(function (error_message) {
@@ -37,12 +35,12 @@ Template.mainLayoutMobile.helpers({
 	}
 });
 Template.menu.events({
-
 	'click #secondChild':function(e){
 		e.preventDefault();
 		$("#second_makeup").slideToggle("show");
 		$("#panel_makeup").hide();
 		$("#panel_all_makeup").hide();
+		
 	},
 	'click #second_child':function(){
 		$("#second_makeup").slideToggle("hide");
@@ -51,12 +49,14 @@ Template.menu.events({
 		//e.preventDefault();
 		var id = this._id;
 		var name = $(e.currentTarget).text();
+
 		//alert(name);
+		
 		$("#secondChild").html(name);
 		Session.set("FIRSTCHILDID", id);
 		$("#panel_all_makeup").slideToggle("hide");
+		$('#caret-sreydent').removeAttr('style');
 	},
-
 	"click #makeup":function(){
         $("#makeup").addClass("active");
         $("#secondChild").html("");
@@ -77,6 +77,7 @@ Template.menu.events({
     		$("#all_makeup").html("All "+parentName);
     		$("#allCategory").html("All "+parentName);
     		$("#panel_makeup").slideToggle("hide");
+    		$('#caret-sreydent').hide();
     },
     "click #all_makeup":function(e){
     	e.preventDefault();
@@ -96,7 +97,6 @@ Template.menu.helpers({
             return document;
         });
 	},
-
 	getChildren: function(){
 		//cnonsole.log("MY_CHILDREN="+id);
 		var id = Session.get("PARENTS");
@@ -118,6 +118,14 @@ Template.menu.helpers({
 			return 'English';
 		if(TAPi18n.getLanguage()=='en')
 			return 'فارسی';
+	},
+	navnodisplay:function(){
+		var url=window.location.href;
+		if(url.indexOf('category')>-1){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 });
@@ -125,8 +133,6 @@ Template.header.onRendered(function () {
 //default font
 $('body').css('font-family','Nazanin Bold');
 
-		
-  
   var userId = Meteor.userId();
   var time = Date.now();
   var currenturl = window.location.href;

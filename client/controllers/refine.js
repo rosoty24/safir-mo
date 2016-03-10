@@ -69,7 +69,6 @@ Template.myrefine.events({
 			Session.set('limit', -1);
 			var value=$(e.currentTarget).text();
 
-
 			console.log('selected value:'+value);
 			letter=value.toUpperCase();
 			var myBrands=[];
