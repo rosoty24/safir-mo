@@ -66,7 +66,7 @@ Meteor.publish('productsCategory', function(limit, name) {
             title = title.replace(/\(dolla\)/g, "$");
             title = title.replace(/\(eaccentgrave\)/g, "è");
             title = title.replace(/\(hyphen\)/g, "–");
-            l = categories.findOne({ "i18n.en.title": title });
+            var l = categories.findOne({ "i18n.en.title": title });
         }
         var finalList = [];
         finalList.push(l._id);
@@ -135,7 +135,7 @@ TAPi18n.publish('categoryParent_tags', function(name) {
             title = title.replace(/\(dolla\)/g, "$");
             title = title.replace(/\(eaccentgrave\)/g, "è");
             title = title.replace(/\(hyphen\)/g, "–");
-            l = categories.findOne({ "i18n.en.title": title });
+            var l = categories.findOne({ "i18n.en.title": title });
         }
         var finalList = [];
         finalList.push(l._id);
@@ -169,6 +169,7 @@ TAPi18n.publish('categoryParent_tags', function(name) {
 
     } else {
         return parent_tags.i18nFind({}, { fields: { _id: 1, title: 1, category_id: 1 } });
+
     }
     // return parent_tags.i18nFind({},{fields:{_id:1,title:1,category_id:1}});
 });
@@ -238,7 +239,7 @@ TAPi18n.publish('categoryTags', function(name) {
             title = title.replace(/\(dolla\)/g, "$");
             title = title.replace(/\(eaccentgrave\)/g, "è");
             title = title.replace(/\(hyphen\)/g, "–");
-            l = categories.findOne({ "i18n.en.title": title });
+            var l = categories.findOne({ "i18n.en.title": title });
         }
         var finalList = [];
         finalList.push(l._id);
@@ -361,10 +362,11 @@ Meteor.publish("attributeCategory", function(name) {
             title = title.replace(/\(dolla\)/g, "$");
             title = title.replace(/\(eaccentgrave\)/g, "è");
             title = title.replace(/\(hyphen\)/g, "–");
-            l = categories.findOne({ "i18n.en.title": title });
+            var l = categories.findOne({ "i18n.en.title": title });
         }
         var finalList = [];
         finalList.push(l._id);
+        // //console.log('papa:'+l._id);
         var lvl1 = categories.find({ "parent": l._id }).fetch();
         ////console.log('papa:'+parent+' / '+categories.find({"parent":parent}).fetch().length);
         for (var i = 0; i < lvl1.length; i++) {
@@ -398,6 +400,7 @@ Meteor.publish("attributeCategory", function(name) {
                 arrLp = arrLp.concat(l.oldId);
             }
         });
+        ////console.log(" attribute price "+arrLp);
         return attribute.find({ product: { $in: arrLp } });
     } else {
         return attribute.find({});
@@ -498,10 +501,11 @@ Meteor.publish("favoriteCategory", function(name) {
             title = title.replace(/\(dolla\)/g, "$");
             title = title.replace(/\(eaccentgrave\)/g, "è");
             title = title.replace(/\(hyphen\)/g, "–");
-            l = categories.findOne({ "i18n.en.title": title });
+            var l = categories.findOne({ "i18n.en.title": title });
         }
         var finalList = [];
         finalList.push(l._id);
+        // //console.log('papa:'+l._id);
         var lvl1 = categories.find({ "parent": l._id }).fetch();
         ////console.log('papa:'+parent+' / '+categories.find({"parent":parent}).fetch().length);
         for (var i = 0; i < lvl1.length; i++) {
