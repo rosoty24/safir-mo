@@ -15,7 +15,7 @@ Tracker.autorun(function() {
 }); 
 
 Meteor.subscribe("cart",Session.get('userId'));
-Meteor.subscribe("contents_type");
+// Meteor.subscribe("contents_type");
 // Meteor.subscribe("favorite");
 Meteor.subscribe("role");
 // Meteor.subscribe("order");
@@ -29,7 +29,7 @@ Meteor.subscribe("answerquizz");
 //Meteor.subscribe("manageuserTracking");
 Meteor.subscribe("imedation");
 Meteor.subscribe("anwser");
-Meteor.subscribe("shops");
+// Meteor.subscribe("shops");
 //Meteor.subscribe("barcode");
 Meteor.subscribe("discount");
 

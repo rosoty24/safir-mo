@@ -456,6 +456,9 @@ Meteor.publish("cart", function(id) {
     return cart.find({ "userId": id });
 });
 //contents
+Meteor.publish("contentsWebzineDetial", function(title) {
+   return contents.find({ "title": { $regex: new RegExp("^" + title, "i") } });
+});
 Meteor.publish("contents", function() {
     return contents.find({});
 });
