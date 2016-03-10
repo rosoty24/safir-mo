@@ -1,3 +1,4 @@
+
 Session.set('currentLetter',"A");
 Session.setDefault('advanced_price_min',0);
 Session.setDefault('advanced_price_max',100000000);
@@ -23,6 +24,10 @@ Template.mainLayoutMobile.onRendered(function(){
     });
     // -------- Toggle script end ------ //
 
+    $("#submenu-1").hide();
+    jQuery('#a-submenu-1').click(function() {
+        jQuery('#submenu-1').toggle(250);
+    });
     var events = ("ontouchstart" in document.documentElement) ? 'touchstart touchon' : 'click';
     jQuery('#a-menu').bind(events, { direction: 'right' }, evthandler);
     jQuery('#a-sidebar').bind(events, { direction: 'left' }, evthandler);
@@ -161,6 +166,7 @@ Template.menu.onRendered(function() {
         });
     });
 });
+
 Template.headermenu.events({
     'click #a-submenu-1':function(e){
         if(Session.get('countClick')%2!==0){
