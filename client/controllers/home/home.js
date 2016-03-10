@@ -1,5 +1,9 @@
 Template.home.rendered=function(){
-	Session.set("MAKEUP", "ALLCATEGORY");
+	if(TAPi18n.getLanguage()=='en'){
+		Session.set("MAKEUP", "ALL CATEGORY");
+	}else{
+		Session.set("MAKEUP", "رده")
+	}
     //Session.set("ALLMAKEUP", "ALL MA");
     //Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
     $("#makeup").html(Session.get("MAKEUP"));
