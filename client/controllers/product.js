@@ -1739,26 +1739,21 @@ Template.details.rendered=function(){
 		$(this).toggleClass("active").next().slideToggle(350);
 			return false;
 	});
-	Session.set("MAKEUP", "ALL CATEGORY");
-	//Session.set("MAKEUP", "MAKEUP");
-    //Session.set("ALLMAKEUP", "ALL MAKEUP");
-    //Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
-    $("#makeup").html(Session.get("MAKEUP"));
-    //$("#all_makeup").html(Session.get("ALLMAKEUP"));
-    //$("#secondChild").html(Session.get("ALLALLMAKEUP"));
+	if(TAPi18n.getLanguage()=='en'){
+		Session.set("MAKEUP", "ALL CATEGORY");	   
+	}else{
+		Session.set("MAKEUP", "رده");	    
+	}
+	$("#makeup").html(Session.get("MAKEUP"));
+
 	$("[rel='tooltip']").tooltip(); 
-	//alert('RENDERED');
 	$("#myElement").click();
 	$("#gallerycontainer").scrollLeft(0);
-	//alert("data="+this.data._id);
 	var productId=this.data._id;
 
 	var p=products.find({"_id":productId});
 
 	var attr=attribute.findOne({"product":p.fetch()[0].oldId});
-	//alert();
-
-	//console.log('RECUP LE PRIX:'+p.fetch()[0].price);
 	Session.set('selected_price',attr.price);
 	Session.set('selected_point',attr.point);
 
