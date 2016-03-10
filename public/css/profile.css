@@ -287,3 +287,6 @@
 .disnone{
     display: none;
 }
+.padd{
+    padding-right: 30px;
+}
