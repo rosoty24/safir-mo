@@ -18,12 +18,13 @@
                         </div>
                         <div class="caption">
                             <div class="styleText"> 
-                                <a href="{{pathFor 'details' id=(slug title)}}" class="title">   <p class="text-center text-selling-detail">{{smaller title 8}}</p> </a>
+                                <a href="{{pathFor 'details' id=(slug title)}}" class="title">   <p class="text-center text-selling-detail" style="color:black;">{{smaller title 8}}</p> </a>
                             </div>
                             <h3 class="text-center price-selling">{{price}}
                                 <a href="#" style="color:#e4332a;" id="unlike">
                                     <span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span>
                                 </a>
+
                                 <a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right"></span></a>
                             </h3>
                         </div>

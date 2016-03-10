@@ -22,7 +22,7 @@ Template.addreview.events({
 		else
 			tpl.$("#add_review").css("display",'none');
 	}
-})
+});
 
 Template.addreview.helpers({
 	getImgUrl: function(userid){
