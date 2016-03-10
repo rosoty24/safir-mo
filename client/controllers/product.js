@@ -1739,12 +1739,13 @@ Template.details.rendered=function(){
 		$(this).toggleClass("active").next().slideToggle(350);
 			return false;
 	});
-	Session.set("MAKEUP", "MAKEUP");
-    Session.set("ALLMAKEUP", "ALL MAKEUP");
-    Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
+	Session.set("MAKEUP", "ALL CATEGORY");
+	//Session.set("MAKEUP", "MAKEUP");
+    //Session.set("ALLMAKEUP", "ALL MAKEUP");
+    //Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
     $("#makeup").html(Session.get("MAKEUP"));
-    $("#all_makeup").html(Session.get("ALLMAKEUP"));
-    $("#secondChild").html(Session.get("ALLALLMAKEUP"));
+    //$("#all_makeup").html(Session.get("ALLMAKEUP"));
+    //$("#secondChild").html(Session.get("ALLALLMAKEUP"));
 	$("[rel='tooltip']").tooltip(); 
 	//alert('RENDERED');
 	$("#myElement").click();

@@ -1,5 +1,5 @@
 Template.home.rendered=function(){
-	Session.set("MAKEUP", "ALLCATEGORY");
+	Session.set("MAKEUP", "ALL CATEGORY");
     //Session.set("ALLMAKEUP", "ALL MA");
     //Session.set("ALLALLMAKEUP" , "ALL ALL MAKEUP");
     $("#makeup").html(Session.get("MAKEUP"));
