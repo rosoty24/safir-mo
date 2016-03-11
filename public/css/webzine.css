@@ -62,6 +62,5 @@
 /*Wrapper not found*/
 .wrapper-notfound{
     margin: 3em 16px;
-    overflow: hidden;
     min-height: 480px;
 }
