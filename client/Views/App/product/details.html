@@ -78,8 +78,10 @@
          {{#if currentUser}}
          <div class="col-sm-12">
           <div class="space-comment box">
+            <p id="validdetail" style="color:red"></p>
             <input id="title" type="text" class="form-control" placeholder="{{_"Title"}}..." required/>
-            <textarea class="form-control" id="comment" name="styled-textarea" onfocus="this.value='';" rows="7">{{_"Write what you want"}}</textarea>
+            <p id="validdetail1" style="color:red"></p>
+            <textarea class="form-control" id="comment" name="styled-textarea" onfocus="this.value='';" rows="7" placeholder="{{_"Write what you want"}}..."></textarea>
           </div>
           <button class="btn_register pull-right" id="addreview">{{_ "SEND"}}</button>
         </div>
