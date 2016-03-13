@@ -14,11 +14,27 @@ TAPi18n.publish('productsFavorite', function(limit, id) {
         return products.find({ _id: { $in: favId } });
     }
 });
+//==========
+//=========
 TAPi18n.publish('products', function(limit) {
     if (limit != -1)
         return products.i18nFind({}, { limit: limit }); //return products.find({},{limit:limit});
     else
         return products.i18nFind({});
+});
+TAPi18n.publish('productsCheckout',function(userId){
+    var productId=[];
+    var dataCart=cart.find({"userId":userId});
+    dataCart.forEach(function(value){
+        productId.push(value.id_product);
+    });
+    return products.find({_id:{$in:productId}});
+});
+TAPi18n.publish('productsAdvance', function(list_categories,list_brand,limit) {
+        if(list_brand==""){
+            return products.find({ category: { $in: list_categories }},{limit:limit});
+        }
+        return products.find({ category: { $in: list_categories }, Brand: { $in: list_brand } },{limit:limit});
 });
 Meteor.publish('productsHome', function(limit) {
     if (limit != -1) {
@@ -32,15 +48,59 @@ Meteor.publish('productsHome', function(limit) {
         return products.find({ _id: { $in: arrLp } });
     }
 });
-Meteor.publish('productsDetails', function(limit, title) {
+Meteor.publish('rendomProduct', function(limit, title) {
+    function makaraRendomArray(o){
+        for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    }
+    var myArray=[];
+    var resultRandom=[];
     if (limit == -1 && title) {
         var p = products.findOne({ "title": title });
-        return products.find({ $or: [{ "title": title }, { category: p.category }] });
+        var result= products.find({ category: p.category } );
+        result.forEach(function(value){
+            myArray.push(value);
+        });
+        var arrayRandom=makaraRendomArray(myArray);
+        for(var ran=0;ran<4;ran++){
+            if(arrayRandom[ran]){
+               resultRandom.push(arrayRandom[ran]._id); 
+            }
+            
+        }
+        resultRandom.push(p._id);
+        return products.find({_id:{$in:resultRandom}});
     } else {
         return products.find({});
     }
 });
-Meteor.publish('productsCategory', function(limit, name) {
+Meteor.publish('rendomProductWebzine', function(title) {
+    function makaraRendomArray(o){
+        for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    }
+    var myArray=[];
+    var resultRandom=[];
+        var p = contents.findOne({ "title": title });
+        var result= products.find({ category: p.category } );
+        result.forEach(function(value){
+            myArray.push(value);
+        });
+        var arrayRandom=makaraRendomArray(myArray);
+        for(var ran=0;ran<4;ran++){
+            if(arrayRandom[ran]){
+               resultRandom.push(arrayRandom[ran]._id); 
+            }
+            
+        }
+        resultRandom.push(p._id);
+        return products.find({_id:{$in:resultRandom}});
+     
+});
+Meteor.publish('productDetail', function(title) {
+    return products.findOne({"title":title});
+});
+Meteor.publish('productsCategory', function(limit, name,querylimit) {
     if (limit == -1 && name) {
         var l = categories.findOne({ "title": name });
         if (l == null) {
@@ -96,9 +156,9 @@ Meteor.publish('productsCategory', function(limit, name) {
                 }
             }
         }
-        return products.find({ category: { $in: finalList } }); //return products.find({},{limit:limit});
+        return products.find({ category: { $in: finalList } },{limit:querylimit}); //return products.find({},{limit:limit});
     } else {
-        return products.find({});
+        return products.find({},{limit:querylimit});
     }
 });
 
@@ -464,6 +524,14 @@ Meteor.publish("contentsWebzineDetial", function(title) {
 });
 Meteor.publish("contents", function() {
     return contents.find({});
+});
+Meteor.publish("contentsWebzine", function() {
+    var type=contents_type.findOne({type:"Webzine"});
+    return contents.find({typeid:type._id});
+});
+Meteor.publish("contentsTuto", function() {
+    var type=contents_type.findOne({type:"Tuto"});
+    return contents.find({typeid:type._id});
 });
 Meteor.publish("contentsProDetails", function() {
     return contents.find({});

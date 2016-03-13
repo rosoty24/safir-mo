@@ -252,19 +252,8 @@ Template.webzinelisting.helpers({
 });
 Session.set("commentValidation","");
 Template.webzinedetails.helpers({
-	related_product: function( categoryId ){
-		console.log('Related Product');
-		var prod = products.find({},{category:categoryId});
-		
-		var ret=[];
-		for(var i=0;i<4;i++){
-			var ind=Math.floor((Math.random() * prod.fetch().length-1) + 1);
-			ret.push(prod.fetch()[ind]);
-		}
-
-		
-		
-		return ret;
+	productwebzine: function(){
+		return products.find();
 	},
 	related: function(category,id){
 		console.log("article related of "+category);

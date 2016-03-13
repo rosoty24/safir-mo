@@ -114,6 +114,9 @@ Meteor.methods({
 	},
 	addPointdetails:function(userid,obj){
   		Meteor.users.update({_id:userid}, {$set:obj});
+    },
+    getAllProductCategory:function(category){
+    		return products.find({ "category": { $in: category } }).count();
     }
 
     

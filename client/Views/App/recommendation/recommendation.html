@@ -1,6 +1,6 @@
 <template name="recommendation">
        <div class="row"> 
-        {{#each products category}}
+        {{#each products _id}}
           <div class="col-md-3">
            <a href="/details/{{slug title}}" title="{{title}}"> <img id="loads" style="border:8px solid #000" src="{{getImgForProduct _id}}" class="img-circle center-block" alt="{{title}}" width="150" height="150"></a>
           <p class="text-center" style="font-size:12px; height:40px;font-weight:lighter;"><a href="/details/{{slug title}}" class="linkrecommendation">{{title}}</a></p>

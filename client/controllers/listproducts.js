@@ -29,6 +29,11 @@ Template.listproducts.helpers({
 	return slugify(this.title);
 },*/
 totalProducts: function(){
+	Meteor.call('getAllProductCategory',Session.get('subcategories'),function(err,data){
+        if(!err){
+           Session.set('allproducts', data); 
+        }
+    });
 	return Session.get('allproducts');
 },
 nbproducts: function(){
