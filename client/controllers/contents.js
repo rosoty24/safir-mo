@@ -882,6 +882,19 @@ Template.webzinedetails.events({
 	}
 
 });
+Template.details.events({
+	'click #addreview':function(e,tpl){
+		e.preventDefault();
+		var title=tpl.$("#title").val();
+		var comment=tpl.$("#comment").val();
+		if(title==""){
+			$('#validdetail').text("please input title here")
+		}
+		if(comment==""){
+			$('#validdetail1').text("please input comment here")
+		}
+	}
+});
 Template.tutodetails.events({
 	'click #addreview': function(e,tpl){
 		e.preventDefault();
