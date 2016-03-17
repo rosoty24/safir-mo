@@ -129,7 +129,7 @@ Template.menu.helpers({
 	}
 	
 });
-Template.header.onRendered(function () {
+Template.headermenu.onRendered(function () {
 //default font
 $('body').css('font-family','Nazanin Bold');
 
@@ -159,7 +159,7 @@ Template.footer.events({
 		//alert('footer');
 	}
 });
-Template.header.events({
+Template.headermenu.events({
 	'mouseenter #header':function(e){
 		e.preventDefault();
 		//alert("hi");
@@ -172,21 +172,21 @@ Template.header.events({
 		//alert('header');
 	}
 });
-Template.mainLayout.events({
-	'mouseenter #mainContent':function(e){
-		e.preventDefault();
-		var userId = Meteor.userId();
-		var time = Date.now();
-		var currenturl = window.location.href
-		var location = 'Content';
-		//alert(currenturl);
-		//Meteor.call('contenttrack',userId,time,location,currenturl);
-		//alert('contenttrack');
-	}
-});
+// Template.mainLayout.events({
+// 	'mouseenter #mainContent':function(e){
+// 		e.preventDefault();
+// 		var userId = Meteor.userId();
+// 		var time = Date.now();
+// 		var currenturl = window.location.href
+// 		var location = 'Content';
+// 		//alert(currenturl);
+// 		//Meteor.call('contenttrack',userId,time,location,currenturl);
+// 		//alert('contenttrack');
+// 	}
+// });
 
 
-Template.header.events({
+Template.headermenu.events({
 	// 'click #en':function(e,tpl){
 	// 	//alert(TAPi18n.getLanguage());
 	// 	if(TAPi18n.getLanguage()=='fa'){

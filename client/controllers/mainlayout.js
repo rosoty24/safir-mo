@@ -1,3 +1,3 @@
-Template.mainLayoutMobile.helper({
+// Template.mainLayoutMobile.helper({
 	
-});
+// });

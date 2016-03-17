@@ -25,9 +25,9 @@ Template.home.rendered=function(){
         paginationClickable: true,
         spaceBetween: 30
     });
-	$('#ca-container').contentcarousel();
-	$('#ca-container1').contentcarousel();
-	$('#ca-container2').contentcarousel();							
+	// $('#ca-container').contentcarousel();
+	// $('#ca-container1').contentcarousel();
+	// $('#ca-container2').contentcarousel();							
 };
 Template.home.helpers({
 	list1: function(){

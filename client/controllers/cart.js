@@ -36,45 +36,45 @@ Template.payment.helpers({
 });
 
 /*modifier cartview sreyden/chantern*/
-Template.header.helpers({
-	getNameproduct: function(id_product){
-		return products.findOne({"_id":id_product}).title;
-	},
-	getPriceproduct: function(id_product){
-		var pro = products.findOne({"_id":id_product});
-		if( pro ) return pro.price;
-	},
-	getShopName: function(shop){
-		return shops.findOne({"_id":shop}).title;
-	},
-	items: function(){
-		userid=Session.get('userId');
-		console.log('cart'+	userid);
-		var carts = cart.find({"userId":userid});
-		console.log("count:"+carts.count());
-		return carts;
+// Template.header.helpers({
+// 	getNameproduct: function(id_product){
+// 		return products.findOne({"_id":id_product}).title;
+// 	},
+// 	getPriceproduct: function(id_product){
+// 		var pro = products.findOne({"_id":id_product});
+// 		if( pro ) return pro.price;
+// 	},
+// 	getShopName: function(shop){
+// 		return shops.findOne({"_id":shop}).title;
+// 	},
+// 	items: function(){
+// 		userid=Session.get('userId');
+// 		console.log('cart'+	userid);
+// 		var carts = cart.find({"userId":userid});
+// 		console.log("count:"+carts.count());
+// 		return carts;
 
-	},/*
-	total: function(){
-		userid=Session.get('userId');
-		console.log('cart'+	userid);
-		var list=cart.find({"userId":userid}).fetch();
-		var total=0;
-		for(var i=0;i<list.length;i++){
-			var p=products.findOne({"_id":list[i]});
-			if( p ) 
-				total=total+Number(p.price);
-		}
-		return total;
+// 	},/*
+// 	total: function(){
+// 		userid=Session.get('userId');
+// 		console.log('cart'+	userid);
+// 		var list=cart.find({"userId":userid}).fetch();
+// 		var total=0;
+// 		for(var i=0;i<list.length;i++){
+// 			var p=products.findOne({"_id":list[i]});
+// 			if( p ) 
+// 				total=total+Number(p.price);
+// 		}
+// 		return total;
 
-	},*/
-	total: function(){
-		return Session.get('total');
-	},
-	getProduct: function(id_product){
-		return products.findOne({"_id":id_product});
-	}
-});
+// 	},*/
+// 	total: function(){
+// 		return Session.get('total');
+// 	},
+// 	getProduct: function(id_product){
+// 		return products.findOne({"_id":id_product});
+// 	}
+// });
 
 
 
@@ -110,10 +110,10 @@ Template.cart.events({
 		//Meteor.call("addToCart",userId,productid,shopid,qty);
 	}
 });
-Template.header.events({
-	'click #remove': function(e){
-		e.preventDefault();
-		var id =this._id;
-		Meteor.call('removemycart', id);	
-	}
-});
+// Template.header.events({
+// 	'click #remove': function(e){
+// 		e.preventDefault();
+// 		var id =this._id;
+// 		Meteor.call('removemycart', id);	
+// 	}
+// });

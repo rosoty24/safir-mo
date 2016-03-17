@@ -158,13 +158,11 @@ Template.mainLayoutMobile.events({
     }
 });
 Template.menu.onRendered(function() {
-    $(document).ready(function() {
         $(".u-vmenu").vmenuModule({
             Speed: 200,
             autostart: false,
             autohide: true
         });
-    });
 });
 
 Template.headermenu.events({

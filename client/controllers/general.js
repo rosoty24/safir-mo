@@ -38,16 +38,14 @@ Template.registerHelper('getImg', function (id) {
         return '/img/unknown.png';
 
     else if(id.indexOf("uploads")>-1){
-        console.log("sokhy 1");
         id=id.replace(/ /g, "%20");
-        path = id.replace('/uploads/images/','');
+        path = id.replace('/uploads\/images/g','');
         return 'http://d1ak0tqynavn2m.cloudfront.net/'+path;
     }
     else if(id.indexOf("http://")>-1 || id.indexOf("https://")>-1 ){
         return id;
 
     }else{
-        console.log("Sokhy 2");
         var img = images.findOne({_id:id});
         if(img){
             var id= img.copies.images.key;
@@ -146,7 +144,7 @@ Template.registerHelper('getImg', function (id) {
             return true;
     });
     Template.registerHelper('getDate', function (curdate) {
-        console.log('date'+curdate);
+        // console.log('date'+curdate);
         var d = new Date(curdate);
         var months=Number(d.getMonth())+1;
         var str=d.getDate()+"/"+months+"/"+d.getFullYear();
@@ -208,34 +206,38 @@ Template.registerHelper("smaller",function(text,size){
         return finalText;
     });
 
-   Template.registerHelper("slug",function(){
-    var title = this.title;
-    title = title.replace(/\-/g,"(minus)");
-    title = title.replace(/\s/g,"-");
-    title = title.replace(/\%/g,"(percentag)");
-    title = title.replace(/\+/g,"(plush)");
-    title = title.replace(/\ô/g,"(ocir)");
-    title = title.replace(/\®/g,"(copyright)");
-    title = title.replace(/\°/g,"(number)");
-    title = title.replace(/\Ô/g,"(bigocir)");
-    title = title.replace(/\²/g,"(square)");
-    title = title.replace(/\`/g,"(accentaigu)");
-    title = title.replace(/\é/g,"(eaccentaigu)");
-    title = title.replace(/\É/g,"(bigeaccentaigu)");
-    title = title.replace(/\&/g,"(and)");
-    title = title.replace(/\//g,"(slash)");
-    title = title.replace(/\’/g,"(apostrophe)");
-    title = title.replace(/\'/g,"(quote)");
-    title = title.replace(/\!/g,"(warning)");
-    title = title.replace(/\?/g,"(question)");
-    title = title.replace(/\$/g,"(dolla)");
-    title = title.replace(/\è/g,"(eaccentgrave)");
-    title = title.replace(/\–/g,"(hyphen)");
-    //title = title.toLowerCase();
-    return title;
+   Template.registerHelper("slug",function(gtitle){
+    if (gtitle) {
+        var title =gtitle;
+        title = title.replace(/\-/g,"(minus)");
+        title = title.replace(/\s/g,"-");
+        title = title.replace(/\%/g,"(percentag)");
+        title = title.replace(/\+/g,"(plush)");
+        title = title.replace(/\ô/g,"(ocir)");
+        title = title.replace(/\®/g,"(copyright)");
+        title = title.replace(/\°/g,"(number)");
+        title = title.replace(/\Ô/g,"(bigocir)");
+        title = title.replace(/\²/g,"(square)");
+        title = title.replace(/\`/g,"(accentaigu)");
+        title = title.replace(/\é/g,"(eaccentaigu)");
+        title = title.replace(/\É/g,"(bigeaccentaigu)");
+        title = title.replace(/\&/g,"(and)");
+        title = title.replace(/\//g,"(slash)");
+        title = title.replace(/\’/g,"(apostrophe)");
+        title = title.replace(/\'/g,"(quote)");
+        title = title.replace(/\!/g,"(warning)");
+        title = title.replace(/\?/g,"(question)");
+        title = title.replace(/\$/g,"(dolla)");
+        title = title.replace(/\è/g,"(eaccentgrave)");
+        title = title.replace(/\–/g,"(hyphen)");
+        //title = title.toLowerCase();
+        return title;
+    }else{
+        return;
+    }
 });
-    Template.registerHelper("unSlug",function(){
-        var title = this.title;
+    Template.registerHelper("unSlug",function(gettile){
+        var title =gettile;
         title = title.replace(/\-/g," ");
         title = title.replace(/\(percentag\)/g,"%");
         title = title.replace(/\(plush\)/g,"+");
@@ -344,7 +346,7 @@ Template.registerHelper("getImages", function(userId){
 
                 else if(id.indexOf("uploads")>-1){
                     id=id.replace(/ /g, "%20");
-                    console.log('repaclement===='+id);
+                    // console.log('repaclement===='+id);
                     path = id.replace('/uploads/images/','');
     
                     $('.image'+value._id).attr('src','http://d1ak0tqynavn2m.cloudfront.net/'+path);
@@ -357,9 +359,9 @@ Template.registerHelper("getImages", function(userId){
                     var img = images.findOne({_id:id});
                     if(img){
                         var id= img.copies.images.key;
-                        console.log("id img---" + id);
+                        // console.log("id img---" + id);
                         path=id.replace('UserUploads/','');
-                        console.log("path "+path);
+                        // console.log("path "+path);
                         $('.image'+value._id).attr('src', 'http://d2l5w8pvs4gpu2.cloudfront.net/'+path);
                     }
                 }
