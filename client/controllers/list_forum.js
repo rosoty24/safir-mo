@@ -9,15 +9,15 @@ $(window).scroll(function() {
     processScroll = true;
 }
 });
-Template.listForum.onRendered(function(){
-    $(document).ready(function() {
-        $(".u-vmenu").vmenuModule({
-            Speed: 200,
-            autostart: false,
-            autohide: true
-        });
-    });
-});
+// Template.listForum.onRendered(function(){
+//     $(document).ready(function() {
+//         $(".u-vmenu").vmenuModule({
+//             Speed: 200,
+//             autostart: false,
+//             autohide: true
+//         });
+//     });
+// });
 Template.listForum.events({
     "click #makeup":function(){
         $("#panel_makeup").slideToggle("slow");

@@ -1488,7 +1488,7 @@ Template.details.helpers({
 		return attribute.find({"product":parent});
 	},
 	getParentAttr: function(product){
-		console.log('cherche les attr de '+product);
+		//console.log('cherche les attr de '+product);
 		var list=attribute.find({"product":product}).fetch();
 		var out=[];
 		for(var i=0;i<list.length;i++){
@@ -1499,7 +1499,7 @@ Template.details.helpers({
 				if(contains==0)
 					out.push(list[i]);
 			}
-			console.log('finish');
+			//console.log('finish');
 			return out;
 		},
 		getShops: function(id){
@@ -1745,7 +1745,8 @@ Template.details.rendered=function(){
 	}
 	$("#makeup").html(Session.get("MAKEUP"));
 	//error tooltip
-	// $("[rel='tooltip']").tooltip(); 
+	//$("[rel='tooltip']").tooltip(); 
+
 	$("#myElement").click();
 	$("#gallerycontainer").scrollLeft(0);
 	var productId=this.data._id;
