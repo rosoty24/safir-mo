@@ -7,7 +7,7 @@ Template.registerHelper('getImgForProduct', function (id_product) {
         var id= p.image;
     }
 
-    if(id=='' || typeof id == "undefined")
+    if(id=='' || typeof id == "undefined" || id == null)
         return '/img/unknown.png';
 
     else if(id.indexOf("uploads")>-1){
