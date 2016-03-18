@@ -56,16 +56,16 @@ Template.mainLayoutMobile.onRendered(function(){
             jQuery('#content-wrapper').addClass(cls_to);
         }
     }
-    jQuery("body").swipe({
-
-        swipeLeft: function(event, direction, distance, duration, fingerCount) {
-            evthandlerswipe('right', 'left');
-        },
-        swipeRight: function(event, direction, distance, duration, fingerCount) {
-            evthandlerswipe('left', 'right');
-        },
-        excludedElements: jQuery.fn.swipe.defaults.excludedElements + ", .slides, .toggle"
-    });
+    // becuase error deaults undefine
+    // jQuery("body").swipe({
+    //     swipeLeft: function(event, direction, distance, duration, fingerCount) {
+    //         evthandlerswipe('right', 'left');
+    //     },
+    //     swipeRight: function(event, direction, distance, duration, fingerCount) {
+    //         evthandlerswipe('left', 'right');
+    //     },
+    //     excludedElements: jQuery.fn.swipe.defaults.excludedElements + ", .slides, .toggle"
+    // });
 
 });
 
@@ -158,17 +158,19 @@ Template.mainLayoutMobile.events({
         Router.go('advanced');
     }
 });
-Template.menu.onRendered(function() {
-        $(document).ready(function(){
 
-        $(".u-vmenu").vmenuModule({
-            Speed: 200,
-            autostart: false,
-            autohide: true
-        });
+// error unknow vmenuModule 
+// Template.menu.onRendered(function() {
+//         $(document).ready(function(){
 
-    });
-});
+//         $(".u-vmenu").vmenuModule({
+//             Speed: 200,
+//             autostart: false,
+//             autohide: true
+//         });
+
+//     });
+// });
 
 
 Template.headermenu.events({

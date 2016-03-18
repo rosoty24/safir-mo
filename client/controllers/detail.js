@@ -50,15 +50,15 @@ Template.details.helpers({
 
 				if(numberOfResult>reviews.length)
 					numberOfResult=reviews.length
-				console.log('NUMBER OF lastResult.length '+numberOfResult);
+				//console.log('NUMBER OF lastResult.length '+numberOfResult);
 				for(var i=0;i<numberOfResult;i++)
 					lastResult.push(reviews[i]);
 
-				console.log('NUMBER OF lastResult.length '+lastResult.length);
+				//console.log('NUMBER OF lastResult.length '+lastResult.length);
 				return lastResult;
 
 			}
-			console.log('Calling filterReview='+reviews.length);
+			//console.log('Calling filterReview='+reviews.length);
 			var values=Session.get('fiterValue').split(':');
 			//fiterValue
 			var ages=[];
@@ -69,7 +69,7 @@ Template.details.helpers({
 				var param=values[i];
 				if(param=='')
 					continue;
-				console.log("Processing "+param);
+				// console.log("Processing "+param);
 				if(param.indexOf('-')>=0){
 					ages.push(param);
 				}else if(param.indexOf('/')>=0){
@@ -79,15 +79,15 @@ Template.details.helpers({
 				}
 			}
 
-			console.log('ages:'+ages.length);
-			console.log('myTags:'+myTags.length);
-			console.log('grades:'+grades.length);
+			// console.log('ages:'+ages.length);
+			// console.log('myTags:'+myTags.length);
+			// console.log('grades:'+grades.length);
 			var results=[];
 			for(var i=0;i<ages.length;i++){
 				var ageMin=Number(ages[i].split('-')[0]);
 				var ageMax=Number(ages[i].split('-')[1]);
-				console.log('min:'+ageMin);
-				console.log('max:'+ageMax);
+				// console.log('min:'+ageMin);
+				// console.log('max:'+ageMax);
 				//Loop into reviews
 				for(var j=0;j<reviews.length;j++){
 					Meteor.subscribe("users",reviews[j].user);
@@ -99,19 +99,19 @@ Template.details.helpers({
 
 				}
 			}
-			console.log('Size of the rest:'+reviews.length);
-			console.log('Still in the sand after ager filter:'+results.length);
+			// console.log('Size of the rest:'+reviews.length);
+			// console.log('Still in the sand after ager filter:'+results.length);
 			if(results.length>0){
-				console.log('remise a 0');
+				//console.log('remise a 0');
 				reviews=[];
 				reviews=results.slice(0);
 				results=[];
 			}
 
-			console.log('Size of the rest:'+reviews.length);
+			//console.log('Size of the rest:'+reviews.length);
 			for(var i=0;i<myTags.length;i++){
 				var curTag=myTags[i];
-				console.log('tagging '+curTag);
+				//console.log('tagging '+curTag);
 				for(var j=0;j<reviews.length;j++){
 					var curUser=users.findOne({"_id":reviews[j].user});
 					if(curUser.profile.tag.indexOf(curTag)>=0)
@@ -119,9 +119,9 @@ Template.details.helpers({
 				}
 			}
 
-			console.log('Still in the sand(tags):'+results.length);
+			//console.log('Still in the sand(tags):'+results.length);
 			if(results.length>0){
-				console.log('remise a 0');
+				//console.log('remise a 0');
 				reviews=[];
 				reviews=results.slice(0);
 				results=[];
@@ -129,7 +129,7 @@ Template.details.helpers({
 			}
 			if(grades.length==0)
 				results=reviews.slice(0);
-			console.log('Size of the rest:'+reviews.length);
+			//console.log('Size of the rest:'+reviews.length);
 			for(var i=0;i<grades.length;i++){
 				var curGrade=grades[i].split('/')[0];
 				//Loop into reviews
@@ -138,25 +138,25 @@ Template.details.helpers({
 					
 					if(Number(reviews[j].grade)==Number(curGrade) && results.indexOf(reviews[j])<0){
 						results.push(reviews[j]);
-						console.log('Comparing '+curGrade+' and '+reviews[j].grade);
+						//console.log('Comparing '+curGrade+' and '+reviews[j].grade);
 					}
 
 				}
 			}
 
-			console.log('Still in the sand(grades):'+results.length);
-			console.log('afterFilter:'+results.length);
+			// console.log('Still in the sand(grades):'+results.length);
+			// console.log('afterFilter:'+results.length);
 
 			var lastResult=[];
 			var numberOfResult=Session.get('numberOfReviews');
 
 			if(numberOfResult>results.length)
 				numberOfResult=results.length
-			console.log('NUMBER OF lastResult.length '+numberOfResult);
+			// console.log('NUMBER OF lastResult.length '+numberOfResult);
 			for(var i=0;i<numberOfResult;i++)
 				lastResult.push(results[i]);
 
-			console.log('NUMBER OF lastResult.length '+lastResult.length);
+			// console.log('NUMBER OF lastResult.length '+lastResult.length);
 			return lastResult;
 
 

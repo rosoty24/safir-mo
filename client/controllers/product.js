@@ -1744,8 +1744,8 @@ Template.details.rendered=function(){
 		Session.set("MAKEUP", "رده");	    
 	}
 	$("#makeup").html(Session.get("MAKEUP"));
-
-	$("[rel='tooltip']").tooltip(); 
+	//error tooltip
+	// $("[rel='tooltip']").tooltip(); 
 	$("#myElement").click();
 	$("#gallerycontainer").scrollLeft(0);
 	var productId=this.data._id;
@@ -1758,48 +1758,48 @@ Template.details.rendered=function(){
 
 
 	var arr=[];
-	console.log('data: '+productId);
+	//console.log('data: '+productId);
 	//alert('test');
 	if(p.fetch().length>0){
 		var currentProduct=p.fetch()[0];
-		console.log('user selected');
+		//console.log('user selected');
 		
 		if(p.hasOwnProperty('review')){
 			var coms=currentProduct.review;
-			console.log('has my reviews2 '+coms );
+			//console.log('has my reviews2 '+coms );
 
 			for(var i=0;i<coms.length;i++){
 				var curUser=users.findOne({"_id":coms[i].user});
-				console.log('comm selected'+curUser.profile.tag);
+				//console.log('comm selected'+curUser.profile.tag);
 				
 
 				//if(curUser.profile.tag!='undefined'){
 					if(curUser.profile.hasOwnProperty('tag')){
-						console.log('saving'+curUser.profile.tag);
+						//console.log('saving'+curUser.profile.tag);
 						for(var j=0;j<curUser.profile.tag.length;j++)
 							arr.push(curUser.profile.tag[j]);
 					}
 
 				}
 			}
-			console.log("tagggg:"+arr);
+			//console.log("tagggg:"+arr);
 		}
 		var result=[];
 		for(var i=0;i<arr.length;i++){
 			if(result.indexOf(arr[i])<0)
 				result.push(arr[i]);
 		}
-		console.log("final:"+result);
+		// console.log("final:"+result);
+		//error octofilter
+		// $('#input').octofilter({
 
-		$('#input').octofilter({
-
-			source: {
-				Grade: ['1/5', '2/5', '3/5', '4/5', '5/5'],
-				Tag:result ,
-				Age: ['15-25','25-35' , '35-50', '50-100'],
-				Hair:['Black ','White']
-			}
-		});
+		// 	source: {
+		// 		Grade: ['1/5', '2/5', '3/5', '4/5', '5/5'],
+		// 		Tag:result ,
+		// 		Age: ['15-25','25-35' , '35-50', '50-100'],
+		// 		Hair:['Black ','White']
+		// 	}
+		// });
 		//alert('makra');
 		$('.container').click();
 
@@ -1845,26 +1845,26 @@ Template.addproduct.rendered = function(){
 		Session.set('oldId',this.data.oldId);
 
 
-		console.log('yeah');
+		//console.log('yeah');
 		Session.set('category',this.data.category);
 		var alltags="";
 		if(this.data.hasOwnProperty('tags')){
 			for(var i=0;i<this.data.tags.length;i++){
 				alltags=alltags+''+this.data.tags[i].parent+':'+this.data.tags[i].value+';';
 			}
-			console.log('OldTags='+alltags);
+			//console.log('OldTags='+alltags);
 			Session.set('tags',alltags);
 		}
 
 
 		var allAttr="";
-		console.log('OLDID='+this.data.oldId);
+		//console.log('OLDID='+this.data.oldId);
 		var attrs=attribute.find({"product":this.data.oldId}).fetch();
 
 		for(var i=0;i<attrs.length;i++){
 			allAttr=allAttr+attrs[i].price+','+attrs[i].point+','+attrs[i].parent+','+attrs[i].value+','+attrs[i].barcode+','+attrs[i].productImage+','+attrs[i]._id+';';
 		}
-		console.log('Old:'+allAttr);
+		//console.log('Old:'+allAttr);
 		Session.set('attributes',allAttr);
 
 		if(this.data.hasOwnProperty('shop'))
@@ -1898,7 +1898,7 @@ Template.addproduct.rendered = function(){
 					Session.set('oldId',Random.id());
 				}
 
-				console.log('hopppp');
+				//console.log('hopppp');
 
 			};
 // add Products
@@ -3426,7 +3426,7 @@ Template.addproduct.rendered = function(){
 					Session.set('oldId',Random.id());
 				}
 
-				console.log('hopppp');
+				//console.log('hopppp');
 
 			};
 
