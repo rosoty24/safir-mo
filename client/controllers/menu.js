@@ -141,7 +141,7 @@ $('body').css('font-family','Nazanin Bold');
          			Session.setPersistent('userId',newId);
          			console.log('Newid'+newId);
   }
-  console.log('MY CART USER ID='+Session.get('userId'));
+  // console.log('MY CART USER ID='+Session.get('userId'));
   //alert(currentPage);
 	//Meteor.call('getMonIp',userId,time,currenturl);
 	//alert('inserted');

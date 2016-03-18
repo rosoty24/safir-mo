@@ -75,6 +75,9 @@ documentReady(function() {
 	}
 
 	jQuery("body").swipe({
+
+			// var mydefault = (typeof jQuery.fn.swipe.defaults != 'undefined')? jQuery.fn.swipe.defaults:'';
+			// var ele = (mydefault !='') mydefault.excludedElements:''
 	        swipeLeft: function (event, direction, distance, duration, fingerCount) {
 			evthandlerswipe('right','left');
 	        },

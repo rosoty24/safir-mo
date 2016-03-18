@@ -57,6 +57,7 @@ Template.mainLayoutMobile.onRendered(function(){
         }
     }
     jQuery("body").swipe({
+
         swipeLeft: function(event, direction, distance, duration, fingerCount) {
             evthandlerswipe('right', 'left');
         },
@@ -158,12 +159,17 @@ Template.mainLayoutMobile.events({
     }
 });
 Template.menu.onRendered(function() {
+        $(document).ready(function(){
+
         $(".u-vmenu").vmenuModule({
             Speed: 200,
             autostart: false,
             autohide: true
         });
+
+    });
 });
+
 
 Template.headermenu.events({
     'click #a-submenu-1':function(e){
