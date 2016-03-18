@@ -108,26 +108,26 @@ Template.forumDetail.events({
     }
   }
 });
-Template.addPost.onRendered( function() {
- $( "#addPost" ).validate({
-    rules: {
-      topic: {
-        required: true
-      },
-      description: {
-        required: true
-      }
-    },
-    messages: {
-      topic: {
-        required: "<p style='color:#FF0000;'>Please enter your forum topic!</p>"
-      },
-      description: {
-        required: "<p style='color:#FF0000;'>Please enter your forum description!</p>"
-      }
-    }
-  });
-});
+// Template.addPost.onRendered( function() {
+//  $( "#addPost" ).validate({
+//     rules: {
+//       topic: {
+//         required: true
+//       },
+//       description: {
+//         required: true
+//       }
+//     },
+//     messages: {
+//       topic: {
+//         required: "<p style='color:#FF0000;'>Please enter your forum topic!</p>"
+//       },
+//       description: {
+//         required: "<p style='color:#FF0000;'>Please enter your forum description!</p>"
+//       }
+//     }
+//   });
+// });
 
 Template.reply.onRendered( function() {
  $( "#addReply" ).validate({
@@ -157,7 +157,7 @@ Template.addPost.helpers({
     getprofile:function(){
         var id = Meteor.userId();
         var result = Meteor.users.findOne({_id:id});
-        console.log("my user ============="+result);
+        //console.log("my user ============="+result);
         return result;
     }
 });
