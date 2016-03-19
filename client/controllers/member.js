@@ -40,9 +40,9 @@ Template.member.helpers({
 		var me=Meteor.user();
 		if(me.profile.shipcard!='undefined'){
 			var pt=Number(me.profile.shipcard.point);
-			console.log("MY_POINT="+pt);
+			//console.log("MY_POINT="+pt);
 			var result = pt*100/999;
-			console.log('ME PROFILE='+result);
+			//console.log('ME PROFILE='+result);
 			if(pt >= 0)
 				return result;
 			else
@@ -53,9 +53,9 @@ Template.member.helpers({
 		var me=Meteor.user();
 		if(me.profile.shipcard!='undefined'){
 			var pt=Number(me.profile.shipcard.point);
-			console.log("MY_POINT="+pt);
+			//console.log("MY_POINT="+pt);
 			var result = pt*100/9999;
-			console.log('ME PROFILE='+result);
+			//console.log('ME PROFILE='+result);
 			if(pt >= 1000)
 				return result;
 			else
@@ -66,9 +66,9 @@ Template.member.helpers({
 		var me=Meteor.user();
 		if(me.profile.shipcard!='undefined'){
 			var pt=Number(me.profile.shipcard.point);
-			console.log("MY_POINT="+pt);
+			//console.log("MY_POINT="+pt);
 			var result = pt*100/30000;
-			console.log('ME PROFILE='+result);
+			//console.log('ME PROFILE='+result);
 			if(pt>=10000)
 				return result;
 			else

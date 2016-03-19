@@ -245,6 +245,7 @@ Template.login.events({
 
         	Meteor.loginWithPassword(email, password, function(error){
         		if(error){
+              
         			console.log("MY USER======"+error.reason);
         			Session.set("loginError",error.reason);
               if(TAPi18n.getLanguage()=='fa'){
