@@ -51,12 +51,14 @@ TAPi18n.publish('productsCheckout',function(userId){
     });
     return products.find({_id:{$in:productId}});
 });
+
 TAPi18n.publish('productsAdvance', function(list_categories,list_brand,limit) {
         if(list_brand==""){
             return products.find({ category: { $in: list_categories }},{limit:limit});
         }
         return products.find({ category: { $in: list_categories }, Brand: { $in: list_brand } },{limit:limit});
 });
+
 Meteor.publish('productsHome', function(limit) {
     if (limit != -1) {
         return products.find({}, { limit: limit, fields: { _id: 1, title: 1, image: 1 } }); //return products.find({},{limit:limit});
