@@ -1,6 +1,5 @@
 Template.commentSubmit.events({
   'click #btnSend': function(e, template) {
-   // alert();
     e.preventDefault();
     var id = Meteor.userId();
     var title = $("#title").val();

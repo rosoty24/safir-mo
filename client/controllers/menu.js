@@ -215,9 +215,15 @@ Template.headermenu.events({
 	// },
 	'click .kesearch': function(e,tpl){
 		var search=tpl.$("#textToSearch").val();
-		Session.set('keyword',search);
-		var url="/searchproduct"+"/"+search;
-		Router.go(url);
+		if(Search ==''){
+            console.log("Please fill in search box!");
+            var currenturl = window.location.href
+            Router.go(currenturl);
+        }else{
+			Session.set('keyword',search);
+			var url="/searchproduct"+"/"+search;
+			Router.go(url);
+		}
 		//var listProducts=products.find({"title":{"$regex": search}});
 		 // if (Router.current().route.getName() == "search") { // new
    //      products.update(t.data._id, {$set: search});
