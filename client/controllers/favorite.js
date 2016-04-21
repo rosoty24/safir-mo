@@ -149,15 +149,13 @@ Template.listproducts.events({
         $(like).addClass('nonelike');
         $(unlike).removeClass('nonelike');
         if(Meteor.userId()){
-                var userId=Meteor.userId();
+                var userid=Meteor.userId();
         }else{
-            var userId=Session.get('userId');
+            var userid=Session.get('userId');
               
         }
-        
-        var obj=favorite.findOne({userId:userId},{proId:this._id});
-        //alert(obj._id);
-       
+        var obj=favorite.findOne({userId:userid,proId:this._id});
+        //alert(obj._id);    
         favorite.remove(obj._id);
     }
 });
