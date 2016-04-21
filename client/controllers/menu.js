@@ -215,7 +215,7 @@ Template.headermenu.events({
 	// },
 	'click .kesearch': function(e,tpl){
 		var search=tpl.$("#textToSearch").val();
-		alert("bb"+search);
+		//alert("bb"+search);
 		if(search ==''){
             console.log("Please fill in search box!");
             var currenturl = window.location.href
