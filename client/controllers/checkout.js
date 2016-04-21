@@ -194,6 +194,11 @@ Template.checkout.events({
 		}else{
 			alert('Please make order product to check out!');
 		}
+	},
+	'click .btn_checkout':function(){
+		var currentRoute = Iron.Location.get().path;
+		console.log("curCHECKOUT: "+currentRoute);
+        Session.set("REDIRECTCHECKOUT",currentRoute);
 	}
 });
 Template.checkout.helpers({
