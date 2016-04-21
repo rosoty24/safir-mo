@@ -259,6 +259,8 @@ Template.headermenu.rendered = function(){
                 e.preventDefault();
                 var Search=$('#textToSearch').val();
                 //alert(Search);
+                $("#content-wrapper").removeClass("moved-right");
+               
                 if(Search ==''){
                     console.log("Please fill in search box!");
                     var currenturl = window.location.href
