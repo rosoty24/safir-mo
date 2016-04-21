@@ -1,6 +1,6 @@
-TAPi18n.publish("categories", function() { //console.log('categories:'+categories.find({}).fetch().length);
-    return categories.i18nFind({});
-});
+// TAPi18n.publish("categories", function() { //console.log('categories:'+categories.find({}).fetch().length);
+//     return categories.i18nFind({});
+// });
 //Meteor.publish('products', function (limit){
 TAPi18n.publish('productsFavorite', function(limit, id) {
     if (limit != -1) {
@@ -14,14 +14,35 @@ TAPi18n.publish('productsFavorite', function(limit, id) {
         return products.find({ _id: { $in: favId } });
     }
 });
+
+TAPi18n.publish("categories", function() { 
+    return categories.i18nFind({});
+});
 //==========
 //=========
-TAPi18n.publish('products', function(limit) {
-    if (limit != -1)
-        return products.i18nFind({}, { limit: limit }); //return products.find({},{limit:limit});
-    else
-        return products.i18nFind({});
+// TAPi18n.publish('products', function(limit) {
+//     if (limit != -1)
+//         return products.i18nFind({}, { limit: limit }); //return products.find({},{limit:limit});
+//     else
+//         return products.i18nFind({});
+// });
+Meteor.publish('products', function(limit) {
+    if (limit != -1) {
+        return products.find({}, { limit: limit });
+    } else {
+        return products.find({});
+    }
 });
+
+Meteor.publish("attribute", function(product) {
+    if (product == -1)
+        return attribute.find({});
+    else {
+        var old = products.findOne({ "title": product });
+        return attribute.find({ "product": old.oldId });
+    }
+});
+
 TAPi18n.publish('productsCheckout',function(userId){
     var productId=[];
     var dataCart=cart.find({"userId":userId});
@@ -270,9 +291,13 @@ TAPi18n.publish('detailsParent_tags', function(title) {
     }
     // return parent_tags.i18nFind({},{fields:{_id:1,title:1,category_id:1}});
 });
-TAPi18n.publish('parent_tags', function() {
+// TAPi18n.publish('parent_tags', function() {
+//     return parent_tags.i18nFind({}, { fields: { _id: 1, title: 1, category_id: 1 } });
+// });
+TAPi18n.publish('parent_tags', function(title) {
     return parent_tags.i18nFind({}, { fields: { _id: 1, title: 1, category_id: 1 } });
 });
+
 TAPi18n.publish('categoryTags', function(name) {
     if (name) {
         var l = categories.findOne({ "title": { $regex: new RegExp(name, "i") } });

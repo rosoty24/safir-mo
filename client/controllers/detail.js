@@ -9,8 +9,6 @@ Template.details.events({
         var title = tpl.$("#title").val();
         var comment = tpl.$("#comment").val();
         //console.log(title+ comment);
-        
-
         if (title == "" || comment == "") {
         	if(title==""){
 				$('#validdetail').text("please input title here");
@@ -20,6 +18,8 @@ Template.details.events({
 			}
         } else {
             Meteor.call('addReview', title, comment, userid, this._id, function(err) {
+            	var title = tpl.$("#title").val('');
+        		var comment = tpl.$("#comment").val('');
                 if (err) {
                     console.log("addreview: " + err.reason);
                 } else {
