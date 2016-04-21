@@ -41,7 +41,9 @@ Template.registerHelper('getImg', function (id) {
     else if(id.indexOf("uploads")>-1){
         id=id.replace(/ /g, "%20");
         path = id.replace('/uploads\/images/g','');
-        return 'http://d1ak0tqynavn2m.cloudfront.net/'+path;
+        console.log(" sokhy img " + path);
+        return 'http://d1ak0tqynavn2m.cloudfront.net'+path;
+
     }
     else if(id.indexOf("http://")>-1 || id.indexOf("https://")>-1 ){
         return id;
@@ -51,6 +53,7 @@ Template.registerHelper('getImg', function (id) {
         if(img){
             var id= img.copies.images.key;
             path=id.replace('UserUploads/','');
+            console.log("path " + path);
             return 'http://d2l5w8pvs4gpu2.cloudfront.net/'+path;
         }else{
             return;
