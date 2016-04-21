@@ -1,6 +1,7 @@
 Session.set('nbproducts','');
 Session.set('querylimit',16);
 Session.set('quickview','');
+
 var processScroll = true;
 $(window).scroll(function() {
 	if (processScroll  && $(window).scrollTop() > $(document).height() - $(window).height() - 100) {
