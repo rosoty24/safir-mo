@@ -10,6 +10,8 @@ Template.details.events({
 		var comment=tpl.$("#comment").val();
 		//console.log(title+ comment);
 		Meteor.call('addReview',title,comment,userid,this._id, function(err){
+			var title=tpl.$("#title").val('');
+			var comment=tpl.$("#comment").val('');
 			if(err){
 				console.log("addreview: "+err.reason);
 			}else{
