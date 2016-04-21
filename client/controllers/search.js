@@ -258,8 +258,11 @@ Template.headermenu.rendered = function(){
                 //alert('enter');
                 e.preventDefault();
                 var Search=$('#textToSearch').val();
+                //alert(Search);
                 if(Search ==''){
-                   console.log("Please fill in search box!");
+                    console.log("Please fill in search box!");
+                    var currenturl = window.location.href
+                    Router.go(currenturl);
                 }else{
                    
                     Session.set('keyword', Search);
@@ -268,6 +271,7 @@ Template.headermenu.rendered = function(){
                     var url="/searchproduct"+"/"+Search;
                     Router.go(url);
                     $('#textToSearch').val('');
+                    
                 }
             }
         });

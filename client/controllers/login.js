@@ -254,28 +254,35 @@ Template.login.events({
                 $("#loginError").text("Login Error! ");
               }
         		} else {
-              alert();
-              Router.go('/profile');
+                    //Router.go('/profile');
         			Session.set("loginError","");
-        			$('.close').click();
-        			
+        			//$('.close').click();
         			var loggedInUser = Meteor.user();
         			var group = 'mygroup';
-        			if (Roles.userIsInRole(loggedInUser, ['admin'], group)) {
-        				/*Router.go(Session.get('THELASTPAGE'));*/
-        				Router.go(Session.get('/manageproduct'));
-        				$('.close').click();
-        			}
-        			else if (Roles.userIsInRole(loggedInUser, ['member'], group)) {	
-        				//alert('Hello');
-        				Router.go('/profile');
-        				$('.close').click();
-        			}
-        			else{
-
-        				Router.go('/profile');
-        				$('.close').click();
-        			}
+                    var curRoute = Session.get("REDIRECT");
+                    var curCheckout = Session.get("REDIRECTCHECKOUT");
+                    if(curRoute){
+            			if (Roles.userIsInRole(loggedInUser, ['admin'], group)) {
+            				/*Router.go(Session.get('THELASTPAGE'));*/
+                            if(curRoute == "/" || curRoute == "/login" || curRoute == "/register"){
+                                Router.go('/manageproduct');
+                            }else{
+                                Router.go(curRoute);
+                            }
+            				$('.close').click();
+            			}
+            			else if (Roles.userIsInRole(loggedInUser, ['member'], group)) {	
+            				//alert('Hello');
+                            if(curRoute == "/" || curRoute == "/login" || curRoute == "/register"){
+                                Router.go('/profile');
+                            }else{
+                                Router.go(curRoute);
+                            }
+            				$('.close').click();
+                        }
+        			}else if(curCheckout){
+                        Router.go("/confirmorder");
+                    }
         		}
         		Session.set('pass',null);
         	});	

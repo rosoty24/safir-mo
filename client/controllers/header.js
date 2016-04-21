@@ -183,6 +183,12 @@ Template.headermenu.events({
             Session.set('countClick',Session.get('countClick')+1);
         }
         
+    },
+    'click .login':function(){
+        //var currentRoute = Router.current().route.path();
+        var currentRoute = Iron.Location.get().path;
+        console.log("currentRoute"+currentRoute);
+        Session.set("REDIRECT",currentRoute);
     }
 });
 
