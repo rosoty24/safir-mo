@@ -882,7 +882,7 @@ Template.webzinedetails.events({
 	}
 
 });
-Template.details.events({
+/*Template.details.events({
 	'click #addreview':function(e,tpl){
 		e.preventDefault();
 		var title=tpl.$("#title").val();
@@ -894,7 +894,7 @@ Template.details.events({
 			$('#validdetail1').text("please input comment here")
 		}
 	}
-});
+});*/
 Template.tutodetails.events({
 	'click #addreview': function(e,tpl){
 		e.preventDefault();
