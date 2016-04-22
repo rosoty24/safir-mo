@@ -69,6 +69,7 @@
      <section id="forum_question" dir="{{getDirection}}">
       <div class="container">
         <div class="hold_product_detail">
+        {{#if productwebzine.count}}
           <div class="col-md-12">
             <h3 style="color: black;">{{_"RELATED PRODUCTS"}}</h3>
           </div>
@@ -81,8 +82,9 @@
             </div>
             {{/each}}
           </div> 
-          <!-- {{>recommendation}} -->
 
+          <!-- {{>recommendation}} -->
+          {{/if}}
         </div>
       </div>
       <br/><br /><br/>
