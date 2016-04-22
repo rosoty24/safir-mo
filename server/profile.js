@@ -13,5 +13,8 @@ Meteor.methods({
     },
     earnPoint: function(userid,point) {
       Meteor.users.update({_id:userid},{$set: {"profile.shipcard.point":point}});
+    },
+    updatestatusearnpoint:function(id){
+      Meteor.users.update({_id:id},{$set: {status:1}});
     }
 });
