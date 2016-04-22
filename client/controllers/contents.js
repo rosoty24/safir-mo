@@ -554,6 +554,21 @@ Template.tutolisting.helpers({
 });
 
 Template.tutodetails.helpers({
+	producttuto: function(){
+		return products.find();
+	},
+	related: function(category,id){
+		console.log("article related of "+category);
+		var list=contents.find({category:category,_id: { $not: id }});
+		var max=list.count();
+		console.log('relatedcount='+max);
+		var index=Math.floor((Math.random() * max) + 1);
+		console.log('index='+index);
+		if(max==0)
+			return null;
+		else
+			return list.fetch()[index-1];
+	},
 	getReviewsShort: function(reviews,limit){
 		if(Session.get("filter")==""){
 			var ret=[];
