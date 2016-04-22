@@ -1,66 +1,81 @@
 Template.registerHelper('getImgForProduct', function (id_product) {
-    var p=products.findOne({_id:id_product});
-    if(p.image instanceof Array){
-        var id= p.image[0];
-    }           
-    else{
-        var id= p.image;
-    }
+    //console.log('calling img for '+id_product);
+    return getImgForProduct(id_product);
 
-    if(id=='' || typeof id == "undefined" || id == null)
+});
+getImgForProduct = function(id_product){
+    var p=products.findOne({_id:id_product});
+    if(p.image instanceof Array)
+        var id= p.image[0];
+    else
+        var id= p.image;
+
+    if(id=='' || typeof id == "undefined")
         return '/img/unknown.png';
 
-    else if(id.indexOf("uploads")>-1){
+    else if(id.indexOf("upload")>-1){
         id=id.replace(/ /g, "%20");
-        path = id.replace('/uploads/images/','');
-        return 'http://d1ak0tqynavn2m.cloudfront.net/'+path;
+        path = id.replace('/upload/images/','');
+        paths=path.replace("/uploads","/upload/");
+        //return '/uploads/'+path;
+        return 'http://52.87.200.238'+paths;
+       
 
+
+    }
+    else if(id.indexOf("http://")>-1){ 
+        console.log("hi img 2");
+        return id;
+
+    }else{
+        var img = images.findOne({_id:id});
+        if(img){
+            var id= img.copies.images.key;
+            // path=id.replace('images','');
+            return 'http://52.87.200.238/upload/'+id;
+            //return '/uploads/'+id;
+
+        }else{
+            return;
+        } 
+    }
+}
+//For user upload
+Template.registerHelper('getImg', function (id) {
+    var image = getImg( id );
+    return image;
+
+});
+getImg = function ( id ) {
+   if(id=='' || typeof id == "undefined")
+        return '/img/unknown.png';
+
+    else if(id.indexOf("upload/images")>-1){
+        id=id.replace(/ /g, "%20");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        path = id.replace('/upload/images/','');
+        return 'http://52.87.200.238'+path;
+         // return id;
     }
     else if(id.indexOf("http://")>-1){
         return id;
 
     }else{
         var img = images.findOne({_id:id});
+        console.log(img);
         if(img){
             var id= img.copies.images.key;
-            path=id.replace('UserUploads/','');
-            return 'http://d2l5w8pvs4gpu2.cloudfront.net/'+path;
+            //path = id.replace('images/','');
+            //path=id.replace('UserUploads/','');
+            //return 'http://52.87.200.238/upload/'+id;
+            //return '/uploads/'+path;
+            return '/uploads/'+id;
+
         }else{
             return;
         } 
     }
-
-});
-
-    //For user upload img
-Template.registerHelper('getImg', function (id) {
-    
-    if(id=='' || typeof id == "undefined" || id ==null)
-        return '/img/unknown.png';
-
-    else if(id.indexOf("uploads")>-1){
-        id=id.replace(/ /g, "%20");
-        path = id.replace('/uploads\/images/g','');
-        console.log(" sokhy img " + path);
-        return 'http://d1ak0tqynavn2m.cloudfront.net'+path;
-
-    }
-    else if(id.indexOf("http://")>-1 || id.indexOf("https://")>-1 ){
-        return id;
-
-    }else{
-        var img = images.findOne({_id:id});
-        if(img){
-            var id= img.copies.images.key;
-            path=id.replace('UserUploads/','');
-            console.log("path " + path);
-            return 'http://d2l5w8pvs4gpu2.cloudfront.net/'+path;
-        }else{
-            return;
-        } 
-    }
-
-});
+}
+// end
 
     Template.registerHelper('trimString', function(passedString) {
         var theString = passedString.substring(0,110);
