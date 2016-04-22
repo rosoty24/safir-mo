@@ -8,7 +8,7 @@ Template.details.events({
         var userid = Meteor.userId();
         var title = tpl.$("#title").val();
         var comment = tpl.$("#comment").val();
-        //console.log(title+ comment);
+
         if (title == "" || comment == "") {
         	if(title==""){
 				$('#validdetail').text("please input title here");
@@ -23,6 +23,41 @@ Template.details.events({
                 if (err) {
                     console.log("addreview: " + err.reason);
                 } else {
+                    var upoint=Meteor.users.findOne({_id:Meteor.userId()}).profile.shipcard.point;
+                    var resultmembership=membership.find();
+                    var arrmem=[];
+                    resultmembership.forEach(function(value){
+                    if(value.minpoint <= upoint && upoint <=value.maxpoint){
+                    arrmem.push(value);
+                        }
+                    });
+                    if(arrmem[0].name=='black'){
+                         point = 10;
+                    }
+                    if(arrmem[0].name=='silver'){
+                         point=20;
+                    }
+                    if(arrmem[0].name=='gold'){
+                         point=40
+                    }
+                    upoint+=point;
+                    Meteor.call('commentDetail',function(err,data){
+                        if(!err){
+                            if(data<=5){
+                              Meteor.call('earnPoint',Meteor.userId(),upoint,function(err){
+                                if(!err){
+                                    if (TAPi18n.getLanguage() == 'fa') {
+                                    Bert.alert('شما باید کسب ' + point + ' امتیاز بیشتر!', 'success', 'growl-bottom-right');
+                                    } else {
+                                        Bert.alert('You have earn ' + point + ' point more!', 'success', 'growl-bottom-right');
+                                    }  
+                                }
+                              });  
+                            }
+                            
+                        }
+                    });
+                    
                 	var title = tpl.$("#title").val("");
         			var comment = tpl.$("#comment").val("");
         			$('#validdetail').text("");
