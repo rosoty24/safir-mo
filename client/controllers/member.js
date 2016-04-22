@@ -121,98 +121,196 @@ Template.member.helpers({
 		else
 			return 100000-point;
 	},
-	isBronze: function(){
-		if(Session.get('rank')==''){
-			var me=Meteor.user();
-			console.log('Getting user');
-		if(me.profile.shipcard!='undefined')
-			var point=Number(me.profile.shipcard.point);
-		else
-			point=0;
+	persentage: function() {
+        var me = Meteor.user();
+        if (me.profile.shipcard != 'undefined')
+            var point = Number(me.profile.shipcard.point);
+        else
+            point = 0;
+        if (point >= 0 && point <= 4000) {
+            var black = (point * 100) / 4000;
+            console.log("black per "+black);
+            return black;
+        } else if (point > 4000 && point <= 8000) {
+            var silver = ((point-4000)*100) / 4000;
+            console.log("silver per "+silver);
+            return silver;
+        }
+    },
+	isBronze: function() {
+        if (Session.get('rank') == '') {
+            var me = Meteor.user();
+            console.log('Getting user');
+            if (me.profile.shipcard != 'undefined')
+                var point = Number(me.profile.shipcard.point);
+            else
+                point = 0;
 
-		console.log('POINT:'+point);
-		if(point>=0 && point<1000){
-			Session.set('rank','BRONZE');
-			Session.set('BRONZE_POINT',999);
-			//$('#ranking').addClass("backpt");
-		}
-		else if(point>=1000 && point <10000){
-			Session.set('rank','SILVER');
-			Session.set('SILVER_POINT',9999);
-			//$('#ranking').addClass("backptsilver");
-		}
+            console.log('POINT:' + point);
+            if (point >= 0 && point <= 4000) {
+                Session.set('rank', 'BRONZE');
+                //$('#ranking').addClass("backpt");
+            } else if (point > 4000 && point <= 8000) {
+                Session.set('rank', 'SILVER');
+                //$('#ranking').addClass("backptsilver");
+            } else {
+                //$('#ranking').addClass("backptgold");
+                Session.set('rank', 'GOLD');
+            }
+            console.log('rank:' + Session.get('rank'));
+        }
+        if (Session.get('rank') == 'BRONZE')
+            return true;
+        else
+            return false;
+    },
+    isSilver: function() {
+        if (Session.get('rank') == '') {
+            var me = Meteor.user();
+            console.log('Getting user' + me);
+            if (me.profile.shipcard != 'undefined')
+                var point = Number(me.profile.shipcard.point);
+            else
+                point = 0;
+
+            console.log('POINT:' + point);
+
+            if (point >= 0 && point <= 4000) {
+                Session.set('rank', 'BRONZE');
+                //$('#ranking').addClass("backpt");
+            } else if (point > 4000 && point <= 8000) {
+                Session.set('rank', 'SILVER');
+                //$('#ranking').addClass("backptsilver");
+            } else {
+                //$('#ranking').addClass("backptgold");
+                Session.set('rank', 'GOLD');
+            }
+            console.log('rank:' + Session.get('rank'));
+        }
+        if (Session.get('rank') == 'SILVER')
+            return true;
+        else
+            return false;
+    },
+    isGold: function() {
+        if (Session.get('rank') == '') {
+            var me = Meteor.user();
+            console.log('Getting user');
+            if (me.profile.shipcard != 'undefined')
+                var point = Number(me.profile.shipcard.point);
+            else
+                point = 0;
+
+            console.log('POINT:' + point);
+            if (point >= 0 && point <= 4000) {
+                Session.set('rank', 'BRONZE');
+                //$('#ranking').addClass("backpt");
+            } else if (point > 4000 && point <= 8000) {
+                Session.set('rank', 'SILVER');
+                //$('#ranking').addClass("backptsilver");
+            } else {
+                //$('#ranking').addClass("backptgold");
+                Session.set('rank', 'GOLD');
+            }
+            console.log('rank:' + Session.get('rank'));
+        }
+        if (Session.get('rank') == 'GOLD')
+            return true;
+        else
+            return false;
+    },
+	// isBronze: function(){
+	// 	if(Session.get('rank')==''){
+	// 		var me=Meteor.user();
+	// 		console.log('Getting user');
+	// 	if(me.profile.shipcard!='undefined')
+	// 		var point=Number(me.profile.shipcard.point);
+	// 	else
+	// 		point=0;
+
+	// 	console.log('POINT:'+point);
+	// 	if(point>=0 && point<1000){
+	// 		Session.set('rank','BRONZE');
+	// 		Session.set('BRONZE_POINT',999);
+	// 		//$('#ranking').addClass("backpt");
+	// 	}
+	// 	else if(point>=1000 && point <10000){
+	// 		Session.set('rank','SILVER');
+	// 		Session.set('SILVER_POINT',9999);
+	// 		//$('#ranking').addClass("backptsilver");
+	// 	}
   			
-  		else{
-  			//$('#ranking').addClass("backptgold");
-  			Session.set('rank','GOLD');
-  			Session.set('GOLD_POINT',20000);
-  		}
-  		console.log('rank:'+Session.get('rank'));
-		}
-		if(Session.get('rank')=='BRONZE')
-			return true;
-		else
-			return false;
-	},
-	isSilver: function(){
-		if(Session.get('rank')==''){
-			var me=Meteor.user();
-			console.log('Getting user');
-		if(me.profile.shipcard!='undefined')
-			var point=Number(me.profile.shipcard.point);
-		else
-			point=0;
+ //  		else{
+ //  			//$('#ranking').addClass("backptgold");
+ //  			Session.set('rank','GOLD');
+ //  			Session.set('GOLD_POINT',20000);
+ //  		}
+ //  		console.log('rank:'+Session.get('rank'));
+	// 	}
+	// 	if(Session.get('rank')=='BRONZE')
+	// 		return true;
+	// 	else
+	// 		return false;
+	// },
+	// isSilver: function(){
+	// 	if(Session.get('rank')==''){
+	// 		var me=Meteor.user();
+	// 		console.log('Getting user');
+	// 	if(me.profile.shipcard!='undefined')
+	// 		var point=Number(me.profile.shipcard.point);
+	// 	else
+	// 		point=0;
 
-		console.log('POINT:'+point);
-		if(point>=0 && point<1000){
-			Session.set('rank','BRONZE');
-			//$('#ranking').addClass("backpt");
-		}
-		else if(point>=1000 && point <10000){
-			Session.set('rank','SILVER');
-			//$('#ranking').addClass("backptsilver");
-		}
+	// 	console.log('POINT:'+point);
+	// 	if(point>=0 && point<1000){
+	// 		Session.set('rank','BRONZE');
+	// 		//$('#ranking').addClass("backpt");
+	// 	}
+	// 	else if(point>=1000 && point <10000){
+	// 		Session.set('rank','SILVER');
+	// 		//$('#ranking').addClass("backptsilver");
+	// 	}
   			
-  		else{
-  			//$('#ranking').addClass("backptgold");
-  			Session.set('rank','GOLD');
-  		}
-  		console.log('rank:'+Session.get('rank'));
-		}
-		if(Session.get('rank')=='SILVER')
-			return true;
-		else
-			return false;
-	},
-	isGold: function(){
-		if(Session.get('rank')==''){
-			var me=Meteor.user();
-			console.log('Getting user');
-		if(me.profile.shipcard!='undefined')
-			var point=Number(me.profile.shipcard.point);
-		else
-			point=0;
+ //  		else{
+ //  			//$('#ranking').addClass("backptgold");
+ //  			Session.set('rank','GOLD');
+ //  		}
+ //  		console.log('rank:'+Session.get('rank'));
+	// 	}
+	// 	if(Session.get('rank')=='SILVER')
+	// 		return true;
+	// 	else
+	// 		return false;
+	// },
+	// isGold: function(){
+	// 	if(Session.get('rank')==''){
+	// 		var me=Meteor.user();
+	// 		console.log('Getting user');
+	// 	if(me.profile.shipcard!='undefined')
+	// 		var point=Number(me.profile.shipcard.point);
+	// 	else
+	// 		point=0;
 
-		console.log('POINT:'+point);
-		if(point>=0 && point<1000){
-			Session.set('rank','BRONZE');
-			//$('#ranking').addClass("backpt");
-		}
-		else if(point>=1000 && point <10000){
-			Session.set('rank','SILVER');
-			//$('#ranking').addClass("backptsilver");
-		}
-  		else{
-  			//$('#ranking').addClass("backptgold");
-  			Session.set('rank','GOLD');
-  		}
-  		console.log('rank:'+Session.get('rank'));
-		}
-		if(Session.get('rank')=='GOLD')
-			return true;
-		else
-			return false;
-	},
+	// 	console.log('POINT:'+point);
+	// 	if(point>=0 && point<1000){
+	// 		Session.set('rank','BRONZE');
+	// 		//$('#ranking').addClass("backpt");
+	// 	}
+	// 	else if(point>=1000 && point <10000){
+	// 		Session.set('rank','SILVER');
+	// 		//$('#ranking').addClass("backptsilver");
+	// 	}
+ //  		else{
+ //  			//$('#ranking').addClass("backptgold");
+ //  			Session.set('rank','GOLD');
+ //  		}
+ //  		console.log('rank:'+Session.get('rank'));
+	// 	}
+	// 	if(Session.get('rank')=='GOLD')
+	// 		return true;
+	// 	else
+	// 		return false;
+	// },
 	getproduct:function(){
 
 		var point = Meteor.user().profile.shipcard.point;

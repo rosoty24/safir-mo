@@ -166,8 +166,8 @@ Template.details.helpers({
     getRate: function(num) {
         var rate = $('fa-star-o');
         var allhtm = '';
-        var html = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -25px"><i class="fa fa-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
-        var htmlyellow = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -25px"><i class="fa fa-star yellow-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        var html = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -30px" style=""><i class="fa fa-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        var htmlyellow = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -30px" style=""><i class="fa fa-star yellow-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
         for (var i = 0; i < 5; i++) {
             if (i < Number(num)) {
                 allhtm += htmlyellow;

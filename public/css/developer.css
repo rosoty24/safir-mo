@@ -2,6 +2,32 @@
 	display: none;
 }
 /********** KA *************/
+/** menu **/
+.well-member {
+    background: #f5f5f5;
+    margin-bottom: 15px;
+}
+.well-member h4 {
+    color: #000;
+    padding: 10px;
+    margin: 0px;
+    font-size: 18px;
+}
+.member-siver{
+    color:#6e6e6e;
+}
+.member-gold{
+    color:#a97c3a;
+}
+.progress-bar-black {
+    background: #000 none repeat scroll 0 0;
+}
+.border_silver .progress-bar-silver {
+    background: #676767 none repeat scroll 0 0;
+}
+.border_gold .progress-bar-gold {
+    background: #a88733 none repeat scroll 0 0;
+}
 /** refine brand **/
 a.alphabet, a.targetBrand, .info a{
 	color: #fff;

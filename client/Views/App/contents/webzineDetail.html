@@ -1,92 +1,91 @@
 <template name="webzinedetails">
-	<article>
-    	<div class="wrapper wrapper-notfound" style="margin-top: 50px;" dir="{{getDirection}}">
-          <div class="title-webzin-mobile">
-              <h2>{{title}}</h2>
-          </div>
-          {{#with getFirstImgContent _id}}
-          <div class="space-img">
-              <img src="{{getImg this}}" class="center-block img-responsive" width="500" height="200" alt="{{title}}">
-          </div>
-          {{/with}}
-          <div class="col-xs-12">
-              <div class="text-right">
-                <p class="cate-webzine-detail">{{getCatergoryName category}}</p>
-              </div>
-          </div>
-          <div class="text-webzin-mobile-detail">
+    <article>
+        <div class="wrapper wrapper-notfound" style="margin-top: 50px;" dir="{{getDirection}}">
+            <div class="title-webzin-mobile">
+                <h2>{{title}}</h2>
+            </div>
+            {{#with getFirstImgContent _id}}
+            <div class="space-img">
+                <img src="{{getImg this}}" class="center-block img-responsive" width="500" height="200" alt="{{title}}">
+            </div>
+            {{/with}}
+            <div class="col-xs-12">
+                <div class="text-right">
+                    <p class="cate-webzine-detail">{{getCatergoryName category}}</p>
+                </div>
+            </div>
+            <div class="text-webzin-mobile-detail">
                 <p>{{{content}}}</p>
-          </div>
-      </div>
-    </article>
-
-        <section class="shadow_bottom">
-          <div class="wrapper">
-            <div class="row">
-             <div class="col-sm-12">
-              <div class="col-md-6 pull-left space-top-detail2">
-               <img src="{{getImg currentUser.image}}" class="img-responsive center-block" style="width: 50%;">
-               <h4 class="bold text-center">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</h4>
-             </div>
-
-           </div>
-         </div>
-         {{#if currentUser}}
-         <div class="col-sm-12">
-          <div class="space-comment box">
-            <input id="title" type="text" class="form-control" placeholder="{{_"Title"}}..." required/>
-            <textarea class="form-control" id="comment" name="styled-textarea" onfocus="this.value='';" rows="7">{{_"Write what you want"}}</textarea>
-          </div>
-          <button class="btn_register pull-right" id="addreview">{{_ "SEND"}}</button>
+            </div>
         </div>
-        {{/if}}
-        <div class="clear-fix"></div>
-       {{#each getReviewBySort review}}
-        <div class="row">
-         <div class="col-sm-12">
-          <div class="col-sm-5 pull-left space-top-detail2">
-            <img src="{{getImages user}}" class="img-responsive center-block image{{user}}" style="width:50%;">
-           <h4 class="bold text-center {{user}}">{{getImageUser user}}</h4>
-          </div>
-          <div class="pull-left space-top-detail3" >
-            <h2>{{comment}}</h2>
-            <p class="no-margin">{{getDate date}}</p>
-          </div>
-          <div class="col-sm-2 pull-right space-top-detail2">
-          <!--  <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp; {{grade}}/5</h3> --> 
-         </div>
-         <div class="col-sm-12">
-           <p class="col-sm-5 pull-left space-top-detail2">{{title}}</p>
-           <div class="pull-left border-detail">   
-           </div>
-         </div>
-       </div>  
-     </div>
-
-     {{/each}} 
-    </div>
-    </section>
-     <section id="forum_question" dir="{{getDirection}}">
-      <div class="container">
-        <div class="hold_product_detail">
-        {{#if productwebzine.count}}
-          <div class="col-md-12">
-            <h3 style="color: black;">{{_"RELATED PRODUCTS"}}</h3>
-          </div>
-          <div class="row">
-            {{#each productwebzine}}
-            <div class="col-md-3">
-             <a href="/details/{{slug title}}" title="{{title}}"> <img id="loads" style="border:8px solid #000" src="{{getImgForProduct _id}}" class="img-circle center-block" alt="{{title}}" width="150" height="150"></a>
-            <p class="text-center" style="font-size:12px; height:40px;font-weight:lighter;"><a href="/details/{{slug title}}" class="linkrecommendation">{{title}}</a></p>
-            <h3 class="text-center" style="font-weight:bold;color:#000;"><a href="/details/{{slug title}}" class="linkrecommendation">{{price}}</a></h3>
+    </article>
+    <section class="shadow_bottom">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-md-6 pull-left space-top-detail2">
+                        <img src="{{getImg currentUser.image}}" class="img-responsive center-block" style="width: 50%;">
+                        <h4 class="bold text-center">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</h4>
+                    </div>
+                </div>
+            </div>
+            {{#if currentUser}}
+            <div class="col-sm-12">
+                <div class="space-comment box">
+                    <input id="title" type="text" class="form-control" placeholder="{{_" Title "}}..." required/>
+                    <textarea class="form-control" id="comment" name="styled-textarea" onfocus="this.value='';" rows="7">{{_"Write what you want"}}</textarea>
+                </div>
+                <button class="btn_register pull-right" id="addreview">{{_ "SEND"}}</button>
+            </div>
+            {{/if}}
+            <div class="clear-fix"></div>
+            {{#each getReviewBySort review}}
+            <div class="row">
+                <div class="col-xs-4 pull-left space-top-detail2">
+                    <img src="{{getImages user}}" class="img-responsive center-block image{{user}}">
+                    <h4 class="bold text-center {{user}}">{{getImageUser user}}</h4>
+                </div>
+                <div class="col-xs-8">
+                    <div class="pull-left space-top-detail3">
+                        <!-- <h2>{{comment}}</h2> -->
+                        <p class="col-sm-5 pull-left space-top-detail2">{{title}}</p>
+                        <p class="no-margin">{{getDate date}}</p>
+                    </div>
+                </div>
+                <div class="col-sm-2 pull-right space-top-detail2">
+                    <!--  <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp; {{grade}}/5</h3> -->
+                </div>
+                <div class="col-sm-12">
+                    <p class="col-sm-5 pull-left space-top-detail2">{{comment}}</p>
+                    <div class="pull-left border-detail">
+                    </div>
+                </div>
             </div>
             {{/each}}
-          </div> 
-
-          <!-- {{>recommendation}} -->
-          {{/if}}
         </div>
-      </div>
-      <br/><br /><br/>
+    </section>
+    <section id="forum_question" dir="{{getDirection}}">
+        <div class="container">
+            <div class="hold_product_detail">
+                {{#if productwebzine.count}}
+                <div class="col-md-12">
+                    <h3 style="color: black;">{{_"RELATED PRODUCTS"}}</h3>
+                </div>
+                <div class="row">
+                    {{#each productwebzine}}
+                    <div class="col-md-3">
+                        <a href="/details/{{slug title}}" title="{{title}}"> <img id="loads" style="border:8px solid #000" src="{{getImgForProduct _id}}" class="img-circle center-block" alt="{{title}}" width="150" height="150"></a>
+                        <p class="text-center" style="font-size:12px; height:40px;font-weight:lighter;"><a href="/details/{{slug title}}" class="linkrecommendation">{{title}}</a></p>
+                        <h3 class="text-center" style="font-weight:bold;color:#000;"><a href="/details/{{slug title}}" class="linkrecommendation">{{price}}</a></h3>
+                    </div>
+                    {{/each}}
+                </div>
+                <!-- {{>recommendation}} -->
+                {{/if}}
+            </div>
+        </div>
+        <br/>
+        <br />
+        <br/>
     </section>
 </template>

@@ -49,7 +49,7 @@ Meteor.methods({
 		products.update({_id:productid},{ $push: { review: attr } });
 
 	},
-	commentDetail:function(){
+	/*commentDetail:function(){
     	var arr=[];
     	var array=[];
     	var userid = Meteor.userId();
@@ -67,10 +67,12 @@ Meteor.methods({
 	    }else{
 	    	return 1;
 	    }
-    },
+    },*/
     updatelikereview:function(reviews,productid){
 		console.log("visal"+productid+":"+reviews);
 		return  products.update({_id:productid},{$set:{"review":reviews}});
-
+	},
+	addpointinst:function(userid,point){
+		return Meteor.users.update({_id:userid},{$set: {"profile.shipcard.point":point}});
 	}
 });

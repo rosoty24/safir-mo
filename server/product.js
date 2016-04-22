@@ -136,8 +136,27 @@ Meteor.methods({
     		//arr.push(value._id);
     		contents.update({_id:value._id},{$unset:{review:""}})
     	});
-    }
-
-    
+    },
+    commentDetail:function(){
+    	var arr=[];
+    	var array=[];
+    	var userid = Meteor.userId();
+    	var userComment = products.find({"review.user":userid});
+    	if(userComment){
+	    	userComment.forEach(function(value){
+	    		for(var i=0;i<value.review.length;i++){
+	    			if(value.review[i].user==userid){
+	    				arr.push(value.review[i].user);
+	    			}
+	    			
+	    		}
+	    	});
+	    	
+	    	console.log('myuser==='+arr.length);
+	    	return arr.length;
+	    }else{
+	    	return 1;
+	    }
+    } 
 });
 
