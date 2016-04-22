@@ -545,6 +545,33 @@ Meteor.publish("users", function(tab) {
 Meteor.publish("cart", function(id) {
     return cart.find({ "userId": id });
 });
+//tuto
+Meteor.publish("contentsTutoDetial", function(title) {
+   return contents.find({ "title": { $regex: new RegExp("^" + title, "i") } });
+});
+Meteor.publish('rendomProductTuto', function(title) {
+    function makaraRendomArray(o){
+        for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    }
+    var myArray=[];
+    var resultRandom=[];
+        var p = contents.findOne({ "title": title });
+        var result= products.find({ category: p.category } );
+        result.forEach(function(value){
+            myArray.push(value);
+        });
+        var arrayRandom=makaraRendomArray(myArray);
+        for(var ran=0;ran<4;ran++){
+            if(arrayRandom[ran]){
+               resultRandom.push(arrayRandom[ran]._id); 
+            }
+            
+        }
+        resultRandom.push(p._id);
+        return products.find({_id:{$in:resultRandom}});
+     
+});
 //contents
 Meteor.publish("contentsWebzineDetial", function(title) {
    return contents.find({ "title": { $regex: new RegExp("^" + title, "i") } });
