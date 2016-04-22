@@ -34,7 +34,17 @@ Template.listproducts.helpers({
         return Session.get('allproducts');
     },
     nbproducts: function() {
-        return Session.get('nbproducts');
+        // return Session.get('nbproducts');
+        var result =  Session.get('nbproducts');
+        if(result ==0){
+            console.log("hide");
+            $("#sortby").hide();
+
+        }else{
+            return result;
+            console.log("result "+ result);
+
+        }
     },
     isLiked: function(productId) {
         if (Session.get('userId')) {
