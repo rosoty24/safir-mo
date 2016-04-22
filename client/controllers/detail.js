@@ -9,25 +9,78 @@ Template.details.events({
         var title = tpl.$("#title").val();
         var comment = tpl.$("#comment").val();
         //console.log(title+ comment);
+        var profile = Meteor.users.findOne({ _id: userid }).profile;
+        var oldpoint = profile.shipcard.point;
+        var resultmembership = membership.find();
+        var arrmem = [];
+
+        resultmembership.forEach(function(value) {
+            if (value.minpoint <= oldpoint && oldpoint <= value.maxpoint) {
+                arrmem.push(value);
+            }
+        });
+        if (arrmem[0].name == 'black') {
+            var point = 10;
+        }
+        if (arrmem[0].name == 'silver') {
+            var point = 20;
+        }
+        if (arrmem[0].name == 'gold') {
+            var point = 40
+        }
+
+        if (profile.shipcard != null)
+            var upoint = Number(profile.shipcard.point);
+        else
+            var upoint = 0;
+        upoint += point;
+        var grade = Session.get("STARRATE");
+        $("#bt_review").click();
+        var idreview = Random.id();
+
         if (title == "" || comment == "") {
-        	if(title==""){
-				$('#validdetail').text("please input title here");
-			}
-			if(comment==""){
-				$('#validdetail1').text("please input comment here");
-			}
+            if (title == "") {
+                $('#validdetail').text("Please input title here");
+            }
+            if (comment == "") {
+                $('#validdetail1').text("Please input comment here");
+            }
         } else {
             Meteor.call('addReview', title, comment, userid, this._id, function(err) {
-            	var title = tpl.$("#title").val('');
-        		var comment = tpl.$("#comment").val('');
+                var title = tpl.$("#title").val('');
+                var comment = tpl.$("#comment").val('');
                 if (err) {
                     console.log("addreview: " + err.reason);
                 } else {
-                	var title = tpl.$("#title").val("");
-        			var comment = tpl.$("#comment").val("");
-        			$('#validdetail').text("");
-        			$('#validdetail1').text("");
-                    console.log("successfully");
+                    var title = tpl.$("#title").val("");
+                    var comment = tpl.$("#comment").val("");
+                    $('#validdetail').text("");
+                    $('#validdetail1').text("");
+
+                    Meteor.call('commentDetail', function(err, data) {
+                        if (!err) {
+                            Session.set('countReview', data);
+                        }
+                    })
+                    var countR = Session.get('countReview');
+                    if ( countR < 5) {
+                        Meteor.call('earnPoint', userid, upoint, function(err) {
+                            if (err) {
+                                console.log("error " + reason);
+                            } else {
+                                console.log("success" + upoint);
+                            }
+                        });
+                        if (TAPi18n.getLanguage() == 'fa') {
+                            Bert.alert('شما باید کسب ' + point + ' امتیاز بیشتر!', 'success', 'growl-bottom-right');
+                        } else {
+                            Bert.alert('You have earn ' + point + ' point more!', 'success', 'growl-bottom-right');
+                        }
+                        $(".close").click();
+                        console.log("successfully");
+                    }else{
+                        alert("well done!");
+                    }
                 }
 
             });
@@ -37,6 +90,21 @@ Template.details.events({
 });
 
 Template.details.helpers({
+    getRate: function(num) {
+        var rate = $('fa-star-o');
+        var allhtm = '';
+        var html = '<div class="col-xs-2 rate-star" style="margin-left:-14px;"><i class="fa fa-star" data-star="1" style="font-size:15px;"></i></div>';
+        var htmlyellow = '<div class="col-xs-2 rate-star" style="margin-left:-14px;"><i class="fa fa-star yellow-star" data-star="1" style="font-size:15px;"></i></div>';
+        for (var i = 0; i < 5; i++) {
+            if (i < Number(num)) {
+                allhtm += htmlyellow;
+            } else {
+                allhtm += html;
+            }
+        }
+
+        return allhtm;
+    },
     existReview: function(review) {
         if (review) {
             return true;
@@ -46,15 +114,15 @@ Template.details.helpers({
     },
     getReviews: function(reviews, filtre, toremove) {
 
-        /*		console.log('reloading reviews...'+Session.get('fiterValue'));
-        		var toRemove=Session.get('removefilter').split(':');
-        		var myFilter=Session.get('fiterValue');
-        		for(var i=0;i<toRemove.length;i++){
-        			if(toRemove[i]=='')
-        				continue;
-        			var str=':'+toRemove[i];
-        			myFilter.replace(str,'');
-        		}*/
+        /*      console.log('reloading reviews...'+Session.get('fiterValue'));
+                var toRemove=Session.get('removefilter').split(':');
+                var myFilter=Session.get('fiterValue');
+                for(var i=0;i<toRemove.length;i++){
+                    if(toRemove[i]=='')
+                        continue;
+                    var str=':'+toRemove[i];
+                    myFilter.replace(str,'');
+                }*/
 
         //console.log('Before: '+Session.get('fiterValue'));
         //console.log('ToRemove:'+Session.get('removefilter'));

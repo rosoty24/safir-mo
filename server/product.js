@@ -117,6 +117,25 @@ Meteor.methods({
     },
     getAllProductCategory:function(category){
     		return products.find({ "category": { $in: category } }).count();
+    },
+    clearcomment:function(){
+    	var arr=[];
+    	var result=products.find();
+    	result.forEach(function(value){
+    		//arr.push(value._id);
+    		products.update({_id:value._id},{$unset:{review:""}})
+    	});
+    },
+    clearorder:function(){
+    	order.remove({});
+    },
+    clearCommentContent:function(){
+    	var arr=[];
+    	var result=contents.find();
+    	result.forEach(function(value){
+    		//arr.push(value._id);
+    		contents.update({_id:value._id},{$unset:{review:""}})
+    	});
     }
 
     
