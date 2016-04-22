@@ -4,10 +4,17 @@
     </section> <!-- #refine menu -->
     <article>
         <div class="wrapper wrapper-notfound">
-            <p class="text-selling-top">{{nbproducts}}/{{totalProducts}} {{_ "products result"}}</p>
-            <a href="#" id="bestSelling" style="color:black;"><span class="glyphicon glyphicon-play" aria-hidden="true">{{_ "Best selling"}}</span></a>
-            <a href="#" class="text-selling-second" id="name" style="color:black;"> <span class="glyphicon glyphicon-play" aria-hidden="true">{{_ "Sort Name"}} </span></a>
-            <a href="#" class="text-selling-second" id="price" style="color:black;"> <span class="glyphicon glyphicon-play" aria-hidden="true">{{_ "Sort Price"}}</span></a>
+            <div id="sortby"> <!-- add -->
+            {{#if nbproducts}} <!-- add -->
+                <p class="text-selling-top">{{nbproducts}}/{{totalProducts}} {{_ "products result"}}</p>           
+                <a href="#" id="bestSelling" style="color:black;"><span class="glyphicon glyphicon-play" aria-hidden="true">{{_ "Best selling"}}</span></a>
+                <a href="#" class="text-selling-second" id="name" style="color:black;"> <span class="glyphicon glyphicon-play" aria-hidden="true">{{_ "Sort Name"}} </span></a>
+                <a href="#" class="text-selling-second" id="price" style="color:black;"> <span class="glyphicon glyphicon-play" aria-hidden="true">{{_ "Sort Price"}}</span></a>
+            {{else}} <!-- add -->
+                <h4 style="text-align: center;">No product result!</h4> <!-- add -->
+            {{/if}} <!-- add -->
+
+            </div>
             <div class="row">
                 {{#each products}}
                     <div class="col-xs-6">
