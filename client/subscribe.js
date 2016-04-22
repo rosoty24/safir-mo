@@ -3,6 +3,7 @@ TAPi18n.subscribe("categories");
 Meteor.subscribe("posts");
 
 Meteor.subscribe("images");
+Meteor.subscribe("membership");
 
 Session.setDefault('storeName','');
 Session.setDefault('RetailBarcode','');
