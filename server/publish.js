@@ -18,9 +18,11 @@ TAPi18n.publish('productsFavorite', function(limit, id) {
 TAPi18n.publish("categories", function() { 
     return categories.i18nFind({});
 });
+
 Meteor.publish("membership", function() { 
     return membership.find({});
 });
+
 //==========
 //=========
 // TAPi18n.publish('products', function(limit) {
@@ -789,7 +791,4 @@ Meteor.publish('collect', function() {
 });
 Meteor.publish("posts", function() {
     return posts.find({});
-});
-Meteor.publish('membership',function(){
-    return membership.find();
 });
