@@ -1,17 +1,23 @@
-h4, h5, h6 {
+h4,
+h5,
+h6 {
     margin-bottom: 5px;
     margin-top: 10px;
 }
+
 .shadow_bottom {
     box-shadow: 0 6px 5px 0 #d1cde4;
     padding-bottom: 30px;
 }
-.space-top-detail{
-	margin-top: 80px;
+
+.space-top-detail {
+    margin-top: 80px;
 }
-.space-top-detail1{
-	margin-top: 120px;
+
+.space-top-detail1 {
+    margin-top: 120px;
 }
+
 .btn_addtocard {
     -moz-user-select: none;
     background: #ee0000 none repeat scroll 0 0;
@@ -28,6 +34,7 @@ h4, h5, h6 {
     white-space: nowrap;
     font-weight: bold;
 }
+
 .well-deatail {
     background-color: #000;
     border: 0px;
@@ -39,30 +46,38 @@ h4, h5, h6 {
     padding: 19px;
     font-weight: 400;
 }
-.space-img-detail{
-	margin-top: 10px;
+
+.space-img-detail {
+    margin-top: 10px;
 }
-.text-detail{
-	font-size: 13px;
+
+.text-detail {
+    font-size: 13px;
 }
-.space-top-img1{
+
+.space-top-img1 {
     margin-top: 50px;
 }
-.space-top-detail2{
+
+.space-top-detail2 {
     margin-top: 30px;
 }
+
 .space-top-detail3 {
     color: #000;
     font-size: 16px;
     margin-top: 20px;
 }
-.no-margin{
+
+.no-margin {
     margin: 0 auto;
     padding: 0 auto;
 }
-.space-comment{
+
+.space-comment {
     margin-top: 20px;
 }
+
 .form-control {
     background-color: #ebebeb;
     background-image: none;
@@ -78,6 +93,7 @@ h4, h5, h6 {
     vertical-align: middle;
     width: 100%;
 }
+
 .btn_register {
     -moz-user-select: none;
     background: #00ace5 none repeat scroll 0 0;
@@ -86,7 +102,7 @@ h4, h5, h6 {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: Arial,Helvetica,sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     line-height: 1.42857;
     margin-top: 20px;
@@ -95,29 +111,61 @@ h4, h5, h6 {
     vertical-align: middle;
     white-space: nowrap;
 }
-.clear-fix{
+
+.clear-fix {
     clear: both;
 }
-.border-detail{
+
+.border-detail {
     border: 1px solid #000;
     width: 100%;
     margin-top: 10px;
 }
-.glyphicon-heart-empty{
-    color:#000;
+
+.glyphicon-heart-empty {
+    color: #000;
 }
-.glyphicon-heart-empty :hover{
+
+.glyphicon-heart-empty:hover {
     color: red;
 }
+
 .glyphicon-heart-empty {
-    color:#000;
+    color: #000;
 }
-.glyphicon-heart-empty:hover { 
+
+.glyphicon-heart-empty:hover {
     color: #E52637;
     cursor: pointer;
 }
 
+/*social network*/
+.hold_add_tocart .social_share {
+    padding: 0px 15px;
+    margin: 0px auto
+}
 
+.social-icon {
+    padding-top: 6px;
+    font-size: 16px;
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #777;
+    border-radius: 50%;
+    color: #777;
+    margin: 5px;
+}
 
+.social_share {
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
 
-
+a.social-icon:hover,
+a.social-icon:active,
+a.social-icon:focus {
+    text-decoration: none;
+    color: #434343;
+    border-color: #434343;
+}

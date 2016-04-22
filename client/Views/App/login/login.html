@@ -12,7 +12,12 @@
                             </ul>
                         </div>
                         <form class="form-horizontal mar-log" id="UserLogin">
-                            <p id="loginError" style="color:red"></p>
+                            <input type="hidden" id="errlogin" value="">
+                            <p id="loginError" style="color:red">
+                                {{#if loginerr}}
+                                    {{_"Login Error!"}}
+                                {{/if}}
+                            </p>
                             <div class="control-group">
                                 <label class="control-label" for="inputEmail">{{_ "Username"}}</label>
                                 <div class="controls">

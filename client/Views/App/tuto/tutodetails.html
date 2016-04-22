@@ -60,5 +60,28 @@
 				</div> <!-- row -->
             </div>
         </section>
+        <section id="forum_question" dir="{{getDirection}}">
+			      <div class="container">
+			        <div class="hold_product_detail">
+			        {{#if producttuto.count}}
+			          <div class="col-md-12">
+			            <h3 style="color: black;">{{_"RELATED PRODUCTS"}}</h3>
+			          </div>
+			          <div class="row">
+			            {{#each producttuto}}
+			            <div class="col-md-3">
+			             <a href="/details/{{slug title}}" title="{{title}}"> <img id="loads" style="border:8px solid #000" src="{{getImgForProduct _id}}" class="img-circle center-block" alt="{{title}}" width="150" height="150"></a>
+			            <p class="text-center" style="font-size:12px; height:40px;font-weight:lighter;"><a href="/details/{{slug title}}" class="linkrecommendation">{{title}}</a></p>
+			            <h3 class="text-center" style="font-weight:bold;color:#000;"><a href="/details/{{slug title}}" class="linkrecommendation">{{price}}</a></h3>
+			            </div>
+			            {{/each}}
+			          </div> 
+
+			          <!-- {{>recommendation}} -->
+			          {{/if}}
+			        </div>
+			      </div>
+			      <br/><br /><br/>
+			    </section>
     </article>
 </template>

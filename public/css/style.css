@@ -842,3 +842,13 @@ button.kesearch{
 	background:none;
 	color: #fff;
 }
+.starRang{
+	color: black;
+	font-size: 25px;
+}
+.starRang:hover{
+	color: #e8c356;
+}
+.yellow-star{
+	color: #e8c356;
+}

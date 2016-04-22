@@ -1,10 +1,11 @@
 Meteor.methods({
-	addReview: function(title,text,userid,productId){
+	addReview: function(title,text,userid,grade,productId){
 		var curDate=Date.now();
 		var attr={
 			title:title,
 			comment:text,
 			user:userid,
+			grade:grade,
 			date:curDate
 		};
 		products.update({ "_id": productId },{ $addToSet: {review: attr }});
@@ -66,5 +67,10 @@ Meteor.methods({
 	    }else{
 	    	return 1;
 	    }
-    } 
+    },
+    updatelikereview:function(reviews,productid){
+		console.log("visal"+productid+":"+reviews);
+		return  products.update({_id:productid},{$set:{"review":reviews}});
+
+	}
 });

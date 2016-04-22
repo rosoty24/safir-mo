@@ -59,6 +59,16 @@
                         </div>
                     </div>
                 </div>
+                <!-- add social network -->
+                <div class="social_share">
+                    <div class="text-center">
+                        <a style="color: rgb(138, 138, 138);" class="fa fa-facebook social-icon" href="https://www.facebook.com/safirperfumery" target="_blank"></a>
+                        <a class="fa fa-instagram social-icon" href="http://www.instagram.com/safirstores" id="insta" target="_blank"></a>
+                        <a style="padding-left:2px;color: rgb(138, 138, 138);" class="fa fa-twitter social-icon" href="https://twitter.com/safirperfumery" target="_blank"></a>
+                        <a class="fa fa-google-plus social-icon" href="https://plus.google.com/u/0/b/109953347025842075900/+Safirperfumeryofficial/posts" target="_blank"></a>
+                    </div>
+                </div>
+                <!-- end -->
             </div>
         </section>
         <section class="shadow_bottom">
@@ -80,27 +90,26 @@
                             <p id="validdetail1" style="color:red"></p>
                             <textarea class="form-control" id="comment" name="styled-textarea" onfocus="this.value='';" rows="7" placeholder="{{_" Write what you want "}}..."></textarea>
                         </div>
-                        
                     </div>
                     <div class="row">
-                        <div class="col-md-3 col-md-offset-2 pull-left">
+                        <div class="col-md-3 col-md-offset-2 pull-left" style="margin-left: -30px">
                             <form role="form">
                                 <div class="form-group select_grade">
                                     <div class="star">
                                         <div class="col-xs-2 rate-star">
-                                            <i class="fa fa-star fa-lg" data-star="1"></i>
+                                            <i class="fa fa-star fa-lg starRang" data-star="1"></i>
                                         </div>
                                         <div class="col-xs-2 rate-star">
-                                            <i class="fa fa-star fa-lg" data-star="2"></i>
+                                            <i class="fa fa-star fa-lg starRang" data-star="2"></i>
                                         </div>
                                         <div class="col-xs-2 rate-star">
-                                            <i class="fa fa-star fa-lg" data-star="3"></i>
+                                            <i class="fa fa-star fa-lg starRang" data-star="3"></i>
                                         </div>
                                         <div class="col-xs-2 rate-star">
-                                            <i class="fa fa-star fa-lg" data-star="4"></i>
+                                            <i class="fa fa-star fa-lg starRang" data-star="4"></i>
                                         </div>
                                         <div class="col-xs-2 rate-star">
-                                            <i class="fa fa-star fa-lg" data-star="5"></i>
+                                            <i class="fa fa-star fa-lg starRang" data-star="5"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +123,60 @@
                 {{/if}}
                 <div class="clear-fix"></div>
                 {{#each getReviewBySort review}}
-                <div class="row">
+                <!--  <div class="row">
+                            <div class="pull-right">
+                                <img src="{{getImages user}}" class="img-responsive space-top-img1 image{{user}}">
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-md-6 pull-left space-top-detail2">
+                                   <img src="{{getImages user}}" class="img-responsive space-top-img1 image{{user}}">
+                                </div>
+                                <div class="col-md-6 pull-left space-top-detail2">
+                                    <h4 class="bold {{user}}">{{getImageUser user}}</h4>
+                                    <p class="no-margin">{{getDate date}}</p>
+                                    
+                                </div>
+                            </div>
+                        </div> -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="col-xs-5 pull-left space-top-detail2">
+                                <img src="{{getImages user}}" class="img-responsive image{{user}}">
+                            </div>
+                            <div class="col-xs-7 pull-left space-top-detail2">
+                                <h4 class="bold {{user}}">{{getImageUser user}}</h4>
+                                <p class="no-margin">{{getDate date}}</p>
+                                <!--  <p class="no-margin">11:16</p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="col-sm-2 pull-right space-top-detail2">
+                                <h3><i class="fa fa-heart likereview"></i>&nbsp;19</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h5 class="pull-left space-top-detail3">{{title}}</h5>
+                            <p class="pull-left space-top-detail3">{{comment}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="col-xs-5">
+                                
+                            </div>
+                            <div class="col-xs-7">
+                                <a href="#" style="font-weight:bold; color:#333;">
+                                <span style="display: none">{{idreview}}</span>
+                                        {{{getRate grade}}}</a>
+                            </div>
+                            <div class="pull-left border-detail"></div>
+                        </div>
+                    </div>
+                <!-- <div class="row">
                     <div class="col-sm-12">
                         <div class="col-sm-5 pull-left space-top-detail2">
                             <img src="{{getImages user}}" class="img-responsive center-block image{{user}}" style="width:50%;">
@@ -125,7 +187,7 @@
                             <p class="no-margin">{{getDate date}}</p>
                         </div>
                         <div class="col-sm-2 pull-right space-top-detail2">
-                            <!--  <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp; {{grade}}/5</h3> -->
+                             <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp; {{grade}}/5</h3>
                         </div>
                         <div class="col-sm-12">
                             <h3 class="col-sm-5 pull-left space-top-detail2">{{title}}</h3>
@@ -139,7 +201,7 @@
                                 <i class="fa fa-heart likereview"></i>{{{getRate grade}}}</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 {{/each}}
             </div>
         </section>
