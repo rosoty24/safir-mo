@@ -1179,7 +1179,6 @@ Template.details.events({
         }
     },
     'click #insta': function(e) {
-        alert('im hurt');
         var userid = Meteor.userId();
         var profile = Meteor.users.findOne({ _id: userid }).profile;
         var oldpoint = profile.shipcard.point;
