@@ -1,87 +1,91 @@
 <template name="tutodetails">
-	<article>
+    <article>
         <section>
-        	<div class="wrapper wrapper-notfound">
+            <div class="wrapper wrapper-notfound">
                 <div class="row">
-                {{#with getTutodetails _id}}
-					<div class="col-xs-12">
-						<div class="hold-tuto">
-							<h6 class="tuto-title">{{title}}</h6>
-							<div class="hold-tuto-videos">
-								<video width="322" height="210" id="mainVideo" controls>
-									<source src="/videos/{{url}}" type="video/mp4">
-								</video>
-								<!-- <img src="img/DSC_0558-Edit.png" class="img-responsive"> -->
-							</div>
-							<div>
-								<p>{{{content}}}</p>
-							</div>
-						</div> <!-- hold-tuto -->
-					</div> <!-- col-xs-12 -->
-				{{/with}}
-				{{#if currentUser}}
-					<div class="col-xs-12">
-						<form role="form">
-							<p id="validTuto" style="color:red"></p>
-							<div class="form-group">
-							  <textarea class="form-control" rows="5" id="comment" placeholder="Write what you want here..."></textarea>
-							</div>
-						</form>
-						<a href="" class="pull-right">
-							<span class="span-send" id="addreview">{{_"SEND"}}</span>
-						</a>
-					</div> <!-- col-xs-12 -->
-				{{/if}}
-					<div class="clearfix"></div>
-				{{#each getReviewBySort review}}
-			        <div class="row">
-			         <div class="col-sm-12">
-			          <div class="col-sm-5 pull-left space-top-detail2">
-			            <img src="{{getImages user}}" class="img-responsive center-block image{{user}}" style="width:50%;">
-			           <h4 class="bold text-center {{user}}">{{getImageUser user}}</h4>
-			          </div>
-			          <div class="pull-left space-top-detail3" >
-			            <h2>{{comment}}</h2>
-			            <p class="no-margin">{{getDate date}}</p>
-			          </div>
-			          <div class="col-sm-2 pull-right space-top-detail2">
-			          <!--  <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp; {{grade}}/5</h3> --> 
-			         </div>
-			         <div class="col-sm-12">
-			           <p class="col-sm-5 pull-left space-top-detail2">{{title}}</p>
-			           <div class="pull-left border-detail">   
-			           </div>
-			         </div>
-			       </div>  
-			     </div>
-
-			     {{/each}} 
-					<div class="clearfix"></div>
-				</div> <!-- row -->
+                    {{#with getTutodetails _id}}
+                    <div class="col-xs-12">
+                        <div class="hold-tuto">
+                            <h6 class="tuto-title">{{title}}</h6>
+                            <div class="hold-tuto-videos">
+                                <video width="322" height="210" id="mainVideo" controls>
+                                    <source src="/videos/{{url}}" type="video/mp4">
+                                </video>
+                                <!-- <img src="img/DSC_0558-Edit.png" class="img-responsive"> -->
+                            </div>
+                            <div>
+                                <p>{{{content}}}</p>
+                            </div>
+                        </div>
+                        <!-- hold-tuto -->
+                    </div>
+                    <!-- col-xs-12 -->
+                    {{/with}} {{#if currentUser}}
+                    <div class="col-xs-12">
+                        <form role="form">
+                            <p id="validTuto" style="color:red"></p>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" id="comment" placeholder="Write what you want here..."></textarea>
+                            </div>
+                        </form>
+                        <a href="" class="pull-right">
+                            <span class="span-send" id="addreview">{{_"SEND"}}</span>
+                        </a>
+                    </div>
+                    <!-- col-xs-12 -->
+                    {{/if}}
+                    <div class="clearfix"></div>
+                    {{#each getReviewBySort review}}
+                    <div class="row">
+                        <div class="col-xs-4 pull-left space-top-detail2">
+                            <img src="{{getImages user}}" class="img-responsive center-block image{{user}}">
+                            <h4 class="bold text-center {{user}}">{{getImageUser user}}</h4>
+                        </div>
+                        <div class="col-xs-8">
+                            <div class="pull-left space-top-detail3">
+                                <!-- <h2>{{comment}}</h2> -->
+                                <p class="col-sm-5 pull-left space-top-detail2">{{title}}</p>
+                                <p class="no-margin">{{getDate date}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 pull-right space-top-detail2">
+                            <!--  <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp; {{grade}}/5</h3> -->
+                        </div>
+                        <div class="col-sm-12">
+                            <p class="col-sm-5 pull-left space-top-detail2">{{comment}}</p>
+                            <div class="pull-left border-detail">
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <div class="clearfix"></div>
+                </div>
+                <!-- row -->
             </div>
         </section>
         <section id="forum_question" dir="{{getDirection}}">
-			      <div class="container">
-			        <div class="hold_product_detail">
-			        {{#if producttuto.count}}
-			          <div class="col-md-12">
-			            <h3 style="color: black;">{{_"RELATED PRODUCTS"}}</h3>
-			          </div>
-			          <div class="row">
-			            {{#each producttuto}}
-			            <div class="col-md-3">
-			             <a href="/details/{{slug title}}" title="{{title}}"> <img id="loads" style="border:8px solid #000" src="{{getImgForProduct _id}}" class="img-circle center-block" alt="{{title}}" width="150" height="150"></a>
-			            <p class="text-center" style="font-size:12px; height:40px;font-weight:lighter;"><a href="/details/{{slug title}}" class="linkrecommendation">{{title}}</a></p>
-			            <h3 class="text-center" style="font-weight:bold;color:#000;"><a href="/details/{{slug title}}" class="linkrecommendation">{{price}}</a></h3>
-			            </div>
-			            {{/each}}
-			          </div> 
-
-			          <!-- {{>recommendation}} -->
-			          {{/if}}
-			        </div>
-			      </div>
-			      <br/><br /><br/>
-			    </section>
+            <div class="container">
+                <div class="hold_product_detail">
+                    {{#if producttuto.count}}
+                    <div class="col-md-12">
+                        <h3 style="color: black;">{{_"RELATED PRODUCTS"}}</h3>
+                    </div>
+                    <div class="row">
+                        {{#each producttuto}}
+                        <div class="col-md-3">
+                            <a href="/details/{{slug title}}" title="{{title}}"> <img id="loads" style="border:8px solid #000" src="{{getImgForProduct _id}}" class="img-circle center-block" alt="{{title}}" width="150" height="150"></a>
+                            <p class="text-center" style="font-size:12px; height:40px;font-weight:lighter;"><a href="/details/{{slug title}}" class="linkrecommendation">{{title}}</a></p>
+                            <h3 class="text-center" style="font-weight:bold;color:#000;"><a href="/details/{{slug title}}" class="linkrecommendation">{{price}}</a></h3>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <!-- {{>recommendation}} -->
+                    {{/if}}
+                </div>
+            </div>
+            <br/>
+            <br />
+            <br/>
+        </section>
     </article>
 </template>
