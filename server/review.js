@@ -48,4 +48,7 @@ Meteor.methods({
 		products.update({_id:productid},{ $push: { review: attr } });
 
 	},
+	addpointinst:function(userid,point){
+		return Meteor.users.update({_id:userid},{$set: {"profile.shipcard.point":point}});
+	}
 });
