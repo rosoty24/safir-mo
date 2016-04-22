@@ -76,94 +76,198 @@ Template.editprofile.helpers({
 });
 
 Template.editprofile.events({
-    'click #updateProfile': function(event){
-        event.preventDefault();
-        var firstname =$('#firstname').val();
-        var lastname =$('#lastname').val();
-        var birth = $('#birth').val();
-        var sex = $('#gender').val();
-        var address = $('#address').val();
-        var id = Meteor.userId();
-        //alert(id+ sex+ address+ birth+ lastname+ firstname);
-        var point = 5;
-        var profile = Meteor.users.findOne({_id:id}).profile.firstname;
-            var upoint = Meteor.users.findOne({_id:id}).profile.shipcard.point;
-                upoint = Number(upoint);
-                upoint+=point;
-            // alert(profile+ upoint);
-            var attr= {
-              profile:{
-                firstname:firstname,
-                lastname:lastname,
-                sex:sex,
-                birth:birth,
-                address:address,
-               shipcard:
-               {
-               point:upoint
-               }
-             }
+    'click #updateProfile': function(event) {
+            event.preventDefault();
+            var firstname = $('#firstname').val();
+            var lastname = $('#lastname').val();
+            var birth = $('#birth').val();
+            var sex = $('#gender').val();
+            var address = $('#address').val();
+            var id = Meteor.userId();
+            var point = 10;
+            var profile = Meteor.users.findOne({ _id: id }).profile.firstname;
+            var upoint = Meteor.users.findOne({ _id: id }).profile.shipcard.point;
+            
+           
+            var resultmembership=membership.find();
+            var arrmem=[];
+            resultmembership.forEach(function(value){
+                if(value.minpoint <= upoint && upoint <=value.maxpoint){
+                arrmem.push(value);
+                }
+            });
+            if(arrmem[0].name=='black'){
+                 point = 20;
             }
-                var error_mg="";
-                if( firstname  =="" || lastname ==""){
+            if(arrmem[0].name=='silver'){
+                 point=40;
+            }
+            if(arrmem[0].name=='gold'){
+                 point=80
+            }
+            upoint += point;
+            var attr = {
+                profile: {
+                    firstname: firstname,
+                    lastname: lastname,
+                    sex: sex,
+                    birth: birth,
+                    address: address,
+                    shipcard: {
+                        point: upoint
+                    }
+                }
+            }
+            var error_mg = "";
+            if (firstname == "" || lastname == "" || address == "") {
 
-                    if (firstname =="")
-                            error_mg += "Firstname is requied";
-                    if (lastname =="")
-                            error_mg += "Lastname is requied";
-                    // if (address =="")
-                    //         error_mg +="Address is requied";
-                    return Session.set("error_mg",error_mg);
 
-                }else {
-                    Session.set("error_mg","");
+                if (firstname == "")
+                    error_mg += "Firstname is requied";
+                if (lastname == "")
+                    error_mg += "Lastname is requied";
+                if (address == "")
+                    error_mg += "Address is requied";
+                return Session.set("error_mg", error_mg);
+
+
+            } else {
+                   Session.set("error_mg", "");
                     delete Session.keys['error_mg'];
                     var profile = {
-                    firstname:firstname,
-                    lastname:lastname,
-                    sex:sex,
-                    birth:birth,
-                    address:address
-                   };
-            if(Session.get('ADDAVATAR')!=''){
-                var img_id = Session.get('ADDAVATAR');
-                var obj={
-                    profile:profile,
-                    image:img_id
-                };
-            }else{
-                var obj={
-                    profile:profile,
-                };
-            }
-            Meteor.call('editprofile',id,obj,function(error){
-                if(error)
-                    console.log("editprofile error"+error.reason)
-                else
-                    console.log("editprofile successfully");
-            });
-            
-            Meteor.call('addpoint',id,attr,function(error){
-                if(error)
-                    console.log("addpoint error"+error.reason)
-                else
-                    console.log("addpoint successfully");
-            });
-            // alert("You have earned "+upoint+" points!");
-        }
+                        firstname: firstname,
+                        lastname: lastname,
+                        sex: sex,
+                        birth: birth,
+                        address: address
+                    };
+                    if (Session.get('ADDAVATAR') != '') {
+                        var img_id = Session.get('ADDAVATAR');
+                        var obj = {
+                            profile: profile,
+                            image: img_id
+                        };
+                    } else {
+                        var obj = {
+                            profile: profile,
+                        };
+                    }
+                var pointuser = Meteor.users.findOne({ _id: id }).profile.shipcard.point;
+                 Meteor.call('editprofile', id, obj, function(err) {
+                    if (err) {
+                        console.log("error update profile");
+                    } else {
+                        var imgprofile = Meteor.users.findOne({ _id: id }).image;
+                        var dateofbirth = Meteor.users.findOne({ _id: id }).profile.birth;
+                        var sexuser = Meteor.users.findOne({ _id: id }).profile.sex;
+                        var addressuser = Meteor.users.findOne({ _id: id }).profile.address;
+                        if (imgprofile != "" && dateofbirth != "" && sexuser != "" && addressuser != "") {
+                                var checkstatus = Meteor.users.findOne({ _id: id }).status;
+                                
+                                if (checkstatus){
+                                         var attrs = {
+                                            profile: {
+                                                firstname: firstname,
+                                                lastname: lastname,
+                                                sex: sex,
+                                                birth: birth,
+                                                address: address,
+                                                shipcard: {
+                                                    point: pointuser
+                                                }
+                                            }
+                                        };
+                                    Meteor.call('addpoint', id, attrs, function(err) {
+                                        if (err) {
+                                            console.log("error " + reason);
+                                        } else {
+                                            console.log("success" + upoint);
+                                            if (upoint == 10) {
+                                                $("#myModal").parent().show();
+                                            } else if (upoint == 20) {
+                                                $("#myModal2").show();
+                                                $("#myModal").parent().hide();
 
-                // Meteor.call('editarray',id,ojb);
-         Router.go('profile');
-    },
+
+                                            } else {
+                                                $("#myModal").parent().hide();
+                                                $("#myModal2").parent().hide();
+                                                if (!$("#myModal2").parent().hide()) {
+                                                    console.log("can not go to profile");
+                                                } else {
+                                                    console.log("can go to profile");
+                                                    Router.go('/profile');
+                                                }
+                                            }
+                                        }
+                                    });
+                                }else{
+                                    Meteor.call("updatestatusearnpoint", id, function(err) {
+                                            if (err) {
+                                                console.log("can not update status ");
+                                            }
+                                     });
+                            
+                                    Meteor.call('addpoint', id, attr, function(err) {
+                                        if (err) {
+                                            console.log("error " + reason);
+                                        } else {
+                                            console.log("success" + upoint);
+                                            if (upoint == 10) {
+                                                $("#myModal").parent().show();
+                                            } else if (upoint == 20) {
+                                                $("#myModal2").show();
+                                                $("#myModal").parent().hide();
+
+
+                                            } else {
+                                                $("#myModal").parent().hide();
+                                                $("#myModal2").parent().hide();
+                                                if (!$("#myModal2").parent().hide()) {
+                                                    console.log("can not go to profile");
+                                                } else {
+                                                    console.log("can go to profile");
+                                                    Router.go('/profile');
+                                                }
+                                            }
+                                        }
+                                    });
+                                        
+                                }
+                                
+                        }else{
+                            console.log("update profile not completed");
+                        }                    
+            }
+         });
+        if (TAPi18n.getLanguage() == 'fa') {
+            Bert.alert('مشخصات به روز شده است', 'success', 'growl-bottom-right');
+        } else {
+            Bert.alert('Profile has been Updated', 'success', 'growl-bottom-right');
+        }
+        $('.close').click();   
+        }
+     },
     'change #upload': function(event, template) {
         var files = event.target.files;
         for (var i = 0, ln = files.length; i < ln; i++) {
-          images.insert(files[i], function (err, fileObj) {
-            // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
-            Session.set('ADDAVATAR',fileObj._id);
+            images.insert(files[i], function(err, fileObj) {
+                // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+                Session.set('ADDAVATAR', fileObj._id);
 
-          });
+            });
         }
+    },
+    'click #popup': function(e) {
+        e.preventDefault();
+        $("#myModal2").css("display", "none");
+        $("#myModal").parent().hide();
+        Router.go('/profile');
+    },
+    'click #popup1': function(e) {
+        e.preventDefault();
+        $("#myModal").parent().hide();
+        Router.go('/profile');
     }
 });
 
