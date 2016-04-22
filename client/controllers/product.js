@@ -1177,6 +1177,42 @@ Template.details.events({
         } else {
             alert("Please login before making translation!");
         }
+    },
+    'click #insta': function(e) {
+        alert('im hurt');
+        var userid = Meteor.userId();
+        var profile = Meteor.users.findOne({ _id: userid }).profile;
+        var oldpoint = profile.shipcard.point;
+        var resultmembership = membership.find();
+        var arrmem = [];
+        resultmembership.forEach(function(value) {
+            if (value.minpoint <= oldpoint && oldpoint <= value.maxpoint) {
+                arrmem.push(value);
+            }
+        });
+        if (arrmem[0].name == 'black') {
+            var point = 30;
+        }
+        if (arrmem[0].name == 'silver') {
+            var point = 60;
+        }
+        if (arrmem[0].name == 'gold') {
+            var point = 120
+        }
+
+        if (profile.shipcard != null)
+            var upoint = Number(profile.shipcard.point);
+        else
+            var upoint = 0;
+
+        upoint += point;
+        Meteor.call("addpointinst", userid, upoint, function(error) {
+            if (error) {
+                console.log("can not earn point insta");
+            } else {
+                console.log("can earn point insta");
+            }
+        });
     }
 });
 Template.manageproduct.helpers({
