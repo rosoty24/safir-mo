@@ -17,11 +17,11 @@ Template.listproducts.rendered = function() {
     if (TAPi18n.getLanguage() == 'en') {
         Session.set("MAKEUP", "ALL CATEGORY");
         $("#makeup").html(Session.get("MAKEUP"));
-        $("#all_makeup").html('ALL ' + Session.get("parentNAME"));
+        //$("#all_makeup").html('ALL ' + Session.get("parentNAME"));
     } else {
         Session.set("MAKEUP", "رده");
         $("#makeup").html(Session.get("MAKEUP"));
-        $("#all_makeup").html('همه ' + Session.get("parentNAME"));
+        //$("#all_makeup").html('همه ' + Session.get("parentNAME"));
     }
 };
 Template.listproducts.helpers({
