@@ -35,7 +35,7 @@ Meteor.subscribe("anwser");
 Meteor.subscribe("discount");
 
 Meteor.subscribe("quizz");
-
+Meteor.subscribe("membership");
 
 //Meteor.subscribe("shops");
 //Meteor.subscribe("barcode");

@@ -3,31 +3,157 @@ Session.set('fiterValue', "");
 Session.set('removefilter', '');
 Session.set('numberOfReviews', 2);
 Template.details.events({
+    "click .likereview": function(e) {
+        var arraylike = [];
+        var reivewid = this.idreview;
+        var userid = Meteor.userId();
+        var like = 1;
+        var productsid = $("#reviwhidden").val();
+        var reviews = products.findOne({ _id: productsid }).review;
+        var obj = {
+            "user": userid,
+            "like": like
+        };
+        // arraylike.push(obj);
+        for (var i = 0; i < reviews.length; i++) {
+            if (reviews[i].idreview == reivewid) {
+                if (reviews[i].likereview) {
+                    var myarraylike = reviews[i].likereview;
+                    for (var j = 0; j < myarraylike.length; j++) {
+                        if (myarraylike[j].user == userid) {
+                            myarraylike[j] = {
+                                'user': myarraylike[j].user,
+                                'like': 0
+                            }
+                            arraylike.push(myarraylike[j]);
+                        } else {
+                            arraylike.push(obj);
+                            arraylike.push(myarraylike[j]);
+                        }
+
+                    }
+
+                } else {
+                    arraylike.push(obj);
+                }
+                reviews[i] = {
+                    "idreview": reviews[i].idreview,
+                    "title": reviews[i].title,
+                    "comment": reviews[i].comment,
+                    "grade": reviews[i].grade,
+                    "user": reviews[i].user,
+                    "likereview": arraylike,
+                    "date": Date.now()
+                }
+            }
+        }
+        alert("like review" + productsid);
+        $(e.currentTarget).toggleClass("addheart");
+
+        Meteor.call("updatelikereview", reviews, productsid, function(error, result) {
+            if (error) {
+                console.log("error update like review" + error);
+            } else {
+                console.log("update like review" + result);
+            }
+        });
+    },
+    'click .starRang': function(e, tpl) {
+        e.preventDefault();
+        var value = tpl.$(e.currentTarget).attr('data-star');
+        //alert("Rating "+value);
+        Session.set("STARRATE", value);
+    },
+    'click div i.starRang': function(e) {
+        var currentStar = $(e.currentTarget).attr('class');
+        if (!currentStar.match('yellow-star')) {
+            $(e.currentTarget).addClass('yellow-star');
+            $(e.currentTarget).parent().prevAll('div').children('i').addClass('yellow-star');
+        } else {
+            $(e.currentTarget).parent().nextAll('div').children('i').removeClass('yellow-star');
+        }
+
+    },
     'click #addreview': function(e, tpl) {
         e.preventDefault();
         var userid = Meteor.userId();
         var title = tpl.$("#title").val();
         var comment = tpl.$("#comment").val();
         //console.log(title+ comment);
+        var profile = Meteor.users.findOne({ _id: userid }).profile;
+        var oldpoint = profile.shipcard.point;
+        var resultmembership = membership.find();
+        var arrmem = [];
+
+        resultmembership.forEach(function(value) {
+            if (value.minpoint <= oldpoint && oldpoint <= value.maxpoint) {
+                arrmem.push(value);
+            }
+        });
+        if (arrmem[0].name == 'black') {
+            var point = 10;
+        }
+        if (arrmem[0].name == 'silver') {
+            var point = 20;
+        }
+        if (arrmem[0].name == 'gold') {
+            var point = 40
+        }
+
+        if (profile.shipcard != null)
+            var upoint = Number(profile.shipcard.point);
+        else
+            var upoint = 0;
+        upoint += point;
+        var grade = Session.get("STARRATE");
+        console.log("grad "+ grade);
+        $("#bt_review").click();
+        var idreview = Random.id();
+
         if (title == "" || comment == "") {
-        	if(title==""){
-				$('#validdetail').text("please input title here");
-			}
-			if(comment==""){
-				$('#validdetail1').text("please input comment here");
-			}
+            if (title == "") {
+                $('#validdetail').text("Please input title here");
+            }
+            if (comment == "") {
+                $('#validdetail1').text("Please input comment here");
+            }
         } else {
-            Meteor.call('addReview', title, comment, userid, this._id, function(err) {
-            	var title = tpl.$("#title").val('');
-        		var comment = tpl.$("#comment").val('');
+            Meteor.call('addReview', title, comment, userid, grade, this._id, function(err) {
+                var title = tpl.$("#title").val('');
+                var comment = tpl.$("#comment").val('');
                 if (err) {
                     console.log("addreview: " + err.reason);
                 } else {
-                	var title = tpl.$("#title").val("");
-        			var comment = tpl.$("#comment").val("");
-        			$('#validdetail').text("");
-        			$('#validdetail1').text("");
-                    console.log("successfully");
+                    var title = tpl.$("#title").val("");
+                    var comment = tpl.$("#comment").val("");
+                    $('#validdetail').text("");
+                    $('#validdetail1').text("");
+                    Session.set("STARRATE",'');
+
+                    Meteor.call('commentDetail', function(err, data) {
+                        if (!err) {
+                            Session.set('countReview', data);
+                        }
+                    })
+                    var countR = Session.get('countReview');
+                    if ( countR < 5) {
+                        Meteor.call('earnPoint', userid, upoint, function(err) {
+                            if (err) {
+                                console.log("error " + reason);
+                            } else {
+                                console.log("success" + upoint);
+                            }
+                        });
+                        if (TAPi18n.getLanguage() == 'fa') {
+                            Bert.alert('شما باید کسب ' + point + ' امتیاز بیشتر!', 'success', 'growl-bottom-right');
+                        } else {
+                            Bert.alert('You have earn ' + point + ' point more!', 'success', 'growl-bottom-right');
+                        }
+                        $(".close").click();
+                        console.log("successfully");
+                    }else{
+                        console.log("you have comment more than 5 time!");
+                    }
                 }
 
             });
@@ -37,6 +163,21 @@ Template.details.events({
 });
 
 Template.details.helpers({
+    getRate: function(num) {
+        var rate = $('fa-star-o');
+        var allhtm = '';
+        var html = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -30px" style=""><i class="fa fa-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        var htmlyellow = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -30px" style=""><i class="fa fa-star yellow-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        for (var i = 0; i < 5; i++) {
+            if (i < Number(num)) {
+                allhtm += htmlyellow;
+            } else {
+                allhtm += html;
+            }
+        }
+
+        return allhtm;
+    },
     existReview: function(review) {
         if (review) {
             return true;
@@ -46,15 +187,15 @@ Template.details.helpers({
     },
     getReviews: function(reviews, filtre, toremove) {
 
-        /*		console.log('reloading reviews...'+Session.get('fiterValue'));
-        		var toRemove=Session.get('removefilter').split(':');
-        		var myFilter=Session.get('fiterValue');
-        		for(var i=0;i<toRemove.length;i++){
-        			if(toRemove[i]=='')
-        				continue;
-        			var str=':'+toRemove[i];
-        			myFilter.replace(str,'');
-        		}*/
+        /*      console.log('reloading reviews...'+Session.get('fiterValue'));
+                var toRemove=Session.get('removefilter').split(':');
+                var myFilter=Session.get('fiterValue');
+                for(var i=0;i<toRemove.length;i++){
+                    if(toRemove[i]=='')
+                        continue;
+                    var str=':'+toRemove[i];
+                    myFilter.replace(str,'');
+                }*/
 
         //console.log('Before: '+Session.get('fiterValue'));
         //console.log('ToRemove:'+Session.get('removefilter'));

@@ -117,8 +117,46 @@ Meteor.methods({
     },
     getAllProductCategory:function(category){
     		return products.find({ "category": { $in: category } }).count();
-    }
-
-    
+    },
+    clearcomment:function(){
+    	var arr=[];
+    	var result=products.find();
+    	result.forEach(function(value){
+    		//arr.push(value._id);
+    		products.update({_id:value._id},{$unset:{review:""}})
+    	});
+    },
+    clearorder:function(){
+    	order.remove({});
+    },
+    clearCommentContent:function(){
+    	var arr=[];
+    	var result=contents.find();
+    	result.forEach(function(value){
+    		//arr.push(value._id);
+    		contents.update({_id:value._id},{$unset:{review:""}})
+    	});
+    },
+    commentDetail:function(){
+    	var arr=[];
+    	var array=[];
+    	var userid = Meteor.userId();
+    	var userComment = products.find({"review.user":userid});
+    	if(userComment){
+	    	userComment.forEach(function(value){
+	    		for(var i=0;i<value.review.length;i++){
+	    			if(value.review[i].user==userid){
+	    				arr.push(value.review[i].user);
+	    			}
+	    			
+	    		}
+	    	});
+	    	
+	    	console.log('myuser==='+arr.length);
+	    	return arr.length;
+	    }else{
+	    	return 1;
+	    }
+    } 
 });
 
