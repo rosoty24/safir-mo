@@ -112,15 +112,21 @@ Template.details.events({
 
         if (title == "" || comment == "") {
             if (title == "") {
-                $('#validdetail').text("Please input title here");
+                if(TAPi18n.getLanguage() == 'fa'){
+                    $('#validdetail').text("لطفا عنوان ورودی در اینجا");
+                }else{
+                    $('#validdetail').text("Please input title here");
+                }
             }
             if (comment == "") {
-                $('#validdetail1').text("Please input comment here");
+                if(TAPi18n.getLanguage() == 'fa'){
+                    $('#validdetail').text("لطفا عنوان ورودی در اینجا");
+                }else{
+                    $('#validdetail1').text("Please input comment here");
+                }
             }
         } else {
             Meteor.call('addReview', title, comment, userid, grade, this._id, function(err) {
-                var title = tpl.$("#title").val('');
-                var comment = tpl.$("#comment").val('');
                 if (err) {
                     console.log("addreview: " + err.reason);
                 } else {
@@ -166,8 +172,8 @@ Template.details.helpers({
     getRate: function(num) {
         var rate = $('fa-star-o');
         var allhtm = '';
-        var html = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -30px" style=""><i class="fa fa-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
-        var htmlyellow = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -30px" style=""><i class="fa fa-star yellow-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        var html = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -25px" style=""><i class="fa fa-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        var htmlyellow = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -25px" style=""><i class="fa fa-star yellow-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
         for (var i = 0; i < 5; i++) {
             if (i < Number(num)) {
                 allhtm += htmlyellow;
