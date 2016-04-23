@@ -17,4 +17,5 @@ Meteor.methods({
     updatestatusearnpoint:function(id){
       Meteor.users.update({_id:id},{$set: {status:1}});
     }
+    
 });

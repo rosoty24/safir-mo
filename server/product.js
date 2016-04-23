@@ -158,7 +158,5 @@ Meteor.methods({
 	    	return 1;
 	    }
     } 
-
-    
 });
 
