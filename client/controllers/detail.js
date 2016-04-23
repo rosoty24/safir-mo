@@ -11,10 +11,20 @@ Template.details.events({
 
         if (title == "" || comment == "") {
         	if(title==""){
-				$('#validdetail').text("please input title here");
+				//$('#validdetail').text("please input title here");
+                if (TAPi18n.getLanguage() == 'fa') {
+                    $("#validdetail").text("لطفا عنوان ورودی در اینجا ");
+                } else {
+                    $("#validdetail").text("please input title here ");
+                }
 			}
 			if(comment==""){
-				$('#validdetail1').text("please input comment here");
+				//$('#validdetail1').text("please input comment here");
+                if (TAPi18n.getLanguage() == 'fa') {
+                    $("#validdetail").text("لطفا نظر ورودی در اینجا ");
+                } else {
+                    $("#validdetail").text("please input comment here ");
+                }
 			}
         } else {
             Meteor.call('addReview', title, comment, userid, this._id, function(err) {
