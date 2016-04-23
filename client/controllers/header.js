@@ -187,6 +187,7 @@ Template.headermenu.events({
     'click .login':function(){
         //var currentRoute = Router.current().route.path();
         var currentRoute = Iron.Location.get().path;
+        alert(currentRoute);
         console.log("currentRoute"+currentRoute);
         Session.set("REDIRECT",currentRoute);
     }

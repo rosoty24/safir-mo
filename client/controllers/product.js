@@ -1124,7 +1124,11 @@ Template.details.events({
             };
 
             Meteor.call('addtocart', obj);
-            Router.go("/checkout");
+            Bert.alert('Your products has been add to Cart','success','growl-top-right');
+            var currenturl = window.location.href
+            Router.go(currenturl);
+            $('.close').click();
+            //Router.go("/checkout");
         }
     },
     'click #posting': function(e) {

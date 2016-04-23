@@ -145,10 +145,14 @@
 									</div>
 								
 									<div class="col-xs-8 col-xs-offset-2">
-										<button type="button" class="btn btn-quiz1 btn-block">Suggested products</button>
+										<!-- <a href="/suggestpages/{{_id}}"> -->
+											<button type="button" class="btn btn-quiz1 btn-block">Suggested products</button>
+										<!-- </a> -->
 									</div>
 									<div class="">
-										<button type="button" class="btn btn-quiz2 pull-right">Redo the quiz</button>
+										<a id="id_sucgested" href="/quizzQA/{{_id}}">
+											<button type="button" class="btn btn-quiz2 pull-right">Redo the quiz</button>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -163,11 +167,13 @@
 						  	<div class="panel-heading-quiz">
 								<a href="/quizzQA/{{_id}}" id="quizzName"><h3 class="panel-title text-center">{{name}}</h3></a>
 						  	</div>
-						  	{{#if getQuizzBackground _id}}
+						  	{{#if hasCompleted _id}}
 						  		<div class="panel-body bg-hair">
 									<div class="row">
 										<div class="col-xs-12 showbutton">
-											<button type="button" class="btn btn-quiz1 btn-block">Suggested</button>
+											<a href="/suggestpages/{{_id}}">
+												<button type="button" class="btn btn-quiz1 btn-block">Suggested</button>
+											</a>
 										</div>
 										<a href="/editquizzQA/{{_id}}" id="redo">
 											<div class="col-xs-12 showbutton">

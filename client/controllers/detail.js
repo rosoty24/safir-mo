@@ -111,20 +111,20 @@ Template.details.events({
         var idreview = Random.id();
 
         if (title == "" || comment == "") {
-            if (title == "") {
-                if(TAPi18n.getLanguage() == 'fa'){
-                    $('#validdetail').text("لطفا عنوان ورودی در اینجا");
-                }else{
-                    $('#validdetail').text("Please input title here");
+        	if(title==""){
+                if (TAPi18n.getLanguage() == 'fa') {
+                    $("#validdetail").text("لطفا عنوان ورودی در اینجا ");
+                } else {
+                    $("#validdetail").text("please input title here ");
                 }
-            }
-            if (comment == "") {
-                if(TAPi18n.getLanguage() == 'fa'){
-                    $('#validdetail').text("لطفا عنوان ورودی در اینجا");
-                }else{
-                    $('#validdetail1').text("Please input comment here");
+			}
+			if(comment==""){
+                if (TAPi18n.getLanguage() == 'fa') {
+                    $("#validdetail").text("لطفا نظر ورودی در اینجا ");
+                } else {
+                    $("#validdetail").text("please input comment here ");
                 }
-            }
+			}
         } else {
             Meteor.call('addReview', title, comment, userid, grade, this._id, function(err) {
                 if (err) {

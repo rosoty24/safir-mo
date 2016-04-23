@@ -793,6 +793,24 @@ Meteor.publish("posts", function() {
     return posts.find({});
 });
 
-Meteor.publish("membership",function(){
-    return membership.find({});
+Meteor.publish("contentsSuggested", function() {
+    var result = contents_type.findOne({ type: "Tuto" });
+    var contentsresult = contents.find({ typeid: result._id }, { limit: 3 });
+    return contentsresult;
 });
+Meteor.publish('productsSuggested', function(limit, id) {
+    if (limit != -1) {
+        return products.find({}, { limit: limit });
+    } else {
+        var answers = answerquizz.find({ "quizzId": id });
+        if (answers.fetch().length != 0) {
+            var lastAnswer = answers.fetch()[answers.fetch().length - 1];
+            var listTags = [];
+            for (var i = 0; i < lastAnswer.quizz.length; i++) {
+                listTags.push(lastAnswer.quizz[i].tag);
+            }
+            return products.find({ "tag_quizz": { $in: listTags } });
+        }
+    }
+});
+
