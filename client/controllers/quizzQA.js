@@ -15,14 +15,13 @@ Template.listQuizz.events({
 });
 Template.quizzQA.events({
     'click #goNext': function(e) {
+    	e.preventDefault();
         var quizzID = Session.get("REDOQUIZZID");
         var userID = Meteor.userId();
         var id = this._id;
         console.log("QUIZZID_LIST=" + id);
         var Aquizz = answerquizz.find({ quizzId: id }).count();
-
         var arr = [];
-        e.preventDefault();
         var index = Session.get('sesIndex');
         quizzId = Session.get("QUIZZID");
         Session.set('sesIndex', index + 1);
@@ -35,7 +34,6 @@ Template.quizzQA.events({
             var newstr = str + Session.get('strqu');
         }
         Session.set('strqu', newstr);
-        //alert(newstr);
         var quAndan = Session.get('strqu').split(';');
         for (var i = 0; i < quAndan.length; i++) {
             if (quAndan[i]) {
@@ -49,7 +47,6 @@ Template.quizzQA.events({
         }
         var countqu = this.question.length;
         var countses = Session.get('sesIndex');
-
         var userid = Meteor.userId();
         var profile = Meteor.users.findOne({ _id: userid }).profile;
         var oldpoint = profile.shipcard.point;
@@ -60,6 +57,7 @@ Template.quizzQA.events({
                 arrmem.push(value);
             }
         });
+
         if (arrmem[0].name == 'black') {
             var point = 50;
         }
@@ -79,17 +77,15 @@ Template.quizzQA.events({
         			Session.set('strqu','');
         			console.log("insertQuestionAnswer success");
         			var countQA = answerquizz.find({ userId: Meteor.userId() }).count();
-        			alert("countQA "+ countQA);
         			if(countQA == 1 || countQA == 3 || countQA == 10){
-        				if (profile.shipcard != null){
+        				if (profile.shipcard != null)
                             var upoint = Number(profile.shipcard.point);
-        				}
-                        else{
+        				
+                        else
                             var upoint = 0;
-                        }
+                        
                         upoint += point;
-                        Meteor.call('earnPoint', userid, point);
-                        alert("point " +profile.shipcard.point);
+                        Meteor.call('earnPoint', userid, upoint);
         			}
         			
         		}
