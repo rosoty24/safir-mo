@@ -148,7 +148,9 @@
 										<button type="button" class="btn btn-quiz1 btn-block">Suggested products</button>
 									</div>
 									<div class="">
-										<button type="button" class="btn btn-quiz2 pull-right">Redo the quiz</button>
+										<a id="id_sucgested" href="/quizzQA/{{_id}}">
+											<button type="button" class="btn btn-quiz2 pull-right">Redo the quiz</button>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -163,7 +165,7 @@
 						  	<div class="panel-heading-quiz">
 								<a href="/quizzQA/{{_id}}" id="quizzName"><h3 class="panel-title text-center">{{name}}</h3></a>
 						  	</div>
-						  	{{#if getQuizzBackground _id}}
+						  	{{#if hasCompleted _id}}
 						  		<div class="panel-body bg-hair">
 									<div class="row">
 										<div class="col-xs-12 showbutton">
