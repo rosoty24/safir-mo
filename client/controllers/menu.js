@@ -51,7 +51,7 @@ Template.menu.events({
 	},
 	"click #makeup":function(){
         $("#makeup").addClass("active");
-        $("#secondChild").html("");
+        //$("#secondChild").html("");
         $("#panel_makeup").slideToggle("slow");
         $("#panel_all_makeup").hide();
         $("#second_makeup").hide();
@@ -63,10 +63,12 @@ Template.menu.events({
     	var parentName = $(childId).attr('data-value');
     		$("#makeup").html(parentName);
     		Session.set("parentNAME", parentName);
-    		$("#all_makeup").html("All "+parentName);
+    		//$("#all_makeup").html("All "+parentName);
     		$("#allCategory").html("All "+parentName);
     		$("#panel_makeup").slideToggle("hide");
     		$('#caret-sreydent').hide();
+    		Session.set("FIRSTCHILDID",'');
+
     },
     "click #all_makeup":function(e){
     	e.preventDefault();
@@ -99,6 +101,10 @@ Template.menu.helpers({
             document.index = index + 1;
             return document;
         });
+	},
+	getTitlechild1:function(){
+		var title=categories.findOne({_id:Session.get('PARENTS')}).title;
+		return title;
 	},
 	gettitlechild2:function(){
 		return categories.findOne({_id:Session.get("FIRSTCHILDID")}).title;
