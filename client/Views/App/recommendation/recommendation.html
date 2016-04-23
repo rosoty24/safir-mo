@@ -5,6 +5,11 @@
            <a href="/details/{{slug title}}" title="{{title}}"> <img id="loads" style="border:8px solid #000" src="{{getImgForProduct _id}}" class="img-circle center-block" alt="{{title}}" width="150" height="150"></a>
           <p class="text-center" style="font-size:12px; height:40px;font-weight:lighter;"><a href="/details/{{slug title}}" class="linkrecommendation">{{title}}</a></p>
           <h3 class="text-center" style="font-weight:bold;color:#000;"><a href="/details/{{slug title}}" class="linkrecommendation">{{price}}</a></h3>
+          <a href="#" style="color:#e4332a;" id="unlike">
+                <span id="unlike{{_id}}" class="fa fa-heart-o fonfa pull-right"></span>
+            </a>
+
+            <a href="#" id="like" style="color:#e4332a;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa pull-right"></span></a>
           </div>
           {{/each}}
         </div> 

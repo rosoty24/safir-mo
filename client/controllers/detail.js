@@ -3,6 +3,46 @@ Session.set('fiterValue', "");
 Session.set('removefilter', '');
 Session.set('numberOfReviews', 2);
 Template.details.events({
+    'click #unlike':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).removeClass('nonelike');
+        $(unlike).addClass('nonelike');
+         if(Meteor.userId()){
+                var userId=Meteor.userId();
+             }else{
+                var userId=Session.get('userId');
+                if(!userId){
+                    var newId=Random.id();
+                    Session.setPersistent('userId',newId);
+                }
+                
+             }
+             
+            var obj={
+                proId:this._id,
+                userId:userId
+            }
+
+            Meteor.call('insertFavoritee',obj);
+    },
+    'click #like':function(e){
+        e.preventDefault();
+        var unlike = '#unlike'+this._id;
+        var like = '#like'+this._id;
+        $(like).addClass('nonelike');
+        $(unlike).removeClass('nonelike');
+        if(Meteor.userId()){
+                var userid=Meteor.userId();
+        }else{
+            var userid=Session.get('userId');
+              
+        }
+        var obj=favorite.findOne({userId:userid,proId:this._id});
+        //alert(obj._id);    
+        favorite.remove(obj._id);
+    },
     "click .likereview": function(e) {
         var arraylike = [];
         var reivewid = this.idreview;
