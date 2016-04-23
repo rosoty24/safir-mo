@@ -992,22 +992,34 @@ Template.tutodetails.events({
 	'click #addreview': function(e,tpl){
 		e.preventDefault();
 		var comment=tpl.$("#comment").val();
+		var title = tpl.$("#title").val();
 		var grade = Session.get("STARRATE");
 		//alert(comment);
 		//var grade=tpl.$("#sel1").val();
-		 if( comment == ""){
-		 	if(TAPi18n.getLanguage() == 'fa'){
-                    $('#validTuto').text("لطفا عنوان ورودی در اینجا");
+		if( comment == "" || title == "" ){
+			if( comment == ""){
+			 	if(TAPi18n.getLanguage() == 'fa'){
+                    $('#validtuto').text("لطفا عنوان ورودی در اینجا");
                 }else{
-                    $('#validTuto').text("Please input your comment here!")
+                    $('#validtuto').text("Please input your title here!")
                 }
+	        }
+	        if(title==""){
+	        	if(TAPi18n.getLanguage() == 'fa'){
+                    $('#validtuto1').text("لطفا عنوان ورودی در اینجا");
+                }else{
+                    $('#validtuto1').text("Please input your comment here!")
+                }
+	        }
 		 }else{
-		 	Meteor.call('addReviewTuto',comment,grade,Meteor.userId(),this._id, function(err) {
+		 	Meteor.call('addReviewTuto',comment,title,grade,Meteor.userId(),this._id, function(err) {
 		 		if(err){
 		 			console.log("err "+err.reason);
 		 		}else{
 		 			var comment=tpl.$("#comment").val('');
+		 			var title = tpl.$("#title").val('');
 		 			$("#validTuto").text('');
+		 			$("#validTuto1").text('');
 		 			Session.set("STARRATE",'');	
 		 		}
 		 	});
