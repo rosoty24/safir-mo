@@ -111,7 +111,6 @@ Template.details.events({
         var idreview = Random.id();
 
         if (title == "" || comment == "") {
-<<<<<<< HEAD
         	if(title==""){
 				//$('#validdetail').text("please input title here");
                 if (TAPi18n.getLanguage() == 'fa') {
@@ -128,14 +127,7 @@ Template.details.events({
                     $("#validdetail").text("please input comment here ");
                 }
 			}
-=======
-            if (title == "") {
-                $('#validdetail').text("Please input title here");
-            }
-            if (comment == "") {
-                $('#validdetail1').text("Please input comment here");
-            }
->>>>>>> 1224963c304682f9fa8174697924cbc04749609a
+
         } else {
             Meteor.call('addReview', title, comment, userid, grade, this._id, function(err) {
                 var title = tpl.$("#title").val('');
