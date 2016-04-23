@@ -26,10 +26,11 @@ Meteor.methods({
    { $addToSet: {review: attr } });
 
 	},
-	addReviewTuto: function(text,userid,productId){
+	addReviewTuto: function(text,grade,userid,productId){
 		var curDate=Date.now();
 		var attr={
 			comment:text,
+			grade:grade,
 			user:userid,
 			date:curDate
 		};

@@ -1,0 +1,102 @@
+<template name="suggestpages">
+    <style type="text/css">
+        .well-suggest {
+        background-color: #363639;
+        border: 0 solid #363639;
+        border-radius: 0;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+        margin-bottom: 20px;
+        min-height: 20px;
+        padding: 1px;
+        color: #fff;
+        font-weight: bold;
+    }
+    </style>
+    <div class="main-wrapper">
+        <section class="wrapper-first-con">
+            <!--       <div class="container">
+                <div class="col-md-12">
+                    <div class="space-top" style="margin-top:30px;">
+                        <div class="col-xs-12">
+                            <div class="panel-heading-quiz">
+                                <a href="/quizzQA/{{_id}}" id="quizzName"><h3 class="panel-title text-center">{{quizz.name}}</h3></a>
+                            </div>
+                            <div class="panel-body bg-hair">
+                                <div class="row">
+                                    <a href="/editquizzQA/{{_id}}" id="redo">
+                                        <div class="col-xs-12 showbutton">
+                                            <button type="button" class="btn btn-quiz2 b2 btn-block">Redo the quiz</button>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="space-top" style="margin-top:20px;">
+                <div class="col-md-12">
+                    <div class="well-suggest">
+                        <h2 class="text-earn">{{_"Suggest Tutorials"}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 space-suggest-md" style="padding-bottom: 25px;">
+                {{#each getDataTuto}}
+                <div class="col-md-4 shadow_bottom">
+                  <a href="/tutodetails/{{slug title}}">
+                    <h4 class="h4-bold-tuto-1 center" style="color: black;">{{smaller title 6}}</h4>
+                  </a>
+                    <!-- <img src="/images/img-vdo.png" class="img-responsive"> -->
+                    {{#each image}}
+                    <!-- <a href="/tutodetails/{{slug title}}"> -->
+                        <img src="{{getImg this}}" class="img-responsive space-img" style="width:350px; height:150px">
+                      <!-- </a> -->
+                    {{/each}}
+                    <div class="share-control1">
+                        <div class="col-sm-5">
+                            <!-- <a href=""><p class="txt-tuto-sm2"><i class="fa fa-share-alt">&nbsp; &nbsp;</i>Partager</p> </a> -->
+                        </div>
+                        <div class="col-sm-7">
+                            <!--  <p class="txt-tuto-sm3"><i class="fa fa-heart-o">&nbsp;</i>132 personnent</p> -->
+                        </div>
+                    </div>
+                    <div class="col-md-12 row share-control1">
+                        <p class="p-font-sm-1">{{{trimString content}}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="col-md-12 space-top-suggest">
+                <div class="well-suggest">
+                    <h2 class="text-earn">{{_ "RELATED PRODUCTS"}}</h2>
+                </div>
+            </div>
+            <div class="col-md-12 space-suggest-md">
+                <div class="row">
+                    {{#each testerproduct}}
+                    <div class="col-md-3">
+                        <div class="items_suggestion">
+                            <a href="/details/{{slug title}}" title="{{title}}">
+                                <img src="{{getImgForProduct _id}}" style="width:150px; height:150px;" class="img-responsive" alt="{{title}}">
+                            </a>
+                            <a href="/details/{{slug title}}" style="color:black" class="title">{{smaller title 5}}</a>
+                            <div class="col-sm-6">
+                                <h3 class="text-center">{{price}}</h3>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#" class="unlike unlike{{_id}}" data-id="{{_id}}"><span  class="fa fa-heart-o fonfa" style="color:black"></span></a>
+                                <a href="#" class="like nonelike like{{_id}}" data-id="{{_id}}"><span style="color:red" class="fa fa-heart  fonfa"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <!-- </div> -->
+                <!-- </div> -->
+            </div>
+        </section>
+    </div>
+    <!--/main-wrapper-->
+</template>
