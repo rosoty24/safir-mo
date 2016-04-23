@@ -42,11 +42,12 @@ Template.menu.events({
 	},
 	"click #child_child":function(){
 		var id = this._id;
-		var name = $(e.currentTarget).text();
+		var seChCl='.secondchild'+this._id;
+		var name = $(seChCl).attr('data-value');
 		$("#secondChild").html(name);
 		Session.set("FIRSTCHILDID", id);
 		$("#panel_all_makeup").slideToggle("hide");
-		$('#caret-sreydent').removeAttr('style');
+		$('#caret-sreydent').show();
 	},
 	"click #makeup":function(){
         $("#makeup").addClass("active");
@@ -58,7 +59,8 @@ Template.menu.events({
     "click #child_makeup":function(){
     	var parentsId = this._id; 
     	Session.set("PARENTS",parentsId );
-    	var parentName = $(e.currentTarget).text();
+    	var childId='.firstchild'+this._id;
+    	var parentName = $(childId).attr('data-value');
     		$("#makeup").html(parentName);
     		Session.set("parentNAME", parentName);
     		$("#all_makeup").html("All "+parentName);
@@ -97,6 +99,9 @@ Template.menu.helpers({
             document.index = index + 1;
             return document;
         });
+	},
+	gettitlechild2:function(){
+		return categories.findOne({_id:Session.get("FIRSTCHILDID")}).title;
 	},
 	changeLanguage: function(){
 		if(TAPi18n.getLanguage()=='fa')

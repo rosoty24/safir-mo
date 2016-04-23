@@ -11,7 +11,7 @@
 				</li>
 				
 				<li>
-					<a style="display:none;" id="caret-sreydent" href="{{pathFor 'listing' id=(slug title)}}"><label id="secondChild"></label><i  class="fa fa-caret-down"></i></a>
+					<a  id="caret-sreydent" href="{{pathFor 'listing' id=(slug title)}}"><label id="secondChild">{{gettitlechild2}}</label><i id="hide_fa"  class=""></i></a>
 				</li>
 			
 				{{/if}}
@@ -19,7 +19,7 @@
 			<div id="panel_makeup">
 				<ul class="make-up">
 					{{#each getParent}}
-					<li id="child_makeup"><a href="{{pathFor 'listing' id=(slug title)}}">{{title}}</a>
+					<li id="child_makeup" class="firstchild{{_id}}" data-value="{{title}}"><a href="{{pathFor 'listing' id=(slug title)}}">{{title}}</a>
 					</li>
 					{{/each}}
 				</ul>
@@ -31,7 +31,7 @@
 							<li><a href="{{pathFor 'listing' id=(slug title)}}" id="allCategory"> </a></li>
 							{{#with getParent}}
 							{{#each getChildren _id}}
-							<li id="child_child">
+							<li id="child_child" class="secondchild{{_id}}" data-value="{{title}}">
 								<a href="{{pathFor 'listing' id=(slug title)}}" id="childChild">{{title}}</a>
 							</li>
 							{{/each}}
