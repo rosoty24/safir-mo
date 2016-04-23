@@ -793,6 +793,4 @@ Meteor.publish("posts", function() {
     return posts.find({});
 });
 
-Meteor.publish("membership",function(){
-    return membership.find({});
-});
+
