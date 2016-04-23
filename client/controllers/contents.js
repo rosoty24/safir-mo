@@ -1018,8 +1018,8 @@ Template.tutodetails.events({
 		 		}else{
 		 			var comment=tpl.$("#comment").val('');
 		 			var title = tpl.$("#title").val('');
-		 			$("#validTuto").text('');
-		 			$("#validTuto1").text('');
+		 			$("#validtuto").text('');
+		 			$("#validtuto1").text('');
 		 			Session.set("STARRATE",'');	
 		 		}
 		 	});
