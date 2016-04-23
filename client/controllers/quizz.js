@@ -83,13 +83,24 @@ Template.listQuizz.helpers({
 	qetListQuizz:function(){
 	return quizz.find();
 	},
-	getQuizzBackground:function(quizz){
-		var result = answerquizz.find({quizzId:quizz}).count();
-		if(result>0){
-			 return true;
-		}
-		else{
-			return false;
-		}
-	}
+	// getQuizzBackground:function(quizz){
+	// 	var result = answerquizz.find({quizzId:quizz}).count();
+	// 	if(result>0){
+	// 		 return true;
+	// 	}
+	// 	else{
+	// 		return false;
+	// 	}
+	// }
+
+    hasCompleted: function(quizzId) {
+        console.log('QUIZZID=' + quizzId + ' - User=' + Meteor.userId());
+        var nb = answerquizz.find({ "quizzId": quizzId, "userId": Meteor.userId() });
+        if (nb.fetch().length > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 });

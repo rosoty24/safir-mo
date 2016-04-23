@@ -790,3 +790,4 @@ Meteor.publish("posts", function() {
 Meteor.publish('membership',function(){
     return membership.find();
 });
+
