@@ -554,6 +554,24 @@ Template.tutolisting.helpers({
 });
 
 Template.tutodetails.helpers({
+	getRate: function(num) {
+        var rate = $('fa-star-o');
+        var allhtm = '';
+        var html = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -25px" style=""><i class="fa fa-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        var htmlyellow = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -25px" style=""><i class="fa fa-star yellow-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        // var html = '<div class="col-xs-12 col-md-6"><div class="rating"><span class="fa fa-star "></span></div></div>';
+        // var htmlyellow = '<div class="col-xs-12 col-md-6"><div class="rating"><span class="fa fa-star yellow-star"></span></div></div>';
+
+        for (var i = 0; i < 5; i++) {
+            if (i < Number(num)) {
+                allhtm += htmlyellow;
+            } else {
+                allhtm += html;
+            }
+        }
+
+        return allhtm;
+    },
 	producttuto: function(){
 		return products.find();
 	},
@@ -828,18 +846,62 @@ Template.tutodetails.helpers({
 	},
 });
 Template.webzinedetails.events({
+	'click .starRang': function(e, tpl) {
+        e.preventDefault();
+        var value = tpl.$(e.currentTarget).attr('data-star');
+        //alert("Rating "+value);
+        Session.set("STARRATE", value);
+    },
+    'click div i.starRang': function(e) {
+        var currentStar = $(e.currentTarget).attr('class');
+        if (!currentStar.match('yellow-star')) {
+            $(e.currentTarget).addClass('yellow-star');
+            $(e.currentTarget).parent().prevAll('div').children('i').addClass('yellow-star');
+        } else {
+            $(e.currentTarget).parent().nextAll('div').children('i').removeClass('yellow-star');
+        }
+
+    },
 	'click #addreview': function(e,tpl){
 		e.preventDefault();
 		var userid=Meteor.userId();
 		var title=tpl.$("#title").val();
 		var text=tpl.$("#comment").val();
-		var grade=tpl.$("#sel1").val();
+		//var grade=tpl.$("#sel1").val();
+		var grade = Session.get("STARRATE");
 		if(userid==null){
 			alert("You have to be logged to submit a review!");
 			return;
 		}
-		Meteor.call('addReviewwebzine',title,text,grade,userid,this._id);
-		alert("Review added successfully!")
+		if(title == "" || text == ""){
+			if(title == ""){
+				if(TAPi18n.getLanguage() == 'fa'){
+	                $('#validwebzine').text("لطفا عنوان ورودی در اینجا");
+	            }else{
+	                $('#validwebzine').text("Please input title here");
+	            }
+	        }else if(text == ""){
+	        	if(TAPi18n.getLanguage() == 'fa'){
+	                $('#validwebzine1').text("لطفا عنوان ورودی در اینجا");
+	            }else{
+	                $('#validwebzine1').text("Please input comment here");
+	            }
+	        }
+		}else{
+			Meteor.call('addReviewwebzine',title,text,grade,userid,this._id ,function(err){
+				if(err){
+					console.log("error " + err.reason);
+				}else{
+					console.log("add review success!");
+					var title=tpl.$("#title").val('');
+					var text=tpl.$("#comment").val('');
+					$('#validwebzine').text('');
+					$('#validwebzine1').text('');
+					var grade = Session.get("STARRATE",'');
+				}
+			});
+			//alert("Review added successfully!");
+		}
 	},
 	'click .morereview':function(e){
 			e.preventDefault();
@@ -911,15 +973,45 @@ Template.webzinedetails.events({
 	}
 });*/
 Template.tutodetails.events({
+	'click .starRang': function(e, tpl) {
+        e.preventDefault();
+        var value = tpl.$(e.currentTarget).attr('data-star');
+        //alert("Rating "+value);
+        Session.set("STARRATE", value);
+    },
+    'click div i.starRang': function(e) {
+        var currentStar = $(e.currentTarget).attr('class');
+        if (!currentStar.match('yellow-star')) {
+            $(e.currentTarget).addClass('yellow-star');
+            $(e.currentTarget).parent().prevAll('div').children('i').addClass('yellow-star');
+        } else {
+            $(e.currentTarget).parent().nextAll('div').children('i').removeClass('yellow-star');
+        }
+
+    },
 	'click #addreview': function(e,tpl){
 		e.preventDefault();
 		var comment=tpl.$("#comment").val();
+		var grade = Session.get("STARRATE");
 		//alert(comment);
 		//var grade=tpl.$("#sel1").val();
 		 if( comment == ""){
-		 	$('#validTuto').text("Please input your comment here!!!")
+		 	if(TAPi18n.getLanguage() == 'fa'){
+                    $('#validTuto').text("لطفا عنوان ورودی در اینجا");
+                }else{
+                    $('#validTuto').text("Please input your comment here!")
+                }
 		 }else{
-		 	Meteor.call('addReviewTuto',comment,Meteor.userId(),this._id);
+		 	Meteor.call('addReviewTuto',comment,grade,Meteor.userId(),this._id, function(err) {
+		 		if(err){
+		 			console.log("err "+err.reason);
+		 		}else{
+		 			var comment=tpl.$("#comment").val('');
+		 			$("#validTuto").text('');
+		 			Session.set("STARRATE",'');	
+		 		}
+		 	});
+		 	
 		 }
 
 	},
@@ -935,7 +1027,21 @@ Template.tutodetails.events({
 
 
 Template.webzinedetails.helpers({
-	
+	getRate: function(num) {
+        var rate = $('fa-star-o');
+        var allhtm = '';
+        var html = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -25px" style=""><i class="fa fa-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        var htmlyellow = '<div class="col-md-3 col-md-offset-2 pull-left rate-star" style="margin-left: -25px" style=""><i class="fa fa-star yellow-star" data-star="1" style="font-size:15px;" disabled="disabled"></i></div>';
+        for (var i = 0; i < 5; i++) {
+            if (i < Number(num)) {
+                allhtm += htmlyellow;
+            } else {
+                allhtm += html;
+            }
+        }
+
+        return allhtm;
+    },
 	suggestion: function(title){
 		return contents.find({"content":{"$regex":title}});
 	},
