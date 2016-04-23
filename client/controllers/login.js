@@ -273,7 +273,6 @@ Template.login.events({
                         }
                         $('.close').click();
                     } else if (Roles.userIsInRole(loggedInUser, ['member'], group)) {
-                        //alert('Hello');
                         if (curRoute == "/" || curRoute == "/login" || curRoute == "/register") {
                             Router.go('/profile');
                         } else {
